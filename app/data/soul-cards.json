@@ -1,0 +1,46 @@
+{ 
+    "vital" : {
+        "energyValue" : 10,
+        "attackValue" : 0,
+        "defenseValue" : null,
+
+        "name" : "vital",
+        "type" : "soul"
+    },
+
+    "power" : {
+        "energyValue" : 10,
+        "attackValue" : 0,
+        "defenseValue" : null,
+
+        "name" : "power",
+        "type" : "soul"
+    },
+
+    "protector" : {
+        "energyValue" : 10,
+        "attackValue" : 0,
+        "defenseValue" : null,
+
+        "name" : "protector",
+        "type" : "soul"
+    },
+
+    "arcane" : {
+        "energyValue" : 10,
+        "attackValue" : 0,
+        "defenseValue" : null,
+
+        "name" : "arcane",
+        "type" : "soul"
+    },
+
+    "knowledge" : {
+        "energyValue" : 10,
+        "attackValue" : 0,
+        "defenseValue" : null,
+
+        "name" : "knowledge",
+        "type" : "soul"
+    }
+}

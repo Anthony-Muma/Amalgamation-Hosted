@@ -1,0 +1,65 @@
+{
+    "unnamed" : {
+        "energyValue" : null,
+        "attackValue" : null,
+        "defenseValue" : null,
+
+        "name" : "unnamed",
+        "type" : "material"
+    },
+
+    "log" : {
+        "energyValue" : 3,
+        "attackValue" : 3,
+        "defenseValue" : 3,
+
+        "name" : "log",
+        "type" : "material"
+    },
+
+    "test" : {
+        "energyValue" : 10,
+        "attackValue" : 10,
+        "defenseValue" : 10,
+
+        "name" : "test",
+        "type" : "material"
+    },
+
+    "personal test" : {
+        "energyValue" : 10,
+        "attackValue" : 10,
+        "defenseValue" : 10,
+
+        "name" : "personal test",
+        "type" : "material"
+    },
+
+    "global test" : {
+        "energyValue" : 3,
+        "attackValue" : 3,
+        "defenseValue" : 3,
+
+        "name" : "global test",
+        "type" : "material"
+    },
+
+    "sword" : {
+        "energyValue" : 10,
+        "attackValue" : 10,
+        "defenseValue" : null,
+
+        "name" : "sword",
+        "type" : "material"
+    },
+
+    "energy crystal" : {
+        "energyValue" : 7,
+        "attackValue" : null,
+        "defenseValue" : null,
+
+        "name" : "energy crystal",
+        "type" : "material"
+    }
+
+}

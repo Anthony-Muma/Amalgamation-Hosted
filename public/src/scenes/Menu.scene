@@ -1,0 +1,26 @@
+{
+  "id": "fa4f642e-ede0-4a20-8fb0-2548a1a5da15",
+  "settings": {
+    "compilerOutputLanguage": "JAVA_SCRIPT",
+    "javaScriptInitFieldsInConstructor": false,
+    "javaScriptGenerateFieldDeclarations": true,
+    "exportClass": true,
+    "autoImport": true,
+    "importFileExtension": true,
+    "createMethodName": "editorCreate",
+    "compilerInsertSpaces": false,
+    "compilerTabSize": 4,
+    "borderWidth": 1280,
+    "borderHeight": 720,
+    "borderX": 0,
+    "borderY": 0,
+    "sceneKey": "Menu"
+  },
+  "sceneType": "SCENE",
+  "displayList": [],
+  "meta": {
+    "app": "Phaser Editor 2D - Scene Editor",
+    "url": "https://phasereditor2d.com",
+    "contentType": "phasereditor2d.core.scene.SceneContentType"
+  }
+}

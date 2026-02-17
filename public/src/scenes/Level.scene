@@ -1,0 +1,294 @@
+{
+    "id": "01aefa93-6044-4159-8358-7e91310aa05f",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapEnabled": true,
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Level",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "3470a044-d134-48ea-9527-9042887ef40f",
+            "label": "energyZone",
+            "useGameObjectName": true,
+            "scope": "CLASS",
+            "x": 1522,
+            "y": 384,
+            "isFilled": true,
+            "fillColor": "#1b920c",
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Rectangle",
+            "id": "5782c466-a47b-4d18-8d71-3aa56513dceb",
+            "label": "powerZone",
+            "useGameObjectName": true,
+            "scope": "CLASS",
+            "x": 1596,
+            "y": 192,
+            "isFilled": true,
+            "fillColor": "#920c0c",
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Rectangle",
+            "id": "6634925d-98bf-4c49-9287-4d9c31491e66",
+            "label": "defenseZone",
+            "useGameObjectName": true,
+            "scope": "CLASS",
+            "x": 1766,
+            "y": 195,
+            "isFilled": true,
+            "fillColor": "#0c2e92",
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Rectangle",
+            "id": "aa5e4ac5-926a-49f1-827f-0ac9dcefc998",
+            "label": "allCard",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 128,
+            "hitArea.height": 128,
+            "x": 1751,
+            "y": 390,
+            "isFilled": true,
+            "fillColor": "#ffffff",
+            "strokeColor": "#000000",
+            "lineWidth": 12,
+            "isStroked": true,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Image",
+            "id": "3b3a4a3f-8416-42e2-a52a-97ec8bde2605",
+            "label": "card_back",
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 1488,
+            "y": 592,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "2f0a2499-feea-4369-8d1d-798527bebd83",
+            "label": "card_back_2",
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 832,
+            "y": 384,
+            "scaleX": 0.33,
+            "scaleY": 0.33,
+            "tintTopLeft": "#34c841",
+            "tintTopRight": "#5fee0f",
+            "tintBottomLeft": "#1c953c",
+            "tintBottomRight": "#0e642e"
+        },
+        {
+            "type": "Image",
+            "id": "9a223265-2630-4087-9c74-e8a7da8dde25",
+            "label": "card_back_8",
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 128,
+            "y": 192,
+            "scaleX": 0.33,
+            "scaleY": 0.33,
+            "angle": -180,
+            "tintTopLeft": "#c83434",
+            "tintTopRight": "#0f2eee",
+            "tintBottomLeft": "#1e1c95",
+            "tintBottomRight": "#640e0e"
+        },
+        {
+            "type": "Image",
+            "id": "95a6483b-6176-4358-9b39-fc590c6861b8",
+            "label": "card_back_3",
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 368,
+            "y": 160,
+            "scaleX": 0.33,
+            "scaleY": 0.33,
+            "angle": -180,
+            "tintTopLeft": "#c83434",
+            "tintTopRight": "#0f2eee",
+            "tintBottomLeft": "#1e1c95",
+            "tintBottomRight": "#640e0e"
+        },
+        {
+            "type": "Image",
+            "id": "c5db9c22-4034-48ef-9d20-926052c29317",
+            "label": "card_back_4",
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 608,
+            "y": 192,
+            "scaleX": 0.33,
+            "scaleY": 0.33,
+            "angle": -180,
+            "tintTopLeft": "#c83434",
+            "tintTopRight": "#0f2eee",
+            "tintBottomLeft": "#1e1c95",
+            "tintBottomRight": "#640e0e"
+        },
+        {
+            "type": "Image",
+            "id": "b91aba9b-bba6-4199-b3a0-c64019984621",
+            "label": "card_back_5",
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 128,
+            "y": 528,
+            "scaleX": 0.33,
+            "scaleY": 0.33,
+            "tintTopLeft": "#c83434",
+            "tintTopRight": "#0f2eee",
+            "tintBottomLeft": "#1e1c95",
+            "tintBottomRight": "#640e0e"
+        },
+        {
+            "type": "Image",
+            "id": "1481e358-3bff-4e2e-a2b7-01cc0d22050d",
+            "label": "card_back_6",
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 368,
+            "y": 560,
+            "scaleX": 0.33,
+            "scaleY": 0.33,
+            "tintTopLeft": "#c83434",
+            "tintTopRight": "#0f2eee",
+            "tintBottomLeft": "#1e1c95",
+            "tintBottomRight": "#640e0e"
+        },
+        {
+            "type": "Image",
+            "id": "1a8731c2-042c-457c-ba68-4359a2de5777",
+            "label": "card_back_7",
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 608,
+            "y": 528,
+            "scaleX": 0.33,
+            "scaleY": 0.33,
+            "tintTopLeft": "#c83434",
+            "tintTopRight": "#0f2eee",
+            "tintBottomLeft": "#1e1c95",
+            "tintBottomRight": "#640e0e"
+        },
+        {
+            "type": "Image",
+            "id": "ef6cb0d9-4075-4514-9725-23f2880c9764",
+            "label": "card_front_1",
+            "texture": {
+                "key": "Card front"
+            },
+            "x": 1184,
+            "y": 608,
+            "scaleX": 0.22,
+            "scaleY": 0.22
+        },
+        {
+            "type": "Image",
+            "id": "d0d9091f-a340-4bc6-9447-caa57f9c3aae",
+            "label": "card_back_1",
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 1040,
+            "y": 96,
+            "scaleX": 0.22,
+            "scaleY": 0.22
+        },
+        {
+            "type": "Image",
+            "id": "ba4efbe5-a36f-4a61-9fcf-39960a4d3062",
+            "label": "card_front",
+            "texture": {
+                "key": "Card front"
+            },
+            "x": 1184,
+            "y": 544,
+            "scaleX": 0.22,
+            "scaleY": 0.22
+        },
+        {
+            "type": "Image",
+            "id": "b5ceaef4-6d7f-4beb-9ec2-3f5f44d315f1",
+            "label": "card_front_2",
+            "texture": {
+                "key": "Card front"
+            },
+            "x": 1184,
+            "y": 480,
+            "scaleX": 0.22,
+            "scaleY": 0.22
+        },
+        {
+            "type": "Image",
+            "id": "88be279a-339b-4e14-bb74-ef5a95604c94",
+            "label": "card_back_9",
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 1184,
+            "y": 96,
+            "scaleX": 0.22,
+            "scaleY": 0.22
+        },
+        {
+            "type": "Image",
+            "id": "9ba7b14d-0497-49f1-bac7-b3fba8666c25",
+            "label": "card_back_10",
+            "texture": {
+                "key": "Card back"
+            },
+            "x": -128,
+            "y": 352,
+            "scaleX": 0.33,
+            "scaleY": 0.33,
+            "angle": -180,
+            "tintTopLeft": "#34c841",
+            "tintTopRight": "#5fee0f",
+            "tintBottomLeft": "#1c953c",
+            "tintBottomRight": "#0e642e"
+        },
+        {
+            "type": "Text",
+            "id": "3f1e61b9-4957-4835-966c-16b6aaff44d4",
+            "label": "text_1",
+            "x": 960,
+            "y": 880,
+            "text": "Time: 30s",
+            "fontSize": "64px"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

@@ -1,0 +1,11 @@
+{
+    "empty" : {
+        "maxDefense" : 3,
+        "healthPoints" : 1,
+        "damageBuff" : 0
+    }, 
+
+    "knight" : {
+
+    }
+}

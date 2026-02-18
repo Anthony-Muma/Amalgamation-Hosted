@@ -3,6 +3,7 @@ const { Game } = require("./../server-side-game/game");
 const { randomUUID } = require("crypto");
 
 // Internal variables
+/** @type {Map<String, { hostId: string, players: string[], game : Game }} */
 const lobbies = new Map();
 // lobbyId -> { hostId: string, players: [playerSocketId: string], Game }
 // Lobby.players[0] is the one and only host.

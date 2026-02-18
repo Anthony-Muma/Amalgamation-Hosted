@@ -17,7 +17,7 @@ function generateLobbyCode() {
 /**
  * Creates a lobby and stores it, ready for others to connect to.
  * @param {string} hostSocketId 
- * @returns lobbyId The lobbyId of the created lobby
+ * @returns string The lobbyId of the created lobby
  */
 function createLobby(hostSocketId) {
 
@@ -39,8 +39,8 @@ function createLobby(hostSocketId) {
 /**
  * Adds a player to an existing lobby.
  * @param {string} lobbyId The lobbyId of the lobby to join
- * @param {socketId} The socketId of the player connecting to the lobby.
- * @returns boolean Whether the player successfully joined the lobby or not. Will fail if the lobby doesn't exist.
+ * @param {string} socketId The socketId of the player connecting to the lobby.
+ * @returns boolean True if the player successfully joined the lobby. False if the lobby doesn't exist.
  */
 function joinLobby(lobbyId, socketId) {
 
@@ -95,9 +95,62 @@ function joinLobby(lobbyId, socketId) {
 
 }
 
+/**
+ * Removes a player from a lobby. If the host leaves, the lobby is removed and all other players are kicked out.
+ * @param {string} lobbyId The lobbyId of the lobby to leave.
+ * @param {string} socketId The socketId of the player leaving the lobby.
+ * @returns boolean True if the player successfully left the lobby. False if the lobby doesn't exist or if the player is not in the lobby.
+ */
 function leaveLobby(lobbyId, socketId) {
 
+    // Initialize
+    let success = true;
+    let message = "You left the lobby.";
 
+    // Get the lobby
+    const lobby = lobbies.get(lobbyId);
+
+    // If the lobby exists, 
+    if (lobby) {
+
+        // If the player is in the lobby,
+        if (lobby.players.includes(socketId)) {
+
+            // If this is the host,
+            if (lobby.hostId === socketId) {
+
+                // Remove the lobby.
+                lobbies.delete(lobbyId);
+
+            }
+            // Otherwise, if this is not the host,
+            else {
+
+                // Remove the socketId from the lobby's players.
+                lobby.players = lobby.players.filter(si => si !== socketId);
+
+            }
+
+        }
+        else {
+
+            // Fail.
+            success = false;
+            message = "You're not in the lobby.";
+
+        }
+
+    }
+    else {
+
+        // Fail.
+        success = false;
+        message = "Lobby doesn't exist...?";
+
+    }
+
+    // Return
+    return success;
 
 }
 

@@ -1,0 +1,121 @@
+{
+    "id": "1d2118ea-fc40-471e-ae40-3fc8ffd2905b",
+    "sceneType": "SCENE",
+    "settings": {
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Lobby",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "85d4bb91-95b8-4840-ab9a-dbd5a3b8a8ae",
+            "label": "lobbyTitle",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 100,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Lobby",
+            "fontSize": "48px",
+            "color": "#ffffffff",
+            "stroke": "#000000ff",
+            "strokeThickness": 4
+        },
+        {
+            "type": "Rectangle",
+            "id": "a94275b6-11b4-4002-b682-982eadb4ed6b",
+            "label": "playerListBackground",
+            "scope": "CLASS",
+            "x": 300,
+            "y": 325,
+            "isFilled": true,
+            "fillColor": "#222222",
+            "width": 400,
+            "height": 300
+        },
+        {
+            "type": "Text",
+            "id": "40392b7b-74e5-4aeb-95ee-425f3c268bdf",
+            "label": "text_1",
+            "scope": "CLASS",
+            "x": 300,
+            "y": 200,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Players",
+            "align": "center",
+            "fontSize": "32px",
+            "color": "#ffffffff",
+            "stroke": "#000000",
+            "strokeThickness": 3
+        },
+        {
+            "type": "Rectangle",
+            "id": "14ade773-5342-45a8-8602-6fde86c0a051",
+            "label": "leaveButton",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 180,
+            "hitArea.height": 60,
+            "x": 200,
+            "y": 650,
+            "isFilled": true,
+            "fillColor": "#aa0000",
+            "width": 180,
+            "height": 60
+        },
+        {
+            "type": "Text",
+            "id": "09f68f91-22a4-4412-a388-cdcf0e7eaf20",
+            "label": "leaveText",
+            "scope": "CLASS",
+            "x": 200,
+            "y": 650,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Leave",
+            "align": "center",
+            "fontSize": "24px"
+        },
+        {
+            "type": "Rectangle",
+            "id": "87505a50-7c0c-41fc-8dc4-90cf5579d7dd",
+            "label": "startButton",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 200,
+            "hitArea.height": 80,
+            "x": 640,
+            "y": 600,
+            "isFilled": true,
+            "fillColor": "#00aa00",
+            "width": 200,
+            "height": 80
+        },
+        {
+            "type": "Text",
+            "id": "0baf9b89-c449-4b47-9e0e-977ec8987b40",
+            "label": "startText",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 600,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Start",
+            "align": "center",
+            "fontSize": "32px"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

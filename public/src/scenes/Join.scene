@@ -1,0 +1,102 @@
+{
+    "id": "e2d2cf5e-2d7b-48a5-9e1e-88e6012c29f8",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapEnabled": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "Join",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Text",
+            "id": "2a3776b8-3a08-4a54-a657-7cde3e30931b",
+            "label": "lobbyCodeText",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 150,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Enter Lobby Code",
+            "fontSize": "40px",
+            "color": "#ffffffff",
+            "stroke": "#ffffffff"
+        },
+        {
+            "type": "Rectangle",
+            "id": "b634f1f8-2308-4a11-83f0-cad05b566d42",
+            "label": "backButton",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 150,
+            "hitArea.height": 60,
+            "x": 200,
+            "y": 650,
+            "isFilled": true,
+            "fillColor": "0xaa0000",
+            "width": 150,
+            "height": 60
+        },
+        {
+            "type": "Text",
+            "id": "03cedbad-ff4f-4fdc-a04e-13eda048efc7",
+            "label": "backText",
+            "scope": "CLASS",
+            "x": 200,
+            "y": 650,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Back",
+            "fontSize": "24px"
+        },
+        {
+            "type": "Rectangle",
+            "id": "078b41ee-7b64-42b6-a9b8-2b14ca948e64",
+            "label": "userTextBox",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 300,
+            "isFilled": true,
+            "width": 280,
+            "height": 60
+        },
+        {
+            "type": "Rectangle",
+            "id": "c2f7a127-1326-4fd4-a6af-597939858433",
+            "label": "enterButton",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 150,
+            "hitArea.height": 60,
+            "x": 640,
+            "y": 400,
+            "isFilled": true,
+            "fillColor": "0x00aa00",
+            "width": 150,
+            "height": 60
+        },
+        {
+            "type": "Text",
+            "id": "fe706552-493a-43cb-ab98-36bb18508b6b",
+            "label": "enterText",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 400,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Enter",
+            "fontSize": "24px"
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

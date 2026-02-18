@@ -4,7 +4,8 @@ const { randomUUID } = require("crypto");
 
 // Internal variables
 const lobbies = new Map();
-// lobbyId -> { hostId: string, players: Set<socketId>, Game }
+// lobbyId -> { hostId: string, players: [playerSocketId: string], Game }
+// Lobby.players[0] is the one and only host.
 
 function generateLobbyCode() {
     return randomUUID().replace(/-/g, "").slice(0, 6).toUpperCase();
@@ -23,7 +24,7 @@ function createLobby(hostSocketId) {
     // Create the lobby object and store it.
     lobbies.set(lobbyId, {
         hostId: hostSocketId,
-        players: new Set([hostSocketId]),
+        players: [hostSocketId],
         game: new Game()
     });
 
@@ -35,7 +36,7 @@ function createLobby(hostSocketId) {
 /**
  * Adds a player to an existing lobby.
  * @param {string} lobbyId The lobbyId of the lobby to join
- * @param {} socketId The socketId of the player connecting to the lobby.
+ * @param {socketId} The socketId of the player connecting to the lobby.
  * @returns boolean Whether the player successfully joined the lobby or not. Will fail if the lobby doesn't exist.
  */
 function joinLobby(lobbyId, socketId) {
@@ -51,10 +52,10 @@ function joinLobby(lobbyId, socketId) {
     if (lobby) {
 
         // If the lobby does not have the socketId already,
-        if(!lobby.players.has(socketId)) {
+        if(!lobby.players.includes(socketId)) {
 
             // Add the socketId to the lobby's players.
-            lobby.players.add(socketId);
+            lobby.players.push(socketId);
 
         }
         else{

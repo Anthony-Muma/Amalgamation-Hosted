@@ -10,16 +10,20 @@ const lobbies = new Map();
 // Configurable variables
 const MAX_PLAYERS = 2;
 
+// Functions
 function generateLobbyCode() {
     return randomUUID().replace(/-/g, "").slice(0, 6).toUpperCase();
 }
+
+// Classes
+class LobbyStore {
 
 /**
  * Creates a lobby and stores it, ready for others to connect to.
  * @param {string} hostSocketId 
  * @returns string The lobbyId of the created lobby
  */
-function createLobby(hostSocketId) {
+static createLobby(hostSocketId) {
 
     // Create the lobbyId
     const lobbyId = generateLobbyCode();
@@ -28,7 +32,14 @@ function createLobby(hostSocketId) {
     lobbies.set(lobbyId, {
         hostId: hostSocketId,
         players: [hostSocketId],
-        game: new Game()
+        game: new Game(),
+        toString() {
+            return JSON.stringify({
+                hostId: this.hostId,
+                players: this.players,
+                game: this.game
+            });
+        }
     });
 
     // Return
@@ -42,7 +53,7 @@ function createLobby(hostSocketId) {
  * @param {string} socketId The socketId of the player connecting to the lobby.
  * @returns boolean True if the player successfully joined the lobby. False if the lobby doesn't exist.
  */
-function joinLobby(lobbyId, socketId) {
+static joinLobby(lobbyId, socketId) {
 
     // Initialize
     let success = true;
@@ -101,7 +112,7 @@ function joinLobby(lobbyId, socketId) {
  * @param {string} socketId The socketId of the player leaving the lobby.
  * @returns boolean True if the player successfully left the lobby. False if the lobby doesn't exist or if the player is not in the lobby.
  */
-function leaveLobby(lobbyId, socketId) {
+static leaveLobby(lobbyId, socketId) {
 
     // Initialize
     let success = true;
@@ -154,14 +165,14 @@ function leaveLobby(lobbyId, socketId) {
 
 }
 
-function getLobby(lobbyId) {
+static getLobby(lobbyId) {
     return lobbies.get(lobbyId);
 }
 
+}
+
+// Exports
 module.exports = {
-    createLobby,
-    joinLobby,
-    leaveLobby,
-    getLobby
+    LobbyStore
 }
 

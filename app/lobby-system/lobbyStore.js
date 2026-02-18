@@ -7,6 +7,9 @@ const lobbies = new Map();
 // lobbyId -> { hostId: string, players: [playerSocketId: string], Game }
 // Lobby.players[0] is the one and only host.
 
+// Configurable variables
+const MAX_PLAYERS = 2;
+
 function generateLobbyCode() {
     return randomUUID().replace(/-/g, "").slice(0, 6).toUpperCase();
 }
@@ -51,23 +54,35 @@ function joinLobby(lobbyId, socketId) {
     // If the lobby exists,
     if (lobby) {
 
-        // If the lobby does not have the socketId already,
-        if(!lobby.players.includes(socketId)) {
+        // If the lobby is not full,
+        if (lobby.players.length < MAX_PLAYERS) {
 
-            // Add the socketId to the lobby's players.
-            lobby.players.push(socketId);
+            // If the lobby does not have the socketId already,
+            if (!lobby.players.includes(socketId)) {
+
+                // Add the socketId to the lobby's players.
+                lobby.players.push(socketId);
+
+            }
+            else {
+
+                // Fail.
+                success = false;
+                message = "You're already in the lobby...?";
+
+            }
 
         }
-        else{
+        else {
 
             // Fail.
             success = false;
-            message = "You're already in the lobby...?";
+            message = "Lobby is full.";
 
         }
 
     }
-    else{
+    else {
 
         // Fail.
         success = false;
@@ -82,18 +97,18 @@ function joinLobby(lobbyId, socketId) {
 
 function leaveLobby(lobbyId, socketId) {
 
-    
+
 
 }
 
 function getLobby(lobbyId) {
-  return lobbies.get(lobbyId);
+    return lobbies.get(lobbyId);
 }
 
 module.exports = {
-   createLobby,
-   joinLobby,
-   leaveLobby,
-   getLobby
+    createLobby,
+    joinLobby,
+    leaveLobby,
+    getLobby
 }
 

@@ -32,13 +32,56 @@ function createLobby(hostSocketId) {
 
 }
 
+/**
+ * Adds a player to an existing lobby.
+ * @param {string} lobbyId The lobbyId of the lobby to join
+ * @param {} socketId The socketId of the player connecting to the lobby.
+ * @returns boolean Whether the player successfully joined the lobby or not. Will fail if the lobby doesn't exist.
+ */
 function joinLobby(lobbyId, socketId) {
 
+    // Initialize
+    let success = true;
+    let message = "You're in.";
 
+    // Get the lobby
+    const lobby = lobbies.get(lobbyId);
+
+    // If the lobby exists,
+    if (lobby) {
+
+        // If the lobby does not have the socketId already,
+        if(!lobby.players.has(socketId)) {
+
+            // Add the socketId to the lobby's players.
+            lobby.players.add(socketId);
+
+        }
+        else{
+
+            // Fail.
+            success = false;
+            message = "You're already in the lobby...?";
+
+        }
+
+    }
+    else{
+
+        // Fail.
+        success = false;
+        message = "Lobby doesn't exist.";
+
+    }
+
+    // Return
+    return success;
 
 }
 
 function leaveLobby(lobbyId, socketId) {
+
+    
 
 }
 

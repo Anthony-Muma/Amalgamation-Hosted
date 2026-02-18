@@ -2,6 +2,7 @@ const {cardFactory} = require("./server-side-game/card.js");
 const {Amalgamation} = require("./server-side-game/amalgamation.js")
 const {Player} = require("./server-side-game/player.js")
 const {Game} = require("./server-side-game/game.js")
+const {LobbyStore} = require("./lobby-system/lobbyStore.js")
 
 
 // console.log(card.getAttackValue());
@@ -81,6 +82,18 @@ console.log(game.playEnergy(1, 2));
 // console.log(game.playEnergy(1, 1));
 console.log(game.useAmalgamation(1, 0, 0, 0, [0]))
 
+console.log(typeof LobbyStore);
+const lobbyId = LobbyStore.createLobby("A");
+const lobby = LobbyStore.getLobby(lobbyId);
+console.log(lobby.toString());
+LobbyStore.joinLobby(lobbyId, "B");
+console.log(lobby.toString());
+LobbyStore.leaveLobby(lobbyId, "B");
+console.log(lobby.toString());
+LobbyStore.joinLobby(lobbyId, "C");
+console.log(lobby.toString());
+LobbyStore.leaveLobby(lobbyId, "A");
+console.log(LobbyStore.getLobby(lobbyId));
 
 
 

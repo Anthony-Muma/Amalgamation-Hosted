@@ -1,5 +1,5 @@
 // Required
-const { Game } = require("./../server-side-game/game");
+const { Game } = require("../game/game");
 const { randomUUID } = require("crypto");
 
 // Internal variables
@@ -29,11 +29,15 @@ static createLobby(hostSocketId) {
     // Create the lobbyId
     const lobbyId = generateLobbyCode();
 
+    // Create the Game object
+    const game = new Game();
+    game.addPlayer(hostSocketId);
+
     // Create the lobby object and store it.
     lobbies.set(lobbyId, {
         hostId: hostSocketId,
         players: [hostSocketId],
-        game: new Game(),
+        game: game,
         toString() {
             return JSON.stringify({
                 hostId: this.hostId,
@@ -60,8 +64,9 @@ static joinLobby(lobbyId, socketId) {
     let success = true;
     let message = "You're in.";
 
-    // Get the lobby
+    // Get the lobby and game
     const lobby = lobbies.get(lobbyId);
+    const game = lobby.game;
 
     // If the lobby exists,
     if (lobby) {
@@ -74,6 +79,7 @@ static joinLobby(lobbyId, socketId) {
 
                 // Add the socketId to the lobby's players.
                 lobby.players.push(socketId);
+                game.addPlayer(socketId);
 
             }
             else {
@@ -119,8 +125,9 @@ static leaveLobby(lobbyId, socketId) {
     let success = true;
     let message = "You left the lobby.";
 
-    // Get the lobby
+    // Get the lobby and game
     const lobby = lobbies.get(lobbyId);
+    const game = lobby.game;
 
     // If the lobby exists, 
     if (lobby) {
@@ -140,6 +147,7 @@ static leaveLobby(lobbyId, socketId) {
 
                 // Remove the socketId from the lobby's players.
                 lobby.players = lobby.players.filter(si => si !== socketId);
+                game.removePlayer(socketId);
 
             }
 

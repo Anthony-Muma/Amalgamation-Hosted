@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/simpleLobbySystem.js"></script>
+</head>
+
+<body>
+    <div id="main-menu">
+        <button id="create-lobby-button">Create Lobby</button>
+        <button id="to-join-lobby-screen">Join Lobby</button>
+    </div>
+    <div id="lobby">
+        <ol id="lobby-player-list">
+            <!-- <li dataset-id="...">...Name...</li> -->
+        </ol>
+        <h1 id="lobby-code">...</h1>
+        <button id="leave-lobby-button">Leave</button>
+    </div>
+    <div id="join">
+        <textarea id="lobby-code-textbox" placeholder="Enter lobby code..." maxlength="6"></textarea>
+        <button id="join-lobby-button">Join Lobby</button>
+        <button id="back-button">Back?</button>
+    </div>
+
+</body>
+</html>

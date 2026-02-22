@@ -4,6 +4,7 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
+import { socket } from "../modules/socket.js"
 /* END-USER-IMPORTS */
 
 export default class Lobby extends Phaser.Scene {
@@ -90,29 +91,77 @@ export default class Lobby extends Phaser.Scene {
 
 	// Write your code here
 
+	/**
+	 * 
+	 * @param {{hostId, players, currentLobbyId}} lobbyInfo 
+	 */
+	init(lobbyInfo) {
+		this.players = lobbyInfo.players;
+		this.currentLobbyId = lobbyInfo.currentLobbyId
+		console.log(lobbyInfo.currentLobbyId);
+	}
+
 	create() {
 
 		this.editorCreate();
 
 		// Placeholder player list
-        const players = ["Player1", "You", "Player2", "Player3"];
-        players.forEach((player, index) => {
-            this.add.text(125, 250 + index * 50, player, {
-                fontSize: "28px",
-                color: "#ffffff"
-            }).setOrigin(0,0.5);
-        });
+        // const players = ["Player1", "You", "Player2", "Player3"];
+		this.playerNameGroup = this.add.group();
+		this.updatePlayerList(this.players);
 
         this.startButton.on("pointerdown", () => {
             console.log("Start Game"); // Placeholder
         });
 
         this.leaveButton.on("pointerdown", () => {
+			socket.emit("lobby:leave", this.currentLobbyId);
             this.scene.start("MainMenu");
         });
 
+		/* -------------------------------------------------------------------------- */
+		/* On Lobby events
+		/* -------------------------------------------------------------------------- */
+
+		socket.on("lobby:updated", (lobbyInfo)=>{
+			// No need to swap scenes
+			console.log(lobbyInfo);
+			this.updatePlayerList(lobbyInfo.players);
+    	});
+
+		socket.on("lobby:kicked", (data)=>{
+			/*
+				// NOTE: on the client, needs to start "Main menu" with these params {reasonMessage}
+				// NOTE: on normal leave (Not socket driven), start "Main menu" {reasonMessage : "left lobby"} *** add somewhere
+			*/
+
+			// Mimic scene swap
+			alert(data.reasonMessage);
+			this.scene.start("MainMenu");
+   	 	});
+
+		/* -------------------------------------------------------------------------- */
+		/* Shutdown clean up
+		/* -------------------------------------------------------------------------- */
+
+		this.events.once("shutdown", () => {
+			socket.off("lobby:updated");
+			socket.off("lobby:kicked");
+    	});
+
+
 	}
 
+	updatePlayerList(players) {
+		this.playerNameGroup.clear(true, true);
+		players.forEach((player, index) => {
+            const text = this.add.text(125, 250 + index * 50, player, {
+                fontSize: "28px",
+                color: "#ffffff"
+            }).setOrigin(0,0.5);
+			this.playerNameGroup.add(text);
+        });
+	}
 	/* END-USER-CODE */
 }
 

@@ -16,28 +16,31 @@ function CardInfo(card, cardKey, deck = null) {
 }
 
 class Game {
-    /** @type {Player[]} */
-    #players = [];
-
+    /** @type {Map<string, Player>} */
+    #players = new Map();
     #turnCount = 0;
 
-    constructor(numberOfPlayers = 2) {
+    // Game state
+
+    constructor() {}
+
+    addPlayer(playerId) {
         const energyCrystal = cardFactory("personal test", "material");
-
-        //temp
         const personalDeck = [energyCrystal, energyCrystal, energyCrystal, energyCrystal, energyCrystal];
+        const player = new Player();
+        player.changePersonalDeck(personalDeck);
 
-        for (let i = 0; i < numberOfPlayers; i++) {
-            const player = new Player();
-            player.changePersonalDeck(personalDeck);
-            this.#players.push(player)
-        }
+        this.#players.set(playerId, player);
     }
 
-    startTurn(playerIndex) {
+    removePlayer(playerId) {
+        this.#players.delete(playerId);
+    }
+
+    startTurn(playerId) {
         this.#turnCount++;
 
-        const player = this.#players[playerIndex];
+        const player = this.#players.get(playerId);
         const cardInfoList = [];
 
         // Draw from personal deck
@@ -59,37 +62,37 @@ class Game {
             }
         }
 
-        const target = new Target(playerIndex, null);
+        const target = new Target(playerId, null);
 
         return {target, cardInfoList};
     }
 
-    endTurn(playerIndex) {
+    endTurn(playerId) {
         //.. Clear energy
-        const player = this.#players[playerIndex];
+        const player = this.#players.get(playerId);
         player.clearEnergy();
     }
 
-    playPower(playerIndex, amalgamationIndex, cardKey) {
-        const player = this.#players[playerIndex];
+    playPower(playerId, amalgamationIndex, cardKey) {
+        const player = this.#players.get(playerId);
         const card = player.playPower(cardKey, amalgamationIndex);
-        const target = new Target(playerIndex, amalgamationIndex);
+        const target = new Target(playerId, amalgamationIndex);
         const cardInfo = card ? new CardInfo(card.getAll(), cardKey) : null;
         return {target, cardInfo}
     }
 
-    playDefense(playerIndex, amalgamationIndex, cardKey) {
-        const player = this.#players[playerIndex];
+    playDefense(playerId, amalgamationIndex, cardKey) {
+        const player = this.#players.get(playerId);
         const card = player.playDefense(cardKey, amalgamationIndex);
-        const target = new Target(playerIndex, amalgamationIndex);
+        const target = new Target(playerId, amalgamationIndex);
         const cardInfo = card ? new CardInfo(card.getAll(), cardKey) : null;
         return {target, cardInfo}
     }
 
-    playEnergy(playerIndex, cardKey) {
-        const player = this.#players[playerIndex];
+    playEnergy(playerId, cardKey) {
+        const player = this.#players.get(playerId);
         const card = player.playEnergy(cardKey);
-        const target = new Target(playerIndex, null);
+        const target = new Target(playerId, null);
         const cardInfo = card ? new CardInfo(card.getAll(), cardKey) : null;
         return {target, cardInfo}
     }
@@ -100,8 +103,8 @@ class Game {
 
     // Dreadful
     useAmalgamation(mainPlayerIndex, otherPlayerIndex, mainAmalgamationIndex, otherAmalgamationIndex, powerSelectionIndices, abilityIndex = null) {
-        const mainPlayer = this.#players[mainPlayerIndex];
-        const otherPlayer = this.#players[otherPlayerIndex];
+        const mainPlayer = this.#players.get(mainPlayerIndex);
+        const otherPlayer = this.#players.get(otherPlayerIndex);
 
         // const mainAmalgamation = mainPlayer.getAmalgamation(amalgamationIndex);
         // const otherAmalgamation = otherPlayer.getAmalgamation(otherAmalgamationIndex);
@@ -151,7 +154,7 @@ class Game {
         while (attackQueue.length > 0) {
             const {target, info} = attackQueue.shift();
             const incomingDamage = info
-            const targetPlayer = this.#players[target.playerIndex];
+            const targetPlayer = this.#players.get(target.playerIndex);
             const targetAmalgamation = targetPlayer.getAmalgamation(target.amalgamationIndex);
 
             const {remainingAttack, amalgamationInfo, defenseInfo} = targetAmalgamation.damageIteration(incomingDamage);

@@ -4,6 +4,7 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
+import { socket } from "../modules/socket.js";
 /* END-USER-IMPORTS */
 
 export default class Join extends Phaser.Scene {
@@ -39,7 +40,6 @@ export default class Join extends Phaser.Scene {
 
 		// userTextBox
 		const userTextBox = this.add.rectangle(640, 300, 280, 60);
-		userTextBox.isFilled = true;
 
 		// enterButton
 		const enterButton = this.add.rectangle(640, 400, 150, 60);
@@ -85,42 +85,78 @@ export default class Join extends Phaser.Scene {
 		this.editorCreate();
 
 		// User Input (Not Working)
-        const inputElement = document.createElement("input");
-    	inputElement.type = "text";
-    	inputElement.placeholder = "Enter code";
-    	inputElement.style.fontSize = "28px";
-    	inputElement.style.padding = "10px";
-    	inputElement.style.width = "250px";
-    	inputElement.style.color = "#000000";
-    	inputElement.style.textAlign = "center";
-    	inputElement.style.border = "none";
-    	inputElement.style.borderRadius = "4px";
-    	inputElement.style.outline = "none";
+        // const inputElement = document.createElement("input");
+    	// inputElement.type = "text";
+    	// inputElement.placeholder = "Enter code";
+    	// inputElement.style.fontSize = "28px";
+    	// inputElement.style.padding = "10px";
+    	// inputElement.style.width = "250px";
+    	// inputElement.style.color = "#000000";
+    	// inputElement.style.textAlign = "center";
+    	// inputElement.style.border = "none";
+    	// inputElement.style.borderRadius = "4px";
+    	// inputElement.style.outline = "none";
 
-		const input = this.add.dom(640, 300, inputElement);
-		const inputNode = inputElement;
-		input.node.focus();
+		// x, y are Phaser world coords (great for UI placement)
+		this.nameInput = this.add.dom(400, 300, "input", {
+			type: "text",
+			placeholder: "Enter code",
+			fontSize: "28px",
+			padding: "10px",
+			width: "250px"
+		});
+
+		console.log(this.nameInput, this.nameInput?.node);
+
+		// optional: focus it
+		this.nameInput.node.focus();
+
+		// const inputNode = inputElement;
+		// input.node.focus();
 
 		// Click Enter button
         this.enterButton.on("pointerdown", () => {
-			const code = inputNode.value;
+			const code = this.nameInput.node.value.toUpperCase().trim();;
             console.log("Entered code: ", code);
 
-            this.scene.start("Lobby");
+           	// Request to join lobby
+			socket.emit("lobby:join", code)
         });
 
         // Press Enter key
         this.input.keyboard.on("keydown-ENTER", () => {
-            const code = inputNode.value;
+            const code = this.nameInput.node.value.toUpperCase().trim();
+			
             console.log("Entered code: ", code);
-
-            this.scene.start("Lobby");
+			
+			// Request to join lobby
+			socket.emit("lobby:join", code)
         });
 
 		// Back button
         this.backButton.on("pointerdown", () => {
             this.scene.start("MainMenu");
         });
+
+		/* -------------------------------------------------------------------------- */
+		/* Socket event
+		/* -------------------------------------------------------------------------- */
+		socket.on("lobby:joined", (lobbyInfo)=>{
+			/*
+				// NOTE: on the client, needs to start "Lobby scene" with these params {hostId, players, currentLobbyId}
+			*/
+			this.scene.start("Lobby", lobbyInfo);
+    	});
+
+		socket.on("lobby:failed", (data)=>{
+        	alert(data.reasonMessage);
+    	});
+
+		this.events.once("shutdown", () => {
+			socket.off("lobby:joined");
+			socket.off("lobby:failed");
+    	});
+
 	}
 
 	/* END-USER-CODE */

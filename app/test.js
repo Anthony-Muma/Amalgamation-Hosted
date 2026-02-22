@@ -1,7 +1,8 @@
-const {cardFactory} = require("./server-side-game/card.js");
-const {Amalgamation} = require("./server-side-game/amalgamation.js")
-const {Player} = require("./server-side-game/player.js")
-const {Game} = require("./server-side-game/game.js")
+const {cardFactory} = require("./game/card.js");
+const {Amalgamation} = require("./game/amalgamation.js")
+const {Player} = require("./game/player.js")
+const {Game} = require("./game/game.js")
+const {LobbyStore} = require("./lobby-system/lobbyStore.js")
 
 
 // console.log(card.getAttackValue());
@@ -65,21 +66,49 @@ const {Game} = require("./server-side-game/game.js")
 
 // console.log(game.useAmalgamation(1,0,0,0,[0,1,2]))
 
-const game = new Game();
-const [player1, player2] = game.getPlayers();
-game.startTurn(0);
-console.log(game.playPower(0, 0, 5));
-console.log(game.playDefense(0, 0, 4));
-console.log(game.playDefense(0, 0, 3));
-player1.debugHand();
-player1.debugAma(0);
+// const game = new Game();
+// const [player1, player2] = game.getPlayers();
+// game.startTurn(0);
+// console.log(game.playPower(0, 0, 5));
+// console.log(game.playDefense(0, 0, 4));
+// console.log(game.playDefense(0, 0, 3));
+// player1.debugHand();
+// player1.debugAma(0);
 
-game.startTurn(1);
-console.log(game.playPower(1, 0, 4));
-console.log(game.playPower(1, 0, 3));
-console.log(game.playEnergy(1, 2));
-// console.log(game.playEnergy(1, 1));
-console.log(game.useAmalgamation(1, 0, 0, 0, [0]))
+// game.startTurn(1);
+// console.log(game.playPower(1, 0, 4));
+// console.log(game.playPower(1, 0, 3));
+// console.log(game.playEnergy(1, 2));
+// // console.log(game.playEnergy(1, 1));
+// console.log(game.useAmalgamation(1, 0, 0, 0, [0]))
+
+// console.log(typeof LobbyStore);
+// const lobbyId = LobbyStore.createLobby("A");
+// const lobby = LobbyStore.getLobby(lobbyId);
+// console.log(lobby.toString());
+// LobbyStore.joinLobby(lobbyId, "B");
+// console.log(lobby.toString());
+// LobbyStore.leaveLobby(lobbyId, "B");
+// console.log(lobby.toString());
+// LobbyStore.joinLobby(lobbyId, "C");
+// console.log(lobby.toString());
+// LobbyStore.leaveLobby(lobbyId, "A");
+// console.log(LobbyStore.getLobby(lobbyId));
+
+const player1SocketId = "A"
+const player2SocketId = "B"
+
+const game = new Game();
+game.addPlayer(player1SocketId);
+game.addPlayer(player2SocketId);
+console.log(game.getPlayers())
+
+game.removePlayer(player1SocketId);
+console.log(game.getPlayers())
+game.getPlayers().get(player2SocketId).debugPersonalDeck();
+game.startTurn(player2SocketId)
+game.playPower(player2SocketId, 0, 0);
+game.getPlayers().get(player2SocketId).debugAma(0);
 
 
 

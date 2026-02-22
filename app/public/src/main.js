@@ -3,6 +3,7 @@ import Preload from "./scenes/Preload.js";
 import MainMenu from "./scenes/MainMenu.js";
 import Join from "./scenes/Join.js";
 import Lobby from "./scenes/Lobby.js";
+import NetworkUI from "./scenes/NetworkUI.js";
 
 window.addEventListener('load', function () {
 
@@ -11,6 +12,7 @@ window.addEventListener('load', function () {
 		height: 720,
 		type: Phaser.AUTO,
         backgroundColor: "#2e0101",
+		parent: "game-container",
 		dom: {
         	createContainer: true
     	},
@@ -25,6 +27,7 @@ window.addEventListener('load', function () {
 	game.scene.add("Lobby", Lobby);
 	game.scene.add("Preload", Preload);
 	game.scene.add("Level", Level);
+	game.scene.add("NetworkUI", NetworkUI);
 	game.scene.add("Boot", Boot, true);
 });
 
@@ -37,6 +40,6 @@ class Boot extends Phaser.Scene {
 
 	create() {
 
-		this.scene.start("MainMenu");
+		this.scene.start("Preload");
 	}
 }

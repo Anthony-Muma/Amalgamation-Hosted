@@ -3,6 +3,6 @@
         "lib/**"
     ],
     "compilerOptions": {
-        "target": "esnext"
+        "target": "nodenext"
     }
 }

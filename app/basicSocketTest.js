@@ -3,10 +3,10 @@ const http = require("http");
 const path = require("path");
 const {Server} = require("socket.io")
 
-const {cardFactory} = require("./server-side-game/card.js");
-const {Amalgamation} = require("./server-side-game/amalgamation.js");
-const {Player} = require("./server-side-game/player.js");
-const {Game} = require("./server-side-game/game.js");
+const {cardFactory} = require("./game/card.js");
+const {Amalgamation} = require("./game/amalgamation.js");
+const {Player} = require("./game/player.js");
+// const {Game} = require("./server-side-game/game.js");
 
 
 const app = express();

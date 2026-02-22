@@ -1,0 +1,35 @@
+{
+    "id": "42698c97-3f4d-4af5-9016-efe314c5e60e",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapEnabled": true,
+        "exportClass": true,
+        "autoImport": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "NetworkUI",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Ellipse",
+            "id": "d28c95be-47e1-4f3a-abf3-b3bedb39f126",
+            "label": "network_indicator",
+            "displayName": "Network Indicator",
+            "scope": "CLASS",
+            "x": 32,
+            "y": 32,
+            "isFilled": true,
+            "width": 32,
+            "height": 32
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

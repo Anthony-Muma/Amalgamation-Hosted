@@ -64,12 +64,15 @@ static joinLobby(lobbyId, socketId) {
     let success = true;
     let message = "You're in.";
 
-    // Get the lobby and game
+    // Get the lobby
     const lobby = lobbies.get(lobbyId);
-    const game = lobby.game;
+    
 
     // If the lobby exists,
     if (lobby) {
+
+        // Get game
+        const game = lobby.game;
 
         // If the lobby is not full,
         if (lobby.players.length < MAX_PLAYERS) {
@@ -125,12 +128,14 @@ static leaveLobby(lobbyId, socketId) {
     let success = true;
     let message = "You left the lobby.";
 
-    // Get the lobby and game
+    // Get the lobby
     const lobby = lobbies.get(lobbyId);
-    const game = lobby.game;
 
     // If the lobby exists, 
     if (lobby) {
+
+        // Get game
+        const game = lobby.game;
 
         // If the player is in the lobby,
         if (lobby.players.includes(socketId)) {

@@ -4,6 +4,7 @@
 /* START OF COMPILED CODE */
 
 /* START-USER-IMPORTS */
+import { socket } from "../modules/socket.js"
 /* END-USER-IMPORTS */
 
 export default class MainMenu extends Phaser.Scene {
@@ -75,12 +76,30 @@ export default class MainMenu extends Phaser.Scene {
 		this.editorCreate();
 
 		this.createLobbyButton.on("pointerdown", () => {
-        	this.scene.start("Lobby");
+        	// Request to create lobby
+			
+        	socket.emit("lobby:create");
 		});
 
 		this.joinLobbyButton.on("pointerdown", () => {
         	this.scene.start("Join");
 		});
+
+		/* -------------------------------------------------------------------------- */
+		/* Socket event
+		/* -------------------------------------------------------------------------- */
+
+		socket.on("lobby:created", (lobbyInfo)=>{
+			/*
+				// NOTE: on the client, needs to start "Lobby scene" with these params {hostId, players, currentLobbyId}
+			*/
+			this.scene.start("Lobby", lobbyInfo);
+    	});
+
+		this.events.once("shutdown", () => {
+			socket.off("lobby:created");
+    	});
+
 	}
 
 	/* END-USER-CODE */

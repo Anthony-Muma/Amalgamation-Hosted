@@ -2,6 +2,21 @@
     "section1": {
         "files": [
             {
+                "url": "assets/Arcane Soul Card.PNG",
+                "type": "image",
+                "key": "Arcane Soul Card"
+            },
+            {
+                "url": "assets/Arcane Soul Symbol.PNG",
+                "type": "image",
+                "key": "Arcane Soul Symbol"
+            },
+            {
+                "url": "assets/Arcane Soul Title.PNG",
+                "type": "image",
+                "key": "Arcane Soul Title"
+            },
+            {
                 "url": "assets/Card back.PNG",
                 "type": "image",
                 "key": "Card back"
@@ -12,9 +27,131 @@
                 "key": "Card front"
             },
             {
+                "url": "assets/Chopped Log.PNG",
+                "type": "image",
+                "key": "Chopped Log"
+            },
+            {
                 "url": "assets/dino.png",
                 "key": "dino",
                 "type": "image"
+            },
+            {
+                "url": "assets/fonts/static/Eczar-Bold.ttf",
+                "format": "truetype",
+                "descriptors": {},
+                "type": "font",
+                "key": "Eczar-Bold"
+            },
+            {
+                "url": "assets/Energy Crystal 3X.PNG",
+                "type": "image",
+                "key": "Energy Crystal 3X"
+            },
+            {
+                "url": "assets/Energy Crystal Word.PNG",
+                "type": "image",
+                "key": "Energy Crystal Word"
+            },
+            {
+                "url": "assets/Knowledge Soul Card.PNG",
+                "type": "image",
+                "key": "Knowledge Soul Card"
+            },
+            {
+                "url": "assets/Knowledge Soul Symbol.PNG",
+                "type": "image",
+                "key": "Knowledge Soul Symbol"
+            },
+            {
+                "url": "assets/Knowledge Soul Title.PNG",
+                "type": "image",
+                "key": "Knowledge Soul Title"
+            },
+            {
+                "url": "assets/Mushroom.PNG",
+                "type": "image",
+                "key": "Mushroom"
+            },
+            {
+                "url": "assets/Nails.PNG",
+                "type": "image",
+                "key": "Nails"
+            },
+            {
+                "url": "assets/Pillow.PNG",
+                "type": "image",
+                "key": "Pillow"
+            },
+            {
+                "url": "assets/Pillow Word.PNG",
+                "type": "image",
+                "key": "Pillow Word"
+            },
+            {
+                "url": "assets/Power Soul Card.PNG",
+                "type": "image",
+                "key": "Power Soul Card"
+            },
+            {
+                "url": "assets/Power Soul Symbol.PNG",
+                "type": "image",
+                "key": "Power Soul Symbol"
+            },
+            {
+                "url": "assets/Power Soul Title.PNG",
+                "type": "image",
+                "key": "Power Soul Title"
+            },
+            {
+                "url": "assets/Protector Soul Card.PNG",
+                "type": "image",
+                "key": "Protector Soul Card"
+            },
+            {
+                "url": "assets/Protector Soul Symbol.PNG",
+                "type": "image",
+                "key": "Protector Soul Symbol"
+            },
+            {
+                "url": "assets/Protector Soul Title.PNG",
+                "type": "image",
+                "key": "Protector Soul Title"
+            },
+            {
+                "url": "assets/Sword.PNG",
+                "type": "image",
+                "key": "Sword"
+            },
+            {
+                "url": "assets/Sword word.PNG",
+                "type": "image",
+                "key": "Sword word"
+            },
+            {
+                "url": "assets/v2 Card Front.PNG",
+                "type": "image",
+                "key": "v2 Card Front"
+            },
+            {
+                "url": "assets/Vital Soul Card.PNG",
+                "type": "image",
+                "key": "Vital Soul Card"
+            },
+            {
+                "url": "assets/Vital Soul Symbol.PNG",
+                "type": "image",
+                "key": "Vital Soul Symbol"
+            },
+            {
+                "url": "assets/Vital Soul Title.PNG",
+                "type": "image",
+                "key": "Vital Soul Title"
+            },
+            {
+                "url": "assets/White_silver Card Front.PNG",
+                "type": "image",
+                "key": "White_silver Card Front"
             },
             {
                 "url": "assets/wooden_bg.png",

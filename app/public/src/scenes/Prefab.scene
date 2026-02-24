@@ -1,0 +1,125 @@
+{
+    "id": "3b98b002-c35e-4464-8d91-ac4ff5317f48",
+    "sceneType": "PREFAB",
+    "settings": {
+        "snapEnabled": true,
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "8aa4deb4-d6a3-45e8-98e8-d0db5fbf78d9",
+            "label": "container_1",
+            "y": -32,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "b25f6786-6d29-4380-8c2b-548d04c1f384",
+                    "label": "cardFront",
+                    "hitArea.shape": "RECTANGLE",
+                    "hitArea.width": 600,
+                    "hitArea.height": 840,
+                    "texture": {
+                        "key": "White_silver Card Front"
+                    },
+                    "scaleX": 0.25,
+                    "scaleY": 0.25
+                },
+                {
+                    "type": "Text",
+                    "id": "586287fc-cf01-4111-b5c4-96c065631f24",
+                    "label": "powerText",
+                    "x": -32,
+                    "y": 48,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "-- POW",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "12px",
+                    "color": "#f5786b",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5
+                },
+                {
+                    "type": "Text",
+                    "id": "e39d3b9c-7d67-423d-af5b-69bd3ee5a904",
+                    "label": "DefenseText",
+                    "x": 32,
+                    "y": 48,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "-- DEF",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "12px",
+                    "color": "#3878d7",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5
+                },
+                {
+                    "type": "Text",
+                    "id": "1e76dadd-2f6c-4af8-8c7b-97ca180da3d2",
+                    "label": "energyText",
+                    "y": 64,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "-- ENG",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "12px",
+                    "color": "#1bc540",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5
+                },
+                {
+                    "type": "Text",
+                    "id": "80423b43-6cd0-4ead-b0b4-f34c29b3d675",
+                    "label": "nameText",
+                    "y": -80,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "Null",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "17px",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5
+                },
+                {
+                    "type": "Image",
+                    "id": "4120330c-526b-460c-b875-77e7717d6bc5",
+                    "label": "mainImage",
+                    "texture": {
+                        "key": "Mushroom"
+                    },
+                    "y": -16,
+                    "scaleX": 0.15,
+                    "scaleY": 0.15,
+                    "list": [
+                        {
+                            "type": "Shadow",
+                            "id": "4cbd0b3c-6506-43ce-a635-30e791abd9b7",
+                            "label": "shadowFx_10",
+                            "preFX": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

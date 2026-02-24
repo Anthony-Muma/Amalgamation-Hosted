@@ -14,6 +14,20 @@
     },
     "displayList": [
         {
+            "type": "Image",
+            "id": "cfafc21a-ed15-494b-a257-b38f4ca258b8",
+            "label": "wooden_bg",
+            "texture": {
+                "key": "wooden_bg"
+            },
+            "originX": 0,
+            "originY": 0,
+            "tintTopLeft": "#acabf9",
+            "tintTopRight": "#acabf9",
+            "tintBottomLeft": "#acabf9",
+            "tintBottomRight": "#acabf9"
+        },
+        {
             "type": "Rectangle",
             "id": "3470a044-d134-48ea-9527-9042887ef40f",
             "label": "energyZone",
@@ -77,173 +91,10 @@
             "texture": {
                 "key": "Card back"
             },
-            "x": 1488,
-            "y": 592,
+            "x": 1104,
+            "y": 144,
             "scaleX": 0.25,
             "scaleY": 0.25
-        },
-        {
-            "type": "Image",
-            "id": "2f0a2499-feea-4369-8d1d-798527bebd83",
-            "label": "card_back_2",
-            "texture": {
-                "key": "Card back"
-            },
-            "x": 832,
-            "y": 384,
-            "scaleX": 0.33,
-            "scaleY": 0.33,
-            "tintTopLeft": "#34c841",
-            "tintTopRight": "#5fee0f",
-            "tintBottomLeft": "#1c953c",
-            "tintBottomRight": "#0e642e"
-        },
-        {
-            "type": "Image",
-            "id": "9a223265-2630-4087-9c74-e8a7da8dde25",
-            "label": "card_back_8",
-            "texture": {
-                "key": "Card back"
-            },
-            "x": 128,
-            "y": 192,
-            "scaleX": 0.33,
-            "scaleY": 0.33,
-            "angle": -180,
-            "tintTopLeft": "#c83434",
-            "tintTopRight": "#0f2eee",
-            "tintBottomLeft": "#1e1c95",
-            "tintBottomRight": "#640e0e"
-        },
-        {
-            "type": "Image",
-            "id": "95a6483b-6176-4358-9b39-fc590c6861b8",
-            "label": "card_back_3",
-            "texture": {
-                "key": "Card back"
-            },
-            "x": 368,
-            "y": 160,
-            "scaleX": 0.33,
-            "scaleY": 0.33,
-            "angle": -180,
-            "tintTopLeft": "#c83434",
-            "tintTopRight": "#0f2eee",
-            "tintBottomLeft": "#1e1c95",
-            "tintBottomRight": "#640e0e"
-        },
-        {
-            "type": "Image",
-            "id": "c5db9c22-4034-48ef-9d20-926052c29317",
-            "label": "card_back_4",
-            "texture": {
-                "key": "Card back"
-            },
-            "x": 608,
-            "y": 192,
-            "scaleX": 0.33,
-            "scaleY": 0.33,
-            "angle": -180,
-            "tintTopLeft": "#c83434",
-            "tintTopRight": "#0f2eee",
-            "tintBottomLeft": "#1e1c95",
-            "tintBottomRight": "#640e0e"
-        },
-        {
-            "type": "Image",
-            "id": "b91aba9b-bba6-4199-b3a0-c64019984621",
-            "label": "card_back_5",
-            "texture": {
-                "key": "Card back"
-            },
-            "x": 128,
-            "y": 528,
-            "scaleX": 0.33,
-            "scaleY": 0.33,
-            "tintTopLeft": "#c83434",
-            "tintTopRight": "#0f2eee",
-            "tintBottomLeft": "#1e1c95",
-            "tintBottomRight": "#640e0e"
-        },
-        {
-            "type": "Image",
-            "id": "1481e358-3bff-4e2e-a2b7-01cc0d22050d",
-            "label": "card_back_6",
-            "texture": {
-                "key": "Card back"
-            },
-            "x": 368,
-            "y": 560,
-            "scaleX": 0.33,
-            "scaleY": 0.33,
-            "tintTopLeft": "#c83434",
-            "tintTopRight": "#0f2eee",
-            "tintBottomLeft": "#1e1c95",
-            "tintBottomRight": "#640e0e"
-        },
-        {
-            "type": "Image",
-            "id": "1a8731c2-042c-457c-ba68-4359a2de5777",
-            "label": "card_back_7",
-            "texture": {
-                "key": "Card back"
-            },
-            "x": 608,
-            "y": 528,
-            "scaleX": 0.33,
-            "scaleY": 0.33,
-            "tintTopLeft": "#c83434",
-            "tintTopRight": "#0f2eee",
-            "tintBottomLeft": "#1e1c95",
-            "tintBottomRight": "#640e0e"
-        },
-        {
-            "type": "Image",
-            "id": "ef6cb0d9-4075-4514-9725-23f2880c9764",
-            "label": "card_front_1",
-            "texture": {
-                "key": "Card front"
-            },
-            "x": 1184,
-            "y": 608,
-            "scaleX": 0.22,
-            "scaleY": 0.22
-        },
-        {
-            "type": "Image",
-            "id": "d0d9091f-a340-4bc6-9447-caa57f9c3aae",
-            "label": "card_back_1",
-            "texture": {
-                "key": "Card back"
-            },
-            "x": 1040,
-            "y": 96,
-            "scaleX": 0.22,
-            "scaleY": 0.22
-        },
-        {
-            "type": "Image",
-            "id": "ba4efbe5-a36f-4a61-9fcf-39960a4d3062",
-            "label": "card_front",
-            "texture": {
-                "key": "Card front"
-            },
-            "x": 1184,
-            "y": 544,
-            "scaleX": 0.22,
-            "scaleY": 0.22
-        },
-        {
-            "type": "Image",
-            "id": "b5ceaef4-6d7f-4beb-9ec2-3f5f44d315f1",
-            "label": "card_front_2",
-            "texture": {
-                "key": "Card front"
-            },
-            "x": 1184,
-            "y": 480,
-            "scaleX": 0.22,
-            "scaleY": 0.22
         },
         {
             "type": "Image",
@@ -252,36 +103,933 @@
             "texture": {
                 "key": "Card back"
             },
-            "x": 1184,
-            "y": 96,
-            "scaleX": 0.22,
-            "scaleY": 0.22
+            "x": 1104,
+            "y": 368,
+            "scaleX": 0.25,
+            "scaleY": 0.25
         },
         {
             "type": "Image",
-            "id": "9ba7b14d-0497-49f1-bac7-b3fba8666c25",
-            "label": "card_back_10",
+            "id": "1dbd9fca-113d-4424-b142-d2638d1ad94f",
+            "label": "arcane_Soul_Card",
             "texture": {
-                "key": "Card back"
+                "key": "Arcane Soul Card"
             },
-            "x": -128,
-            "y": 352,
-            "scaleX": 0.33,
-            "scaleY": 0.33,
-            "angle": -180,
-            "tintTopLeft": "#34c841",
-            "tintTopRight": "#5fee0f",
-            "tintBottomLeft": "#1c953c",
-            "tintBottomRight": "#0e642e"
+            "x": 800,
+            "y": 592,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "21ae0d2d-5aca-4240-839a-e3733b0b3455",
+            "label": "arcane_Soul_Symbol",
+            "texture": {
+                "key": "Arcane Soul Symbol"
+            },
+            "x": 800,
+            "y": 560,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "bec321c1-73b9-49bb-b976-96b5c998a239",
+            "label": "arcane_Soul_Title",
+            "texture": {
+                "key": "Arcane Soul Title"
+            },
+            "x": 800,
+            "y": 640,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "4b1b4e18-a2bc-4402-b8f6-cea114e41b53",
+            "label": "power_Soul_Card",
+            "texture": {
+                "key": "Power Soul Card"
+            },
+            "x": 864,
+            "y": 144,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "19ebacdb-7447-4981-8ab3-32e01349d816",
+            "label": "knowledge_Soul_Card",
+            "texture": {
+                "key": "Knowledge Soul Card"
+            },
+            "x": 864,
+            "y": 368,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "f90bb1ea-6d0e-4841-9526-134310652738",
+            "label": "power_Soul_Card_1",
+            "texture": {
+                "key": "Power Soul Card"
+            },
+            "x": 640,
+            "y": 144,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "f0396f00-81f3-4a4e-859d-a8f76c2b373d",
+            "label": "power_Soul_Card_2",
+            "texture": {
+                "key": "Power Soul Card"
+            },
+            "x": 416,
+            "y": 144,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "8780ab88-6bb9-40ee-824c-53c6c81538b5",
+            "label": "knowledge_Soul_Card_1",
+            "texture": {
+                "key": "Knowledge Soul Card"
+            },
+            "x": 640,
+            "y": 368,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "94dd8bea-9727-47fc-b4f3-3bc2bf67f25a",
+            "label": "knowledge_Soul_Card_2",
+            "texture": {
+                "key": "Knowledge Soul Card"
+            },
+            "x": 416,
+            "y": 368,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "876c98b9-6a42-4d26-8ce7-31b13f3c0329",
+            "label": "vital_Soul_Card",
+            "texture": {
+                "key": "Vital Soul Card"
+            },
+            "x": 144,
+            "y": 256,
+            "scaleX": 0.3,
+            "scaleY": 0.3,
+            "list": [
+                {
+                    "type": "Bloom",
+                    "id": "bfa31390-e2d1-48d6-9f99-602fa64d8633",
+                    "label": "bloomFx",
+                    "blurStrength": 0.5,
+                    "strength": 9.45,
+                    "steps": 2,
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "9af7456b-d290-4d85-8414-93d1c83a9e6b",
+            "label": "white_silver_Card_Front",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 1552,
+            "y": 880,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "083c2d86-f49a-44dc-840b-2daf3d55ec94",
+            "label": "nails_1",
+            "texture": {
+                "key": "Nails"
+            },
+            "x": 1552,
+            "y": 864,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "b75b37b0-b253-4203-9663-06a0a8ec2526",
+                    "label": "shadowFx_9",
+                    "preFX": true
+                }
+            ]
         },
         {
             "type": "Text",
-            "id": "3f1e61b9-4957-4835-966c-16b6aaff44d4",
-            "label": "text_1",
-            "x": 960,
+            "id": "d8e79927-f6fa-4367-bec3-6872acbf4ab0",
+            "label": "text_5",
+            "x": 1536,
+            "y": 928,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "10 POW",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "12px",
+            "color": "#f5786b",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "4d7fdf7f-ad1f-4f06-9da1-5603f141da74",
+            "label": "text_7",
+            "x": 1568,
+            "y": 944,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "5 ENG",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "12px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "a8d877f8-6c9d-4db7-837d-5459bc621e36",
+            "label": "white_silver_Card_Front_1",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 576,
+            "y": 960,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Text",
+            "id": "2de9c57a-689e-4c73-b3a8-3c0f46f6472e",
+            "label": "text",
+            "x": 544,
+            "y": 1024,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "10 POW",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "17px",
+            "color": "#f5786b",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "aac1946b-00b7-4d53-8fc3-ebaf20f74754",
+            "label": "text_3",
+            "x": 608,
+            "y": 1040,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "10 ENG",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "17px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "5a36f5e0-8400-4c1e-9229-58c9d72748ff",
+            "label": "text_4",
+            "x": 576,
             "y": 880,
-            "text": "Time: 30s",
-            "fontSize": "64px"
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "SWORD",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "17px",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "442a0d8e-d38f-45a5-b63f-ad8fe56da94f",
+            "label": "sword",
+            "texture": {
+                "key": "Sword"
+            },
+            "x": 576,
+            "y": 944,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "angle": 30,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "31c6767d-81cd-4019-b9b5-bd1946921686",
+                    "label": "shadowFx_3",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "e5da9061-b7bc-486e-8185-3e840cf8b8c8",
+            "label": "white_silver_Card_Front_2",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 864,
+            "y": 368,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Text",
+            "id": "0142e698-2220-4bee-b851-cacba3d338ae",
+            "label": "text_9",
+            "x": 752,
+            "y": 1024,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "10 ENG",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "17px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "d5608c84-eb00-40b0-9d21-e7938f5127ea",
+            "label": "text_10",
+            "x": 752,
+            "y": 880,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "SWORD",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "17px",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "b1a96388-89df-4c03-b35c-3cd5d3d8736a",
+            "label": "energy_Crystal_3X_2",
+            "texture": {
+                "key": "Energy Crystal 3X"
+            },
+            "x": 1152,
+            "y": 1120,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "2227f5fd-17c6-42ee-b10e-ecc3aee72627",
+                    "label": "shadowFx_5",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Text",
+            "id": "315266a2-e671-4edf-8f4f-7b2a58d4270d",
+            "label": "text_8",
+            "x": 1552,
+            "y": 800,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "NAILS",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "17px",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "3eef1107-3dbe-4d98-a16f-aead3d57b5ce",
+            "label": "white_silver_Card_Front_3",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 1712,
+            "y": 880,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Text",
+            "id": "1cb2d1f1-57c0-4cc7-96f6-36d90bfa5f00",
+            "label": "text_2",
+            "x": 1680,
+            "y": 928,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "3 POW",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "12px",
+            "color": "#f5786b",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "be828171-cc8b-46bd-bf53-4be5ec2ca2b8",
+            "label": "text_11",
+            "x": 1744,
+            "y": 928,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "3 DEF",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "12px",
+            "color": "#3878d7",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "8416db6f-b1ca-430f-b97f-63473707109f",
+            "label": "text_12",
+            "x": 1712,
+            "y": 944,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "5 ENG",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "12px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "8b32d5cd-aad1-4b96-b43e-b34aaff80d7b",
+            "label": "text_13",
+            "x": 1712,
+            "y": 800,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "MUSHROOM",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "17px",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "8cc5ba25-63a9-4801-a398-b400c296a0bf",
+            "label": "mushroom_2",
+            "texture": {
+                "key": "Mushroom"
+            },
+            "x": 1712,
+            "y": 864,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "a1f0d15c-7d8e-4ad2-a005-0a8e9fad3301",
+                    "label": "shadowFx_10",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "3c12509f-63c9-4aa0-8cab-5152ed506eac",
+            "label": "white_silver_Card_Front_4",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 1872,
+            "y": 880,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Text",
+            "id": "689c9d2e-3cc8-4b30-8882-08c52ac08ba5",
+            "label": "text_16",
+            "x": 1872,
+            "y": 928,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "15 ENG",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "12px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "6f927860-decd-4973-aeda-9df3496c22c8",
+            "label": "text_17",
+            "x": 1872,
+            "y": 800,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "CRYSTALS",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "17px",
+            "stroke": "#000000ff",
+            "strokeThickness": 5,
+            "wordWrapWidth": 1
+        },
+        {
+            "type": "Image",
+            "id": "5fe792da-0542-4cad-8e67-b25c4984029b",
+            "label": "energy_Crystal_3X_3",
+            "texture": {
+                "key": "Energy Crystal 3X"
+            },
+            "x": 1872,
+            "y": 864,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "ef7f098b-22e3-473c-bd94-6e651aad94ac",
+                    "label": "shadowFx_7",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "1c82a1b4-7230-4d6c-bc90-7f2ce8b682ef",
+            "label": "white_silver_Card_Front_5",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 2032,
+            "y": 880,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Text",
+            "id": "76176bc5-f279-46ad-946c-43580305be2d",
+            "label": "text_18",
+            "x": 2000,
+            "y": 928,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "7 POW",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "12px",
+            "color": "#f5786b",
+            "stroke": "#000000ff",
+            "strokeThickness": 5,
+            "list": [
+                {
+                    "type": "Wipe",
+                    "id": "5b92df07-a5fa-422b-a57f-4c07d6c16ffd",
+                    "label": "wipeFx",
+                    "progress": 0.05,
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Text",
+            "id": "0e211048-9a01-4902-989b-f3610b28868a",
+            "label": "text_19",
+            "x": 2064,
+            "y": 928,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "7 DEF",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "12px",
+            "color": "#3878d7",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "87ba2267-a444-4fc6-87eb-b902904475d5",
+            "label": "text_20",
+            "x": 2032,
+            "y": 944,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "7 ENG",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "12px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "a7d4e609-2335-4284-bbe9-55822d4cc935",
+            "label": "text_21",
+            "x": 2032,
+            "y": 800,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "LOG",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "17px",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "30252cdb-1edb-4a8f-95c9-66a210469e42",
+            "label": "chopped_Log",
+            "texture": {
+                "key": "Chopped Log"
+            },
+            "x": 2032,
+            "y": 864,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "4e73c1a9-e15c-4a69-9582-256cfd653054",
+                    "label": "shadowFx_11",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "2124560f-4197-4a09-9deb-78af556186d5",
+            "label": "power_Soul_Card_3",
+            "texture": {
+                "key": "Power Soul Card"
+            },
+            "x": 320,
+            "y": 592,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "1c447edf-f700-446f-aedd-5428f7ae8309",
+            "label": "power_Soul_Symbol",
+            "texture": {
+                "key": "Power Soul Symbol"
+            },
+            "x": 320,
+            "y": 560,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "7bea7904-5db4-4617-be2f-db1531487c4e",
+            "label": "power_Soul_Title",
+            "texture": {
+                "key": "Power Soul Title"
+            },
+            "x": 320,
+            "y": 640,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "9ff551d2-7198-4a0a-954c-635bf1141813",
+            "label": "knowledge_Soul_Card_3",
+            "texture": {
+                "key": "Knowledge Soul Card"
+            },
+            "x": 480,
+            "y": 592,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "ff521fb8-70e6-4fd2-a664-c7e58718432b",
+            "label": "knowledge_Soul_Symbol",
+            "texture": {
+                "key": "Knowledge Soul Symbol"
+            },
+            "x": 480,
+            "y": 560,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "625e3cf6-61ed-49e4-9410-a1154a5c6b14",
+            "label": "knowledge_Soul_Title",
+            "texture": {
+                "key": "Knowledge Soul Title"
+            },
+            "x": 480,
+            "y": 640,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "8d607fab-573e-4a23-bb28-3f83134381f1",
+            "label": "protector_Soul_Card",
+            "texture": {
+                "key": "Protector Soul Card"
+            },
+            "x": 640,
+            "y": 592,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "ad8f2b5c-00db-452b-8182-0f8a3b7e6411",
+            "label": "protector_Soul_Symbol",
+            "texture": {
+                "key": "Protector Soul Symbol"
+            },
+            "x": 640,
+            "y": 560,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "adb4ff81-33dc-4500-b7bb-245e2b71af94",
+            "label": "protector_Soul_Title",
+            "texture": {
+                "key": "Protector Soul Title"
+            },
+            "x": 640,
+            "y": 640,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "089f5424-b725-45b9-b461-54cc957fa717",
+            "label": "vital_Soul_Card_1",
+            "texture": {
+                "key": "Vital Soul Card"
+            },
+            "x": 960,
+            "y": 592,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "52f8cf3a-2adb-47c0-8842-9c954ebc0677",
+            "label": "vital_Soul_Symbol",
+            "texture": {
+                "key": "Vital Soul Symbol"
+            },
+            "x": 960,
+            "y": 560,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "e0e36949-fbf7-436f-adaa-9f09627a40cc",
+            "label": "vital_Soul_Title",
+            "texture": {
+                "key": "Vital Soul Title"
+            },
+            "x": 960,
+            "y": 640,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "97926c6c-7560-48ea-81ca-26d417a3ad71",
+            "label": "white_silver_Card_Front_6",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 2192,
+            "y": 880,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Text",
+            "id": "a97f8b04-7684-4276-9536-a127d1b6ab0e",
+            "label": "text_23",
+            "x": 2176,
+            "y": 928,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "10 DEF",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "12px",
+            "color": "#3878d7",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "db869c80-ef7f-4cbb-8e4a-b1ca6e622bd7",
+            "label": "text_24",
+            "x": 2208,
+            "y": 944,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "10 ENG",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "12px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Text",
+            "id": "ff2fd06e-eb4d-4650-b4b0-6315def5db1d",
+            "label": "text_25",
+            "x": 2192,
+            "y": 800,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "PILLOW",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "17px",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "2b271fb2-740f-47ce-9af0-894510a40d88",
+            "label": "pillow",
+            "texture": {
+                "key": "Pillow"
+            },
+            "x": 2192,
+            "y": 864,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "71834f66-df26-47d9-a160-e3debfb44f88",
+                    "label": "shadowFx_12",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "17d82d2a-1f16-4a91-aac4-0c7c7f88b329",
+            "label": "white_silver_Card_Front_7",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 640,
+            "y": 368,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "352bd56f-8782-4ef2-886e-d604462d4e8d",
+            "label": "white_silver_Card_Front_8",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 416,
+            "y": 368,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "973d79b8-94a2-486f-8854-5aebe2c4fa03",
+            "label": "white_silver_Card_Front_9",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 864,
+            "y": 144,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "7dbc3ba7-10fe-4e90-9135-05cbc4f6a1a3",
+            "label": "white_silver_Card_Front_10",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 640,
+            "y": 144,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "2da0bd80-9244-4ccf-af2f-3642e1dfd9b6",
+            "label": "white_silver_Card_Front_11",
+            "texture": {
+                "key": "White_silver Card Front"
+            },
+            "x": 416,
+            "y": 144,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Text",
+            "id": "e613699b-71bf-44ea-a452-90552795e9b2",
+            "label": "text_6",
+            "x": 144,
+            "y": 432,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "0 Energy",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 10
+        },
+        {
+            "type": "Text",
+            "id": "078dfe53-ca42-4bae-80ee-a4865b6f742a",
+            "label": "text_14",
+            "x": 1840,
+            "y": 704,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "DON'T DELETE",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "64px",
+            "stroke": "#000000ff",
+            "strokeThickness": 20
         }
     ],
     "plainObjects": [],
@@ -290,5 +1038,14 @@
         "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    }
+    },
+    "lists": [
+        {
+            "id": "8d9a2cc5-a986-44d5-ad0f-bcfef635f8cb",
+            "label": "list",
+            "objectIds": [
+                "cfafc21a-ed15-494b-a257-b38f4ca258b8"
+            ]
+        }
+    ]
 }

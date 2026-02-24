@@ -112,6 +112,7 @@ export default class Lobby extends Phaser.Scene {
 
         this.startButton.on("pointerdown", () => {
             console.log("Start Game"); // Placeholder
+			this.scene.start("Level");
         });
 
         this.leaveButton.on("pointerdown", () => {

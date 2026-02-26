@@ -1,35 +1,102 @@
-const { cardFactory } = require("./card");
+// Written by Anthony Muma
+// Modified Feb 25, 2026
+
+/* -------------------------------------------------------------------------- */
+/*                                   Imports                                  */
+/* -------------------------------------------------------------------------- */
+
+const { Card, cardFactory } = require("./card");
 const { Player } = require("./player");
+
+/* -------------------------------------------------------------------------- */
+/*                                  Constants                                 */
+/* -------------------------------------------------------------------------- */
 
 const PERSONAL_DRAW_AMOUNT = 5;
 const GLOBAL_DRAW_AMOUNT = 1;
 
-function Target(playerIndex, amalgamationIndex) {
+const GAME_STATES = Object.freeze({
+    PREPARATION : "PREPARATION",
+
+})
+
+/* -------------------------------------------------------------------------- */
+/*                              Supporting Types                              */
+/* -------------------------------------------------------------------------- */
+
+/**
+ * @typedef {Object} Target
+ * @property {number} playerIndex
+ * @property {number | null} amalgamationIndex
+ */
+
+/**
+ * @typedef {Object} CardInfo
+ * @property {Card} card
+ * @property {number} cardKey
+ * @property {string | Null} deck
+ */
+
+/**
+ * @constructor
+ * @param {number} playerIndex
+ * @param {number} amalgamationIndex
+ */
+function Target(playerIndex, amalgamationIndex = null) {
     this.playerIndex = playerIndex;
     this.amalgamationIndex = amalgamationIndex;
 }
 
+/**
+ * @constructor
+ * @param {Card} card
+ * @param {number} cardKey
+ * @param {string} deck
+ */
 function CardInfo(card, cardKey, deck = null) {
     this.card = card;
     this.cardKey = cardKey;
     this.deck = deck;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                 Main Class                                 */
+/* -------------------------------------------------------------------------- */
+
 class Game {
+
+    /* ----------------------------- Private Fields ----------------------------- */
+
     /** @type {Map<string, Player>} */
     #players = new Map();
+    /** @type {number} */
     #turnCount = 0;
 
     // Game state
+    // Need to implement among other things
+    #gameState = {
+
+    }
+
+    /* ------------------------------- Constructor ------------------------------ */
 
     constructor() {}
 
+    /* ----------------------------- Player Manager ----------------------------- */
+
     addPlayer(playerId) {
+        // Needs a check to see if the player is already in the game...
+
+        const player = new Player();
+
+        // For now, create a starter deck for the player
+        // TODO: will change later
+
         const energyCrystal = cardFactory("personal test", "material");
         const personalDeck = [energyCrystal, energyCrystal, energyCrystal, energyCrystal, energyCrystal];
-        const player = new Player();
         player.changePersonalDeck(personalDeck);
 
+        // Add player
         this.#players.set(playerId, player);
     }
 
@@ -37,10 +104,18 @@ class Game {
         this.#players.delete(playerId);
     }
 
+    /* ----------------------------- Game State Flow ---------------------------- */
+
     startTurn(playerId) {
+        const player = this.#players.get(playerId);
+
+        if (!player) {
+            throw new Error("No player Id was found:" + playerId)
+        }
+
         this.#turnCount++;
 
-        const player = this.#players.get(playerId);
+        /** @type {CardInfo[]} */
         const cardInfoList = [];
 
         // Draw from personal deck
@@ -54,26 +129,31 @@ class Game {
         
         // Draw from global deck
         for (let i = 0; i < GLOBAL_DRAW_AMOUNT; i++) {
-            
-            const {card, cardKey} = player.drawFromExternal(cardFactory("global test", "material"));
-            if (card) {
-                const cardInfo = new CardInfo(card, cardKey, "global");
-                cardInfoList.push(cardInfo);
-            }
+            // TODO: create a module that the card draw "randomness"
+            const {card, cardKey} = player.drawFromExternal(cardFactory("log", "material"));
+            const cardInfo = new CardInfo(card, cardKey, "global");
+            cardInfoList.push(cardInfo);
         }
 
-        const target = new Target(playerId, null);
+        const target = new Target(playerId);
 
         return {target, cardInfoList};
     }
 
     endTurn(playerId) {
-        //.. Clear energy
         const player = this.#players.get(playerId);
+        if (!player) {
+            throw new Error("No player Id was found:" + playerId)
+        }
+
+        //.. Clear energy .. Do other stuff when the player ends there turn
         player.clearEnergy();
     }
 
+    /* ----------------------------- Player Actions ----------------------------- */
+
     playPower(playerId, amalgamationIndex, cardKey) {
+        // Add error checks
         const player = this.#players.get(playerId);
         const card = player.playPower(cardKey, amalgamationIndex);
         const target = new Target(playerId, amalgamationIndex);
@@ -82,6 +162,7 @@ class Game {
     }
 
     playDefense(playerId, amalgamationIndex, cardKey) {
+        // Add error checks
         const player = this.#players.get(playerId);
         const card = player.playDefense(cardKey, amalgamationIndex);
         const target = new Target(playerId, amalgamationIndex);
@@ -90,6 +171,7 @@ class Game {
     }
 
     playEnergy(playerId, cardKey) {
+        // Add error checks
         const player = this.#players.get(playerId);
         const card = player.playEnergy(cardKey);
         const target = new Target(playerId, null);
@@ -97,11 +179,6 @@ class Game {
         return {target, cardInfo}
     }
 
-    getPlayers() {
-        return this.#players;
-    }
-
-    // Dreadful
     useAmalgamation(mainPlayerIndex, otherPlayerIndex, mainAmalgamationIndex, otherAmalgamationIndex, powerSelectionIndices, abilityIndex = null) {
         const mainPlayer = this.#players.get(mainPlayerIndex);
         const otherPlayer = this.#players.get(otherPlayerIndex);
@@ -192,8 +269,19 @@ class Game {
 
         return returnQueue;
     }
+
+    /* ---------------------------------- Misc ---------------------------------- */
+
+    getPlayers() {
+        return this.#players;
+    }
 }
 
+/* -------------------------------------------------------------------------- */
+/*                                   Exports                                  */
+/* -------------------------------------------------------------------------- */
+
 module.exports = {
-    Game
+    Game,
+    GAME_STATES
 }

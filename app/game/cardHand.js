@@ -1,6 +1,6 @@
 // Written by Anthony Muma
 
-const {Card} = require("./card.js")
+const { Card } = require("./card.js")
 
 class CardHand {
 

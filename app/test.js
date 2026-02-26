@@ -104,13 +104,19 @@ game.addPlayer(player2SocketId);
 console.log(game.getPlayers())
 
 // game.removePlayer(player1SocketId);
-console.log(game.getPlayers());
-console.log(game.getPlayers().get(player2SocketId).drawFromPersonalDeck().card.getAll());
-game.startTurn(player1SocketId);
+// console.log(game.getPlayers());
+// console.log(game.getPlayers().get(player2SocketId).drawFromPersonalDeck().card.getAll());
+console.log(game.startTurn(player1SocketId));
 
 game.startTurn(player2SocketId);
+
 game.playPower(player2SocketId, 0, 0);
-game.playEnergy(player2SocketId, 1);
+game.playPower(player2SocketId, 0, 1);
+game.playEnergy(player2SocketId, 2);
+game.playEnergy(player2SocketId, 3);
+
+game.playDefense(player1SocketId, 0, 0);
+game.playDefense(player1SocketId, 0, 2);
 
 
 

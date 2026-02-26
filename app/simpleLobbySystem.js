@@ -107,6 +107,71 @@ io.on("connection", (socket)=>{
         }
     })
 
+    /* -------------------------------------------------------------------------- */
+    /*                                 Game Events                                */
+    /* -------------------------------------------------------------------------- */
+
+    socket.on("game:start", async () => {
+        // Get all clients
+        if (!currentLobbyId) return;
+
+        const sockets = await io.in(currentLobbyId).fetchSockets()
+
+        // Set game state to prep
+        // Deal cards
+        // for Players, send 
+        for (const clientSocket of sockets) {
+            clientSocket.emit("game:started");
+        }
+        
+    })
+
+    socket.on("game:ready", () => {
+        // check st
+
+    })
+    
+    socket.on("game:playPower", (cardKey, amalgamationIndex)=>{
+        // Game state check
+            // 
+
+        // Opponent play defense emit for other players
+        // emit game:opponentPlayedPower
+    });
+
+    socket.on("game:playDefense", (cardKey, amalgamationIndex)=>{
+        // Game state check
+            // 
+        
+        // Opponent play defense emit for other players
+        // emit game:opponentPlayedDefense
+    });
+
+    socket.on("game:playEnergy", (cardKey)=>{
+        // Game state check
+            // Only do on X game state
+
+        
+        // Opponent play energy emit for other players
+        // emit game:opponentPlayedEnergy
+    });
+
+    socket.on("game:useAmalgamation", ()=>{
+        // Game state check
+            // Only do on X game state
+
+        
+        // Opponent play energy emit for other players
+        
+    });
+
+    socket.on("game:endTurn", () => {
+        // check states
+
+        // Swap players
+        // emit game:turnStarted
+    })
+
     socket.on('disconnect', () => {
         console.log('User disconnected');
         if (currentLobbyId) {
@@ -115,6 +180,7 @@ io.on("connection", (socket)=>{
             currentLobbyId = null;
         }
     });
+
 });
 
 server.listen(PORT, ()=>{

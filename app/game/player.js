@@ -1,27 +1,46 @@
 // Written by Anthony Muma
+// Modified Feb 25, 2026
 
-const {Amalgamation} = require("./amalgamation");
-const {Card} = require("./card");
-const {CardHand} = require("./cardHand");
-const {CardDeck} = require("./cardDeck");
+/* -------------------------------------------------------------------------- */
+/*                                   Imports                                  */
+/* -------------------------------------------------------------------------- */
+
+const { Amalgamation } = require("./amalgamation");
+const { Card } = require("./card");
+const { CardHand } = require("./cardHand");
+const { CardDeck } = require("./cardDeck");
+
+/* -------------------------------------------------------------------------- */
+/*                                  Constants                                 */
+/* -------------------------------------------------------------------------- */
 
 const ENERGY_CAP = 30;
 
-class Player {
-    #energyTotal = 0;
+/* -------------------------------------------------------------------------- */
+/*                                Player Class                                */
+/* -------------------------------------------------------------------------- */
 
+class Player {
+
+    /* ----------------------------- Private Fields ----------------------------- */
+
+    /** @type {number} */
+    #energyTotal = 0;
+    /** @type {CardDeck} */
     #personalDeck = new CardDeck();
+    /** @type {CardHand} */
     #hand = new CardHand();
+    /** @type {Amalgamation[]} */
     #amalgamations = [new Amalgamation(), new Amalgamation(), new Amalgamation()];
+
+    /* ------------------------------- Constructor ------------------------------ */
 
     constructor() {}   
 
-    // ==========================================================================
-    // Hand / Personal deck stuff
-    // ==========================================================================
+    /* ------------------------------- Hand / Deck ------------------------------ */
 
     /**
-     * Add a card to the personal deck
+     * Adds a card to the personal deck
      * @param {Card} card 
      */
     addToPersonalDeck(card) {
@@ -29,7 +48,7 @@ class Player {
     }
 
     /**
-     * Change all cards in the personal deck
+     * Changes all cards in the personal deck to 
      * @param {Card[]} cardList 
      */
     changePersonalDeck(cardList) {
@@ -64,9 +83,7 @@ class Player {
     }
 
 
-    // ==========================================================================
-    // Hand to ... Placements
-    // ==========================================================================
+    /* ----------------------------- Player Actions ----------------------------- */
 
     /**
      * 
@@ -135,10 +152,6 @@ class Player {
         return card;
     }
 
-    // ==========================================================================
-    // Using Amalgamation
-    // ==========================================================================
-
     /**
      * 
      * @param {number} amalgamationIndex 
@@ -167,9 +180,8 @@ class Player {
     getAmalgamation(amalgamationIndex) {
         return this.#amalgamations[amalgamationIndex];
     }
-    // ==========================================================================
-    // ...
-    // ==========================================================================
+
+    /* --------------------------------- Energy --------------------------------- */
 
     clearEnergy() {
         this.#energyTotal = 0;
@@ -195,6 +207,10 @@ class Player {
         console.log(this.#personalDeck.getDeck());
     }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                   Exports                                  */
+/* -------------------------------------------------------------------------- */
 
 module.exports = {
     Player

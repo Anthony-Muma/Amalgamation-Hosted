@@ -1,8 +1,21 @@
 // Written by Anthony Muma
+// Modified Feb 25, 2026
 
-const {Card} = require("./card.js");
+/* -------------------------------------------------------------------------- */
+/*                                   Imports                                  */
+/* -------------------------------------------------------------------------- */
+
+const { Card } = require("./card.js");
+
+/* -------------------------------------------------------------------------- */
+/*                                  Constants                                 */
+/* -------------------------------------------------------------------------- */
 
 const DEFAULT_SETTINGS = {};
+
+/* -------------------------------------------------------------------------- */
+/*                              Supporting Types                              */
+/* -------------------------------------------------------------------------- */
 
 function DefenseObject(defense) {
     this.defense = defense;
@@ -13,52 +26,65 @@ function PowerObject(power, energy) {
     this.energy = energy;
 }
 
+/* -------------------------------------------------------------------------- */
+/*                             Amalgamation Class                             */
+/* -------------------------------------------------------------------------- */
+
 class Amalgamation {
+
+    /* ----------------------------- Private Fields ----------------------------- */
+
+    /** not yet implement */
     #souls = [];
     /**
      * A list containing all of the available "Powers/Attacks" that can be played from this Amalgamation
      * @type {PowerObject[]}
      */
     #powers = [];
-
     /**
      * A list containing all of the active "Defenses" that are attached to this Amalgamation
      * @type {DefenseObject[]}
      */
     #defenses = [];
-
+    /** @type {number} */
     #maxDefense = 3;
+    /** @type {number} */
     #healthPoints = 3;
-
+    /** @type {boolean} */
     #alive = true;
-
+    /** @type {string} */
     #name = "Unnamed";
 
+    /* ------------------------------- Constructor ------------------------------ */
 
     constructor(settings = {}) {}
 
+    /* ----------------------------- Private Helpers ---------------------------- */
+
     /**
-     * A private helpers method that handles the placement of "Soul" type cards that were placed as power.
+     * A private helper method that handles the placement of "Soul" type cards that were placed as power.
      * @param {Card} card 
      */
     #addSoul(card) {
         const souls = this.#souls;
         souls.push(card.getName());
 
-        // Handle class upgrade
+        // Handle class upgrade (to be implemented later)
     }
 
     /**
-     * A private helpers method that handles the placement of "Material" type cards that were placed as power.
+     * A private helper method that handles the placement of "Material" type cards that were placed as power.
      * @param {Card} card 
      */
     #addMaterial(card) {
         const powers = this.#powers;
 
         // For now, power cost the same as attack value
-        const powerObject = new PowerObject(card.getAttackValue(), card.getAttackValue());
+        const powerObject = new PowerObject(card.getPowerValue(), card.getPowerValue());
         powers.push(powerObject);
     }
+
+    /* ------------------------------ Card Actions ------------------------------ */
 
     /**
      * Given a card, attempts to add it to the list of powers/souls
@@ -66,7 +92,7 @@ class Amalgamation {
      * @returns {boolean} weather the cards was successfully added
      */
     addPower(card) {
-        if (!card.getAttackValue()) {
+        if (!card.getPowerValue()) {
             return false
         }
 
@@ -104,10 +130,12 @@ class Amalgamation {
         defenses.push(defenseObject);
     }
 
+    /* ----------------------------- Combat / Damage ---------------------------- */
+
     /**
      * 
      * @param {number} incomingAttack 
-     * @param {*} other 
+     * @param {number?} ignoreNumberOfLayers 
      * @returns 
      */
     damageIteration(incomingAttack, ignoreNumberOfLayers = 0) {
@@ -167,6 +195,8 @@ class Amalgamation {
         }
     }
 
+    /* ---------------------------- Attack Generation --------------------------- */
+
     /**
      * ***Assuming clean inputs (i.e no duplicates, out of range, etc), add error checking later***
      * @param {number[]} attackSelectionIndices 
@@ -190,20 +220,26 @@ class Amalgamation {
         return {attack, energyCost, special};
     }
 
+    /* --------------------------------- Getters -------------------------------- */
+
     getAllAttributes() {
         return {
-            "souls" : this.#souls,
-            "powers" : this.#powers,
-            "defenses" : this.#defenses,
-            "maxDefense" : this.#maxDefense
+            souls: this.#souls,
+            powers: this.#powers,
+            defenses: this.#defenses,
+            maxDefense: this.#maxDefense
         }
     }
 
     getStatus() {
         return {
-            "alive" : this.#alive
+            alive : this.#alive
         }
     }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                   Exports                                  */
+/* -------------------------------------------------------------------------- */
 
 module.exports = {Amalgamation};

@@ -20,13 +20,8 @@ export default class Level extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
-		// wooden_bg
-		const wooden_bg = this.add.image(0, 0, "wooden_bg");
-		wooden_bg.setOrigin(0, 0);
-		wooden_bg.tintTopLeft = 11316217;
-		wooden_bg.tintTopRight = 11316217;
-		wooden_bg.tintBottomLeft = 11316217;
-		wooden_bg.tintBottomRight = 11316217;
+		// table
+		this.add.image(640, 352, "Table");
 
 		// energyZone
 		const energyZone = this.add.rectangle(1522, 384, 128, 128);
@@ -113,9 +108,6 @@ export default class Level extends Phaser.Scene {
 		const vital_Soul_Card = this.add.image(144, 256, "Vital Soul Card");
 		vital_Soul_Card.scaleX = 0.3;
 		vital_Soul_Card.scaleY = 0.3;
-
-		// bloomFx
-		vital_Soul_Card.preFX.addBloom(16777215, 1, 1, 0.5, 9.45, 2);
 
 		// white_silver_Card_Front
 		const white_silver_Card_Front = this.add.image(1552, 880, "White_silver Card Front");
@@ -426,9 +418,9 @@ export default class Level extends Phaser.Scene {
 		white_silver_Card_Front_11.scaleY = 0.25;
 
 		// text_6
-		const text_6 = this.add.text(144, 432, "", {});
+		const text_6 = this.add.text(144, 416, "", {});
 		text_6.setOrigin(0.5, 0.5);
-		text_6.text = "0 Energy";
+		text_6.text = "0/50";
 		text_6.setStyle({ "color": "#1bc540", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 10 });
 
 		// text_14
@@ -438,7 +430,7 @@ export default class Level extends Phaser.Scene {
 		text_14.setStyle({ "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 20 });
 
 		// lists
-		const list = [wooden_bg];
+		const list = [];
 
 		this.energyZone = energyZone;
 		this.powerZone = powerZone;
@@ -457,7 +449,7 @@ export default class Level extends Phaser.Scene {
 	defenseZone;
 	/** @type {Phaser.GameObjects.Rectangle} */
 	allCard;
-	/** @type {Phaser.GameObjects.Image[]} */
+	/** @type {Array<any>} */
 	list;
 
 	/* START-USER-CODE */
@@ -507,13 +499,14 @@ export default class Level extends Phaser.Scene {
 
 		this.test = new CardContainer(this, 50, 50, testCardInfo1);
 		this.test2 = new CardContainer(this, 50, 50, testCardInfo2);
-		this.test.flipAnimation();
-		this.test2.on("dragstart", () => {
-            this.test2.flipAnimation();
+		// this.test.flipAnimation();
+		this.test.on("dragend", () => {
+            this.test.flipAnimation();
         });;
 
         this.test2.on("dragend", () => {
-            this.test2.evaporateAnimation();
+            // this.test2.evaporateAnimation();
+			this.test2.flipAnimation();
         });
 
 		const cardInfo1 = {
@@ -527,9 +520,17 @@ export default class Level extends Phaser.Scene {
 			}
 		}
 
-		const card = new CardContainer(this, 500, 200, cardInfo1);
-		card.flipAnimation()
-		card.evaporateAnimation()
+		// const card = new CardContainer(this, 500, 200, cardInfo1);
+
+		// card.on("dragstart", ()=> {
+		// 	card.focus()
+		// })
+		// card.on("dragend", () => {
+        //     // this.test2.evaporateAnimation();
+		// 	card.flipAnimation();
+        // });
+		// card.flipAnimation()
+		// card.evaporateAnimation()
 
 
 	}

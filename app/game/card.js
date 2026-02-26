@@ -1,90 +1,89 @@
 // Written by Anthony Muma
+// Modified Feb 25, 2026
 
-const {material} = require("./dataLoader.js")
+/**
+ * Contains the Card class with cardFactory
+ * cardFactory dependant on dataLoader
+ */
+
+/* -------------------------------------------------------------------------- */
+/*                                   Imports                                  */
+/* -------------------------------------------------------------------------- */
+
+const { material } = require("./dataLoader.js")
+
+/* -------------------------------------------------------------------------- */
+/*                                  Constants                                 */
+/* -------------------------------------------------------------------------- */
 
 const DEFAULT_SETTINGS = {
-    "energyValue" : null,
-    "attackValue" : null,
-    "defenseValue" : null,
+    "energy" : null,
+    "power" : null,
+    "defense" : null,
 
     "name" : "None",
     "type" : "None",
     "special" : []
 }
 
-class Card {
-    #energyValue;
-    #attackValue;
-    #defenseValue;
+/* -------------------------------------------------------------------------- */
+/*                                 Card Class                                 */
+/* -------------------------------------------------------------------------- */
 
+class Card {
+    /** @type {number} */
+    #energy;
+    /** @type {number} */
+    #power;
+    /** @type {number} */
+    #defense;
+    /** @type {string} */
     #name;
+    /** @type {string} */
     #type;
 
     constructor(settings = {}) {
         const options = {...DEFAULT_SETTINGS, ...settings};
-        this.#energyValue = options.energyValue;
-        this.#attackValue = options.attackValue;
-        this.#defenseValue = options.defenseValue;
+        this.#energy = options.energy;
+        this.#power = options.power;
+        this.#defense = options.defense;
 
         this.#name = options.name;
         this.#type = options.type;
     }
 
-    getEnergyValue() {
-        return this.#energyValue;
-    }
+    /* --------------------------------- Getters -------------------------------- */
 
-    getAttackValue() {
-        return this.#attackValue;
-    }
+    getEnergyValue() { return this.#energy; }
+    getPowerValue() { return this.#power; }
+    getDefenseValue() { return this.#defense; }
+    getType() { return this.#type; }
+    getName() { return this.#name; }
 
-    getDefenseValue() {
-        return this.#defenseValue;
-    }
-
-    getType() {
-        return this.#type;
-    }
-
-    getName() {
-        return this.#name;
-    }
-
-    getValues() {
-        return {
-            "energyValue" : this.#energyValue,
-            "attackValue" : this.#attackValue,
-            "defenseValue" : this.#defenseValue
-        };
-    }
-
-    getNameType() {
-        return { 
-            "name" : this.#name,
-            "type" : this.#type
-        };
-    }
+    /* ------------------------------ Serialization ----------------------------- */
 
     getAll() {
         return {
-            "energyValue" : this.#energyValue,
-            "attackValue" : this.#attackValue,
-            "defenseValue" : this.#defenseValue,
+            "energy" : this.#energy,
+            "power" : this.#power,
+            "defense" : this.#defense,
             "name" : this.#name,
             "type" : this.#type
         };
     }
 
-    toString() {
-        return JSON.stringify(this.getAll());
-    }
+    toString() { return JSON.stringify(this.getAll()); }
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                Card Factory                                */
+/* -------------------------------------------------------------------------- */
 
 /**
  * 
  * @param {string} name 
  * @param {string} type 
- * @returns 
+ * @returns A card with the data from "app/data"
  */
 function cardFactory(name, type) {
     let settings;
@@ -98,6 +97,10 @@ function cardFactory(name, type) {
     const card = new Card(settings);
     return card;
 }
+
+/* -------------------------------------------------------------------------- */
+/*                                   Exports                                  */
+/* -------------------------------------------------------------------------- */
 
 module.exports = {
     cardFactory,

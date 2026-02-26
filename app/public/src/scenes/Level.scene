@@ -15,17 +15,13 @@
     "displayList": [
         {
             "type": "Image",
-            "id": "cfafc21a-ed15-494b-a257-b38f4ca258b8",
-            "label": "wooden_bg",
+            "id": "ffbea40a-d345-4573-9e3c-0c5349cd7821",
+            "label": "table",
             "texture": {
-                "key": "wooden_bg"
+                "key": "Table"
             },
-            "originX": 0,
-            "originY": 0,
-            "tintTopLeft": "#acabf9",
-            "tintTopRight": "#acabf9",
-            "tintBottomLeft": "#acabf9",
-            "tintBottomRight": "#acabf9"
+            "x": 640,
+            "y": 352
         },
         {
             "type": "Rectangle",
@@ -226,18 +222,7 @@
             "x": 144,
             "y": 256,
             "scaleX": 0.3,
-            "scaleY": 0.3,
-            "list": [
-                {
-                    "type": "Bloom",
-                    "id": "bfa31390-e2d1-48d6-9f99-602fa64d8633",
-                    "label": "bloomFx",
-                    "blurStrength": 0.5,
-                    "strength": 9.45,
-                    "steps": 2,
-                    "preFX": true
-                }
-            ]
+            "scaleY": 0.3
         },
         {
             "type": "Image",
@@ -1007,10 +992,10 @@
             "id": "e613699b-71bf-44ea-a452-90552795e9b2",
             "label": "text_6",
             "x": 144,
-            "y": 432,
+            "y": 416,
             "originX": 0.5,
             "originY": 0.5,
-            "text": "0 Energy",
+            "text": "0/50",
             "fontFamily": "Eczar-Bold",
             "fontSize": "32px",
             "color": "#1bc540",
@@ -1042,10 +1027,7 @@
     "lists": [
         {
             "id": "8d9a2cc5-a986-44d5-ad0f-bcfef635f8cb",
-            "label": "list",
-            "objectIds": [
-                "cfafc21a-ed15-494b-a257-b38f4ca258b8"
-            ]
+            "label": "list"
         }
     ]
 }

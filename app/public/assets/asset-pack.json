@@ -129,6 +129,11 @@
                 "key": "Sword word"
             },
             {
+                "url": "assets/Table.png",
+                "type": "image",
+                "key": "Table"
+            },
+            {
                 "url": "assets/v2 Card Front.PNG",
                 "type": "image",
                 "key": "v2 Card Front"

@@ -27,9 +27,23 @@
                 "key": "Card front"
             },
             {
+                "url": [
+                    "assets/sounds/sfx/cardFilp.wav"
+                ],
+                "type": "audio",
+                "key": "cardFlip"
+            },
+            {
                 "url": "assets/Chopped Log.PNG",
                 "type": "image",
                 "key": "Chopped Log"
+            },
+            {
+                "url": [
+                    "assets/sounds/sfx/click.wav"
+                ],
+                "type": "audio",
+                "key": "click"
             },
             {
                 "url": "assets/dino.png",
@@ -52,6 +66,13 @@
                 "url": "assets/Energy Crystal Word.PNG",
                 "type": "image",
                 "key": "Energy Crystal Word"
+            },
+            {
+                "url": [
+                    "assets/sounds/sfx/hover.mp3"
+                ],
+                "type": "audio",
+                "key": "hover"
             },
             {
                 "url": "assets/Knowledge Soul Card.PNG",

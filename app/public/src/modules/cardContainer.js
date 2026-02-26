@@ -90,12 +90,18 @@ export class CardContainer extends Phaser.GameObjects.Container {
 
         scene.input.setDraggable(this);
 
+        this.clickSFX = scene.sound.add("click");
+        this.flipSFX = scene.sound.add("cardFlip");
+        this.hoverSFX = scene.sound.add("hover");
+        this.hoverSFX.volume = 0.1;
+
         this.on("dragstart", () =>{
             this._isDragged = true;
-            this.defocus()
+            this.defocus();
         })
         this.on("dragend", () =>{
             this._isDragged = false;
+            this.focus();
         })
 
         this.on("drag", (_pointer, dragX, dragY) => {
@@ -105,7 +111,11 @@ export class CardContainer extends Phaser.GameObjects.Container {
         });
 
 
-        this.on("pointerover", () => {if (!this._isDragged) this.focus()});
+        this.on("pointerover", () => {
+            if (this._isDragged) return
+            this.hoverSFX.play();
+            this.focus()
+        });
         this.on("pointerout", () => this.defocus());
         // this.on("pointerdown", () => {
         //     console.log(this.cardInfo);
@@ -154,7 +164,6 @@ export class CardContainer extends Phaser.GameObjects.Container {
     //     });
     // }
     focus() {
-        
         const scene = this.scene;
         scene.children.bringToTop(this);
         scene.tweens.add({
@@ -227,6 +236,8 @@ export class CardContainer extends Phaser.GameObjects.Container {
     flipAnimation() {
         if (this._isFlipping) return;
         this._isFlipping = true;
+
+        this.flipSFX.play();
 
         const scene = this.scene;
 

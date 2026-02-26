@@ -20,8 +20,8 @@
             "texture": {
                 "key": "Table"
             },
-            "x": 640,
-            "y": 352
+            "originX": 0,
+            "originY": 0
         },
         {
             "type": "Rectangle",
@@ -148,7 +148,7 @@
                 "key": "Power Soul Card"
             },
             "x": 864,
-            "y": 144,
+            "y": -368,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -160,7 +160,7 @@
                 "key": "Knowledge Soul Card"
             },
             "x": 864,
-            "y": 368,
+            "y": -144,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -172,7 +172,7 @@
                 "key": "Power Soul Card"
             },
             "x": 640,
-            "y": 144,
+            "y": -368,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -184,7 +184,7 @@
                 "key": "Power Soul Card"
             },
             "x": 416,
-            "y": 144,
+            "y": -368,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -196,7 +196,7 @@
                 "key": "Knowledge Soul Card"
             },
             "x": 640,
-            "y": 368,
+            "y": -144,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -208,7 +208,7 @@
                 "key": "Knowledge Soul Card"
             },
             "x": 416,
-            "y": 368,
+            "y": -144,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -222,7 +222,18 @@
             "x": 144,
             "y": 256,
             "scaleX": 0.3,
-            "scaleY": 0.3
+            "scaleY": 0.3,
+            "list": [
+                {
+                    "type": "Bloom",
+                    "id": "1cad386b-ed40-485b-892c-510117065bd4",
+                    "label": "bloomFx",
+                    "blurStrength": 1.35,
+                    "strength": 3.52,
+                    "steps": 2,
+                    "preFX": true
+                }
+            ]
         },
         {
             "type": "Image",
@@ -375,7 +386,12 @@
             "x": 864,
             "y": 368,
             "scaleX": 0.25,
-            "scaleY": 0.25
+            "scaleY": 0.25,
+            "alpha": 0.2,
+            "alphaTopLeft": 0.2,
+            "alphaTopRight": 0.2,
+            "alphaBottomLeft": 0.2,
+            "alphaBottomRight": 0.2
         },
         {
             "type": "Text",
@@ -937,7 +953,12 @@
             "x": 640,
             "y": 368,
             "scaleX": 0.25,
-            "scaleY": 0.25
+            "scaleY": 0.25,
+            "alpha": 0.2,
+            "alphaTopLeft": 0.2,
+            "alphaTopRight": 0.2,
+            "alphaBottomLeft": 0.2,
+            "alphaBottomRight": 0.2
         },
         {
             "type": "Image",
@@ -949,7 +970,12 @@
             "x": 416,
             "y": 368,
             "scaleX": 0.25,
-            "scaleY": 0.25
+            "scaleY": 0.25,
+            "alpha": 0.2,
+            "alphaTopLeft": 0.2,
+            "alphaTopRight": 0.2,
+            "alphaBottomLeft": 0.2,
+            "alphaBottomRight": 0.2
         },
         {
             "type": "Image",
@@ -961,7 +987,12 @@
             "x": 864,
             "y": 144,
             "scaleX": 0.25,
-            "scaleY": 0.25
+            "scaleY": 0.25,
+            "alpha": 0.2,
+            "alphaTopLeft": 0.2,
+            "alphaTopRight": 0.2,
+            "alphaBottomLeft": 0.2,
+            "alphaBottomRight": 0.2
         },
         {
             "type": "Image",
@@ -973,7 +1004,12 @@
             "x": 640,
             "y": 144,
             "scaleX": 0.25,
-            "scaleY": 0.25
+            "scaleY": 0.25,
+            "alpha": 0.2,
+            "alphaTopLeft": 0.2,
+            "alphaTopRight": 0.2,
+            "alphaBottomLeft": 0.2,
+            "alphaBottomRight": 0.2
         },
         {
             "type": "Image",
@@ -985,7 +1021,12 @@
             "x": 416,
             "y": 144,
             "scaleX": 0.25,
-            "scaleY": 0.25
+            "scaleY": 0.25,
+            "alpha": 0.2,
+            "alphaTopLeft": 0.2,
+            "alphaTopRight": 0.2,
+            "alphaBottomLeft": 0.2,
+            "alphaBottomRight": 0.2
         },
         {
             "type": "Text",

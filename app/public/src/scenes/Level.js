@@ -21,7 +21,8 @@ export default class Level extends Phaser.Scene {
 	editorCreate() {
 
 		// table
-		this.add.image(640, 352, "Table");
+		const table = this.add.image(0, 0, "Table");
+		table.setOrigin(0, 0);
 
 		// energyZone
 		const energyZone = this.add.rectangle(1522, 384, 128, 128);
@@ -75,32 +76,32 @@ export default class Level extends Phaser.Scene {
 		arcane_Soul_Title.scaleY = 0.15;
 
 		// power_Soul_Card
-		const power_Soul_Card = this.add.image(864, 144, "Power Soul Card");
+		const power_Soul_Card = this.add.image(864, -368, "Power Soul Card");
 		power_Soul_Card.scaleX = 0.25;
 		power_Soul_Card.scaleY = 0.25;
 
 		// knowledge_Soul_Card
-		const knowledge_Soul_Card = this.add.image(864, 368, "Knowledge Soul Card");
+		const knowledge_Soul_Card = this.add.image(864, -144, "Knowledge Soul Card");
 		knowledge_Soul_Card.scaleX = 0.25;
 		knowledge_Soul_Card.scaleY = 0.25;
 
 		// power_Soul_Card_1
-		const power_Soul_Card_1 = this.add.image(640, 144, "Power Soul Card");
+		const power_Soul_Card_1 = this.add.image(640, -368, "Power Soul Card");
 		power_Soul_Card_1.scaleX = 0.25;
 		power_Soul_Card_1.scaleY = 0.25;
 
 		// power_Soul_Card_2
-		const power_Soul_Card_2 = this.add.image(416, 144, "Power Soul Card");
+		const power_Soul_Card_2 = this.add.image(416, -368, "Power Soul Card");
 		power_Soul_Card_2.scaleX = 0.25;
 		power_Soul_Card_2.scaleY = 0.25;
 
 		// knowledge_Soul_Card_1
-		const knowledge_Soul_Card_1 = this.add.image(640, 368, "Knowledge Soul Card");
+		const knowledge_Soul_Card_1 = this.add.image(640, -144, "Knowledge Soul Card");
 		knowledge_Soul_Card_1.scaleX = 0.25;
 		knowledge_Soul_Card_1.scaleY = 0.25;
 
 		// knowledge_Soul_Card_2
-		const knowledge_Soul_Card_2 = this.add.image(416, 368, "Knowledge Soul Card");
+		const knowledge_Soul_Card_2 = this.add.image(416, -144, "Knowledge Soul Card");
 		knowledge_Soul_Card_2.scaleX = 0.25;
 		knowledge_Soul_Card_2.scaleY = 0.25;
 
@@ -108,6 +109,9 @@ export default class Level extends Phaser.Scene {
 		const vital_Soul_Card = this.add.image(144, 256, "Vital Soul Card");
 		vital_Soul_Card.scaleX = 0.3;
 		vital_Soul_Card.scaleY = 0.3;
+
+		// bloomFx
+		vital_Soul_Card.preFX.addBloom(16777215, 1, 1, 1.35, 3.52, 2);
 
 		// white_silver_Card_Front
 		const white_silver_Card_Front = this.add.image(1552, 880, "White_silver Card Front");
@@ -170,6 +174,11 @@ export default class Level extends Phaser.Scene {
 		const white_silver_Card_Front_2 = this.add.image(864, 368, "White_silver Card Front");
 		white_silver_Card_Front_2.scaleX = 0.25;
 		white_silver_Card_Front_2.scaleY = 0.25;
+		white_silver_Card_Front_2.alpha = 0.2;
+		white_silver_Card_Front_2.alphaTopLeft = 0.2;
+		white_silver_Card_Front_2.alphaTopRight = 0.2;
+		white_silver_Card_Front_2.alphaBottomLeft = 0.2;
+		white_silver_Card_Front_2.alphaBottomRight = 0.2;
 
 		// text_9
 		const text_9 = this.add.text(752, 1024, "", {});
@@ -396,26 +405,51 @@ export default class Level extends Phaser.Scene {
 		const white_silver_Card_Front_7 = this.add.image(640, 368, "White_silver Card Front");
 		white_silver_Card_Front_7.scaleX = 0.25;
 		white_silver_Card_Front_7.scaleY = 0.25;
+		white_silver_Card_Front_7.alpha = 0.2;
+		white_silver_Card_Front_7.alphaTopLeft = 0.2;
+		white_silver_Card_Front_7.alphaTopRight = 0.2;
+		white_silver_Card_Front_7.alphaBottomLeft = 0.2;
+		white_silver_Card_Front_7.alphaBottomRight = 0.2;
 
 		// white_silver_Card_Front_8
 		const white_silver_Card_Front_8 = this.add.image(416, 368, "White_silver Card Front");
 		white_silver_Card_Front_8.scaleX = 0.25;
 		white_silver_Card_Front_8.scaleY = 0.25;
+		white_silver_Card_Front_8.alpha = 0.2;
+		white_silver_Card_Front_8.alphaTopLeft = 0.2;
+		white_silver_Card_Front_8.alphaTopRight = 0.2;
+		white_silver_Card_Front_8.alphaBottomLeft = 0.2;
+		white_silver_Card_Front_8.alphaBottomRight = 0.2;
 
 		// white_silver_Card_Front_9
 		const white_silver_Card_Front_9 = this.add.image(864, 144, "White_silver Card Front");
 		white_silver_Card_Front_9.scaleX = 0.25;
 		white_silver_Card_Front_9.scaleY = 0.25;
+		white_silver_Card_Front_9.alpha = 0.2;
+		white_silver_Card_Front_9.alphaTopLeft = 0.2;
+		white_silver_Card_Front_9.alphaTopRight = 0.2;
+		white_silver_Card_Front_9.alphaBottomLeft = 0.2;
+		white_silver_Card_Front_9.alphaBottomRight = 0.2;
 
 		// white_silver_Card_Front_10
 		const white_silver_Card_Front_10 = this.add.image(640, 144, "White_silver Card Front");
 		white_silver_Card_Front_10.scaleX = 0.25;
 		white_silver_Card_Front_10.scaleY = 0.25;
+		white_silver_Card_Front_10.alpha = 0.2;
+		white_silver_Card_Front_10.alphaTopLeft = 0.2;
+		white_silver_Card_Front_10.alphaTopRight = 0.2;
+		white_silver_Card_Front_10.alphaBottomLeft = 0.2;
+		white_silver_Card_Front_10.alphaBottomRight = 0.2;
 
 		// white_silver_Card_Front_11
 		const white_silver_Card_Front_11 = this.add.image(416, 144, "White_silver Card Front");
 		white_silver_Card_Front_11.scaleX = 0.25;
 		white_silver_Card_Front_11.scaleY = 0.25;
+		white_silver_Card_Front_11.alpha = 0.2;
+		white_silver_Card_Front_11.alphaTopLeft = 0.2;
+		white_silver_Card_Front_11.alphaTopRight = 0.2;
+		white_silver_Card_Front_11.alphaBottomLeft = 0.2;
+		white_silver_Card_Front_11.alphaBottomRight = 0.2;
 
 		// text_6
 		const text_6 = this.add.text(144, 416, "", {});

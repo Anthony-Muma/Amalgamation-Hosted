@@ -84,21 +84,8 @@ export default class Join extends Phaser.Scene {
 
 		this.editorCreate();
 
-		// User Input (Not Working)
-        // const inputElement = document.createElement("input");
-    	// inputElement.type = "text";
-    	// inputElement.placeholder = "Enter code";
-    	// inputElement.style.fontSize = "28px";
-    	// inputElement.style.padding = "10px";
-    	// inputElement.style.width = "250px";
-    	// inputElement.style.color = "#000000";
-    	// inputElement.style.textAlign = "center";
-    	// inputElement.style.border = "none";
-    	// inputElement.style.borderRadius = "4px";
-    	// inputElement.style.outline = "none";
-
 		// x, y are Phaser world coords (great for UI placement)
-		this.nameInput = this.add.dom(400, 300, "input", {
+		this.nameInput = this.add.dom(630, 280, "input", {
 			type: "text",
 			placeholder: "Enter code",
 			fontSize: "28px",

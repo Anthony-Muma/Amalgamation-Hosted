@@ -54,11 +54,13 @@ export default class Level extends Phaser.Scene {
 		const card_back = this.add.image(1104, 144, "Card back");
 		card_back.scaleX = 0.25;
 		card_back.scaleY = 0.25;
+		card_back.name = "drawDeck1";
 
 		// card_back_9
 		const card_back_9 = this.add.image(1104, 368, "Card back");
 		card_back_9.scaleX = 0.25;
 		card_back_9.scaleY = 0.25;
+		card_back.name = "drawDeck2";
 
 		// arcane_Soul_Card
 		const arcane_Soul_Card = this.add.image(800, 592, "Arcane Soul Card");
@@ -471,6 +473,8 @@ export default class Level extends Phaser.Scene {
 		this.defenseZone = defenseZone;
 		this.allCard = allCard;
 		this.list = list;
+		this.drawDeck1 = card_back;
+		this.drawDeck2 = card_back_9;
 
 		this.events.emit("scene-awake");
 	}
@@ -494,6 +498,8 @@ export default class Level extends Phaser.Scene {
 
 		this.editorCreate();
 
+		this.playerHand = [];
+
 		const zones = [this.defenseZone, this.powerZone, this.energyZone]
 		this.allCard.on("pointerover", ()=>{
 			console.log("hover")
@@ -508,6 +514,12 @@ export default class Level extends Phaser.Scene {
 				zone.setAlpha(1)
 			}
 		})
+
+		this.setupDrawPile(this.drawDeck1, "log");
+		this.setupDrawPile(this.drawDeck2, "crystal");
+
+
+
 
 		const testCardInfo1 = {
 			cardKey : 0,
@@ -566,8 +578,100 @@ export default class Level extends Phaser.Scene {
 		// card.flipAnimation()
 		// card.evaporateAnimation()
 
-
 	}
+
+	/* -------------------------------------------------------------------------- */
+	/*                                Player Hand                                 */
+	/* -------------------------------------------------------------------------- */
+
+	setupDrawPile(pile, cardName) {
+		pile.setInteractive();
+		pile.on("pointerover", () => pile.setTint(0xddddff));
+		pile.on("pointerout", () => pile.clearTint());
+		pile.on("pointerdown", () => {
+			pile.clearTint();
+			this.drawCard(cardName, pile);
+		});
+	}
+
+	getCardStats(name) {
+		const stats = {
+			log: { energyValue: 7, attackValue: 7, defenseValue: 7 },
+			crystal: { energyValue: 15, attackValue: 0, defenseValue: 0 },
+		};
+		return stats[name] || { energyValue: 0, attackValue: 0, defenseValue: 0 };
+	}
+
+	drawCard(cardName, pile) {
+		const stats = this.getCardStats(cardName);
+		const cardInfo = {
+			cardKey: this.playerHand.length,
+			card: {
+				name:         cardName,
+				type:         "material",
+				energyValue:  stats.energyValue,
+				attackValue:  stats.attackValue,
+				defenseValue: stats.defenseValue,
+			}
+		};
+
+		// Spawn at the deck position so the card appears to come from there
+		const card = new CardContainer(this, pile.x, pile.y, cardInfo);
+		card.disableInteractive();
+		this.playerHand.push(card);
+		this.layoutHand(card);
+	}
+
+	layoutHand(newCard) {
+		const SPACING = 160;
+    	const ANCHOR_X = 640;
+    	const HAND_Y = 592;
+
+    	const count = this.playerHand.length;
+
+    	const totalWidth = (count - 1) * SPACING;
+    	const startX = ANCHOR_X - totalWidth / 2;
+
+    	this.playerHand.forEach((card, i) => {
+        	const targetX = startX + i * SPACING;
+        	const isNew = card === newCard;
+
+        	this.tweens.add({
+            	targets:  card,
+            	x:        targetX,
+            	y:        HAND_Y,
+            	duration: isNew ? 350 : 200,
+            	ease:     isNew ? "Back.easeOut" : "Quad.easeOut",
+            	onComplete: () => {
+					if (isNew) {
+						if (!card.isFaceUp) card.flipAnimation();
+						card.setInteractive(
+							new Phaser.Geom.Rectangle(0, 0, 150, 210),
+							Phaser.Geom.Rectangle.Contains
+						);
+						this.setupCardClick(card);
+					}
+				}
+        	});
+    	});
+	}
+
+	setupCardClick(card) {
+		card.on("pointerdown", () => {
+			const index = this.playerHand.indexOf(card);
+			if (index === -1) return; // Card already removed
+
+			// Remove from hand immediately so layoutHand recalculates without it
+			this.playerHand.splice(index, 1);
+
+			card.disableInteractive();
+			card.evaporateAnimation();
+
+			// Reshift the remaining cards (pass null since no card is "new")
+			this.layoutHand(null);
+		});
+	}
+
 
 	/* END-USER-CODE */
 }

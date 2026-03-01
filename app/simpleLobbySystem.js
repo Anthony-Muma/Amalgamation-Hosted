@@ -134,9 +134,11 @@ io.on("connection", (socket)=>{
     socket.on("game:playPower", (cardKey, amalgamationIndex)=>{
         // Game state check
             // 
-
+        const lobby = LobbyStore.getLobby(currentLobbyId);
+        const result = lobby.game.playPower(socketId, amalgamationIndex, cardKey)
         // Opponent play defense emit for other players
         // emit game:opponentPlayedPower
+        socket.broadcast.to(currentLobbyId).emit("game:opponentPlayedPower", result)
     });
 
     socket.on("game:playDefense", (cardKey, amalgamationIndex)=>{

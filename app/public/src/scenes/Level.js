@@ -531,28 +531,33 @@ export default class Level extends Phaser.Scene {
 			}
 		}
 
-		this.test = new CardContainer(this, 50, 50, testCardInfo1);
-		this.test2 = new CardContainer(this, 50, 50, testCardInfo2);
+		const testCardInfo3 = {
+			cardKey : 0,
+			card : {
+				energyValue: 15,
+				attackValue: 2,
+				defenseValue: 2,
+				name: 'crystal',
+				type: 'material'
+			}
+		}
+
+		this.test = new CardContainer(this, 500, 500, testCardInfo1);
+		this.test2 = new CardContainer(this, 600, 500, testCardInfo2);
+		this.test3 = new CardContainer(this, 700, 500, testCardInfo3); 
 		// this.test.flipAnimation();
 		this.test.on("dragend", () => {
             this.test.flipAnimation();
-        });;
+        });
 
         this.test2.on("dragend", () => {
             // this.test2.evaporateAnimation();
 			this.test2.flipAnimation();
         });
 
-		const cardInfo1 = {
-			cardKey : 0,
-			card : {
-				energyValue: 15,
-				attackValue: 3,
-				defenseValue: 2,
-				name: 'crystal',
-				type: 'material'
-			}
-		}
+		this.test3.on("dragend", () => {
+            this.test3.flipAnimation();
+        });
 
 		// const card = new CardContainer(this, 500, 200, cardInfo1);
 

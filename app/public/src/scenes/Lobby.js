@@ -170,7 +170,7 @@ export default class Lobby extends Phaser.Scene {
     	});
 
 		// Lobby code
-		    	
+
 		if (this.currentLobbyId) {
 			this.text.setText("Lobby Code\n" + this.currentLobbyId);
 		}

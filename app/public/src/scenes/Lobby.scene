@@ -114,7 +114,7 @@
             "type": "Rectangle",
             "id": "fd323e0e-9c11-4dcf-add0-a54cfd5e0b20",
             "label": "text_2",
-            "displayName": "lobby code",
+            "displayName": "lobbyCode",
             "scope": "CLASS",
             "x": 985,
             "y": 270,

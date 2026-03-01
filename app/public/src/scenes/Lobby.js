@@ -61,6 +61,19 @@ export default class Lobby extends Phaser.Scene {
 		startText.text = "Start";
 		startText.setStyle({ "align": "center", "fontSize": "32px" });
 
+		// text_2
+		const text_2 = this.add.rectangle(985, 270, 25, 15);
+		text_2.scaleX = 10;
+		text_2.scaleY = 10;
+		text_2.isFilled = true;
+		text_2.fillColor = 5197647;
+
+		// text
+		const text = this.add.text(985, 245, "", {});
+		text.setOrigin(0.5, 0.5);
+		text.text = "Lobby Code\n";
+		text.setStyle({ "align": "center", "color": "#ffffffff", "fontSize": "32px", "stroke": "#000000", "strokeThickness": 3 });
+
 		this.lobbyTitle = lobbyTitle;
 		this.playerListBackground = playerListBackground;
 		this.text_1 = text_1;
@@ -68,6 +81,8 @@ export default class Lobby extends Phaser.Scene {
 		this.leaveText = leaveText;
 		this.startButton = startButton;
 		this.startText = startText;
+		this.text_2 = text_2;
+		this.text = text;
 
 		this.events.emit("scene-awake");
 	}
@@ -86,6 +101,10 @@ export default class Lobby extends Phaser.Scene {
 	startButton;
 	/** @type {Phaser.GameObjects.Text} */
 	startText;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	text_2;
+	/** @type {Phaser.GameObjects.Text} */
+	text;
 
 	/* START-USER-CODE */
 
@@ -149,6 +168,12 @@ export default class Lobby extends Phaser.Scene {
 			socket.off("lobby:updated");
 			socket.off("lobby:kicked");
     	});
+
+		// Lobby code
+		    	
+		if (this.currentLobbyId) {
+			this.text.setText("Lobby Code\n" + this.currentLobbyId);
+		}
 
 
 	}

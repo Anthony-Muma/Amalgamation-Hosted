@@ -581,7 +581,7 @@ export default class Level extends Phaser.Scene {
 	}
 
 	/* -------------------------------------------------------------------------- */
-	/*                                Player Deck                                 */
+	/*                                Player Hand                                 */
 	/* -------------------------------------------------------------------------- */
 
 	setupDrawPile(pile, cardName) {
@@ -617,6 +617,7 @@ export default class Level extends Phaser.Scene {
 
 		// Spawn at the deck position so the card appears to come from there
 		const card = new CardContainer(this, pile.x, pile.y, cardInfo);
+		card.disableInteractive();
 		this.playerHand.push(card);
 		this.layoutHand(card);
 	}
@@ -642,13 +643,35 @@ export default class Level extends Phaser.Scene {
             	duration: isNew ? 350 : 200,
             	ease:     isNew ? "Back.easeOut" : "Quad.easeOut",
             	onComplete: () => {
-					if (isNew && !card.isFaceUp) {
-                    	card.flipAnimation();
-                	}
-            	}
+					if (isNew) {
+						if (!card.isFaceUp) card.flipAnimation();
+						card.setInteractive(
+							new Phaser.Geom.Rectangle(0, 0, 150, 210),
+							Phaser.Geom.Rectangle.Contains
+						);
+						this.setupCardClick(card);
+					}
+				}
         	});
     	});
 	}
+
+	setupCardClick(card) {
+		card.on("pointerdown", () => {
+			const index = this.playerHand.indexOf(card);
+			if (index === -1) return; // Card already removed
+
+			// Remove from hand immediately so layoutHand recalculates without it
+			this.playerHand.splice(index, 1);
+
+			card.disableInteractive();
+			card.evaporateAnimation();
+
+			// Reshift the remaining cards (pass null since no card is "new")
+			this.layoutHand(null);
+		});
+	}
+
 
 	/* END-USER-CODE */
 }

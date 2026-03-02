@@ -29,8 +29,8 @@
             "label": "energyZone",
             "useGameObjectName": true,
             "scope": "CLASS",
-            "x": 1522,
-            "y": 384,
+            "x": 1568,
+            "y": 352,
             "isFilled": true,
             "fillColor": "#1b920c",
             "width": 128,
@@ -70,8 +70,8 @@
             "hitArea.shape": "RECTANGLE",
             "hitArea.width": 128,
             "hitArea.height": 128,
-            "x": 1751,
-            "y": 390,
+            "x": 1760,
+            "y": 368,
             "isFilled": true,
             "fillColor": "#ffffff",
             "strokeColor": "#000000",
@@ -83,7 +83,11 @@
         {
             "type": "Image",
             "id": "3b3a4a3f-8416-42e2-a52a-97ec8bde2605",
-            "label": "card_back",
+            "label": "drawDeck1",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 600,
+            "hitArea.height": 840,
             "texture": {
                 "key": "Card back"
             },
@@ -95,7 +99,11 @@
         {
             "type": "Image",
             "id": "88be279a-339b-4e14-bb74-ef5a95604c94",
-            "label": "card_back_9",
+            "label": "drawDeck2",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 600,
+            "hitArea.height": 840,
             "texture": {
                 "key": "Card back"
             },

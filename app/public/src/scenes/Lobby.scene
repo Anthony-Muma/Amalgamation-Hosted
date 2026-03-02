@@ -141,6 +141,30 @@
             "color": "#ffffffff",
             "stroke": "#000000",
             "strokeThickness": 3
+        },
+        {
+            "type": "Rectangle",
+            "id": "d84035d3-802f-4d5b-9b80-dc1774b2486a",
+            "label": "copyButton",
+            "displayName": "copyButton",
+            "x": 987,
+            "y": 417,
+            "isFilled": true,
+            "fillColor": "#4e9bcd",
+            "width": 250,
+            "height": 80
+        },
+        {
+            "type": "Text",
+            "id": "1b7fe33e-54f3-4e33-99b6-c04c54800d69",
+            "label": "copyText",
+            "displayName": "CopyText",
+            "description": "Copy Code to Clipboard",
+            "x": 870,
+            "y": 387,
+            "text": "Copy Code to \nClipboard",
+            "align": "center",
+            "fontSize": "30px"
         }
     ],
     "plainObjects": [],

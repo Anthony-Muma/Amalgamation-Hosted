@@ -54,26 +54,24 @@ export default class Level extends Phaser.Scene {
 		const card_back = this.add.image(1104, 144, "Card back");
 		card_back.scaleX = 0.25;
 		card_back.scaleY = 0.25;
-		card_back.name = "drawDeck1";
 
 		// card_back_9
 		const card_back_9 = this.add.image(1104, 368, "Card back");
 		card_back_9.scaleX = 0.25;
 		card_back_9.scaleY = 0.25;
-		card_back.name = "drawDeck2";
 
 		// arcane_Soul_Card
-		const arcane_Soul_Card = this.add.image(800, 592, "Arcane Soul Card");
+		const arcane_Soul_Card = this.add.image(2032, 1104, "Arcane Soul Card");
 		arcane_Soul_Card.scaleX = 0.25;
 		arcane_Soul_Card.scaleY = 0.25;
 
 		// arcane_Soul_Symbol
-		const arcane_Soul_Symbol = this.add.image(800, 560, "Arcane Soul Symbol");
+		const arcane_Soul_Symbol = this.add.image(2032, 1072, "Arcane Soul Symbol");
 		arcane_Soul_Symbol.scaleX = 0.15;
 		arcane_Soul_Symbol.scaleY = 0.15;
 
 		// arcane_Soul_Title
-		const arcane_Soul_Title = this.add.image(800, 640, "Arcane Soul Title");
+		const arcane_Soul_Title = this.add.image(2032, 1152, "Arcane Soul Title");
 		arcane_Soul_Title.scaleX = 0.15;
 		arcane_Soul_Title.scaleY = 0.15;
 
@@ -111,9 +109,6 @@ export default class Level extends Phaser.Scene {
 		const vital_Soul_Card = this.add.image(144, 256, "Vital Soul Card");
 		vital_Soul_Card.scaleX = 0.3;
 		vital_Soul_Card.scaleY = 0.3;
-
-		// bloomFx
-		vital_Soul_Card.preFX.addBloom(16777215, 1, 1, 1.35, 3.52, 2);
 
 		// white_silver_Card_Front
 		const white_silver_Card_Front = this.add.image(1552, 880, "White_silver Card Front");
@@ -313,62 +308,62 @@ export default class Level extends Phaser.Scene {
 		chopped_Log.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
 
 		// power_Soul_Card_3
-		const power_Soul_Card_3 = this.add.image(320, 592, "Power Soul Card");
+		const power_Soul_Card_3 = this.add.image(1552, 1104, "Power Soul Card");
 		power_Soul_Card_3.scaleX = 0.25;
 		power_Soul_Card_3.scaleY = 0.25;
 
 		// power_Soul_Symbol
-		const power_Soul_Symbol = this.add.image(320, 560, "Power Soul Symbol");
+		const power_Soul_Symbol = this.add.image(1552, 1072, "Power Soul Symbol");
 		power_Soul_Symbol.scaleX = 0.15;
 		power_Soul_Symbol.scaleY = 0.15;
 
 		// power_Soul_Title
-		const power_Soul_Title = this.add.image(320, 640, "Power Soul Title");
+		const power_Soul_Title = this.add.image(1552, 1152, "Power Soul Title");
 		power_Soul_Title.scaleX = 0.15;
 		power_Soul_Title.scaleY = 0.15;
 
 		// knowledge_Soul_Card_3
-		const knowledge_Soul_Card_3 = this.add.image(480, 592, "Knowledge Soul Card");
+		const knowledge_Soul_Card_3 = this.add.image(1712, 1104, "Knowledge Soul Card");
 		knowledge_Soul_Card_3.scaleX = 0.25;
 		knowledge_Soul_Card_3.scaleY = 0.25;
 
 		// knowledge_Soul_Symbol
-		const knowledge_Soul_Symbol = this.add.image(480, 560, "Knowledge Soul Symbol");
+		const knowledge_Soul_Symbol = this.add.image(1712, 1072, "Knowledge Soul Symbol");
 		knowledge_Soul_Symbol.scaleX = 0.15;
 		knowledge_Soul_Symbol.scaleY = 0.15;
 
 		// knowledge_Soul_Title
-		const knowledge_Soul_Title = this.add.image(480, 640, "Knowledge Soul Title");
+		const knowledge_Soul_Title = this.add.image(1712, 1152, "Knowledge Soul Title");
 		knowledge_Soul_Title.scaleX = 0.15;
 		knowledge_Soul_Title.scaleY = 0.15;
 
 		// protector_Soul_Card
-		const protector_Soul_Card = this.add.image(640, 592, "Protector Soul Card");
+		const protector_Soul_Card = this.add.image(1872, 1104, "Protector Soul Card");
 		protector_Soul_Card.scaleX = 0.25;
 		protector_Soul_Card.scaleY = 0.25;
 
 		// protector_Soul_Symbol
-		const protector_Soul_Symbol = this.add.image(640, 560, "Protector Soul Symbol");
+		const protector_Soul_Symbol = this.add.image(1872, 1072, "Protector Soul Symbol");
 		protector_Soul_Symbol.scaleX = 0.15;
 		protector_Soul_Symbol.scaleY = 0.15;
 
 		// protector_Soul_Title
-		const protector_Soul_Title = this.add.image(640, 640, "Protector Soul Title");
+		const protector_Soul_Title = this.add.image(1872, 1152, "Protector Soul Title");
 		protector_Soul_Title.scaleX = 0.15;
 		protector_Soul_Title.scaleY = 0.15;
 
 		// vital_Soul_Card_1
-		const vital_Soul_Card_1 = this.add.image(960, 592, "Vital Soul Card");
+		const vital_Soul_Card_1 = this.add.image(2192, 1104, "Vital Soul Card");
 		vital_Soul_Card_1.scaleX = 0.25;
 		vital_Soul_Card_1.scaleY = 0.25;
 
 		// vital_Soul_Symbol
-		const vital_Soul_Symbol = this.add.image(960, 560, "Vital Soul Symbol");
+		const vital_Soul_Symbol = this.add.image(2192, 1072, "Vital Soul Symbol");
 		vital_Soul_Symbol.scaleX = 0.15;
 		vital_Soul_Symbol.scaleY = 0.15;
 
 		// vital_Soul_Title
-		const vital_Soul_Title = this.add.image(960, 640, "Vital Soul Title");
+		const vital_Soul_Title = this.add.image(2192, 1152, "Vital Soul Title");
 		vital_Soul_Title.scaleX = 0.15;
 		vital_Soul_Title.scaleY = 0.15;
 
@@ -473,8 +468,6 @@ export default class Level extends Phaser.Scene {
 		this.defenseZone = defenseZone;
 		this.allCard = allCard;
 		this.list = list;
-		this.drawDeck1 = card_back;
-		this.drawDeck2 = card_back_9;
 
 		this.events.emit("scene-awake");
 	}
@@ -543,28 +536,33 @@ export default class Level extends Phaser.Scene {
 			}
 		}
 
-		this.test = new CardContainer(this, 50, 50, testCardInfo1);
-		this.test2 = new CardContainer(this, 50, 50, testCardInfo2);
+		const testCardInfo3 = {
+			cardKey : 0,
+			card : {
+				energyValue: 15,
+				attackValue: 2,
+				defenseValue: 2,
+				name: 'crystal',
+				type: 'material'
+			}
+		}
+
+		this.test = new CardContainer(this, 500, 500, testCardInfo1);
+		this.test2 = new CardContainer(this, 600, 500, testCardInfo2);
+		this.test3 = new CardContainer(this, 700, 500, testCardInfo3); 
 		// this.test.flipAnimation();
 		this.test.on("dragend", () => {
             this.test.flipAnimation();
-        });;
+        });
 
         this.test2.on("dragend", () => {
             // this.test2.evaporateAnimation();
 			this.test2.flipAnimation();
         });
 
-		const cardInfo1 = {
-			cardKey : 0,
-			card : {
-				energyValue: 15,
-				attackValue: 3,
-				defenseValue: 2,
-				name: 'crystal',
-				type: 'material'
-			}
-		}
+		this.test3.on("dragend", () => {
+            this.test3.flipAnimation();
+        });
 
 		// const card = new CardContainer(this, 500, 200, cardInfo1);
 

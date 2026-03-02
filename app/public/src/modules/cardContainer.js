@@ -182,8 +182,8 @@ export class CardContainer extends Phaser.GameObjects.Container {
             onComplete: () => {
                 this._plus = scene.tweens.add({
                     targets: this.mainImage,
-                    scaleY: 0.21,
-                    scaleX: 0.21,
+                    scaleY: 0.25,
+                    scaleX: 0.25,
                     duration: 2000,
                     yoyo: true,
                     loop: -1,

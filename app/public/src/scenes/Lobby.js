@@ -74,6 +74,20 @@ export default class Lobby extends Phaser.Scene {
 		text.text = "Lobby Code\n";
 		text.setStyle({ "align": "center", "color": "#ffffffff", "fontSize": "32px", "stroke": "#000000", "strokeThickness": 3 });
 
+		// copyButton
+		const copyButton = this.add.rectangle(987, 417, 250, 80);
+		copyButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 250, 80), Phaser.Geom.Rectangle.Contains);
+		copyButton.isFilled = true;
+		copyButton.fillColor = 5151693;
+		this.copyButton = copyButton;
+
+		// copyText
+		const copyText = this.add.text(987, 417, "", {});
+		copyText.setOrigin(0.5, 0.5);
+		copyText.text = "Copy Code to\nClipboard";
+		copyText.setStyle({ "align": "center", "fontSize": "30px" });
+				
+
 		this.lobbyTitle = lobbyTitle;
 		this.playerListBackground = playerListBackground;
 		this.text_1 = text_1;
@@ -105,6 +119,8 @@ export default class Lobby extends Phaser.Scene {
 	text_2;
 	/** @type {Phaser.GameObjects.Text} */
 	text;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	copyButton;
 
 	/* START-USER-CODE */
 
@@ -138,6 +154,21 @@ export default class Lobby extends Phaser.Scene {
 			socket.emit("lobby:leave", this.currentLobbyId);
             this.scene.start("MainMenu");
         });
+
+		
+		this.copyButton.on("pointerdown", () => {
+			navigator.clipboard.writeText(this.currentLobbyId)
+				.then(() => {
+					console.log("Lobby code copied!");
+					this.copyButton.setFillStyle(0x1F1DE0);
+					this.time.delayedCall(500, () => {
+						this.copyButton.setFillStyle(5151693);
+					});
+				})
+				.catch(err => {
+					console.error("Failed to copy:", err);
+				});
+		});
 
 		/* -------------------------------------------------------------------------- */
 		/* On Lobby events

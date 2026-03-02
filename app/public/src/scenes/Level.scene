@@ -111,8 +111,8 @@
             "texture": {
                 "key": "Arcane Soul Card"
             },
-            "x": 800,
-            "y": 592,
+            "x": 2032,
+            "y": 1104,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -123,8 +123,8 @@
             "texture": {
                 "key": "Arcane Soul Symbol"
             },
-            "x": 800,
-            "y": 560,
+            "x": 2032,
+            "y": 1072,
             "scaleX": 0.15,
             "scaleY": 0.15
         },
@@ -135,8 +135,8 @@
             "texture": {
                 "key": "Arcane Soul Title"
             },
-            "x": 800,
-            "y": 640,
+            "x": 2032,
+            "y": 1152,
             "scaleX": 0.15,
             "scaleY": 0.15
         },
@@ -222,18 +222,7 @@
             "x": 144,
             "y": 256,
             "scaleX": 0.3,
-            "scaleY": 0.3,
-            "list": [
-                {
-                    "type": "Bloom",
-                    "id": "1cad386b-ed40-485b-892c-510117065bd4",
-                    "label": "bloomFx",
-                    "blurStrength": 1.35,
-                    "strength": 3.52,
-                    "steps": 2,
-                    "preFX": true
-                }
-            ]
+            "scaleY": 0.3
         },
         {
             "type": "Image",
@@ -727,8 +716,8 @@
             "texture": {
                 "key": "Power Soul Card"
             },
-            "x": 320,
-            "y": 592,
+            "x": 1552,
+            "y": 1104,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -739,8 +728,8 @@
             "texture": {
                 "key": "Power Soul Symbol"
             },
-            "x": 320,
-            "y": 560,
+            "x": 1552,
+            "y": 1072,
             "scaleX": 0.15,
             "scaleY": 0.15
         },
@@ -751,8 +740,8 @@
             "texture": {
                 "key": "Power Soul Title"
             },
-            "x": 320,
-            "y": 640,
+            "x": 1552,
+            "y": 1152,
             "scaleX": 0.15,
             "scaleY": 0.15
         },
@@ -763,8 +752,8 @@
             "texture": {
                 "key": "Knowledge Soul Card"
             },
-            "x": 480,
-            "y": 592,
+            "x": 1712,
+            "y": 1104,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -775,8 +764,8 @@
             "texture": {
                 "key": "Knowledge Soul Symbol"
             },
-            "x": 480,
-            "y": 560,
+            "x": 1712,
+            "y": 1072,
             "scaleX": 0.15,
             "scaleY": 0.15
         },
@@ -787,8 +776,8 @@
             "texture": {
                 "key": "Knowledge Soul Title"
             },
-            "x": 480,
-            "y": 640,
+            "x": 1712,
+            "y": 1152,
             "scaleX": 0.15,
             "scaleY": 0.15
         },
@@ -799,8 +788,8 @@
             "texture": {
                 "key": "Protector Soul Card"
             },
-            "x": 640,
-            "y": 592,
+            "x": 1872,
+            "y": 1104,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -811,8 +800,8 @@
             "texture": {
                 "key": "Protector Soul Symbol"
             },
-            "x": 640,
-            "y": 560,
+            "x": 1872,
+            "y": 1072,
             "scaleX": 0.15,
             "scaleY": 0.15
         },
@@ -823,8 +812,8 @@
             "texture": {
                 "key": "Protector Soul Title"
             },
-            "x": 640,
-            "y": 640,
+            "x": 1872,
+            "y": 1152,
             "scaleX": 0.15,
             "scaleY": 0.15
         },
@@ -835,8 +824,8 @@
             "texture": {
                 "key": "Vital Soul Card"
             },
-            "x": 960,
-            "y": 592,
+            "x": 2192,
+            "y": 1104,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -847,8 +836,8 @@
             "texture": {
                 "key": "Vital Soul Symbol"
             },
-            "x": 960,
-            "y": 560,
+            "x": 2192,
+            "y": 1072,
             "scaleX": 0.15,
             "scaleY": 0.15
         },
@@ -859,8 +848,8 @@
             "texture": {
                 "key": "Vital Soul Title"
             },
-            "x": 960,
-            "y": 640,
+            "x": 2192,
+            "y": 1152,
             "scaleX": 0.15,
             "scaleY": 0.15
         },

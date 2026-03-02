@@ -25,7 +25,7 @@ export default class Level extends Phaser.Scene {
 		table.setOrigin(0, 0);
 
 		// energyZone
-		const energyZone = this.add.rectangle(1522, 384, 128, 128);
+		const energyZone = this.add.rectangle(1568, 352, 128, 128);
 		energyZone.name = "energyZone";
 		energyZone.isFilled = true;
 		energyZone.fillColor = 1806860;
@@ -43,22 +43,24 @@ export default class Level extends Phaser.Scene {
 		defenseZone.fillColor = 798354;
 
 		// allCard
-		const allCard = this.add.rectangle(1751, 390, 128, 128);
+		const allCard = this.add.rectangle(1760, 368, 128, 128);
 		allCard.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
 		allCard.isFilled = true;
 		allCard.isStroked = true;
 		allCard.strokeColor = 0;
 		allCard.lineWidth = 12;
 
-		// card_back
-		const card_back = this.add.image(1104, 144, "Card back");
-		card_back.scaleX = 0.25;
-		card_back.scaleY = 0.25;
+		// drawDeck1
+		const drawDeck1 = this.add.image(1104, 144, "Card back");
+		drawDeck1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
+		drawDeck1.scaleX = 0.25;
+		drawDeck1.scaleY = 0.25;
 
-		// card_back_9
-		const card_back_9 = this.add.image(1104, 368, "Card back");
-		card_back_9.scaleX = 0.25;
-		card_back_9.scaleY = 0.25;
+		// drawDeck2
+		const drawDeck2 = this.add.image(1104, 368, "Card back");
+		drawDeck2.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
+		drawDeck2.scaleX = 0.25;
+		drawDeck2.scaleY = 0.25;
 
 		// arcane_Soul_Card
 		const arcane_Soul_Card = this.add.image(2032, 1104, "Arcane Soul Card");
@@ -467,6 +469,8 @@ export default class Level extends Phaser.Scene {
 		this.powerZone = powerZone;
 		this.defenseZone = defenseZone;
 		this.allCard = allCard;
+		this.drawDeck1 = drawDeck1;
+		this.drawDeck2 = drawDeck2;
 		this.list = list;
 
 		this.events.emit("scene-awake");
@@ -480,6 +484,10 @@ export default class Level extends Phaser.Scene {
 	defenseZone;
 	/** @type {Phaser.GameObjects.Rectangle} */
 	allCard;
+	/** @type {Phaser.GameObjects.Image} */
+	drawDeck1;
+	/** @type {Phaser.GameObjects.Image} */
+	drawDeck2;
 	/** @type {Array<any>} */
 	list;
 
@@ -583,7 +591,7 @@ export default class Level extends Phaser.Scene {
 	/* -------------------------------------------------------------------------- */
 
 	setupDrawPile(pile, cardName) {
-		pile.setInteractive();
+		// pile.setInteractive();
 		pile.on("pointerover", () => pile.setTint(0xddddff));
 		pile.on("pointerout", () => pile.clearTint());
 		pile.on("pointerdown", () => {

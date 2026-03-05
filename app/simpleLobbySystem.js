@@ -45,6 +45,7 @@ io.on("connection", (socket)=>{
     let currentLobbyId = null;
     // change all to socket.rooms
     // socket.rooms.values[0];
+
     socket.on("lobby:create", ()=>{
         // Leave current lobby
         if (currentLobbyId) {
@@ -111,11 +112,11 @@ io.on("connection", (socket)=>{
     /*                                 Game Events                                */
     /* -------------------------------------------------------------------------- */
 
-    socket.on("game:start", async () => {
+    socket.on("game:start", () => {
         // Get all clients
         if (!currentLobbyId) return;
 
-        const sockets = await io.in(currentLobbyId).fetchSockets()
+        // const sockets = await io.in(currentLobbyId).fetchSockets()
 
         // Set game state to prep
         // Deal cards
@@ -132,12 +133,19 @@ io.on("connection", (socket)=>{
     })
     
     socket.on("game:playPower", (cardKey, amalgamationIndex)=>{
-        // Game state check
-            // 
+
+        // TO:DO : Sanitize incoming request
+
         const lobby = LobbyStore.getLobby(currentLobbyId);
-        const result = lobby.game.playPower(socketId, amalgamationIndex, cardKey)
-        // Opponent play defense emit for other players
-        // emit game:opponentPlayedPower
+
+        if (!lobby) return;
+
+        // TO:DO : Game state / turn check
+
+        const result = lobby.game.playPower(socketId, amalgamationIndex, cardKey);
+
+        // TO:DO : Check result
+
         socket.broadcast.to(currentLobbyId).emit("game:opponentPlayedPower", result)
     });
 
@@ -158,6 +166,7 @@ io.on("connection", (socket)=>{
         // emit game:opponentPlayedEnergy
     });
 
+    // TO:DO
     socket.on("game:useAmalgamation", ()=>{
         // Game state check
             // Only do on X game state
@@ -167,6 +176,7 @@ io.on("connection", (socket)=>{
         
     });
 
+    // TO:DO
     socket.on("game:endTurn", () => {
         // check states
 
@@ -174,6 +184,7 @@ io.on("connection", (socket)=>{
         // emit game:turnStarted
     })
 
+    // TO:DO : handle more leave cases
     socket.on('disconnect', () => {
         console.log('User disconnected');
         if (currentLobbyId) {

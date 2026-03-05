@@ -1,3 +1,4 @@
-import { cardContainerCreator } from "./cardFactory.js"
+import { materialContainer } from "./materialContainer.js"
+import { soulContainer } from "./soulContainer.js"
 
-export cardFactory
+export { materialContainer, soulContainer }

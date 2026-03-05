@@ -97,10 +97,27 @@ const {LobbyStore} = require("./lobby-system/lobbyStore.js")
 
 const player1SocketId = "A"
 const player2SocketId = "B"
-
 const game = new Game();
+
 game.addPlayer(player1SocketId);
 game.addPlayer(player2SocketId);
+
+game.startTurn(player1SocketId);
+
+game.playPower(player1SocketId, 0, 0);
+game.playPower(player1SocketId, 0, 1);
+game.playEnergy(player1SocketId, 2);
+game.playEnergy(player1SocketId, 3);
+
+game.useAmalgamation(player1SocketId, player2SocketId, 0, 0, [0,1])
+
+game.endTurn(player1SocketId);
+game.startTurn(player2SocketId);
+
+
+
+// So on...
+
 console.log(game.getPlayers())
 
 // game.removePlayer(player1SocketId);
@@ -117,6 +134,8 @@ game.playEnergy(player2SocketId, 3);
 
 game.playDefense(player1SocketId, 0, 0);
 game.playDefense(player1SocketId, 0, 2);
+
+console.log(game.useAmalgamation(player2SocketId, player1SocketId, 0, 0, []))
 
 
 

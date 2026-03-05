@@ -13,6 +13,16 @@
     },
     "displayList": [
         {
+            "type": "Image",
+            "id": "5273e3dd-7148-4c58-ba88-94f081ca2a58",
+            "label": "table",
+            "texture": {
+                "key": "Table"
+            },
+            "x": 640,
+            "y": 360
+        },
+        {
             "type": "Text",
             "id": "2a3776b8-3a08-4a54-a657-7cde3e30931b",
             "label": "lobbyCodeText",

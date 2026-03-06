@@ -5,6 +5,9 @@
 
 /* START-USER-IMPORTS */
 import { CardContainer } from "../modules/cardContainer.js"
+import { materialContainer, soulContainer } from "../modules/cardContainers/index.js";
+import { CardHand } from "../modules/level/cardHand.js";
+import { Core } from "../modules/level/core.js";
 /* END-USER-IMPORTS */
 
 export default class Level extends Phaser.Scene {
@@ -21,7 +24,8 @@ export default class Level extends Phaser.Scene {
 	editorCreate() {
 
 		// table
-		const table = this.add.image(0, 0, "Table");
+		const table = this.add.image(0, -352, "Table");
+		table.scaleY = 1.5;
 		table.setOrigin(0, 0);
 
 		// energyZone
@@ -78,32 +82,32 @@ export default class Level extends Phaser.Scene {
 		arcane_Soul_Title.scaleY = 0.15;
 
 		// power_Soul_Card
-		const power_Soul_Card = this.add.image(864, -368, "Power Soul Card");
+		const power_Soul_Card = this.add.image(864, -752, "Power Soul Card");
 		power_Soul_Card.scaleX = 0.25;
 		power_Soul_Card.scaleY = 0.25;
 
 		// knowledge_Soul_Card
-		const knowledge_Soul_Card = this.add.image(864, -144, "Knowledge Soul Card");
+		const knowledge_Soul_Card = this.add.image(864, -528, "Knowledge Soul Card");
 		knowledge_Soul_Card.scaleX = 0.25;
 		knowledge_Soul_Card.scaleY = 0.25;
 
 		// power_Soul_Card_1
-		const power_Soul_Card_1 = this.add.image(640, -368, "Power Soul Card");
+		const power_Soul_Card_1 = this.add.image(640, -752, "Power Soul Card");
 		power_Soul_Card_1.scaleX = 0.25;
 		power_Soul_Card_1.scaleY = 0.25;
 
 		// power_Soul_Card_2
-		const power_Soul_Card_2 = this.add.image(416, -368, "Power Soul Card");
+		const power_Soul_Card_2 = this.add.image(416, -752, "Power Soul Card");
 		power_Soul_Card_2.scaleX = 0.25;
 		power_Soul_Card_2.scaleY = 0.25;
 
 		// knowledge_Soul_Card_1
-		const knowledge_Soul_Card_1 = this.add.image(640, -144, "Knowledge Soul Card");
+		const knowledge_Soul_Card_1 = this.add.image(640, -528, "Knowledge Soul Card");
 		knowledge_Soul_Card_1.scaleX = 0.25;
 		knowledge_Soul_Card_1.scaleY = 0.25;
 
 		// knowledge_Soul_Card_2
-		const knowledge_Soul_Card_2 = this.add.image(416, -144, "Knowledge Soul Card");
+		const knowledge_Soul_Card_2 = this.add.image(416, -528, "Knowledge Soul Card");
 		knowledge_Soul_Card_2.scaleX = 0.25;
 		knowledge_Soul_Card_2.scaleY = 0.25;
 
@@ -111,6 +115,9 @@ export default class Level extends Phaser.Scene {
 		const vital_Soul_Card = this.add.image(144, 256, "Vital Soul Card");
 		vital_Soul_Card.scaleX = 0.3;
 		vital_Soul_Card.scaleY = 0.3;
+
+		// shineFx
+		vital_Soul_Card.preFX.addShine(0.66, 0.5, 3, false);
 
 		// white_silver_Card_Front
 		const white_silver_Card_Front = this.add.image(1552, 880, "White_silver Card Front");
@@ -126,16 +133,16 @@ export default class Level extends Phaser.Scene {
 		nails_1.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
 
 		// text_5
-		const text_5 = this.add.text(1536, 928, "", {});
+		const text_5 = this.add.text(1520, 928, "", {});
 		text_5.setOrigin(0.5, 0.5);
-		text_5.text = "10 POW";
-		text_5.setStyle({ "color": "#f5786b", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
+		text_5.text = "10p";
+		text_5.setStyle({ "color": "#f5786b", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
 
 		// text_7
-		const text_7 = this.add.text(1568, 944, "", {});
+		const text_7 = this.add.text(1584, 928, "", {});
 		text_7.setOrigin(0.5, 0.5);
-		text_7.text = "5 ENG";
-		text_7.setStyle({ "color": "#1bc540", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
+		text_7.text = "5e";
+		text_7.setStyle({ "color": "#1bc540", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
 
 		// white_silver_Card_Front_1
 		const white_silver_Card_Front_1 = this.add.image(576, 960, "White_silver Card Front");
@@ -246,6 +253,10 @@ export default class Level extends Phaser.Scene {
 		const white_silver_Card_Front_4 = this.add.image(1872, 880, "White_silver Card Front");
 		white_silver_Card_Front_4.scaleX = 0.25;
 		white_silver_Card_Front_4.scaleY = 0.25;
+		white_silver_Card_Front_4.tintTopLeft = 1819968;
+		white_silver_Card_Front_4.tintTopRight = 1819968;
+		white_silver_Card_Front_4.tintBottomLeft = 1819968;
+		white_silver_Card_Front_4.tintBottomRight = 1819968;
 
 		// text_16
 		const text_16 = this.add.text(1872, 928, "", {});
@@ -272,6 +283,10 @@ export default class Level extends Phaser.Scene {
 		const white_silver_Card_Front_5 = this.add.image(2032, 880, "White_silver Card Front");
 		white_silver_Card_Front_5.scaleX = 0.25;
 		white_silver_Card_Front_5.scaleY = 0.25;
+		white_silver_Card_Front_5.tintTopLeft = 16087147;
+		white_silver_Card_Front_5.tintTopRight = 3700951;
+		white_silver_Card_Front_5.tintBottomLeft = 1819968;
+		white_silver_Card_Front_5.tintBottomRight = 1819968;
 
 		// text_18
 		const text_18 = this.add.text(2000, 928, "", {});
@@ -287,7 +302,7 @@ export default class Level extends Phaser.Scene {
 		const text_19 = this.add.text(2064, 928, "", {});
 		text_19.setOrigin(0.5, 0.5);
 		text_19.text = "7 DEF";
-		text_19.setStyle({ "color": "#3878d7", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
+		text_19.setStyle({ "color": "#494e56ff", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
 
 		// text_20
 		const text_20 = this.add.text(2032, 944, "", {});
@@ -373,6 +388,10 @@ export default class Level extends Phaser.Scene {
 		const white_silver_Card_Front_6 = this.add.image(2192, 880, "White_silver Card Front");
 		white_silver_Card_Front_6.scaleX = 0.25;
 		white_silver_Card_Front_6.scaleY = 0.25;
+		white_silver_Card_Front_6.tintTopLeft = 3700951;
+		white_silver_Card_Front_6.tintTopRight = 1819968;
+		white_silver_Card_Front_6.tintBottomLeft = 3700951;
+		white_silver_Card_Front_6.tintBottomRight = 1819968;
 
 		// text_23
 		const text_23 = this.add.text(2176, 928, "", {});
@@ -450,17 +469,23 @@ export default class Level extends Phaser.Scene {
 		white_silver_Card_Front_11.alphaBottomLeft = 0.2;
 		white_silver_Card_Front_11.alphaBottomRight = 0.2;
 
-		// text_6
-		const text_6 = this.add.text(144, 416, "", {});
-		text_6.setOrigin(0.5, 0.5);
-		text_6.text = "0/50";
-		text_6.setStyle({ "color": "#1bc540", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 10 });
+		// energyPoolText
+		const energyPoolText = this.add.text(144, 256, "", {});
+		energyPoolText.setOrigin(0.5, 0.5);
+		energyPoolText.text = "0";
+		energyPoolText.setStyle({ "color": "#1bc540", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 10 });
 
 		// text_14
 		const text_14 = this.add.text(1840, 704, "", {});
 		text_14.setOrigin(0.5, 0.5);
 		text_14.text = "DON'T DELETE";
 		text_14.setStyle({ "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 20 });
+
+		// text_1
+		const text_1 = this.add.text(1552, 960, "", {});
+		text_1.setOrigin(0.5, 0.5);
+		text_1.text = "3d";
+		text_1.setStyle({ "color": "#3878d7", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
 
 		// lists
 		const list = [];
@@ -471,6 +496,7 @@ export default class Level extends Phaser.Scene {
 		this.allCard = allCard;
 		this.drawDeck1 = drawDeck1;
 		this.drawDeck2 = drawDeck2;
+		this.energyPoolText = energyPoolText;
 		this.list = list;
 
 		this.events.emit("scene-awake");
@@ -488,6 +514,8 @@ export default class Level extends Phaser.Scene {
 	drawDeck1;
 	/** @type {Phaser.GameObjects.Image} */
 	drawDeck2;
+	/** @type {Phaser.GameObjects.Text} */
+	energyPoolText;
 	/** @type {Array<any>} */
 	list;
 
@@ -499,6 +527,11 @@ export default class Level extends Phaser.Scene {
 
 		this.editorCreate();
 
+		this.sfx = {
+			click: this.sound.add("click"),
+			flip: this.sound.add("cardFlip"),
+			hover: this.sound.add("hover"),
+		}
 		this.playerHand = [];
 
 		const zones = [this.defenseZone, this.powerZone, this.energyZone]
@@ -516,8 +549,8 @@ export default class Level extends Phaser.Scene {
 			}
 		})
 
-		this.setupDrawPile(this.drawDeck1, "log");
-		this.setupDrawPile(this.drawDeck2, "crystal");
+		// this.setupDrawPile(this.drawDeck1, "log");
+		// this.setupDrawPile(this.drawDeck2, "crystal");
 
 
 
@@ -555,22 +588,188 @@ export default class Level extends Phaser.Scene {
 			}
 		}
 
-		this.test = new CardContainer(this, 500, 500, testCardInfo1);
-		this.test2 = new CardContainer(this, 600, 500, testCardInfo2);
-		this.test3 = new CardContainer(this, 700, 500, testCardInfo3); 
-		// this.test.flipAnimation();
-		this.test.on("dragend", () => {
-            this.test.flipAnimation();
-        });
+		const soulProtector = {
+			cardKey : 0,
+			card : {
+				energyValue: 15,
+				attackValue: 2,
+				defenseValue: 2,
+				name: 'protector',
+				type: 'soul'
+			}
+		}
 
-        this.test2.on("dragend", () => {
-            // this.test2.evaporateAnimation();
-			this.test2.flipAnimation();
-        });
+		const soulPower = {
+			cardKey : 0,
+			card : {
+				energyValue: 15,
+				attackValue: 2,
+				defenseValue: 2,
+				name: 'power',
+				type: 'soul'
+			}
+		}
 
-		this.test3.on("dragend", () => {
-            this.test3.flipAnimation();
-        });
+		const soulArcane = {
+			cardKey : 0,
+			card : {
+				energyValue: 15,
+				attackValue: 2,
+				defenseValue: 2,
+				name: 'arcane',
+				type: 'soul'
+			}
+		}
+
+		const soulVital = {
+			cardKey : 0,
+			card : {
+				energyValue: 15,
+				attackValue: 2,
+				defenseValue: 2,
+				name: 'vital',
+				type: 'soul'
+			}
+		}
+
+		const soulKnowledge = {
+			cardKey : 0,
+			card : {
+				energyValue: 15,
+				attackValue: 2,
+				defenseValue: 2,
+				name: 'knowledge',
+				type: 'soul'
+			}
+		}
+
+		// swordCard.enableInteractable();
+		// swordCard.enableDrag();
+		// swordCard.enableHover();
+		// swordCard.flipCard();
+
+		// const pillowCard = new materialContainer(this, {cardKey : 0,
+		// 	card : {
+		// 		energyValue: 10,
+		// 		attackValue: null,
+		// 		defenseValue: 10,
+		// 		name: 'pillow',
+		// 		type: 'material'
+		// 	}}, 400, 400);
+		// pillowCard.enableInteractable();
+		// pillowCard.enableDrag();
+		// pillowCard.enableHover();
+		// pillowCard.flipCard();
+
+		// const nailsCard = new materialContainer(this, {cardKey : 0,
+		// 	card : {
+		// 		energyValue: 5,
+		// 		attackValue: 7,
+		// 		defenseValue: 2,
+		// 		name: 'nails',
+		// 		type: 'material'
+		// 	}}, 400, 400);
+		// nailsCard.enableInteractable();
+		// nailsCard.enableDrag();
+		// nailsCard.enableHover();
+		// nailsCard.flipCard();
+
+		// const protectorCard = new soulContainer(this, soulProtector, 300, 400);
+		// protectorCard.enableInteractable();
+		// protectorCard.enableDrag();
+		// protectorCard.enableHover();
+		// protectorCard.flipCard();
+
+		// const powerCard = new soulContainer(this, soulPower, 300, 400);
+		// powerCard.enableInteractable();
+		// powerCard.enableDrag();
+		// powerCard.enableHover();
+		// powerCard.flipCard();
+
+		// const knowledgeCard = new soulContainer(this, soulKnowledge, 300, 400);
+		// knowledgeCard.enableInteractable();
+		// knowledgeCard.enableDrag();
+		// knowledgeCard.enableHover();
+		// knowledgeCard.flipCard();
+
+		// const arcaneCard = new soulContainer(this, soulArcane, 300, 400);
+		// arcaneCard.enableInteractable();
+		// arcaneCard.enableDrag();
+		// arcaneCard.enableHover();
+		// arcaneCard.flipCard();
+
+		// const VitalCard = new soulContainer(this, soulVital, 300, 400);
+		// VitalCard.enableInteractable();
+		// VitalCard.enableDrag();
+		// VitalCard.enableHover();
+		// VitalCard.flipCard();
+
+		// let i = 0;
+		// const hand = new CardHand(this);
+		// this.drawDeck1.on("pointerover", () => this.drawDeck1.setTint(0xddddff));
+		// this.drawDeck1.on("pointerout", () => this.drawDeck1.clearTint());
+		// this.drawDeck1.on("pointerdown", () => {
+		// 	this.drawDeck1.clearTint();
+		// 	hand.disableHand();
+		// 	hand.draw({cardKey : i++, card : {
+		// 		energyValue: 5,
+		// 		attackValue: 7,
+		// 		defenseValue: 2,
+		// 		name: ["power", "knowledge", "protector", "arcane", "vital"][Phaser.Math.RND.integerInRange(0,4)],
+		// 		type: 'soul'
+		// 	}});
+		// 	hand.enableHand();
+		// });
+
+		// this.drawDeck2.on("pointerover", () => this.drawDeck2.setTint(0xddddff));
+		// this.drawDeck2.on("pointerout", () => this.drawDeck2.clearTint());
+		// this.drawDeck2.on("pointerdown", () => {
+		// 	this.drawDeck2.clearTint();
+		// 	hand.disableHand();
+		// 	hand.draw({cardKey : i++, card : {
+		// 		energyValue: 5,
+		// 		attackValue: 7,
+		// 		defenseValue: 2,
+		// 		name: ["sword", "log", "crystals", "pillow", "mushroom"][Phaser.Math.RND.integerInRange(0,4)],
+		// 		type: 'material'
+		// 	}});
+		// 	hand.enableHand();
+		// });
+
+		const core = new Core(this);
+		// const attackZone = this.add.zone(0, 0, 500, 500).setRectangleDropZone(500, 500);
+		// attackZone.name = "attackZone";
+
+		// this.input.on("dragend", (pointer, gameObject, dropped) => {
+		// 	if (!dropped) {
+		// 		hand.layoutHand(); // snap back to hand position
+		// 	}
+		// });
+
+		// this.input.on("drop", (pointer, gameObject, dropZone) => {
+		// 	hand.removeCard(gameObject.getCardInfo().cardKey)
+		// });
+
+
+
+
+
+		// this.test = new CardContainer(this, 500, 500, testCardInfo1);
+		// this.test2 = new CardContainer(this, 600, 500, testCardInfo2);
+		// this.test3 = new CardContainer(this, 700, 500, testCardInfo3); 
+		// // this.test.flipAnimation();
+		// this.test.on("dragend", () => {
+        //     this.test.flipAnimation();
+        // });
+
+        // this.test2.on("dragend", () => {
+        //     // this.test2.evaporateAnimation();
+		// 	this.test2.flipAnimation();
+        // });
+
+		// this.test3.on("dragend", () => {
+        //     this.test3.flipAnimation();
+        // });
 
 		// const card = new CardContainer(this, 500, 200, cardInfo1);
 
@@ -589,7 +788,7 @@ export default class Level extends Phaser.Scene {
 	/* -------------------------------------------------------------------------- */
 	/*                                Player Hand                                 */
 	/* -------------------------------------------------------------------------- */
-
+	/*
 	setupDrawPile(pile, cardName) {
 		// pile.setInteractive();
 		pile.on("pointerover", () => pile.setTint(0xddddff));
@@ -677,7 +876,7 @@ export default class Level extends Phaser.Scene {
 			this.layoutHand(null);
 		});
 	}
-
+	*/
 
 	/* END-USER-CODE */
 }

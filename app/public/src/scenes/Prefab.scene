@@ -111,6 +111,67 @@
                             "preFX": true
                         }
                     ]
+                },
+                {
+                    "type": "Image",
+                    "id": "7110300a-fc95-489e-9d6f-7dbc0c323900",
+                    "label": "soulCardFront",
+                    "texture": {
+                        "key": "Power Soul Card"
+                    },
+                    "scaleX": 0.25,
+                    "scaleY": 0.25,
+                    "list": [
+                        {
+                            "type": "Shadow",
+                            "id": "2dc83735-3317-4a77-8817-1e816f41df61",
+                            "label": "shadowFx_2",
+                            "x": 0.5,
+                            "y": 0.5,
+                            "decay": 0.04,
+                            "power": 0.22,
+                            "samples": 11,
+                            "intensity": 1.64
+                        }
+                    ]
+                },
+                {
+                    "type": "Image",
+                    "id": "86f4c62e-3205-48c6-bf1a-eb114ecd1556",
+                    "label": "soulSymbol",
+                    "texture": {
+                        "key": "Power Soul Symbol"
+                    },
+                    "y": -32,
+                    "scaleX": 0.15,
+                    "scaleY": 0.15,
+                    "list": [
+                        {
+                            "type": "Shadow",
+                            "id": "f85e5bf7-1581-4b7a-9be6-5b830b529afb",
+                            "label": "shadowFx",
+                            "preFX": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Image",
+                    "id": "0c939027-e490-4d63-9642-b605d7b102c6",
+                    "label": "title",
+                    "texture": {
+                        "key": "Power Soul Title"
+                    },
+                    "y": 48,
+                    "scaleX": 0.15,
+                    "scaleY": 0.15,
+                    "list": [
+                        {
+                            "type": "Shadow",
+                            "id": "8b86960b-b446-4bee-ab17-983bddcb5ded",
+                            "label": "shadowFx_1",
+                            "preFX": true
+                        }
+                    ]
                 }
             ]
         }

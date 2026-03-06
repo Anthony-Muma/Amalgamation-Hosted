@@ -20,6 +20,9 @@ export default class MainMenu extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
+		// table
+		this.add.image(640, 360, "Table");
+
 		// createLobbyButton
 		const createLobbyButton = this.add.rectangle(344, 344, 128, 128);
 		createLobbyButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
@@ -77,7 +80,7 @@ export default class MainMenu extends Phaser.Scene {
 
 		this.createLobbyButton.on("pointerdown", () => {
         	// Request to create lobby
-			
+
         	socket.emit("lobby:create");
 		});
 

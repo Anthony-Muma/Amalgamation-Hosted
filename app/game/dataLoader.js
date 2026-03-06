@@ -30,11 +30,13 @@ function getData(filename) {
 /* -------------------------------------------------------------------------- */
 
 const material = getData('material-cards.json');
+const soul = getData('soul-cards.json');
 
 /* -------------------------------------------------------------------------- */
 /*                                   Exports                                  */
 /* -------------------------------------------------------------------------- */
 
 module.exports = {
-    material
+    material,
+    soul
 }

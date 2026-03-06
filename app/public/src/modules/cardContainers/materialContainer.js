@@ -4,7 +4,7 @@ function getMainImageKey(name) {
     const map = {
         log: "Chopped Log",
         pillow : "Pillow",
-        crystal : "Energy Crystal 3X",
+        crystals : "Energy Crystal 3X",
         nails : "Nails",
         sword : "Sword",
         mushroom : "Mushroom"
@@ -33,6 +33,10 @@ export class materialContainer extends baseContainer {
         this.cardInfo = cardInfo;
         this.scene = scene;
 
+        const powerValue = cardInfo.card.attackValue;
+        const defenseValue = cardInfo.card.defenseValue;
+        const energyValue = cardInfo.card.energyValue;
+
         // Slightly modified compiler-made code
         
         // cardFront
@@ -49,23 +53,29 @@ export class materialContainer extends baseContainer {
 
 		// powerText
 		const powerText = scene.add.text(-32, 48, "", {});
-		powerText.setOrigin(0.5, 0.5);
-		powerText.text = `${this.cardInfo.card.attackValue} POW`;
-		powerText.setStyle({ "color": "#f5786b", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
+        if (powerValue) {
+            powerText.setOrigin(0.5, 0.5);
+            powerText.text = `${powerValue} POW`;
+            powerText.setStyle({ "color": "#f5786b", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
+        }
         this.powerText = powerText;
 
 		// DefenseText
 		const defenseText = scene.add.text(32, 48, "", {});
-		defenseText.setOrigin(0.5, 0.5);
-		defenseText.text = `${this.cardInfo.card.defenseValue} DEF`;
-		defenseText.setStyle({ "color": "#3878d7", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
+        if (defenseValue) {
+            defenseText.setOrigin(0.5, 0.5);
+            defenseText.text = `${defenseValue} DEF`;
+            defenseText.setStyle({ "color": "#3878d7", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
+        }
         this.defenseText = defenseText;
 
 		// energyText
 		const energyText = scene.add.text(0, 64, "", {});
-		energyText.setOrigin(0.5, 0.5);
-		energyText.text = `${this.cardInfo.card.energyValue} ENG`;
-		energyText.setStyle({ "color": "#1bc540", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
+        if (energyValue) {
+            energyText.setOrigin(0.5, 0.5);
+            energyText.text = `${energyValue} ENG`;
+            energyText.setStyle({ "color": "#1bc540", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
+        }
         this.energyText = energyText;
 
 		// nameText
@@ -82,7 +92,7 @@ export class materialContainer extends baseContainer {
         this.mainImage = mainImage;
 
 		// shadowFx_10
-		mainImage.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+		// mainImage.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
 
         /* ---------------------------- Create Container ---------------------------- */
 
@@ -93,10 +103,10 @@ export class materialContainer extends baseContainer {
         scene.add.existing(this);
 
         /* ---------------------------------- SFXs ---------------------------------- */
-        this.clickSFX = scene.sound.add("click");
-        this.flipSFX = scene.sound.add("cardFlip");
-        this.hoverSFX = scene.sound.add("hover");
-        this.hoverSFX.volume = 0.1;
+        // this.clickSFX = scene.sound.add("click");
+        // this.flipSFX = scene.sound.add("cardFlip");
+        // this.hoverSFX = scene.sound.add("hover");
+        // this.hoverSFX.volume = 0.1;
     }
 
     /* -------------------------------------------------------------------------- */
@@ -107,7 +117,7 @@ export class materialContainer extends baseContainer {
         if (this._isFlipping) return;
         this._isFlipping = true;
 
-        this.flipSFX.play();
+        this.scene.sfx.flip.play();
 
         const scene = this.scene;
 
@@ -196,6 +206,7 @@ export class materialContainer extends baseContainer {
 
     hoverAnimation() {
         const scene = this.scene;
+        scene.sfx.click.play();
         scene.tweens.add({
             targets: this.visualContainer,
             scaleY: 1.50,

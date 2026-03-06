@@ -75,7 +75,7 @@ export class soulContainer extends baseContainer {
         this.cardFront = cardFront;
 
         // shadowFx_2
-		cardFront.postFX.addShadow(0.5, 0.5, 0.04, 0.22, 0, 11, 1.64);
+		// cardFront.postFX.addShadow(0.5, 0.5, 0.04, 0.22, 0, 11, 1.64);
 
         // soulSymbol
         const soulSymbol = scene.add.image(0, -32, this.symbolKey);
@@ -84,7 +84,7 @@ export class soulContainer extends baseContainer {
         this.soulSymbol = soulSymbol;
 
         // shadowFx
-		soulSymbol.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+		// soulSymbol.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
 
         // title
         const title = scene.add.image(0, 48, this.titleKey);
@@ -93,7 +93,7 @@ export class soulContainer extends baseContainer {
         this.title = title;
 
         // shadowFx_1
-		title.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+		// title.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
 
         /* ---------------------------- Create Container ---------------------------- */
 
@@ -102,12 +102,6 @@ export class soulContainer extends baseContainer {
         this.combineRequired(frontItems, backItems);
         
         scene.add.existing(this);
-
-        /* ---------------------------------- SFXs ---------------------------------- */
-        this.clickSFX = scene.sound.add("click");
-        this.flipSFX = scene.sound.add("cardFlip");
-        this.hoverSFX = scene.sound.add("hover");
-        this.hoverSFX.volume = 0.1;
     }
 
     /* -------------------------------------------------------------------------- */
@@ -118,7 +112,7 @@ export class soulContainer extends baseContainer {
         if (this._isFlipping) return;
         this._isFlipping = true;
 
-        this.flipSFX.play();
+        this.scene.sfx.flip.play();
 
         const scene = this.scene;
 
@@ -207,6 +201,7 @@ export class soulContainer extends baseContainer {
 
     hoverAnimation() {
         const scene = this.scene;
+        scene.sfx.click.play();
 
         // Scale up the whole card
         scene.tweens.add({

@@ -20,6 +20,9 @@ export default class Join extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
+		// table
+		this.add.image(640, 360, "Table");
+
 		// lobbyCodeText
 		const lobbyCodeText = this.add.text(640, 150, "", {});
 		lobbyCodeText.setOrigin(0.5, 0.5);
@@ -113,9 +116,9 @@ export default class Join extends Phaser.Scene {
         // Press Enter key
         this.input.keyboard.on("keydown-ENTER", () => {
             const code = this.nameInput.node.value.toUpperCase().trim();
-			
+
             console.log("Entered code: ", code);
-			
+
 			// Request to join lobby
 			socket.emit("lobby:join", code)
         });

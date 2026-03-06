@@ -55,6 +55,33 @@ export default class Prefab extends Phaser.GameObjects.Container {
 		// shadowFx_10
 		mainImage.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
 
+		// soulCardFront
+		const soulCardFront = scene.add.image(0, 0, "Power Soul Card");
+		soulCardFront.scaleX = 0.25;
+		soulCardFront.scaleY = 0.25;
+		this.add(soulCardFront);
+
+		// shadowFx_2
+		soulCardFront.postFX.addShadow(0.5, 0.5, 0.04, 0.22, 0, 11, 1.64);
+
+		// soulSymbol
+		const soulSymbol = scene.add.image(0, -32, "Power Soul Symbol");
+		soulSymbol.scaleX = 0.15;
+		soulSymbol.scaleY = 0.15;
+		this.add(soulSymbol);
+
+		// shadowFx
+		soulSymbol.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+
+		// title
+		const title = scene.add.image(0, 48, "Power Soul Title");
+		title.scaleX = 0.15;
+		title.scaleY = 0.15;
+		this.add(title);
+
+		// shadowFx_1
+		title.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+
 		/* START-USER-CTR-CODE */
 		// Write your code here.
 		/* END-USER-CTR-CODE */

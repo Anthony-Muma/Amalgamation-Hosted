@@ -134,36 +134,44 @@ io.on("connection", (socket)=>{
     
     socket.on("game:playPower", (cardKey, amalgamationIndex)=>{
 
-        // TO:DO : Sanitize incoming request
-
+        // Sanitize incoming request
         const lobby = LobbyStore.getLobby(currentLobbyId);
-
         if (!lobby) return;
 
-        // TO:DO : Game state / turn check
-
+        // Game state / turn check
         const result = lobby.game.playPower(socketId, amalgamationIndex, cardKey);
 
-        // TO:DO : Check result
+        // Opponent play power emit for other players
+        socket.broadcast.to(currentLobbyId).emit("game:opponentPlayedPower", result);
 
-        socket.broadcast.to(currentLobbyId).emit("game:opponentPlayedPower", result)
     });
 
     socket.on("game:playDefense", (cardKey, amalgamationIndex)=>{
-        // Game state check
-            // 
+
+        // Sanitize incoming request
+        const lobby = LobbyStore.getLobby(currentLobbyId);
+        if (!lobby) return;
+
+        // Game state / turn check
+        const result = lobby.game.playDefense(socketId, amalgamationIndex, cardKey);
         
         // Opponent play defense emit for other players
-        // emit game:opponentPlayedDefense
+        socket.broadcast.to(currentLobbyId).emit("game:opponentPlayedDefense", result);
+
     });
 
     socket.on("game:playEnergy", (cardKey)=>{
-        // Game state check
-            // Only do on X game state
-
         
-        // Opponent play energy emit for other players
-        // emit game:opponentPlayedEnergy
+        // Sanitize incoming request
+        const lobby = LobbyStore.getLobby(currentLobbyId);
+        if (!lobby) return;
+
+        // Game state / turn check
+        const result = lobby.game.playEnergy(socketId, cardKey);
+        
+        // Opponent play defense emit for other players
+        socket.broadcast.to(currentLobbyId).emit("game:opponentPlayedEnergy", result);
+
     });
 
     // TO:DO

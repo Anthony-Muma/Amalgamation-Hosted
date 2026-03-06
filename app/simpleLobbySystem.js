@@ -178,10 +178,24 @@ io.on("connection", (socket)=>{
 
     // TO:DO
     socket.on("game:endTurn", () => {
+
+        const lobby = LobbyStore.getLobby(currentLobbyId);
+
+        if (!lobby) return;
+
+        // TO:DO : Game state / turn check
+        lobby.game.startTurn(socketId);
+        const result = lobby.game.startTurn(socketId);
+
+        // TO:DO : Check result
+
+        socket.broadcast.to(currentLobbyId).emit("game:opponentPlayedPower", result)
+
         // check states
 
         // Swap players
         // emit game:turnStarted
+        // emit game:turnEnded
     })
 
     // TO:DO : handle more leave cases

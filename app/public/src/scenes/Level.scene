@@ -393,13 +393,12 @@
             },
             "x": 864,
             "y": 368,
-            "scaleX": 0.25,
-            "scaleY": 0.25,
-            "alpha": 0.2,
-            "alphaTopLeft": 0.2,
-            "alphaTopRight": 0.2,
-            "alphaBottomLeft": 0.2,
-            "alphaBottomRight": 0.2
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "#73aec6",
+            "tintTopRight": "#73aec6",
+            "tintBottomLeft": "#73aec6",
+            "tintBottomRight": "#73aec6"
         },
         {
             "type": "Text",
@@ -972,13 +971,12 @@
             },
             "x": 640,
             "y": 368,
-            "scaleX": 0.25,
-            "scaleY": 0.25,
-            "alpha": 0.2,
-            "alphaTopLeft": 0.2,
-            "alphaTopRight": 0.2,
-            "alphaBottomLeft": 0.2,
-            "alphaBottomRight": 0.2
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "#73aec6",
+            "tintTopRight": "#73aec6",
+            "tintBottomLeft": "#73aec6",
+            "tintBottomRight": "#73aec6"
         },
         {
             "type": "Image",
@@ -989,13 +987,12 @@
             },
             "x": 416,
             "y": 368,
-            "scaleX": 0.25,
-            "scaleY": 0.25,
-            "alpha": 0.2,
-            "alphaTopLeft": 0.2,
-            "alphaTopRight": 0.2,
-            "alphaBottomLeft": 0.2,
-            "alphaBottomRight": 0.2
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "#73aec6",
+            "tintTopRight": "#73aec6",
+            "tintBottomLeft": "#73aec6",
+            "tintBottomRight": "#73aec6"
         },
         {
             "type": "Image",
@@ -1093,6 +1090,66 @@
             "color": "#3878d7",
             "stroke": "#000000ff",
             "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "913ff89e-bace-474b-ad2f-d87a0545ce36",
+            "label": "knight",
+            "texture": {
+                "key": "Knight"
+            },
+            "x": 640,
+            "y": 352,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "list": [
+                {
+                    "type": "Shine",
+                    "id": "8fd116a2-ca83-4911-9324-197b4583ccda",
+                    "label": "shineFx_1",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "a18f42cb-d63b-41d6-b0a3-ec4163913531",
+            "label": "souless",
+            "texture": {
+                "key": "Souless"
+            },
+            "x": 864,
+            "y": 352,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "list": [
+                {
+                    "type": "Shine",
+                    "id": "7f28d930-66a5-4408-b977-60231e7b4187",
+                    "label": "shineFx_3",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "60b32a09-5d1f-4bf8-bf17-1afebfa89e3f",
+            "label": "wall",
+            "texture": {
+                "key": "Wall"
+            },
+            "x": 416,
+            "y": 352,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "list": [
+                {
+                    "type": "Shine",
+                    "id": "feabc574-790b-4d14-bb2f-219a32f5315c",
+                    "label": "shineFx_2",
+                    "preFX": true
+                }
+            ]
         }
     ],
     "plainObjects": [],

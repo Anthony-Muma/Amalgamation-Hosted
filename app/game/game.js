@@ -17,7 +17,8 @@ const GLOBAL_DRAW_AMOUNT = 1;
 
 const GAME_STATES = Object.freeze({
     PREPARATION : "PREPARATION",
-
+    NORMAL : "NORMAL",
+    NONE : "NONE",
 })
 
 /* -------------------------------------------------------------------------- */

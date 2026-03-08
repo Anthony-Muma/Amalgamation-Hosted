@@ -134,11 +134,19 @@ io.on("connection", (socket)=>{
     
     socket.on("game:playPower", (cardKey, amalgamationIndex)=>{
 
-        // Sanitize incoming request
+        // Verify data.
+        if (typeof cardKey !== "number"){
+            return;
+        }
+        if (typeof amalgamationIndex !== "number" || amalgamationIndex < 1 || amalgamationIndex > 3){
+            return;
+        }
         const lobby = LobbyStore.getLobby(currentLobbyId);
         if (!lobby) return;
 
         // Game state / turn check
+
+        // Play.
         const result = lobby.game.playPower(socketId, amalgamationIndex, cardKey);
 
         // Opponent play power emit for other players
@@ -148,11 +156,19 @@ io.on("connection", (socket)=>{
 
     socket.on("game:playDefense", (cardKey, amalgamationIndex)=>{
 
-        // Sanitize incoming request
+        // Verify data.
+        if (typeof cardKey !== "number"){
+            return;
+        }
+        if (typeof amalgamationIndex !== "number" || amalgamationIndex < 1 || amalgamationIndex > 3){
+            return;
+        }
         const lobby = LobbyStore.getLobby(currentLobbyId);
         if (!lobby) return;
 
         // Game state / turn check
+
+        // Play.
         const result = lobby.game.playDefense(socketId, amalgamationIndex, cardKey);
         
         // Opponent play defense emit for other players
@@ -162,11 +178,16 @@ io.on("connection", (socket)=>{
 
     socket.on("game:playEnergy", (cardKey)=>{
         
-        // Sanitize incoming request
+        // Verify data.
+        if (typeof cardKey !== "number"){
+            return;
+        }
         const lobby = LobbyStore.getLobby(currentLobbyId);
         if (!lobby) return;
 
         // Game state / turn check
+
+        // Play.
         const result = lobby.game.playEnergy(socketId, cardKey);
         
         // Opponent play defense emit for other players

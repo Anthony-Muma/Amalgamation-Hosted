@@ -17,7 +17,7 @@ const GLOBAL_DRAW_AMOUNT = 1;
 
 const GAME_STATES = Object.freeze({
     PREPARATION : "PREPARATION",
-    NORMAL : "NORMAL",
+    STANDARDPLAY : "STANDARDPLAY",
     NONE : "NONE",
 })
 
@@ -322,5 +322,5 @@ class Game {
 
 module.exports = {
     Game,
-    GAME_STATES
+    GAME_STATES,
 }

@@ -75,6 +75,7 @@ class Game {
 
     // Game state
     #gameState = GAME_STATES.NONE;
+    #playerTurn = 1;
 
     /* ------------------------------- Constructor ------------------------------ */
 
@@ -306,6 +307,12 @@ class Game {
     }
 
     alternateTurn(){
+
+        // Alternate player turn from 1 to 2.
+        this.#playerTurn = this.#playerTurn === 1 ? 2 : 1;
+
+        // Increase the turn count by 0.5.
+        this.#turnCount += 0.5;
 
     }
 

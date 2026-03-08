@@ -74,10 +74,7 @@ class Game {
     #turnCount = 0;
 
     // Game state
-    // Need to implement among other things
-    #gameState = {
-
-    }
+    #gameState = GAME_STATES.NONE;
 
     /* ------------------------------- Constructor ------------------------------ */
 
@@ -269,6 +266,47 @@ class Game {
         }
 
         return returnQueue;
+    }
+
+    /* ------------------------------- Game State ------------------------------- */
+
+    advanceGameState(){
+        
+        // // Advance
+        
+        // If game state is none, 
+        if (this.#gameState === GAME_STATES.NONE) {
+
+            // Set to preparation
+            this.#gameState = GAME_STATES.PREPARATION;
+
+        }
+        // Else if game state is preparation,
+        else if (this.#gameState === GAME_STATES.PREPARATION) {
+
+            // Set to normal
+            this.#gameState = GAME_STATES.NORMAL;
+
+        }
+        // Else if game state is normal,
+        else if (this.#gameState === GAME_STATES.NORMAL) {
+
+            // Set to none
+            this.#gameState = GAME_STATES.NONE;
+
+        }
+
+    }
+    
+    getGameState(){
+
+        // Return
+        return this.#gameState;
+        
+    }
+
+    alternateTurn(){
+
     }
 
     /* ---------------------------------- Misc ---------------------------------- */

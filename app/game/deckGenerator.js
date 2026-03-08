@@ -6,15 +6,18 @@ const { material, soul } = require("./dataLoader.js");
 const CARD_TYPE = "material";
 const CARDS = { // Weight is a number. Higher weight means more likely to be drawn. <=0 means impossible to be drawn.
     "log": { getWeight: function(turn) {
+        // Linear decrease
         return 90 - turn*7;
     }},
     "sword": { getWeight: function(turn) {
+        // Bell curve increase and decrease
         let w;
         if (turn <= 10) w = 8 + 5*turn
         else if(turn > 10) w = 58 - (turn-10)*6;
         return w;
     }},
     "energy crystal": { getWeight: function(turn) {
+        // Exponential increase
         let w = 0 + (turn-1)*2;
         if (turn > 10 && turn <= 15) w += (turn-10)*2
         else if (turn > 15 && turn < 25) w += (turn-15)*4;

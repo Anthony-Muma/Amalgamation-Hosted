@@ -10,7 +10,7 @@
 /*                                   Imports                                  */
 /* -------------------------------------------------------------------------- */
 
-const { material } = require("./dataLoader.js")
+const { material, soul } = require("./dataLoader.js")
 
 /* -------------------------------------------------------------------------- */
 /*                                  Constants                                 */
@@ -91,7 +91,11 @@ function cardFactory(name, type) {
         case "material":
             settings = material[name];
             break;
-        //...
+        case "soul":
+            settings = soul[name];
+            break;
+        default:
+            throw new Error(`Invalid card name or type: ${name} ${type}`);
     }
 
     const card = new Card(settings);

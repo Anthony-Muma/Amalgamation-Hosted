@@ -178,13 +178,12 @@ export default class Level extends Phaser.Scene {
 
 		// white_silver_Card_Front_2
 		const white_silver_Card_Front_2 = this.add.image(864, 368, "White_silver Card Front");
-		white_silver_Card_Front_2.scaleX = 0.25;
-		white_silver_Card_Front_2.scaleY = 0.25;
-		white_silver_Card_Front_2.alpha = 0.2;
-		white_silver_Card_Front_2.alphaTopLeft = 0.2;
-		white_silver_Card_Front_2.alphaTopRight = 0.2;
-		white_silver_Card_Front_2.alphaBottomLeft = 0.2;
-		white_silver_Card_Front_2.alphaBottomRight = 0.2;
+		white_silver_Card_Front_2.scaleX = 0.27;
+		white_silver_Card_Front_2.scaleY = 0.27;
+		white_silver_Card_Front_2.tintTopLeft = 7581382;
+		white_silver_Card_Front_2.tintTopRight = 7581382;
+		white_silver_Card_Front_2.tintBottomLeft = 7581382;
+		white_silver_Card_Front_2.tintBottomRight = 7581382;
 
 		// text_9
 		const text_9 = this.add.text(752, 1024, "", {});
@@ -421,23 +420,21 @@ export default class Level extends Phaser.Scene {
 
 		// white_silver_Card_Front_7
 		const white_silver_Card_Front_7 = this.add.image(640, 368, "White_silver Card Front");
-		white_silver_Card_Front_7.scaleX = 0.25;
-		white_silver_Card_Front_7.scaleY = 0.25;
-		white_silver_Card_Front_7.alpha = 0.2;
-		white_silver_Card_Front_7.alphaTopLeft = 0.2;
-		white_silver_Card_Front_7.alphaTopRight = 0.2;
-		white_silver_Card_Front_7.alphaBottomLeft = 0.2;
-		white_silver_Card_Front_7.alphaBottomRight = 0.2;
+		white_silver_Card_Front_7.scaleX = 0.27;
+		white_silver_Card_Front_7.scaleY = 0.27;
+		white_silver_Card_Front_7.tintTopLeft = 7581382;
+		white_silver_Card_Front_7.tintTopRight = 7581382;
+		white_silver_Card_Front_7.tintBottomLeft = 7581382;
+		white_silver_Card_Front_7.tintBottomRight = 7581382;
 
 		// white_silver_Card_Front_8
 		const white_silver_Card_Front_8 = this.add.image(416, 368, "White_silver Card Front");
-		white_silver_Card_Front_8.scaleX = 0.25;
-		white_silver_Card_Front_8.scaleY = 0.25;
-		white_silver_Card_Front_8.alpha = 0.2;
-		white_silver_Card_Front_8.alphaTopLeft = 0.2;
-		white_silver_Card_Front_8.alphaTopRight = 0.2;
-		white_silver_Card_Front_8.alphaBottomLeft = 0.2;
-		white_silver_Card_Front_8.alphaBottomRight = 0.2;
+		white_silver_Card_Front_8.scaleX = 0.27;
+		white_silver_Card_Front_8.scaleY = 0.27;
+		white_silver_Card_Front_8.tintTopLeft = 7581382;
+		white_silver_Card_Front_8.tintTopRight = 7581382;
+		white_silver_Card_Front_8.tintBottomLeft = 7581382;
+		white_silver_Card_Front_8.tintBottomRight = 7581382;
 
 		// white_silver_Card_Front_9
 		const white_silver_Card_Front_9 = this.add.image(864, 144, "White_silver Card Front");
@@ -486,6 +483,30 @@ export default class Level extends Phaser.Scene {
 		text_1.setOrigin(0.5, 0.5);
 		text_1.text = "3d";
 		text_1.setStyle({ "color": "#3878d7", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
+
+		// knight
+		const knight = this.add.image(640, 352, "Knight");
+		knight.scaleX = 0.15;
+		knight.scaleY = 0.15;
+
+		// shineFx_1
+		knight.preFX.addShine(0.5, 0.5, 3, false);
+
+		// souless
+		const souless = this.add.image(864, 352, "Souless");
+		souless.scaleX = 0.15;
+		souless.scaleY = 0.15;
+
+		// shineFx_3
+		souless.preFX.addShine(0.5, 0.5, 3, false);
+
+		// wall
+		const wall = this.add.image(416, 352, "Wall");
+		wall.scaleX = 0.15;
+		wall.scaleY = 0.15;
+
+		// shineFx_2
+		wall.preFX.addShine(0.5, 0.5, 3, false);
 
 		// lists
 		const list = [];

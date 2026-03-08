@@ -75,6 +75,11 @@
                 "key": "hover"
             },
             {
+                "url": "assets/Knight.PNG",
+                "type": "image",
+                "key": "Knight"
+            },
+            {
                 "url": "assets/Knowledge Soul Card.PNG",
                 "type": "image",
                 "key": "Knowledge Soul Card"
@@ -140,6 +145,11 @@
                 "key": "Protector Soul Title"
             },
             {
+                "url": "assets/Souless.PNG",
+                "type": "image",
+                "key": "Souless"
+            },
+            {
                 "url": "assets/Sword.PNG",
                 "type": "image",
                 "key": "Sword"
@@ -173,6 +183,11 @@
                 "url": "assets/Vital Soul Title.PNG",
                 "type": "image",
                 "key": "Vital Soul Title"
+            },
+            {
+                "url": "assets/Wall.PNG",
+                "type": "image",
+                "key": "Wall"
             },
             {
                 "url": "assets/White_silver Card Front.PNG",

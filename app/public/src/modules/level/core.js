@@ -71,6 +71,9 @@ class Core {
 
         /* ------------------------------- Zone Events ------------------------------ */
 
+        scene.input.on("dragstart", (pointer, gameObject) => {
+            
+        })
         scene.input.on("dragend", (pointer, gameObject, dropped) => {
 			if (!dropped) this.playerHand.layoutHand(gameObject);
 		});

@@ -95,7 +95,7 @@ function deckGenerator(turn){
     let card;
 
     // Generate the card.
-    cardFactory("log", CARD_TYPE);
+    cardFactory(chooseCard(turn), CARD_TYPE);
 
     // Return
     return card;
@@ -131,7 +131,6 @@ function test(){
 }
 
 // test();
-
 
 module.exports = {
     deckGenerator

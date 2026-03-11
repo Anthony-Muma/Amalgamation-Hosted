@@ -20,10 +20,12 @@
             "texture": {
                 "key": "Table"
             },
-            "y": -352,
-            "scaleY": 1.5,
+            "y": -256,
+            "scaleY": 1.4073483651091703,
             "originX": 0,
-            "originY": 0
+            "originY": 0,
+            "tintTopLeft": "#f90000",
+            "tintTopRight": "#f90000"
         },
         {
             "type": "Rectangle",
@@ -93,8 +95,8 @@
             "texture": {
                 "key": "Card back"
             },
-            "x": 1104,
-            "y": 144,
+            "x": 1136,
+            "y": 128,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -109,7 +111,7 @@
             "texture": {
                 "key": "Card back"
             },
-            "x": 1104,
+            "x": 1136,
             "y": 368,
             "scaleX": 0.25,
             "scaleY": 0.25
@@ -227,21 +229,16 @@
             "id": "876c98b9-6a42-4d26-8ce7-31b13f3c0329",
             "label": "vital_Soul_Card",
             "texture": {
-                "key": "Vital Soul Card"
+                "key": "v2 Card Front"
             },
             "x": 144,
             "y": 256,
             "scaleX": 0.3,
             "scaleY": 0.3,
-            "list": [
-                {
-                    "type": "Shine",
-                    "id": "5ce802db-6d4d-4e4d-8bab-afd0b02445a5",
-                    "label": "shineFx",
-                    "speed": 0.66,
-                    "preFX": true
-                }
-            ]
+            "tintTopLeft": "#03ff4e",
+            "tintTopRight": "#03ff4e",
+            "tintBottomLeft": "#03ff4e",
+            "tintBottomRight": "#03ff4e"
         },
         {
             "type": "Image",
@@ -389,16 +386,12 @@
             "id": "e5da9061-b7bc-486e-8185-3e840cf8b8c8",
             "label": "white_silver_Card_Front_2",
             "texture": {
-                "key": "White_silver Card Front"
+                "key": "Character Card Background"
             },
-            "x": 864,
-            "y": 368,
+            "x": 1232,
+            "y": 944,
             "scaleX": 0.27,
-            "scaleY": 0.27,
-            "tintTopLeft": "#73aec6",
-            "tintTopRight": "#73aec6",
-            "tintBottomLeft": "#73aec6",
-            "tintBottomRight": "#73aec6"
+            "scaleY": 0.27
         },
         {
             "type": "Text",
@@ -963,89 +956,6 @@
             ]
         },
         {
-            "type": "Image",
-            "id": "17d82d2a-1f16-4a91-aac4-0c7c7f88b329",
-            "label": "white_silver_Card_Front_7",
-            "texture": {
-                "key": "White_silver Card Front"
-            },
-            "x": 640,
-            "y": 368,
-            "scaleX": 0.27,
-            "scaleY": 0.27,
-            "tintTopLeft": "#73aec6",
-            "tintTopRight": "#73aec6",
-            "tintBottomLeft": "#73aec6",
-            "tintBottomRight": "#73aec6"
-        },
-        {
-            "type": "Image",
-            "id": "352bd56f-8782-4ef2-886e-d604462d4e8d",
-            "label": "white_silver_Card_Front_8",
-            "texture": {
-                "key": "White_silver Card Front"
-            },
-            "x": 416,
-            "y": 368,
-            "scaleX": 0.27,
-            "scaleY": 0.27,
-            "tintTopLeft": "#73aec6",
-            "tintTopRight": "#73aec6",
-            "tintBottomLeft": "#73aec6",
-            "tintBottomRight": "#73aec6"
-        },
-        {
-            "type": "Image",
-            "id": "973d79b8-94a2-486f-8854-5aebe2c4fa03",
-            "label": "white_silver_Card_Front_9",
-            "texture": {
-                "key": "White_silver Card Front"
-            },
-            "x": 864,
-            "y": 144,
-            "scaleX": 0.25,
-            "scaleY": 0.25,
-            "alpha": 0.2,
-            "alphaTopLeft": 0.2,
-            "alphaTopRight": 0.2,
-            "alphaBottomLeft": 0.2,
-            "alphaBottomRight": 0.2
-        },
-        {
-            "type": "Image",
-            "id": "7dbc3ba7-10fe-4e90-9135-05cbc4f6a1a3",
-            "label": "white_silver_Card_Front_10",
-            "texture": {
-                "key": "White_silver Card Front"
-            },
-            "x": 640,
-            "y": 144,
-            "scaleX": 0.25,
-            "scaleY": 0.25,
-            "alpha": 0.2,
-            "alphaTopLeft": 0.2,
-            "alphaTopRight": 0.2,
-            "alphaBottomLeft": 0.2,
-            "alphaBottomRight": 0.2
-        },
-        {
-            "type": "Image",
-            "id": "2da0bd80-9244-4ccf-af2f-3642e1dfd9b6",
-            "label": "white_silver_Card_Front_11",
-            "texture": {
-                "key": "White_silver Card Front"
-            },
-            "x": 416,
-            "y": 144,
-            "scaleX": 0.25,
-            "scaleY": 0.25,
-            "alpha": 0.2,
-            "alphaTopLeft": 0.2,
-            "alphaTopRight": 0.2,
-            "alphaBottomLeft": 0.2,
-            "alphaBottomRight": 0.2
-        },
-        {
             "type": "Text",
             "id": "e613699b-71bf-44ea-a452-90552795e9b2",
             "label": "energyPoolText",
@@ -1093,63 +1003,761 @@
         },
         {
             "type": "Image",
-            "id": "913ff89e-bace-474b-ad2f-d87a0545ce36",
-            "label": "knight",
+            "id": "a18f42cb-d63b-41d6-b0a3-ec4163913531",
+            "label": "souless",
+            "texture": {
+                "key": "Assassin"
+            },
+            "x": 1232,
+            "y": 944,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "83d9c33a-a03e-472d-b603-d2c599ded013",
+                    "label": "shadowFx_1",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "85a736fd-5a71-4197-9629-b9dd4178bccd",
+            "label": "white_silver_Card_Front_12",
+            "texture": {
+                "key": "Character Card Background"
+            },
+            "x": 368,
+            "y": 128,
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "#dd0000",
+            "tintTopRight": "#dd0000",
+            "tintBottomLeft": "#dd0000",
+            "tintBottomRight": "#dd0000"
+        },
+        {
+            "type": "Image",
+            "id": "c5836543-ed1e-4c6f-89ae-09cda8f693f5",
+            "label": "white_silver_Card_Front_13",
+            "texture": {
+                "key": "Character Card Background"
+            },
+            "x": 640,
+            "y": 128,
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "#dd0000",
+            "tintTopRight": "#dd0000",
+            "tintBottomLeft": "#dd0000",
+            "tintBottomRight": "#dd0000"
+        },
+        {
+            "type": "Image",
+            "id": "ffda6737-8b4d-4bed-9af3-dc1a41f9212c",
+            "label": "white_silver_Card_Front_14",
+            "texture": {
+                "key": "Character Card Background"
+            },
+            "x": 912,
+            "y": 128,
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "#dd0000",
+            "tintTopRight": "#dd0000",
+            "tintBottomLeft": "#dd0000",
+            "tintBottomRight": "#dd0000"
+        },
+        {
+            "type": "Image",
+            "id": "8821d32d-943b-4d75-af7e-0bf689805f20",
+            "label": "knight_1",
             "texture": {
                 "key": "Knight"
             },
             "x": 640,
-            "y": 352,
+            "y": 112,
             "scaleX": 0.15,
             "scaleY": 0.15,
             "list": [
                 {
-                    "type": "Shine",
-                    "id": "8fd116a2-ca83-4911-9324-197b4583ccda",
-                    "label": "shineFx_1",
+                    "type": "Shadow",
+                    "id": "7f545a41-2f11-4da3-b7d0-49d0ffcef5bc",
+                    "label": "shadowFx_4",
+                    "preFX": true
+                },
+                {
+                    "type": "ColorMatrix",
+                    "id": "e0a9cfa0-ac5e-4373-84a3-9d3b22c27f09",
+                    "label": "technicolorFx_1",
+                    "operationType": 1,
+                    "matrixPreset": [
+                        0.2764723,
+                        0.929708,
+                        0.0938197,
+                        0,
+                        -37.1,
+                        0.2764723,
+                        0.929708,
+                        0.0938197,
+                        0,
+                        -37.1,
+                        0.2764723,
+                        0.929708,
+                        0.0938197,
+                        0,
+                        -37.1,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0
+                    ],
                     "preFX": true
                 }
             ]
         },
         {
             "type": "Image",
-            "id": "a18f42cb-d63b-41d6-b0a3-ec4163913531",
-            "label": "souless",
+            "id": "f2a8cc0b-1cb0-44b1-ad38-2ece55eab4d3",
+            "label": "souless_1",
             "texture": {
                 "key": "Souless"
             },
-            "x": 864,
-            "y": 352,
+            "x": 912,
+            "y": 112,
             "scaleX": 0.15,
             "scaleY": 0.15,
             "list": [
                 {
-                    "type": "Shine",
-                    "id": "7f28d930-66a5-4408-b977-60231e7b4187",
-                    "label": "shineFx_3",
+                    "type": "Shadow",
+                    "id": "a50274f2-695d-493e-9fd8-e2e6766ac86f",
+                    "label": "shadowFx_6",
+                    "preFX": true
+                },
+                {
+                    "type": "ColorMatrix",
+                    "id": "9edcc792-76ba-477f-ace3-37a792317252",
+                    "label": "technicolorFx_2",
+                    "operationType": 1,
+                    "matrixPreset": [
+                        0.2764723,
+                        0.929708,
+                        0.0938197,
+                        0,
+                        -37.1,
+                        0.2764723,
+                        0.929708,
+                        0.0938197,
+                        0,
+                        -37.1,
+                        0.2764723,
+                        0.929708,
+                        0.0938197,
+                        0,
+                        -37.1,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0
+                    ],
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Text",
+            "id": "c11deb4a-5d91-4fd9-80b9-cfb232bad215",
+            "label": "text_27",
+            "x": 144,
+            "y": 416,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "3/3",
+            "resolution": 3,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "64px",
+            "color": "#ffffffff",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "01eb9ec4-2409-4df3-b4a0-6b39f033ac78",
+            "label": "drawDeck_5",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 600,
+            "hitArea.height": 840,
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 640,
+            "y": -112,
+            "scaleX": 0.25,
+            "scaleY": 0.25,
+            "angle": -180
+        },
+        {
+            "type": "Image",
+            "id": "958a014b-0004-4708-bb0d-7f97549c1572",
+            "label": "drawDeck",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 600,
+            "hitArea.height": 840,
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 800,
+            "y": -112,
+            "scaleX": 0.25,
+            "scaleY": 0.25,
+            "angle": -180
+        },
+        {
+            "type": "Image",
+            "id": "d0e6381b-3eca-4a82-93bc-e7e7ba8eb099",
+            "label": "drawDeck_1",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 600,
+            "hitArea.height": 840,
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 480,
+            "y": -112,
+            "scaleX": 0.25,
+            "scaleY": 0.25,
+            "angle": -180
+        },
+        {
+            "type": "Image",
+            "id": "0130ac47-0ecb-4db0-88ab-9c15092ccc87",
+            "label": "drawDeck_2",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 600,
+            "hitArea.height": 840,
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 320,
+            "y": -112,
+            "scaleX": 0.25,
+            "scaleY": 0.25,
+            "angle": -180
+        },
+        {
+            "type": "Image",
+            "id": "a00224db-0671-4724-b7b5-c55b664dab05",
+            "label": "drawDeck_3",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 600,
+            "hitArea.height": 840,
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 960,
+            "y": -112,
+            "scaleX": 0.25,
+            "scaleY": 0.25,
+            "angle": -180
+        },
+        {
+            "type": "Polygon",
+            "id": "d0365709-c1f7-4090-8b1d-2490473dcc10",
+            "label": "rectangle_5",
+            "x": 1168,
+            "y": 848,
+            "isFilled": true,
+            "fillColor": "#6d0a0a",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "32 0 64 32 32 64 0 32"
+        },
+        {
+            "type": "Text",
+            "id": "fe4ee5f7-c04b-466e-bd2f-08d64bde8d31",
+            "label": "power_ama_2",
+            "scope": "CLASS",
+            "x": 1168,
+            "y": 848,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "0",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#f5786b",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Polygon",
+            "id": "3417020b-7943-4bcf-9789-e1f193f2496c",
+            "label": "rectangle_4",
+            "x": 1296,
+            "y": 848,
+            "isFilled": true,
+            "fillColor": "#f5786b",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "32 64 4 32 0 20 2 12 8 6 16 4 24 4 28 8 32 14 36 8 40 4 48 4 56 6 62 12 64 20 60 32"
+        },
+        {
+            "type": "Text",
+            "id": "447a44e4-558e-45f4-a43d-cd2943c2cbef",
+            "label": "health_ama_2",
+            "scope": "CLASS",
+            "x": 1296,
+            "y": 848,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "5",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Polygon",
+            "id": "bdfcaa88-c228-4520-8539-e205dc46aae4",
+            "label": "rectangle_27",
+            "x": 1584,
+            "y": 528,
+            "isFilled": true,
+            "fillColor": "#3878d7",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+        },
+        {
+            "type": "Text",
+            "id": "b03e3961-ae6a-49d7-a184-b7fc23ce6623",
+            "label": "text_48",
+            "x": 1584,
+            "y": 528,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "10",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#ffffffff",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Polygon",
+            "id": "cf5d5436-9456-4b80-84b6-3cdc93c38049",
+            "label": "rectangle_28",
+            "x": 1392,
+            "y": 560,
+            "isFilled": true,
+            "fillColor": "#3878d7",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+        },
+        {
+            "type": "Text",
+            "id": "505bf97a-fae9-47da-a06a-b71964506965",
+            "label": "text_49",
+            "x": 1392,
+            "y": 560,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "?",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#8a8484ff",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Polygon",
+            "id": "3b96499d-2273-42b3-9189-b284deaf7755",
+            "label": "rectangle_29",
+            "x": 1408,
+            "y": 624,
+            "isFilled": true,
+            "fillColor": "#272727",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+        },
+        {
+            "type": "Polygon",
+            "id": "7515e26b-dcb3-45f3-9eb7-32660f78beef",
+            "label": "rectangle_8",
+            "x": 848,
+            "y": 32,
+            "isFilled": true,
+            "fillColor": "#6d0a0a",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "32 0 64 32 32 64 0 32"
+        },
+        {
+            "type": "Text",
+            "id": "c859b860-5d3f-49e2-94ab-0023621b9d72",
+            "label": "power_ene_2",
+            "x": 848,
+            "y": 32,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "0",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#f5786b",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Polygon",
+            "id": "000c58ab-d63a-4533-8622-e0bebfa54c9b",
+            "label": "rectangle_12",
+            "x": 976,
+            "y": 32,
+            "isFilled": true,
+            "fillColor": "#f5786b",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "32 64 4 32 0 20 2 12 8 6 16 4 24 4 28 8 32 14 36 8 40 4 48 4 56 6 62 12 64 20 60 32"
+        },
+        {
+            "type": "Text",
+            "id": "bd365b08-f654-4ed2-acf7-3959e1f81375",
+            "label": "health_ene_2",
+            "scope": "CLASS",
+            "x": 976,
+            "y": 32,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "5",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Polygon",
+            "id": "9a5c7c19-f003-4d9f-b09e-029d089fddaa",
+            "label": "rectangle_17",
+            "x": 576,
+            "y": 32,
+            "isFilled": true,
+            "fillColor": "#6d0a0a",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "32 0 64 32 32 64 0 32"
+        },
+        {
+            "type": "Text",
+            "id": "09d8214c-68f0-473f-8df6-2ced390bf873",
+            "label": "power_ene_1",
+            "scope": "CLASS",
+            "x": 576,
+            "y": 32,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "0",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#f5786b",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Polygon",
+            "id": "b34fe8de-bdb9-46a3-a852-26bbe4cff7e8",
+            "label": "rectangle_18",
+            "x": 704,
+            "y": 32,
+            "isFilled": true,
+            "fillColor": "#f5786b",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "32 64 4 32 0 20 2 12 8 6 16 4 24 4 28 8 32 14 36 8 40 4 48 4 56 6 62 12 64 20 60 32"
+        },
+        {
+            "type": "Text",
+            "id": "5583ca78-53ad-4980-abc1-a06b5840d233",
+            "label": "health_ene_1",
+            "scope": "CLASS",
+            "x": 704,
+            "y": 32,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "5",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Polygon",
+            "id": "43b55e90-49ea-4564-b017-189fbf97a8af",
+            "label": "rectangle_23",
+            "x": 304,
+            "y": 32,
+            "isFilled": true,
+            "fillColor": "#6d0a0a",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "32 0 64 32 32 64 0 32"
+        },
+        {
+            "type": "Text",
+            "id": "097d68cb-1655-4c7b-b690-c5c9eda3bb8f",
+            "label": "power_ene_0",
+            "scope": "CLASS",
+            "x": 304,
+            "y": 32,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "0",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#f5786b",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Polygon",
+            "id": "ce9ec15e-dcd3-4a0d-9396-f0bc5e01f9e8",
+            "label": "rectangle_24",
+            "x": 432,
+            "y": 32,
+            "isFilled": true,
+            "fillColor": "#f5786b",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "32 64 4 32 0 20 2 12 8 6 16 4 24 4 28 8 32 14 36 8 40 4 48 4 56 6 62 12 64 20 60 32"
+        },
+        {
+            "type": "Text",
+            "id": "ea27fab4-a1fa-4294-9b15-40139fc884fc",
+            "label": "health_ene_0",
+            "scope": "CLASS",
+            "x": 432,
+            "y": 32,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "5",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#1bc540",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Polygon",
+            "id": "03ef5cef-8190-4efd-8f97-886e04184623",
+            "label": "rectangle_33",
+            "x": 1392,
+            "y": 400,
+            "isFilled": true,
+            "fillColor": "#3878d7",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+        },
+        {
+            "type": "Text",
+            "id": "b233bd6b-8b0a-4543-bc64-bb15133b60e3",
+            "label": "text_41",
+            "x": 1392,
+            "y": 400,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "? (10)",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "color": "#8a8484ff",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "dd874183-2fbc-47b1-ab45-83edd24906ca",
+            "label": "power_Soul_Title_3",
+            "texture": {
+                "key": "Assassin Title"
+            },
+            "x": 1232,
+            "y": 1024,
+            "scaleX": 0.12,
+            "scaleY": 0.12
+        },
+        {
+            "type": "Polygon",
+            "id": "f30c31d9-21a0-45f5-846a-d060d6c96ddd",
+            "label": "rectangle_22",
+            "x": 1328,
+            "y": 992,
+            "isFilled": true,
+            "fillColor": "#272727",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+        },
+        {
+            "type": "Polygon",
+            "id": "b5debf9e-9fa6-43a6-915d-8e46e1c82541",
+            "label": "rectangle_25",
+            "x": 1328,
+            "y": 944,
+            "isFilled": true,
+            "fillColor": "#272727",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+        },
+        {
+            "type": "Polygon",
+            "id": "14eaf9c5-1c0d-4c5b-8bf9-b9d2e850ed55",
+            "label": "rectangle_37",
+            "x": 1328,
+            "y": 896,
+            "isFilled": true,
+            "fillColor": "#3878d7",
+            "strokeColor": "#000000",
+            "lineWidth": 3,
+            "isStroked": true,
+            "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+        },
+        {
+            "type": "Text",
+            "id": "f4aa482e-455e-416f-b621-1897b3fd54f3",
+            "label": "text_26",
+            "x": 1328,
+            "y": 896,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "12",
+            "resolution": 3,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#ffffffff",
+            "stroke": "#000000ff",
+            "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "b6a15920-bb59-4c15-9aa6-2ab222ed21be",
+            "label": "wall_1",
+            "texture": {
+                "key": "Wall"
+            },
+            "x": 368,
+            "y": 112,
+            "scaleX": 0.15,
+            "scaleY": 0.15,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "44cd4e90-4879-4c57-9aa6-83ab5038957c",
+                    "label": "shadowFx_8",
+                    "preFX": true
+                },
+                {
+                    "type": "ColorMatrix",
+                    "id": "e9d7a090-07e1-4d33-bd3f-7ed8c5f456c5",
+                    "label": "desaturate_luminanceFx_5",
+                    "operationType": 1,
+                    "matrixPreset": [
+                        0.2764723,
+                        0.929708,
+                        0.0938197,
+                        0,
+                        -37.1,
+                        0.2764723,
+                        0.929708,
+                        0.0938197,
+                        0,
+                        -37.1,
+                        0.2764723,
+                        0.929708,
+                        0.0938197,
+                        0,
+                        -37.1,
+                        0,
+                        0,
+                        0,
+                        1,
+                        0
+                    ],
                     "preFX": true
                 }
             ]
         },
         {
             "type": "Image",
-            "id": "60b32a09-5d1f-4bf8-bf17-1afebfa89e3f",
-            "label": "wall",
+            "id": "5d05665c-7180-4f31-a1cf-40770f0f0488",
+            "label": "power_Soul_Title_4",
             "texture": {
-                "key": "Wall"
+                "key": "Wall Title"
             },
-            "x": 416,
-            "y": 352,
-            "scaleX": 0.15,
-            "scaleY": 0.15,
-            "list": [
-                {
-                    "type": "Shine",
-                    "id": "feabc574-790b-4d14-bb2f-219a32f5315c",
-                    "label": "shineFx_2",
-                    "preFX": true
-                }
-            ]
+            "x": 368,
+            "y": 208,
+            "scaleX": 0.12,
+            "scaleY": 0.12
+        },
+        {
+            "type": "Image",
+            "id": "fd34f24f-caa1-4ec5-b104-5437b9a48ffd",
+            "label": "power_Soul_Title_5",
+            "texture": {
+                "key": "Knight Title"
+            },
+            "x": 640,
+            "y": 208,
+            "scaleX": 0.12,
+            "scaleY": 0.12
+        },
+        {
+            "type": "Image",
+            "id": "4875b836-9a62-4106-97e5-adfb4ad576a8",
+            "label": "power_Soul_Title_6",
+            "texture": {
+                "key": "Assassin Title"
+            },
+            "x": 912,
+            "y": 208,
+            "scaleX": 0.12,
+            "scaleY": 0.12
         }
     ],
     "plainObjects": [],

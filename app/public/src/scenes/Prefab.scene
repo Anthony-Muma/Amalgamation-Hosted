@@ -21,84 +21,80 @@
             "list": [
                 {
                     "type": "Image",
-                    "id": "b25f6786-6d29-4380-8c2b-548d04c1f384",
-                    "label": "cardFront",
-                    "hitArea.shape": "RECTANGLE",
-                    "hitArea.width": 600,
-                    "hitArea.height": 840,
+                    "id": "220a28e5-4421-4e1d-8cba-f901971b516d",
+                    "label": "cardBack",
                     "texture": {
-                        "key": "White_silver Card Front"
+                        "key": "Character Card Background"
                     },
-                    "scaleX": 0.25,
-                    "scaleY": 0.25
+                    "scaleX": 0.27,
+                    "scaleY": 0.27
+                },
+                {
+                    "type": "Polygon",
+                    "id": "fab2f24d-84b4-4a7f-a582-fd577c93866c",
+                    "label": "heartIcon",
+                    "x": 64,
+                    "y": -96,
+                    "isFilled": true,
+                    "fillColor": "#f5786b",
+                    "strokeColor": "#000000",
+                    "lineWidth": 3,
+                    "isStroked": true,
+                    "points": "32 64 4 32 0 20 2 12 8 6 16 4 24 4 28 8 32 14 36 8 40 4 48 4 56 6 62 12 64 20 60 32"
                 },
                 {
                     "type": "Text",
-                    "id": "586287fc-cf01-4111-b5c4-96c065631f24",
-                    "label": "powerText",
-                    "x": -32,
-                    "y": 48,
+                    "id": "3c1c7253-3cae-4a6c-b423-e6c934e7e167",
+                    "label": "healthText",
+                    "scope": "CLASS",
+                    "x": 64,
+                    "y": -96,
                     "originX": 0.5,
                     "originY": 0.5,
-                    "text": "-- POW",
+                    "text": "5",
                     "resolution": 3,
                     "fontFamily": "Eczar-Bold",
-                    "fontSize": "12px",
-                    "color": "#f5786b",
-                    "stroke": "#000000ff",
-                    "strokeThickness": 5
-                },
-                {
-                    "type": "Text",
-                    "id": "e39d3b9c-7d67-423d-af5b-69bd3ee5a904",
-                    "label": "DefenseText",
-                    "x": 32,
-                    "y": 48,
-                    "originX": 0.5,
-                    "originY": 0.5,
-                    "text": "-- DEF",
-                    "resolution": 3,
-                    "fontFamily": "Eczar-Bold",
-                    "fontSize": "12px",
-                    "color": "#3878d7",
-                    "stroke": "#000000ff",
-                    "strokeThickness": 5
-                },
-                {
-                    "type": "Text",
-                    "id": "1e76dadd-2f6c-4af8-8c7b-97ca180da3d2",
-                    "label": "energyText",
-                    "y": 64,
-                    "originX": 0.5,
-                    "originY": 0.5,
-                    "text": "-- ENG",
-                    "resolution": 3,
-                    "fontFamily": "Eczar-Bold",
-                    "fontSize": "12px",
+                    "fontSize": "32px",
                     "color": "#1bc540",
                     "stroke": "#000000ff",
                     "strokeThickness": 5
                 },
                 {
+                    "type": "Polygon",
+                    "id": "6db3042d-a29a-4e86-9fbf-3175187b768c",
+                    "label": "powerIcon",
+                    "x": -64,
+                    "y": -96,
+                    "isFilled": true,
+                    "fillColor": "#6d0a0a",
+                    "strokeColor": "#000000",
+                    "lineWidth": 3,
+                    "isStroked": true,
+                    "points": "32 0 64 32 32 64 0 32"
+                },
+                {
                     "type": "Text",
-                    "id": "80423b43-6cd0-4ead-b0b4-f34c29b3d675",
-                    "label": "nameText",
-                    "y": -80,
+                    "id": "373ae726-aca3-45e2-94de-010bdc8dc571",
+                    "label": "powerText",
+                    "scope": "CLASS",
+                    "x": -64,
+                    "y": -96,
                     "originX": 0.5,
                     "originY": 0.5,
-                    "text": "Null",
+                    "text": "0",
                     "resolution": 3,
                     "fontFamily": "Eczar-Bold",
-                    "fontSize": "17px",
+                    "fontSize": "32px",
+                    "color": "#f5786b",
                     "stroke": "#000000ff",
                     "strokeThickness": 5
                 },
                 {
                     "type": "Image",
-                    "id": "4120330c-526b-460c-b875-77e7717d6bc5",
-                    "label": "mainImage",
+                    "id": "78d1f9a7-aab0-487c-b9de-79ae1a981991",
+                    "label": "image",
                     "texture": {
-                        "key": "Mushroom"
+                        "key": "Knight"
                     },
                     "y": -16,
                     "scaleX": 0.15,
@@ -106,72 +102,107 @@
                     "list": [
                         {
                             "type": "Shadow",
-                            "id": "4cbd0b3c-6506-43ce-a635-30e791abd9b7",
-                            "label": "shadowFx_10",
+                            "id": "1ba3096a-c5ac-4222-8bc2-6d4ac5b1c73f",
+                            "label": "shadowFx_3",
                             "preFX": true
                         }
                     ]
                 },
                 {
                     "type": "Image",
-                    "id": "7110300a-fc95-489e-9d6f-7dbc0c323900",
-                    "label": "soulCardFront",
-                    "texture": {
-                        "key": "Power Soul Card"
-                    },
-                    "scaleX": 0.25,
-                    "scaleY": 0.25,
-                    "list": [
-                        {
-                            "type": "Shadow",
-                            "id": "2dc83735-3317-4a77-8817-1e816f41df61",
-                            "label": "shadowFx_2",
-                            "x": 0.5,
-                            "y": 0.5,
-                            "decay": 0.04,
-                            "power": 0.22,
-                            "samples": 11,
-                            "intensity": 1.64
-                        }
-                    ]
-                },
-                {
-                    "type": "Image",
-                    "id": "86f4c62e-3205-48c6-bf1a-eb114ecd1556",
-                    "label": "soulSymbol",
-                    "texture": {
-                        "key": "Power Soul Symbol"
-                    },
-                    "y": -32,
-                    "scaleX": 0.15,
-                    "scaleY": 0.15,
-                    "list": [
-                        {
-                            "type": "Shadow",
-                            "id": "f85e5bf7-1581-4b7a-9be6-5b830b529afb",
-                            "label": "shadowFx",
-                            "preFX": true
-                        }
-                    ]
-                },
-                {
-                    "type": "Image",
-                    "id": "0c939027-e490-4d63-9642-b605d7b102c6",
+                    "id": "77fc837e-2b6e-4413-9366-7cdf389f8477",
                     "label": "title",
                     "texture": {
-                        "key": "Power Soul Title"
+                        "key": "Knight Title"
                     },
+                    "y": 80,
+                    "scaleX": 0.12,
+                    "scaleY": 0.12
+                },
+                {
+                    "type": "Polygon",
+                    "id": "f0753af9-1170-448c-993b-fca757b28e76",
+                    "label": "defenseSlot0",
+                    "x": 96,
+                    "y": -48,
+                    "isFilled": true,
+                    "fillColor": "#272727",
+                    "strokeColor": "#000000",
+                    "lineWidth": 3,
+                    "isStroked": true,
+                    "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+                },
+                {
+                    "type": "Polygon",
+                    "id": "65a746dd-75f2-47ac-b4c1-28b725cf2707",
+                    "label": "defenseSlot1",
+                    "x": 96,
+                    "isFilled": true,
+                    "fillColor": "#272727",
+                    "strokeColor": "#000000",
+                    "lineWidth": 3,
+                    "isStroked": true,
+                    "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+                },
+                {
+                    "type": "Polygon",
+                    "id": "a8efb2f0-55f4-431f-8f4d-2b8b4535adf2",
+                    "label": "defenseSlot2",
+                    "x": 96,
                     "y": 48,
-                    "scaleX": 0.15,
-                    "scaleY": 0.15,
-                    "list": [
-                        {
-                            "type": "Shadow",
-                            "id": "8b86960b-b446-4bee-ab17-983bddcb5ded",
-                            "label": "shadowFx_1",
-                            "preFX": true
-                        }
-                    ]
+                    "isFilled": true,
+                    "fillColor": "#272727",
+                    "strokeColor": "#000000",
+                    "lineWidth": 3,
+                    "isStroked": true,
+                    "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+                },
+                {
+                    "type": "Text",
+                    "id": "6ddbbecf-93aa-4b0f-8ef5-c5d428cf2c63",
+                    "label": "defenseText0",
+                    "x": 96,
+                    "y": -48,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "-",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "32px",
+                    "color": "#ffffffff",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5
+                },
+                {
+                    "type": "Text",
+                    "id": "887a7985-0f4e-410e-bdc4-a640e3f54636",
+                    "label": "defenseText1",
+                    "x": 96,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "-",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "32px",
+                    "color": "#ffffffff",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5
+                },
+                {
+                    "type": "Text",
+                    "id": "008c8008-5e4c-46c4-b781-f12c566fb48c",
+                    "label": "defenseText3",
+                    "x": 96,
+                    "y": 48,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "-",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "32px",
+                    "color": "#ffffffff",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5
                 }
             ]
         }
@@ -182,5 +213,25 @@
         "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    }
+    },
+    "lists": [
+        {
+            "id": "90562e3f-9f5a-4d12-b11a-f62df17cdbcc",
+            "label": "defenseSlots",
+            "objectIds": [
+                "f0753af9-1170-448c-993b-fca757b28e76",
+                "65a746dd-75f2-47ac-b4c1-28b725cf2707",
+                "a8efb2f0-55f4-431f-8f4d-2b8b4535adf2"
+            ]
+        },
+        {
+            "id": "082087ce-1751-4c6d-b52b-c113556eed84",
+            "label": "defenseText",
+            "objectIds": [
+                "008c8008-5e4c-46c4-b781-f12c566fb48c",
+                "887a7985-0f4e-410e-bdc4-a640e3f54636",
+                "6ddbbecf-93aa-4b0f-8ef5-c5d428cf2c63"
+            ]
+        }
+    ]
 }

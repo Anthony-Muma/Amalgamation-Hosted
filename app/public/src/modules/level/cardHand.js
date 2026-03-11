@@ -25,6 +25,12 @@ class CardHand {
         this.hand = new Map()
     }
 
+    disableHover() {
+        this.hand.forEach((card) =>{
+            card.disableHover();
+        });
+    }
+
     disableHand() {
         this.hand.forEach((card) =>{
             card.disableDrag();
@@ -36,6 +42,12 @@ class CardHand {
         this.hand.forEach((card) =>{
             card.enableDrag();
             // card.disableHover();
+        });
+    }
+
+    enableHover() {
+        this.hand.forEach((card) =>{
+            card.enableHover();
         });
     }
 
@@ -108,8 +120,9 @@ class CardHand {
 				}
         	});
 
+            // This delay stops the card from "getting stuck", however, they do kind of get stuck
             if (isNew && !card.isFaceUp) {
-                this.scene.time.delayedCall(400, () => {
+                this.scene.time.delayedCall(450, () => {
                     if (!card.isFaceUp) card.flipCard();
                 });
             }

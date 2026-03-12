@@ -3,6 +3,7 @@ import { CardHand } from "./cardHand.js";
 import { Energy } from "./energy.js";
 import { socket } from "../socket.js";
 import { AmalgamationContainer } from "../amalgamationsContainer/amalgamationContainer.js";
+import { TurnCounter } from "./turnCounter.js";
 
 /**
  * @type {import("../../types.js").AmalgamationInfo}
@@ -15,6 +16,8 @@ const BASE_AMALGAMATION = {
     powerObjectList : [],
     defenseObjectList : []
 }
+
+const PLACEMENTS_PER_TURN = 3
 
 /**
  * @type {import("../../types.js").CardInfo}
@@ -68,7 +71,18 @@ class Core {
             new AmalgamationContainer(scene, BASE_AMALGAMATION, 640, 368),
             new AmalgamationContainer(scene, BASE_AMALGAMATION, 912, 368),
         ];
+
+        this.enemyAmalgamations = [
+            new AmalgamationContainer(scene, BASE_AMALGAMATION, 368, 128, 0xdd0000),
+            new AmalgamationContainer(scene, BASE_AMALGAMATION, 640, 128, 0xdd0000),
+            new AmalgamationContainer(scene, BASE_AMALGAMATION, 912, 128, 0xdd0000),
+        ];
+        this.playerTurnCounter = new TurnCounter(scene, PLACEMENTS_PER_TURN)
         this.energy = new Energy(scene);
+        this.amalgamationTargetList = [0, 1, 2];
+
+        /* ------------------------------- Game State ------------------------------- */
+        this.myTurn = true;
 
         /* ---------------------------------- debug --------------------------------- */
         let i = 0;
@@ -144,7 +158,6 @@ class Core {
             .setRectangleDropZone(100, 200)
             .setData({zoneType: "amalgamationDefenseZone", index: 2});
         scene.add.rectangle(962, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
-            // scene.add.zone(0, 0, 500, 500).getData()
 
         /* ------------------------------- Zone Events ------------------------------ */
 
@@ -152,6 +165,20 @@ class Core {
         // ama.addDefense(TEST_CARD_1);
         // ama.addDefense(TEST_CARD_2);
         // ama.addDefense(TEST_CARD_3);
+
+        
+        // amalgamationPowerZone1.on("pointerdown", (pointer)=>{
+        //     const index = amalgamationPowerZone1.getData("index")
+        //     const handler = (indices) => {console.log(indices)}
+        //     console.log(this.playerAmalgamations[index].amalgamationInfo)
+        //     this.scene.scene.launch("AttackUI", 
+        //     {gameInfo:{
+        //         energyPool: this.energy.getEnergy(),
+        //         attackSuccessCb : handler
+        //     },
+        //     amalgamationInfo : this.playerAmalgamations[index].amalgamationInfo}
+        //     );
+        // });
 
         scene.input.on("dragstart", (pointer, gameObject) => {
             hand.disableHover();
@@ -164,60 +191,76 @@ class Core {
 
         
         scene.input.on("drop", (pointer, gameObject, dropZone) => {
-            // IF NOT YOUR TURN
             hand.enableHover();
 
             // Camera test
             const zoneType = dropZone.getData("zoneType");
             
-
-            if (zoneType === "energyZone") {
+            if (this.playerTurnCounter.canPlace()) {
+                this.playerHand.layoutHand(gameObject);
+            } else if (zoneType === "energyZone") {
                 this.#handleEnergyZone(gameObject);
             } else {
                 this.#handleAmalgamationZone(gameObject, dropZone)
             }
         });
 
-        let testSwitch = true
-        this.scene.input.keyboard.on('keydown-SPACE', ()=>{
-            if (testSwitch) {
-                hand.disableHand();
-                hand.disableHover();
-                const mainCamera = this.scene.cameras.main
-                this.scene.tweens.add({
-                    targets: mainCamera,
-                    scrollY: -235,
-                    ease: 'Expo',
-                    duration: 2000
-                });
-            } else {
-                hand.enableHand();
-                hand.enableHover();
-                const mainCamera = this.scene.cameras.main
-                this.scene.tweens.add({
-                    targets: mainCamera,
-                    scrollY: 0,
-                    ease: 'Expo',
-                    duration: 2000
-                });
+        this.scene.input.keyboard.on('keydown-SPACE', ()=>{ 
+            if (this.myTurn) {
+                this.#turnSwap(false);
+                this.playerTurnCounter.resetTurnCounter();
+                this.energy.resetEnergy();
+                socket.emit("game:endTurn");
             }
-            testSwitch = !testSwitch
-        });  // specific key
+        });
+
+        
 
         /* ------------------------------ Events ------------------------------ */
 
-        // TODO:
         socket.on("game:turnStarted", (data)=>{
-
+            this.#turnSwap(true);
+            const cardInfoList = data.cardInfoList;
+            
+            for (let cardInfo of cardInfoList) {
+                this.playerHand.draw(cardInfo);
+            }
+            this.energy.resetEnergy();
+            this.playerTurnCounter.resetTurnCounter();
         });
 
-        socket.on("game:turnEnded", (data)=>{
+        socket.on("game:turnEnded", ()=>{
+            // FIXED: game:ready
+            // When the game ins't tabbed in when the scene is loaded, this event doesn't fire nore do the others, but as soon as this is tabbed in and then tabbed out, it works like normal??
+            this.#turnSwap(false);
 
+            this.playerTurnCounter.resetTurnCounter();
+            this.energy.resetEnergy();
+        });
+
+        socket.on("game:opponentPlayedPower", (data)=>{
+            this.enemyAmalgamations[data.target.amalgamationIndex].addPower(data.cardInfo);
+            this.playerTurnCounter.decrementTurn();
+        });
+
+        socket.on("game:opponentPlayedDefense", (data)=>{
+            const cardInfo = {card: {defense: "?"}}
+            this.enemyAmalgamations[data.target.amalgamationIndex].addDefense(cardInfo);
+            this.playerTurnCounter.decrementTurn();
         });
 
         socket.on("game:opponentPlayedEnergy", (data)=>{
-
+            this.energy.addEnergy(data.cardInfo.card.energy);
+            this.playerTurnCounter.decrementTurn();
         });
+
+        // Game doesn't load when not tabbed in, this will ready a ready, when all player are ready, game starts
+        socket.emit("game:ready");
+
+        this.scene.input.keyboard.on('keydown-E', ()=>{ 
+			this.scene.scene.pause("Level");
+			this.scene.scene.launch("TargetingScene", this.amalgamationTargetList);
+		});
     }
 
     /**
@@ -226,16 +269,19 @@ class Core {
      */
     #handleEnergyZone(gameObject) {
         const cardInfo = gameObject.getCardInfo();
-        this.energy.addEnergy(cardInfo.card.energyValue);
+        this.energy.addEnergy(cardInfo.card.energy);
         this.playerHand.removeCard(cardInfo.cardKey);
-        //socket.emit()
+        this.playerTurnCounter.decrementTurn();
+        socket.emit("game:playEnergy", cardInfo.cardKey);
         //socket.once()
     }
 
     #handleAmalgamationZone(gameObject, dropZone) {
-        //socket.emit()
+        
         //socket.once()
         const cardInfo = gameObject.getCardInfo();
+        
+
         const index = dropZone.getData("index");
         const zoneType = dropZone.getData("zoneType")
         const amalgamation = this.playerAmalgamations[index];
@@ -243,21 +289,44 @@ class Core {
         let success;
         if (zoneType === "amalgamationDefenseZone") {
             success = amalgamation.addDefense(cardInfo);
-            //socket.emit()
+            if (success) socket.emit("game:playDefense", cardInfo.cardKey, index)
         } else {
             success = amalgamation.addPower(cardInfo);
-            //socket.emit()
+            if (success) socket.emit("game:playPower", cardInfo.cardKey, index)
         }
 
         if (success) {
             this.playerHand.removeCard(cardInfo.cardKey);
+            this.playerTurnCounter.decrementTurn();
         } else {
             this.playerHand.layoutHand(gameObject);
         }
     }
 
-    #turnSwap() {
-        
+    #turnSwap(switchToMe) {
+        if (!switchToMe) {
+            this.playerHand.disableHand();
+            this.playerHand.disableHover();
+            const mainCamera = this.scene.cameras.main
+            this.scene.tweens.add({
+                targets: mainCamera,
+                scrollY: -235,
+                ease: 'Expo',
+                duration: 2000
+            });
+        } else {
+            this.playerTurnCounter.resetTurnCounter();
+            this.playerHand.enableHand();
+            this.playerHand.enableHover();
+            const mainCamera = this.scene.cameras.main
+            this.scene.tweens.add({
+                targets: mainCamera,
+                scrollY: 0,
+                ease: 'Expo',
+                duration: 2000
+            });
+        }
+        this.myTurn = switchToMe
     }
 }
 

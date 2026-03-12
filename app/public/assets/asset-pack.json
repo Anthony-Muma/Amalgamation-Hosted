@@ -27,6 +27,16 @@
                 "key": "Assassin Title"
             },
             {
+                "url": "assets/material/Bomb.PNG",
+                "type": "image",
+                "key": "Bomb"
+            },
+            {
+                "url": "assets/material/Brick.PNG",
+                "type": "image",
+                "key": "Brick"
+            },
+            {
                 "url": "assets/Card back.PNG",
                 "type": "image",
                 "key": "Card back"
@@ -59,6 +69,11 @@
                 ],
                 "type": "audio",
                 "key": "click"
+            },
+            {
+                "url": "assets/material/Clock.PNG",
+                "type": "image",
+                "key": "Clock"
             },
             {
                 "url": "assets/dino.png",
@@ -115,6 +130,11 @@
                 "key": "Knowledge Soul Title"
             },
             {
+                "url": "assets/material/Magic Mirror.PNG",
+                "type": "image",
+                "key": "Magic Mirror"
+            },
+            {
                 "url": "assets/Mushroom.PNG",
                 "type": "image",
                 "key": "Mushroom"
@@ -123,6 +143,11 @@
                 "url": "assets/Nails.PNG",
                 "type": "image",
                 "key": "Nails"
+            },
+            {
+                "url": "assets/material/Old Shoe.PNG",
+                "type": "image",
+                "key": "Old Shoe"
             },
             {
                 "url": "assets/Pillow.PNG",

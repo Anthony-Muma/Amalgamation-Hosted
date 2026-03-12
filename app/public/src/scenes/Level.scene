@@ -95,8 +95,8 @@
             "texture": {
                 "key": "Card back"
             },
-            "x": 1136,
-            "y": 128,
+            "x": 1408,
+            "y": -64,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -111,8 +111,8 @@
             "texture": {
                 "key": "Card back"
             },
-            "x": 1136,
-            "y": 368,
+            "x": 1408,
+            "y": 176,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -1170,19 +1170,20 @@
         {
             "type": "Text",
             "id": "c11deb4a-5d91-4fd9-80b9-cfb232bad215",
-            "label": "text_27",
-            "x": 144,
-            "y": 416,
+            "label": "placementsLeftText",
+            "scope": "CLASS",
+            "x": 1136,
+            "y": 272,
             "originX": 0.5,
             "originY": 0.5,
-            "text": "3/3",
+            "text": "-/-",
             "resolution": 3,
             "align": "center",
             "fontFamily": "Eczar-Bold",
             "fontSize": "64px",
             "color": "#ffffffff",
             "stroke": "#000000ff",
-            "strokeThickness": 5
+            "strokeThickness": 24
         },
         {
             "type": "Image",

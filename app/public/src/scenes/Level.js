@@ -57,13 +57,13 @@ export default class Level extends Phaser.Scene {
 		allCard.lineWidth = 12;
 
 		// drawDeck1
-		const drawDeck1 = this.add.image(1136, 128, "Card back");
+		const drawDeck1 = this.add.image(1408, -64, "Card back");
 		drawDeck1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
 		drawDeck1.scaleX = 0.25;
 		drawDeck1.scaleY = 0.25;
 
 		// drawDeck2
-		const drawDeck2 = this.add.image(1136, 368, "Card back");
+		const drawDeck2 = this.add.image(1408, 176, "Card back");
 		drawDeck2.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
 		drawDeck2.scaleX = 0.25;
 		drawDeck2.scaleY = 0.25;
@@ -494,11 +494,11 @@ export default class Level extends Phaser.Scene {
 		const technicolorFx_2 = souless_1.preFX.addColorMatrix();
 		technicolorFx_2.set([0.2764723, 0.929708, 0.0938197, 0, -37.1, 0.2764723, 0.929708, 0.0938197, 0, -37.1, 0.2764723, 0.929708, 0.0938197, 0, -37.1, 0, 0, 0, 1, 0]);
 
-		// text_27
-		const text_27 = this.add.text(144, 416, "", {});
-		text_27.setOrigin(0.5, 0.5);
-		text_27.text = "3/3";
-		text_27.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
+		// placementsLeftText
+		const placementsLeftText = this.add.text(1136, 272, "", {});
+		placementsLeftText.setOrigin(0.5, 0.5);
+		placementsLeftText.text = "-/-";
+		placementsLeftText.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 24, "resolution": 3 });
 
 		// drawDeck_5
 		const drawDeck_5 = this.add.image(640, -112, "Card back");
@@ -769,6 +769,7 @@ export default class Level extends Phaser.Scene {
 		this.drawDeck1 = drawDeck1;
 		this.drawDeck2 = drawDeck2;
 		this.energyPoolText = energyPoolText;
+		this.placementsLeftText = placementsLeftText;
 		this.drawDeck_5 = drawDeck_5;
 		this.drawDeck = drawDeck;
 		this.drawDeck_1 = drawDeck_1;
@@ -800,6 +801,8 @@ export default class Level extends Phaser.Scene {
 	drawDeck2;
 	/** @type {Phaser.GameObjects.Text} */
 	energyPoolText;
+	/** @type {Phaser.GameObjects.Text} */
+	placementsLeftText;
 	/** @type {Phaser.GameObjects.Image} */
 	drawDeck_5;
 	/** @type {Phaser.GameObjects.Image} */
@@ -854,6 +857,7 @@ export default class Level extends Phaser.Scene {
 			}
 		})
 		const core = new Core(this);
+		
 	}
 
 	/* END-USER-CODE */

@@ -27,7 +27,7 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
      * @param {number} x 
      * @param {number} y 
      */
-    constructor(scene, amalgamationInfo, x = 0, y = 0) {
+    constructor(scene, amalgamationInfo, x = 0, y = 0, tint=0xffffff) {
         super(scene, x, y);
         this.scene = scene;
         this.amalgamationInfo = amalgamationInfo;
@@ -39,6 +39,7 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 		const cardBack = scene.add.image(0, 0, "Character Card Background");
 		cardBack.scaleX = 0.27;
 		cardBack.scaleY = 0.27;
+        cardBack.setTint(tint, tint, tint, tint)
 		this.add(cardBack);
 
 		// heartIcon
@@ -53,7 +54,7 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 		// healthText
 		const healthText = scene.add.text(64, -96, "", {});
 		healthText.setOrigin(0.5, 0.5);
-		healthText.text = "5";
+		healthText.text = amalgamationInfo.health.toString();
 		healthText.setStyle({ "color": "#1bc540", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
 		this.add(healthText);
 
@@ -231,10 +232,15 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
      */
     addPower(cardInfo) {
         const card = cardInfo.card;
-        if (!card.attackValue) return false;
+        if (!card.power) return false;
+
+        this.amalgamationInfo.powerObjectList.push({
+            energy : card.power,
+            power : card.power
+        })
 
         // visual
-        this.powerText.setText((parseInt(this.powerText.text) + cardInfo.card.attackValue).toString());
+        this.powerText.setText((parseInt(this.powerText.text) + cardInfo.card.power).toString());
 
         return true;
     }
@@ -245,12 +251,12 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
      */
     addDefense(cardInfo) {
         const card = cardInfo.card;
-        if (!card.defenseValue) return false;
+        if (!card.defense) return false;
         if (this._currentDefense >= this.amalgamationInfo.maxDefense) return false;
-
+        
         // Visual 
         this.defenseSlots[this._currentDefense].setFillStyle(parseInt(DEFENSE_BLUE, 16));
-        this.defenseText[this._currentDefense].setText(card.defenseValue ?? "?")
+        this.defenseText[this._currentDefense].setText(card.defense ?? "?")
         this._currentDefense++;
         return true;
     }

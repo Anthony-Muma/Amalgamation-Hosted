@@ -60,6 +60,42 @@
 
         "name" : "energy crystal",
         "type" : "material"
+    },
+
+    "pillow" : {
+        "energy" : 5,
+        "power" : 1,
+        "defense" : 10,
+
+        "name" : "pillow",
+        "type" : "material"
+    },
+
+    "crystals" : {
+        "energy" : 45,
+        "power" : null,
+        "defense" : null,
+
+        "name" : "crystals",
+        "type" : "material"
+    },
+
+    "nails" : {
+        "energy" : 5,
+        "power" : 7,
+        "defense" : 3,
+
+        "name" : "nails",
+        "type" : "material"
+    },
+
+    "mushroom" : {
+        "energy" : 12,
+        "power" : 2,
+        "defense" : 6,
+
+        "name" : "mushroom",
+        "type" : "material"
     }
 
 }

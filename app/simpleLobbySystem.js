@@ -3,7 +3,7 @@ const http = require("http");
 const path = require("path");
 const { Server } = require("socket.io")
 
-const { Game } = require("./game/game")
+const { Game, GAME_STATES } = require("./game/game")
 const { LobbyStore } = require("./lobby-system/lobbyStore")
 
 const app = express();
@@ -134,19 +134,23 @@ io.on("connection", (socket)=>{
     
     socket.on("game:playPower", (cardKey, amalgamationIndex)=>{
 
-        // Verify data.
-        if (typeof cardKey !== "number"){
-            return;
-        }
-        if (typeof amalgamationIndex !== "number" || amalgamationIndex < 1 || amalgamationIndex > 3){
-            return;
-        }
+        // // Verify data.
+
+        // If the cardKey is not a number, return.
+        if (typeof cardKey !== "number") return;
+
+        // If the amalgamationIndex is a number from 1 to 3,
+        if (typeof amalgamationIndex !== "number" || amalgamationIndex < 1 || amalgamationIndex > 3) return;
+
+        // If the lobby does not exist,
         const lobby = LobbyStore.getLobby(currentLobbyId);
         if (!lobby) return;
 
         // Game state / turn check
+        const gs = lobby.game.getGameState();
+        if (gs !== GAME_STATES.PREPARATION && gs !== GAME_STATES.STANDARDPLAY) return;
 
-        // Play.
+        // // Play.
         const result = lobby.game.playPower(socketId, amalgamationIndex, cardKey);
 
         // Opponent play power emit for other players
@@ -156,17 +160,21 @@ io.on("connection", (socket)=>{
 
     socket.on("game:playDefense", (cardKey, amalgamationIndex)=>{
 
-        // Verify data.
-        if (typeof cardKey !== "number"){
-            return;
-        }
-        if (typeof amalgamationIndex !== "number" || amalgamationIndex < 1 || amalgamationIndex > 3){
-            return;
-        }
+        // // Verify data.
+
+        // If the cardKey is not a number, return.
+        if (typeof cardKey !== "number") return;
+
+        // If the amalgamationIndex is a number from 1 to 3,
+        if (typeof amalgamationIndex !== "number" || amalgamationIndex < 1 || amalgamationIndex > 3) return;
+
+        // If the lobby does not exist,
         const lobby = LobbyStore.getLobby(currentLobbyId);
         if (!lobby) return;
 
         // Game state / turn check
+        const gs = lobby.game.getGameState();
+        if (gs !== GAME_STATES.PREPARATION && gs !== GAME_STATES.STANDARDPLAY) return;
 
         // Play.
         const result = lobby.game.playDefense(socketId, amalgamationIndex, cardKey);
@@ -174,19 +182,27 @@ io.on("connection", (socket)=>{
         // Opponent play defense emit for other players
         socket.broadcast.to(currentLobbyId).emit("game:opponentPlayedDefense", result);
 
+
     });
 
     socket.on("game:playEnergy", (cardKey)=>{
-        
-        // Verify data.
-        if (typeof cardKey !== "number"){
-            return;
-        }
+
+        // // Verify data.
+
+        // If the cardKey is not a number, return.
+        if (typeof cardKey !== "number") return;
+
+        // If the amalgamationIndex is a number from 1 to 3,
+        if (typeof amalgamationIndex !== "number" || amalgamationIndex < 1 || amalgamationIndex > 3) return;
+
+        // If the lobby does not exist,
         const lobby = LobbyStore.getLobby(currentLobbyId);
         if (!lobby) return;
 
         // Game state / turn check
-
+        const gs = lobby.game.getGameState();
+        if (gs !== GAME_STATES.STANDARDPLAY) return;
+        
         // Play.
         const result = lobby.game.playEnergy(socketId, cardKey);
         

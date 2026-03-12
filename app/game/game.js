@@ -17,7 +17,8 @@ const GLOBAL_DRAW_AMOUNT = 1;
 
 const GAME_STATES = Object.freeze({
     PREPARATION : "PREPARATION",
-
+    STANDARDPLAY : "STANDARDPLAY",
+    NONE : "NONE",
 })
 
 /* -------------------------------------------------------------------------- */
@@ -73,10 +74,8 @@ class Game {
     #turnCount = 0;
 
     // Game state
-    // Need to implement among other things
-    #gameState = {
-
-    }
+    #gameState = GAME_STATES.NONE;
+    #playerTurn;
 
     /* ------------------------------- Constructor ------------------------------ */
 
@@ -135,8 +134,13 @@ class Game {
             cardInfoList.push(cardInfo);
         }
 
+        // Set target
         const target = new Target(playerId);
 
+        // Update playerTurn
+        this.#playerTurn = playerId;
+
+        // Return
         return {target, cardInfoList};
     }
 
@@ -270,6 +274,56 @@ class Game {
         return returnQueue;
     }
 
+    /* ------------------------------- Game State ------------------------------- */
+
+    advanceGameState(){
+        
+        // // Advance
+        
+        // If game state is none, 
+        if (this.#gameState === GAME_STATES.NONE) {
+
+            // Set to preparation
+            this.#gameState = GAME_STATES.PREPARATION;
+
+        }
+        // Else if game state is preparation,
+        else if (this.#gameState === GAME_STATES.PREPARATION) {
+
+            // Set to normal
+            this.#gameState = GAME_STATES.NORMAL;
+
+        }
+        // Else if game state is normal,
+        else if (this.#gameState === GAME_STATES.NORMAL) {
+
+            // Set to none
+            this.#gameState = GAME_STATES.NONE;
+
+        }
+
+    }
+    
+    getGameState(){
+
+        // Return
+        return this.#gameState;
+        
+    }
+
+    alternateTurn(){
+
+        // Get playerIds
+        const playerIds = Array.from(this.#players.keys());
+
+        // Alternate player turn to the other playerId in players
+        this.#playerTurn = playerIds.find(id => id !== this.#playerTurn);
+
+        // Increase the turn count by 0.5.
+        this.#turnCount += 0.5;
+
+    }
+
     /* ---------------------------------- Misc ---------------------------------- */
 
     getPlayers() {
@@ -283,5 +337,5 @@ class Game {
 
 module.exports = {
     Game,
-    GAME_STATES
+    GAME_STATES,
 }

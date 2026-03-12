@@ -122,7 +122,7 @@ io.on("connection", (socket)=>{
         const sockets = await io.in(currentLobbyId).fetchSockets();
 
         lobby.game.advanceGameState();
-        lobby.game.advanceGameState();
+        // lobby.game.advanceGameState();
 
         // Set game state to prep
         // Deal cards

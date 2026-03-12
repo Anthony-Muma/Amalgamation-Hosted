@@ -75,7 +75,7 @@ class Game {
 
     // Game state
     #gameState = GAME_STATES.NONE;
-    #playerTurn = 1;
+    #playerTurn;
 
     /* ------------------------------- Constructor ------------------------------ */
 
@@ -134,8 +134,13 @@ class Game {
             cardInfoList.push(cardInfo);
         }
 
+        // Set target
         const target = new Target(playerId);
 
+        // Update playerTurn
+        this.#playerTurn = playerId;
+
+        // Return
         return {target, cardInfoList};
     }
 
@@ -308,8 +313,11 @@ class Game {
 
     alternateTurn(){
 
-        // Alternate player turn from 1 to 2.
-        this.#playerTurn = this.#playerTurn === 1 ? 2 : 1;
+        // Get playerIds
+        const playerIds = Array.from(this.#players.keys());
+
+        // Alternate player turn to the other playerId in players
+        this.#playerTurn = playerIds.find(id => id !== this.#playerTurn);
 
         // Increase the turn count by 0.5.
         this.#turnCount += 0.5;

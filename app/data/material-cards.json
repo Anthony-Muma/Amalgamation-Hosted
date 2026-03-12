@@ -9,62 +9,26 @@
     },
 
     "log" : {
-        "energy" : 3,
-        "power" : 3,
-        "defense" : 3,
+        "energy" : 7,
+        "power" : 7,
+        "defense" : 7,
 
         "name" : "log",
-        "type" : "material"
-    },
-
-    "test" : {
-        "energy" : 10,
-        "power" : 10,
-        "defense" : 10,
-
-        "name" : "test",
-        "type" : "material"
-    },
-
-    "personal test" : {
-        "energy" : 10,
-        "power" : 10,
-        "defense" : 10,
-
-        "name" : "personal test",
-        "type" : "material"
-    },
-
-    "global test" : {
-        "energy" : 3,
-        "power" : 3,
-        "defense" : 3,
-
-        "name" : "global test",
         "type" : "material"
     },
 
     "sword" : {
         "energy" : 10,
         "power" : 10,
-        "defense" : null,
+        "defense" : 3,
 
         "name" : "sword",
         "type" : "material"
     },
 
-    "energy crystal" : {
-        "energy" : 15,
-        "power" : null,
-        "defense" : null,
-
-        "name" : "energy crystal",
-        "type" : "material"
-    },
-
     "pillow" : {
         "energy" : 5,
-        "power" : 1,
+        "power" : 3,
         "defense" : 10,
 
         "name" : "pillow",
@@ -72,7 +36,7 @@
     },
 
     "crystals" : {
-        "energy" : 45,
+        "energy" : 15,
         "power" : null,
         "defense" : null,
 
@@ -83,18 +47,63 @@
     "nails" : {
         "energy" : 5,
         "power" : 7,
-        "defense" : 3,
+        "defense" : 1,
 
         "name" : "nails",
         "type" : "material"
     },
 
     "mushroom" : {
-        "energy" : 12,
-        "power" : 2,
+        "energy" : 10,
+        "power" : 3,
         "defense" : 6,
 
         "name" : "mushroom",
+        "type" : "material"
+    },
+
+    "clock" : {
+        "energy" : 8,
+        "power" : 4,
+        "defense" : 8,
+
+        "name" : "clock",
+        "type" : "material"
+    },
+
+    "mirror" : {
+        "energy" : 15,
+        "power" : 7,
+        "defense" : 11,
+
+        "name" : "mirror",
+        "type" : "material"
+    },
+
+    "bomb" : {
+        "energy" : 20,
+        "power" : 15,
+        "defense" : null,
+
+        "name" : "bomb",
+        "type" : "material"
+    },
+
+    "brick" : {
+        "energy" : 4,
+        "power" : 8,
+        "defense" : 10,
+
+        "name" : "brick",
+        "type" : "material"
+    },
+
+    "shoe" : {
+        "energy" : 5,
+        "power" : 4,
+        "defense" : 6,
+
+        "name" : "shoe",
         "type" : "material"
     }
 

@@ -128,6 +128,7 @@ class Amalgamation {
         const defenseObject = new DefenseObject(card.getDefenseValue());
 
         defenses.push(defenseObject);
+        return true;
     }
 
     /* ----------------------------- Combat / Damage ---------------------------- */

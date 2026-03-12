@@ -17,6 +17,26 @@
                 "key": "Arcane Soul Title"
             },
             {
+                "url": "assets/Assassin.PNG",
+                "type": "image",
+                "key": "Assassin"
+            },
+            {
+                "url": "assets/Amalgamations/Titles/Assassin Title.PNG",
+                "type": "image",
+                "key": "Assassin Title"
+            },
+            {
+                "url": "assets/material/Bomb.PNG",
+                "type": "image",
+                "key": "Bomb"
+            },
+            {
+                "url": "assets/material/Brick.PNG",
+                "type": "image",
+                "key": "Brick"
+            },
+            {
                 "url": "assets/Card back.PNG",
                 "type": "image",
                 "key": "Card back"
@@ -34,6 +54,11 @@
                 "key": "cardFlip"
             },
             {
+                "url": "assets/Character Card Background.PNG",
+                "type": "image",
+                "key": "Character Card Background"
+            },
+            {
                 "url": "assets/Chopped Log.PNG",
                 "type": "image",
                 "key": "Chopped Log"
@@ -44,6 +69,11 @@
                 ],
                 "type": "audio",
                 "key": "click"
+            },
+            {
+                "url": "assets/material/Clock.PNG",
+                "type": "image",
+                "key": "Clock"
             },
             {
                 "url": "assets/dino.png",
@@ -80,6 +110,11 @@
                 "key": "Knight"
             },
             {
+                "url": "assets/Amalgamations/Titles/Knight Title.PNG",
+                "type": "image",
+                "key": "Knight Title"
+            },
+            {
                 "url": "assets/Knowledge Soul Card.PNG",
                 "type": "image",
                 "key": "Knowledge Soul Card"
@@ -95,6 +130,11 @@
                 "key": "Knowledge Soul Title"
             },
             {
+                "url": "assets/material/Magic Mirror.PNG",
+                "type": "image",
+                "key": "Magic Mirror"
+            },
+            {
                 "url": "assets/Mushroom.PNG",
                 "type": "image",
                 "key": "Mushroom"
@@ -103,6 +143,11 @@
                 "url": "assets/Nails.PNG",
                 "type": "image",
                 "key": "Nails"
+            },
+            {
+                "url": "assets/material/Old Shoe.PNG",
+                "type": "image",
+                "key": "Old Shoe"
             },
             {
                 "url": "assets/Pillow.PNG",
@@ -188,6 +233,11 @@
                 "url": "assets/Wall.PNG",
                 "type": "image",
                 "key": "Wall"
+            },
+            {
+                "url": "assets/Amalgamations/Titles/Wall Title.PNG",
+                "type": "image",
+                "key": "Wall Title"
             },
             {
                 "url": "assets/White_silver Card Front.PNG",

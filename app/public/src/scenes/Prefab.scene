@@ -203,6 +203,18 @@
                     "color": "#ffffffff",
                     "stroke": "#000000ff",
                     "strokeThickness": 5
+                },
+                {
+                    "type": "Image",
+                    "id": "6c17bfb5-4486-4555-a8a7-ae84af07b7f4",
+                    "label": "knightSmall",
+                    "texture": {
+                        "key": "KnightSmall"
+                    },
+                    "x": 192,
+                    "y": -16,
+                    "scaleX": 0.6,
+                    "scaleY": 0.3
                 }
             ]
         }

@@ -122,7 +122,7 @@ io.on("connection", (socket)=>{
         const sockets = await io.in(currentLobbyId).fetchSockets();
 
         lobby.game.advanceGameState();
-        // lobby.game.advanceGameState();
+        lobby.game.advanceGameState();
 
         // Set game state to prep
         // Deal cards
@@ -222,7 +222,7 @@ io.on("connection", (socket)=>{
 
         // Game state / turn check
         const gs = lobby.game.getGameState();
-        if (gs != GAME_STATES.NORMAL) return;
+        if (gs != GAME_STATES.STANDARDPLAY) return;
         
         // Play.
         const result = lobby.game.playEnergy(socketId, cardKey);

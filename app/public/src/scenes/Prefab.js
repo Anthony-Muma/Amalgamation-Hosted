@@ -112,6 +112,12 @@ export default class Prefab extends Phaser.GameObjects.Container {
 		defenseText3.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
 		this.add(defenseText3);
 
+		// knightSmall
+		const knightSmall = scene.add.image(192, -16, "KnightSmall");
+		knightSmall.scaleX = 0.6;
+		knightSmall.scaleY = 0.3;
+		this.add(knightSmall);
+
 		// lists
 		const defenseSlots = [defenseSlot0, defenseSlot1, defenseSlot2];
 		const defenseText = [defenseText3, defenseText1, defenseText0];

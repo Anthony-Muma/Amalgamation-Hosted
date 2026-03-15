@@ -301,7 +301,7 @@ class Game {
         else if (this.#gameState == GAME_STATES.PREPARATION) {
 
             // Set to normal
-            this.#gameState = GAME_STATES.NORMAL;
+            this.#gameState = GAME_STATES.STANDARDPLAY;
 
         }
         // Else if game state is normal,

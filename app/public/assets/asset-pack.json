@@ -115,6 +115,11 @@
                 "key": "Knight Title"
             },
             {
+                "url": "assets/KnightSmall.png",
+                "type": "image",
+                "key": "KnightSmall"
+            },
+            {
                 "url": "assets/Knowledge Soul Card.PNG",
                 "type": "image",
                 "key": "Knowledge Soul Card"

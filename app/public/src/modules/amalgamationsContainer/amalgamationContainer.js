@@ -75,9 +75,9 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 		this.add(powerText);
 
 		// image
-		const image = scene.add.image(0, -16, "Knight");
-		image.scaleX = 0.15;
-		image.scaleY = 0.15;
+		const image = scene.add.image(0, -16, "KnightSmall");
+		image.scaleX = 0.6;
+		image.scaleY = 0.6;
 		this.add(image);
 
 		// shadowFx_3

@@ -1,0 +1,205 @@
+{
+    "id": "81f8c2c0-7b55-4af2-80c1-e7a8e3ee0b81",
+    "sceneType": "SCENE",
+    "settings": {
+        "snapEnabled": true,
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
+        "preloadPackFiles": [],
+        "createMethodName": "editorCreate",
+        "sceneKey": "TargetingScene",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Rectangle",
+            "id": "7a69d391-00fc-46d6-b543-fb9001003563",
+            "label": "rectangle_1",
+            "originX": 0,
+            "originY": 0,
+            "alpha": 0.99,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "fillAlpha": 10,
+            "width": 1280,
+            "height": 720
+        },
+        {
+            "type": "Image",
+            "id": "43252512-71fe-434f-8037-7252818e6137",
+            "label": "white_silver_Card_Front_12",
+            "texture": {
+                "key": "Character Card Background"
+            },
+            "x": 368,
+            "y": 192,
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "#dd0000",
+            "tintTopRight": "#dd0000",
+            "tintBottomLeft": "#dd0000",
+            "tintBottomRight": "#dd0000"
+        },
+        {
+            "type": "Image",
+            "id": "40ee2784-9b68-424d-9a06-64d05b9e963d",
+            "label": "white_silver_Card_Front_13",
+            "texture": {
+                "key": "Character Card Background"
+            },
+            "x": 640,
+            "y": 192,
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "#dd0000",
+            "tintTopRight": "#dd0000",
+            "tintBottomLeft": "#dd0000",
+            "tintBottomRight": "#dd0000"
+        },
+        {
+            "type": "Image",
+            "id": "c771eb76-8318-44ef-ab35-e8f14f9ff233",
+            "label": "white_silver_Card_Front_14",
+            "texture": {
+                "key": "Character Card Background"
+            },
+            "x": 912,
+            "y": 192,
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "#dd0000",
+            "tintTopRight": "#dd0000",
+            "tintBottomLeft": "#dd0000",
+            "tintBottomRight": "#dd0000"
+        },
+        {
+            "type": "Image",
+            "id": "38b5b986-bef4-45fe-94bf-5813d1db9920",
+            "label": "white_silver_Card_Front",
+            "texture": {
+                "key": "Character Card Background"
+            },
+            "x": 368,
+            "y": 464,
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "",
+            "tintTopRight": "",
+            "tintBottomLeft": "",
+            "tintBottomRight": ""
+        },
+        {
+            "type": "Image",
+            "id": "85acb2eb-8fe5-4b83-a25c-3cdcc4f60256",
+            "label": "white_silver_Card_Front_1",
+            "texture": {
+                "key": "Character Card Background"
+            },
+            "x": 640,
+            "y": 464,
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "",
+            "tintTopRight": "",
+            "tintBottomLeft": "",
+            "tintBottomRight": ""
+        },
+        {
+            "type": "Image",
+            "id": "c1331a66-fcc8-4221-b4ea-5838bc86093b",
+            "label": "white_silver_Card_Front_2",
+            "texture": {
+                "key": "Character Card Background"
+            },
+            "x": 912,
+            "y": 464,
+            "scaleX": 0.27,
+            "scaleY": 0.27,
+            "tintTopLeft": "",
+            "tintTopRight": "",
+            "tintBottomLeft": "",
+            "tintBottomRight": ""
+        },
+        {
+            "type": "Image",
+            "id": "3847e2f0-ed51-4250-9cd7-f0293a74f288",
+            "label": "arcane_Soul_Symbol",
+            "texture": {
+                "key": "Knowledge Soul Symbol"
+            },
+            "x": 368,
+            "y": 464,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "449029cb-ba4e-4ec2-9cb3-1134673888d9",
+            "label": "arcane_Soul_Symbol_1",
+            "texture": {
+                "key": "Knowledge Soul Symbol"
+            },
+            "x": 640,
+            "y": 464,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "476b074c-05d7-4f42-8d1f-f9e117ae98fd",
+            "label": "arcane_Soul_Symbol_2",
+            "texture": {
+                "key": "Knowledge Soul Symbol"
+            },
+            "x": 912,
+            "y": 464,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "125dbe2f-bc84-4e43-9b80-d1a298dae127",
+            "label": "power_Soul_Symbol",
+            "texture": {
+                "key": "Power Soul Symbol"
+            },
+            "x": 368,
+            "y": 192,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "88937459-4c25-49d7-a595-c218194c0b9d",
+            "label": "power_Soul_Symbol_1",
+            "texture": {
+                "key": "Power Soul Symbol"
+            },
+            "x": 640,
+            "y": 192,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        },
+        {
+            "type": "Image",
+            "id": "a14dc4e7-5bc5-4e73-a403-41be44c5b3e4",
+            "label": "power_Soul_Symbol_2",
+            "texture": {
+                "key": "Power Soul Symbol"
+            },
+            "x": 912,
+            "y": 192,
+            "scaleX": 0.15,
+            "scaleY": 0.15
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

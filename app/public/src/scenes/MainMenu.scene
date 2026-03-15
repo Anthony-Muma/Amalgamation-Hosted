@@ -13,13 +13,15 @@
     "displayList": [
         {
             "type": "Image",
-            "id": "d53bdfe2-aa55-44e5-989d-c6664d48f0d3",
-            "label": "table",
+            "id": "a9d66eda-7394-4dd1-97d9-42784a7462b8",
+            "label": "main_Menu_Background",
             "texture": {
-                "key": "Table"
+                "key": "Main-Menu-Background"
             },
             "x": 640,
-            "y": 360
+            "y": 360,
+            "scaleX": 0.67,
+            "scaleY": 0.67
         },
         {
             "type": "Rectangle",

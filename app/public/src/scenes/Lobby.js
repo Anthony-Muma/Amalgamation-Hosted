@@ -20,8 +20,10 @@ export default class Lobby extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
-		// table
-		this.add.image(640, 360, "Table");
+		// main_Menu_Background
+		const main_Menu_Background = this.add.image(640, 360, "Main-Menu-Background");
+		main_Menu_Background.scaleX = 0.67;
+		main_Menu_Background.scaleY = 0.67;
 
 		// lobbyTitle
 		const lobbyTitle = this.add.text(671, 94, "", {});

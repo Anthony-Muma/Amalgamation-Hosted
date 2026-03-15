@@ -167,18 +167,18 @@ class Core {
         // ama.addDefense(TEST_CARD_3);
 
         
-        // amalgamationPowerZone1.on("pointerdown", (pointer)=>{
-        //     const index = amalgamationPowerZone1.getData("index")
-        //     const handler = (indices) => {console.log(indices)}
-        //     console.log(this.playerAmalgamations[index].amalgamationInfo)
-        //     this.scene.scene.launch("AttackUI", 
-        //     {gameInfo:{
-        //         energyPool: this.energy.getEnergy(),
-        //         attackSuccessCb : handler
-        //     },
-        //     amalgamationInfo : this.playerAmalgamations[index].amalgamationInfo}
-        //     );
-        // });
+        amalgamationPowerZone1.on("pointerdown", (pointer)=>{
+            const index = amalgamationPowerZone1.getData("index")
+            const handler = (indices) => {console.log(indices)}
+            console.log(this.playerAmalgamations[index].amalgamationInfo)
+            this.scene.scene.launch("AttackUI", 
+            {gameInfo:{
+                energyPool: this.energy.getEnergy(),
+                attackSuccessCb : handler
+            },
+            amalgamationInfo : this.playerAmalgamations[index].amalgamationInfo}
+            );
+        });
 
         scene.input.on("dragstart", (pointer, gameObject) => {
             hand.disableHover();

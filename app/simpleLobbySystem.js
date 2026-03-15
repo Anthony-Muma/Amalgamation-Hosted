@@ -3,7 +3,7 @@ const http = require("http");
 const path = require("path");
 const { Server } = require("socket.io")
 
-const { Game } = require("./game/game")
+const { Game, GAME_STATES } = require("./game/game")
 const { LobbyStore } = require("./lobby-system/lobbyStore")
 
 const app = express();
@@ -112,11 +112,17 @@ io.on("connection", (socket)=>{
     /*                                 Game Events                                */
     /* -------------------------------------------------------------------------- */
 
-    socket.on("game:start", () => {
+    socket.on("game:start", async () => {
         // Get all clients
-        if (!currentLobbyId) return;
+        const lobby = LobbyStore.getLobby(currentLobbyId);
+        if (!lobby) return;
 
-        // const sockets = await io.in(currentLobbyId).fetchSockets()
+        if (lobby.hostId !== socketId) return;
+
+        const sockets = await io.in(currentLobbyId).fetchSockets();
+
+        lobby.game.advanceGameState();
+        lobby.game.advanceGameState();
 
         // Set game state to prep
         // Deal cards
@@ -124,46 +130,106 @@ io.on("connection", (socket)=>{
         for (const clientSocket of sockets) {
             clientSocket.emit("game:started");
         }
+
+        
         
     })
 
+
     socket.on("game:ready", () => {
-        // check st
+
+        const lobby = LobbyStore.getLobby(currentLobbyId);
+        lobby.hostId
+        if (!lobby) return;
+
+        lobby.readyPlayers.add(socketId);
+
+        if (lobby.readyPlayers.size === lobby.players.length) {
+            socket.to(currentLobbyId).emit("game:turnEnded");
+            const result = lobby.game.startTurn(socketId);
+            socket.emit("game:turnStarted", result);
+        }
 
     })
     
     socket.on("game:playPower", (cardKey, amalgamationIndex)=>{
 
-        // TO:DO : Sanitize incoming request
+        // // Verify data.
 
+        // If the cardKey is not a number, return.
+        if (typeof cardKey !== "number") return;
+
+        // If the amalgamationIndex is a number from 1 to 3,
+        if (typeof amalgamationIndex !== "number" || amalgamationIndex < 0 || amalgamationIndex > 2) return;
+
+        // If the lobby does not exist,
         const lobby = LobbyStore.getLobby(currentLobbyId);
-
         if (!lobby) return;
 
-        // TO:DO : Game state / turn check
+        // Game state / turn check
+        const gs = lobby.game.getGameState();
+        if (gs != GAME_STATES.PREPARATION && gs != GAME_STATES.STANDARDPLAY) return;
 
+        // // Play.
         const result = lobby.game.playPower(socketId, amalgamationIndex, cardKey);
 
-        // TO:DO : Check result
+        // Opponent play power emit for other players
+        socket.to(currentLobbyId).emit("game:opponentPlayedPower", result);
 
-        socket.broadcast.to(currentLobbyId).emit("game:opponentPlayedPower", result)
     });
 
     socket.on("game:playDefense", (cardKey, amalgamationIndex)=>{
-        // Game state check
-            // 
-        
+
+        // // Verify data.
+
+        // if it is socket's turn
+
+        // If the cardKey is not a number, return.
+        if (typeof cardKey !== "number") return;
+
+        // If the amalgamationIndex is a number from 1 to 3,
+        if (typeof amalgamationIndex !== "number" || amalgamationIndex < 0  || amalgamationIndex > 2) return;
+
+        // If the lobby does not exist,
+        const lobby = LobbyStore.getLobby(currentLobbyId);
+        if (!lobby) return;
+        // Game state / turn check
+        const gs = lobby.game.getGameState();
+        if (gs != GAME_STATES.PREPARATION && gs != GAME_STATES.STANDARDPLAY) return;
+        // Play.
+        const result = lobby.game.playDefense(socketId, amalgamationIndex, cardKey);
         // Opponent play defense emit for other players
-        // emit game:opponentPlayedDefense
+        // hide card
+        result.cardInfo.card.energy = null;
+        result.cardInfo.card.power = null;
+        result.cardInfo.card.defense = null;
+        result.cardInfo.card.defense = null;
+        console.log(result);
+        socket.to(currentLobbyId).emit("game:opponentPlayedDefense", result);
+
     });
 
     socket.on("game:playEnergy", (cardKey)=>{
-        // Game state check
-            // Only do on X game state
 
+        // // Verify data.
+
+        // If the cardKey is not a number, return.
+        if (typeof cardKey !== "number") return;
+ 
+        // If the lobby does not exist,
+        const lobby = LobbyStore.getLobby(currentLobbyId);
+        if (!lobby) return;
+
+        // Game state / turn check
+        const gs = lobby.game.getGameState();
+        if (gs != GAME_STATES.STANDARDPLAY) return;
         
-        // Opponent play energy emit for other players
-        // emit game:opponentPlayedEnergy
+        // Play.
+        const result = lobby.game.playEnergy(socketId, cardKey);
+        
+        // Opponent play defense emit for other players
+        socket.to(currentLobbyId).emit("game:opponentPlayedEnergy", result);
+
     });
 
     // TO:DO
@@ -184,12 +250,14 @@ io.on("connection", (socket)=>{
         if (!lobby) return;
 
         // TO:DO : Game state / turn check
-        lobby.game.startTurn(socketId);
-        const result = lobby.game.startTurn(socketId);
-
+        const otherSocketId = lobby.game.alternateTurn();
+        if (!otherSocketId) return;
+        const result = lobby.game.startTurn(otherSocketId);
+        
+        lobby.game.endTurn(socketId);
         // TO:DO : Check result
 
-        socket.broadcast.to(currentLobbyId).emit("game:opponentPlayedPower", result)
+        socket.to(currentLobbyId).emit("game:turnStarted", result)
 
         // check states
 

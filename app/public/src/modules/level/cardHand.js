@@ -23,9 +23,19 @@ class CardHand {
          * @type {Map<number, baseContainer>}
          */
         this.hand = new Map()
+        this._handHover = false;
+        this._handEnabled = false;
+    }
+
+    disableHover() {
+        this._handHover = false;
+        this.hand.forEach((card) =>{
+            card.disableHover();
+        });
     }
 
     disableHand() {
+        this._handEnabled = false;
         this.hand.forEach((card) =>{
             card.disableDrag();
             // card.disableHover();
@@ -33,9 +43,17 @@ class CardHand {
     }
 
     enableHand() {
+        this._handEnabled = true;
         this.hand.forEach((card) =>{
             card.enableDrag();
             // card.disableHover();
+        });
+    }
+
+    enableHover() {
+        this._handHover = true;
+        this.hand.forEach((card) =>{
+            card.enableHover();
         });
     }
 
@@ -52,7 +70,8 @@ class CardHand {
         }
 
         card.enableInteractable();
-        card.enableHover();
+        if (this._handEnabled) card.enableDrag();
+        if (this._handHover) card.enableHover();
 
         // If the cardKey already exists, destroy old card.
         const buggedCard = this.hand.get(cardInfo.cardKey);
@@ -68,7 +87,7 @@ class CardHand {
 
     /**
      * @param {number} cardKey 
-     */
+     */ 
     removeCard(cardKey) {
         const card = this.hand.get(cardKey);
         if (card) {
@@ -82,8 +101,9 @@ class CardHand {
     /**
      * 
      * @param {baseContainer} insertingCard - Optional card that is outside of the hand, but should be moved back in
+     * @param {boolean} [flipFaceUp=false] - When can is inserted, flip this card face up
      */
-    layoutHand(insertingCard=null) {
+    layoutHand(insertingCard=null, flipFaceUp=true) {
         const count = this.hand.size;
 
         const totalWidth = (count - 1) * SPACING;
@@ -108,8 +128,9 @@ class CardHand {
 				}
         	});
 
-            if (isNew && !card.isFaceUp) {
-                this.scene.time.delayedCall(400, () => {
+            // This delay stops the card from "getting stuck", however, they do kind of get stuck
+            if (isNew && !card.isFaceUp && flipFaceUp) {
+                this.scene.time.delayedCall(450, () => {
                     if (!card.isFaceUp) card.flipCard();
                 });
             }

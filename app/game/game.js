@@ -13,11 +13,12 @@ const { Player } = require("./player");
 /* -------------------------------------------------------------------------- */
 
 const PERSONAL_DRAW_AMOUNT = 5;
-const GLOBAL_DRAW_AMOUNT = 1;
+const GLOBAL_DRAW_AMOUNT = 2;
 
 const GAME_STATES = Object.freeze({
     PREPARATION : "PREPARATION",
-
+    STANDARDPLAY : "STANDARDPLAY",
+    NONE : "NONE",
 })
 
 /* -------------------------------------------------------------------------- */
@@ -54,7 +55,7 @@ function Target(playerIndex, amalgamationIndex = null) {
  * @param {string} deck
  */
 function CardInfo(card, cardKey, deck = null) {
-    this.card = card;
+    this.card = card.getAll();
     this.cardKey = cardKey;
     this.deck = deck;
 }
@@ -73,10 +74,8 @@ class Game {
     #turnCount = 0;
 
     // Game state
-    // Need to implement among other things
-    #gameState = {
-
-    }
+    #gameState = GAME_STATES.NONE;
+    #playerTurn;
 
     /* ------------------------------- Constructor ------------------------------ */
 
@@ -92,8 +91,12 @@ class Game {
         // For now, create a starter deck for the player
         // TODO: will change later
 
-        const energyCrystal = cardFactory("personal test", "material");
-        const personalDeck = [energyCrystal, energyCrystal, energyCrystal, energyCrystal, energyCrystal];
+        const createRandomCard = () =>
+            cardFactory(
+                ["sword", "pillow", "nails", "mushroom", "log", "clock", "mirror", "bomb", "brick", "shoe"][Math.floor(Math.random() * 10)],
+                "material"
+            );
+        const personalDeck = [createRandomCard(), createRandomCard(), createRandomCard(), createRandomCard(), createRandomCard()];
         player.changePersonalDeck(personalDeck);
 
         // Add player
@@ -130,13 +133,23 @@ class Game {
         // Draw from global deck
         for (let i = 0; i < GLOBAL_DRAW_AMOUNT; i++) {
             // TODO: create a module that the card draw "randomness"
-            const {card, cardKey} = player.drawFromExternal(cardFactory("log", "material"));
+            const {card, cardKey} = player.drawFromExternal(
+                cardFactory(
+                    ["sword", "pillow", "nails", "mushroom", "log", "clock", "mirror", "bomb", "brick", "shoe", "crystals"][Math.floor(Math.random() * 11)],
+                    "material"
+                )
+            );
             const cardInfo = new CardInfo(card, cardKey, "global");
             cardInfoList.push(cardInfo);
         }
 
+        // Set target
         const target = new Target(playerId);
 
+        // Update playerTurn
+        this.#playerTurn = playerId;
+
+        // Return
         return {target, cardInfoList};
     }
 
@@ -157,7 +170,7 @@ class Game {
         const player = this.#players.get(playerId);
         const card = player.playPower(cardKey, amalgamationIndex);
         const target = new Target(playerId, amalgamationIndex);
-        const cardInfo = card ? new CardInfo(card.getAll(), cardKey) : null;
+        const cardInfo = card ? new CardInfo(card, cardKey) : null;
         return {target, cardInfo}
     }
 
@@ -165,8 +178,9 @@ class Game {
         // Add error checks
         const player = this.#players.get(playerId);
         const card = player.playDefense(cardKey, amalgamationIndex);
+        
         const target = new Target(playerId, amalgamationIndex);
-        const cardInfo = card ? new CardInfo(card.getAll(), cardKey) : null;
+        const cardInfo = card ? new CardInfo(card, cardKey) : null;
         return {target, cardInfo}
     }
 
@@ -175,7 +189,7 @@ class Game {
         const player = this.#players.get(playerId);
         const card = player.playEnergy(cardKey);
         const target = new Target(playerId, null);
-        const cardInfo = card ? new CardInfo(card.getAll(), cardKey) : null;
+        const cardInfo = card ? new CardInfo(card, cardKey) : null;
         return {target, cardInfo}
     }
 
@@ -270,6 +284,55 @@ class Game {
         return returnQueue;
     }
 
+    /* ------------------------------- Game State ------------------------------- */
+
+    advanceGameState(){
+        
+        // // Advance
+        
+        // If game state is none, 
+        if (this.#gameState == GAME_STATES.NONE) {
+
+            // Set to preparation
+            this.#gameState = GAME_STATES.PREPARATION;
+
+        }
+        // Else if game state is preparation,
+        else if (this.#gameState == GAME_STATES.PREPARATION) {
+
+            // Set to normal
+            this.#gameState = GAME_STATES.STANDARDPLAY;
+
+        }
+        // Else if game state is normal,
+        else if (this.#gameState == GAME_STATES.STANDARDPLAY) {
+
+            // Set to none
+            this.#gameState = GAME_STATES.NONE;
+
+        }
+
+    }
+    
+    getGameState(){
+
+        // Return
+        return this.#gameState;
+        
+    }
+
+    alternateTurn(){
+
+        // Get playerIds
+        const playerIds = Array.from(this.#players.keys());
+
+        // Alternate player turn to the other playerId in players
+        return this.#playerTurn = playerIds.find(id => id !== this.#playerTurn);
+
+        
+
+    }
+
     /* ---------------------------------- Misc ---------------------------------- */
 
     getPlayers() {
@@ -283,5 +346,5 @@ class Game {
 
 module.exports = {
     Game,
-    GAME_STATES
+    GAME_STATES,
 }

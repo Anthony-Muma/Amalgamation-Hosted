@@ -16,4 +16,14 @@
  * @property {string | Null} deck
  */
 
+/**
+ * @typedef {Object} AmalgamationInfo
+ * @property {string} name
+ * @property {number} health
+ * @property {boolean} alive
+ * @property {number} maxDefense
+ * @property {{ energy: number, power: number }[]} powerObjectList
+ * @property {{ defense: number }[]} defenseObjectList
+ */
+
 export const types = {};

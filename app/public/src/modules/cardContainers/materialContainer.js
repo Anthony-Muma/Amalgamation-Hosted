@@ -7,9 +7,16 @@ function getMainImageKey(name) {
         crystals : "Energy Crystal 3X",
         nails : "Nails",
         sword : "Sword",
-        mushroom : "Mushroom"
+        mushroom : "Mushroom",
+        clock : "Clock",
+        mirror : "Magic Mirror",
+        bomb : "Bomb",
+        brick : "Brick",
+        shoe : "Old Shoe"
     };  
-
+    
+    if (!map[name]) console.warn("Warning: No image for `" + name + "` exists");
+    
     return map[name] || "Chopped Log";
 }
 
@@ -33,9 +40,9 @@ export class materialContainer extends baseContainer {
         this.cardInfo = cardInfo;
         this.scene = scene;
 
-        const powerValue = cardInfo.card.attackValue;
-        const defenseValue = cardInfo.card.defenseValue;
-        const energyValue = cardInfo.card.energyValue;
+        const powerValue = cardInfo.card.power;
+        const defenseValue = cardInfo.card.defense;
+        const energyValue = cardInfo.card.energy;
 
         // Slightly modified compiler-made code
         

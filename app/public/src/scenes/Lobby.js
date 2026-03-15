@@ -81,6 +81,7 @@ export default class Lobby extends Phaser.Scene {
 
 		// copyButton
 		const copyButton = this.add.rectangle(1001, 393, 250, 80);
+		copyButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 250, 80), Phaser.Geom.Rectangle.Contains);
 		copyButton.isFilled = true;
 		copyButton.fillColor = 5151693;
 
@@ -152,7 +153,8 @@ export default class Lobby extends Phaser.Scene {
 
         this.startButton.on("pointerdown", () => {
             console.log("Start Game"); // Placeholder
-			this.scene.start("Level");
+			socket.emit("game:start");
+
         });
 
         this.leaveButton.on("pointerdown", () => {
@@ -178,6 +180,10 @@ export default class Lobby extends Phaser.Scene {
 		/* -------------------------------------------------------------------------- */
 		/* On Lobby events
 		/* -------------------------------------------------------------------------- */
+
+		socket.once("game:started", ()=> {
+			this.scene.start("Level");
+		});
 
 		socket.on("lobby:updated", (lobbyInfo)=>{
 			// No need to swap scenes

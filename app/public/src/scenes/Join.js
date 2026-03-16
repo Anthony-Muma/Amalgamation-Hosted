@@ -20,8 +20,10 @@ export default class Join extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
-		// table
-		this.add.image(640, 360, "Table");
+		// main_Menu_Background
+		const main_Menu_Background = this.add.image(640, 360, "Main-Menu-Background");
+		main_Menu_Background.scaleX = 0.67;
+		main_Menu_Background.scaleY = 0.67;
 
 		// lobbyCodeText
 		const lobbyCodeText = this.add.text(640, 150, "", {});

@@ -27,6 +27,17 @@ export default class AttackUI extends Phaser.Scene {
 		rectangle_1.fillColor = 0;
 		rectangle_1.fillAlpha = 10;
 
+		// rectangle_2
+		const rectangle_2 = this.add.rectangle(620, 330, 128, 128);
+		rectangle_2.scaleX = 6;
+		rectangle_2.scaleY = 3;
+		rectangle_2.isFilled = true;
+
+		// _200x200_ExitButton
+		const _200x200_ExitButton = this.add.image(992, 144, "200x200-ExitButton");
+		_200x200_ExitButton.scaleX = 0.5;
+		_200x200_ExitButton.scaleY = 0.5;
+
 		this.events.emit("scene-awake");
 	}
 
@@ -63,7 +74,7 @@ export default class AttackUI extends Phaser.Scene {
 		});
 
        //...
-        
+
     }
 
 	/* END-USER-CODE */

@@ -25,6 +25,30 @@
             "fillAlpha": 10,
             "width": 1280,
             "height": 720
+        },
+        {
+            "type": "Rectangle",
+            "id": "27012a31-d4d8-49f1-a17b-1a08f1a0872f",
+            "label": "rectangle_2",
+            "x": 620,
+            "y": 330,
+            "scaleX": 6,
+            "scaleY": 3,
+            "isFilled": true,
+            "width": 128,
+            "height": 128
+        },
+        {
+            "type": "Image",
+            "id": "0e7087c1-e596-4590-b52a-cadbc459b894",
+            "label": "_200x200_ExitButton",
+            "texture": {
+                "key": "200x200-ExitButton"
+            },
+            "x": 992,
+            "y": 144,
+            "scaleX": 0.5,
+            "scaleY": 0.5
         }
     ],
     "plainObjects": [],

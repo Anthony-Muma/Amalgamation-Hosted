@@ -2,6 +2,11 @@
     "section1": {
         "files": [
             {
+                "url": "assets/Attack-Ui/200x200-ExitButton.PNG",
+                "type": "image",
+                "key": "200x200-ExitButton"
+            },
+            {
                 "url": "assets/Arcane Soul Card.PNG",
                 "type": "image",
                 "key": "Arcane Soul Card"
@@ -138,6 +143,11 @@
                 "url": "assets/material/Magic Mirror.PNG",
                 "type": "image",
                 "key": "Magic Mirror"
+            },
+            {
+                "url": "assets/Background/Main-Menu-Background.PNG",
+                "type": "image",
+                "key": "Main-Menu-Background"
             },
             {
                 "url": "assets/Mushroom.PNG",

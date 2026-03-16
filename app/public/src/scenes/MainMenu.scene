@@ -13,8 +13,8 @@
     "displayList": [
         {
             "type": "Image",
-            "id": "a9d66eda-7394-4dd1-97d9-42784a7462b8",
-            "label": "main_Menu_Background",
+            "id": "e4b834e5-2be2-45a1-9fad-1c2be3cdbd50",
+            "label": "main_Menu_Background_1",
             "texture": {
                 "key": "Main-Menu-Background"
             },

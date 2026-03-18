@@ -81,6 +81,7 @@ export default class AttackUI extends Phaser.Scene {
 
 		// energyTest
 		const energyTest = this.add.text(705, 145, "", {});
+		energyTest.visible = false;
 		energyTest.text = "XX ENG";
 		energyTest.setStyle({ "color": "#28ee53ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
 
@@ -91,6 +92,8 @@ export default class AttackUI extends Phaser.Scene {
 
 		this.exitButton = exitButton;
 		this.attackButton = attackButton;
+		this.energyTotal = energyTotal;
+		this.energyTest = energyTest;
 
 		this.events.emit("scene-awake");
 	}
@@ -99,6 +102,10 @@ export default class AttackUI extends Phaser.Scene {
 	exitButton;
 	/** @type {Phaser.GameObjects.Image} */
 	attackButton;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	energyTotal;
+	/** @type {Phaser.GameObjects.Text} */
+	energyTest;
 
 	/* START-USER-CODE */
 
@@ -138,7 +145,11 @@ export default class AttackUI extends Phaser.Scene {
 			this.scene.stop("AttackUI");
 		});
 
-
+		//Generate text inside energyTotal to show the current energy 
+		if (this.gameInfo && this.gameInfo.energyPool !== undefined) {
+			this.energyTest.setText(`${this.gameInfo.energyPool} ENG`);
+			this.energyTest.setVisible(true);
+		}
 
        //...
 

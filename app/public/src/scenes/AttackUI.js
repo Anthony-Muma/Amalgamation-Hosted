@@ -35,6 +35,7 @@ export default class AttackUI extends Phaser.Scene {
 
 		// exitButton
 		const exitButton = this.add.image(1015, 112, "200x200-ExitButton");
+		exitButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 200, 200), Phaser.Geom.Rectangle.Contains);
 		exitButton.scaleX = 0.5;
 		exitButton.scaleY = 0.5;
 
@@ -89,6 +90,12 @@ export default class AttackUI extends Phaser.Scene {
 		const energyTest_1 = this.add.text(705, 385, "", {});
 		energyTest_1.text = "XX ENG";
 		energyTest_1.setStyle({ "color": "#28ee53ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
+
+		// rectangle_1
+		const rectangle_1 = this.add.rectangle(1504, 400, 128, 128);
+		rectangle_1.scaleX = 2.7;
+		rectangle_1.isFilled = true;
+		rectangle_1.fillColor = 0;
 
 		this.exitButton = exitButton;
 		this.attackButton = attackButton;

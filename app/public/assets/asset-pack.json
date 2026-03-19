@@ -225,6 +225,8 @@
                 "url": "assets/Background/960x540-Pop-Up.png",
                 "type": "image",
                 "key": "960x540-Pop-Up"
+            },
+            {
                 "url": "assets/Attack-Ui/500x200-Attack.PNG",
                 "type": "image",
                 "key": "500x200-Attack"

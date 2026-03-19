@@ -2,9 +2,229 @@
     "section1": {
         "files": [
             {
+                "url": "assets/Ama-Symbols/100x100-Blue-Shield.png",
+                "type": "image",
+                "key": "100x100-Blue-Shield"
+            },
+            {
+                "url": "assets/Ama-Symbols/100x100-Grey-Shield.png",
+                "type": "image",
+                "key": "100x100-Grey-Shield"
+            },
+            {
+                "url": "assets/Ama-Symbols/100x100-Power.png",
+                "type": "image",
+                "key": "100x100-Power"
+            },
+            {
+                "url": "assets/Ama-Symbols/100x100-Red-Heart.png",
+                "type": "image",
+                "key": "100x100-Red-Heart"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Arcane-Soul.png",
+                "type": "image",
+                "key": "200x200-Arcane-Soul"
+            },
+            {
+                "url": "assets/Titles/200x200-Arcane-Soul-Title.png",
+                "type": "image",
+                "key": "200x200-Arcane-Soul-Title"
+            },
+            {
+                "url": "assets/Titles/200x200-Assassin-Title.png",
+                "type": "image",
+                "key": "200x200-Assassin-Title"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Bomb.png",
+                "type": "image",
+                "key": "200x200-Bomb"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Brick.png",
+                "type": "image",
+                "key": "200x200-Brick"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Chopped-Log.png",
+                "type": "image",
+                "key": "200x200-Chopped-Log"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Clock.png",
+                "type": "image",
+                "key": "200x200-Clock"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Energy-Crystal.png",
+                "type": "image",
+                "key": "200x200-Energy-Crystal"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Energy-Crystals-3X.png",
+                "type": "image",
+                "key": "200x200-Energy-Crystals-3X"
+            },
+            {
                 "url": "assets/Attack-Ui/200x200-ExitButton.PNG",
                 "type": "image",
                 "key": "200x200-ExitButton"
+            },
+            {
+                "url": "assets/Titles/200x200-Knight-Title.png",
+                "type": "image",
+                "key": "200x200-Knight-Title"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Knowledge-Soul-Symbol.png",
+                "type": "image",
+                "key": "200x200-Knowledge-Soul-Symbol"
+            },
+            {
+                "url": "assets/Titles/200x200-Knowledge-Soul-Title.png",
+                "type": "image",
+                "key": "200x200-Knowledge-Soul-Title"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Magic-Mirror.png",
+                "type": "image",
+                "key": "200x200-Magic-Mirror"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Mushroom.png",
+                "type": "image",
+                "key": "200x200-Mushroom"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Nails.png",
+                "type": "image",
+                "key": "200x200-Nails"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Old-Shoe.png",
+                "type": "image",
+                "key": "200x200-Old-Shoe"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Pillow.png",
+                "type": "image",
+                "key": "200x200-Pillow"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Power-Soul.png",
+                "type": "image",
+                "key": "200x200-Power-Soul"
+            },
+            {
+                "url": "assets/Titles/200x200-Power-Soul-Title.png",
+                "type": "image",
+                "key": "200x200-Power-Soul-Title"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Protector-Soul.png",
+                "type": "image",
+                "key": "200x200-Protector-Soul"
+            },
+            {
+                "url": "assets/Titles/200x200-Protector-Soul-Title.png",
+                "type": "image",
+                "key": "200x200-Protector-Soul-Title"
+            },
+            {
+                "url": "assets/Titles/200x200-Souless-Title.png",
+                "type": "image",
+                "key": "200x200-Souless-Title"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Sword.png",
+                "type": "image",
+                "key": "200x200-Sword"
+            },
+            {
+                "url": "assets/Main-Card-Images/200x200-Vital-Soul.png",
+                "type": "image",
+                "key": "200x200-Vital-Soul"
+            },
+            {
+                "url": "assets/Titles/200x200-Vital-Soul-Title.png",
+                "type": "image",
+                "key": "200x200-Vital-Soul-Title"
+            },
+            {
+                "url": "assets/Titles/200x200-Wall-Title.png",
+                "type": "image",
+                "key": "200x200-Wall-Title"
+            },
+            {
+                "url": "assets/Cards/200x280-Arcane-Soul-Card.png",
+                "type": "image",
+                "key": "200x280-Arcane-Soul-Card"
+            },
+            {
+                "url": "assets/Cards/200x280-Bright-White-Card.png",
+                "type": "image",
+                "key": "200x280-Bright-White-Card"
+            },
+            {
+                "url": "assets/Cards/200x280-Card-Back.png",
+                "type": "image",
+                "key": "200x280-Card-Back"
+            },
+            {
+                "url": "assets/Cards/200x280-Character-Card.png",
+                "type": "image",
+                "key": "200x280-Character-Card"
+            },
+            {
+                "url": "assets/Cards/200x280-Knowledge-Soul-Card.png",
+                "type": "image",
+                "key": "200x280-Knowledge-Soul-Card"
+            },
+            {
+                "url": "assets/Cards/200x280-Power-Soul-Card.png",
+                "type": "image",
+                "key": "200x280-Power-Soul-Card"
+            },
+            {
+                "url": "assets/Cards/200x280-Protector-Soul-Card.png",
+                "type": "image",
+                "key": "200x280-Protector-Soul-Card"
+            },
+            {
+                "url": "assets/Cards/200x280-Vital-Soul-Card.png",
+                "type": "image",
+                "key": "200x280-Vital-Soul-Card"
+            },
+            {
+                "url": "assets/Cards/200x280-White-Silver-Card.png",
+                "type": "image",
+                "key": "200x280-White-Silver-Card"
+            },
+            {
+                "url": "assets/Characters/225x285-Knight.png",
+                "type": "image",
+                "key": "225x285-Knight"
+            },
+            {
+                "url": "assets/Characters/225x285-Souless.png",
+                "type": "image",
+                "key": "225x285-Souless"
+            },
+            {
+                "url": "assets/Characters/225x285-Wall.png",
+                "type": "image",
+                "key": "225x285-Wall"
+            },
+            {
+                "url": "assets/Background/480x270-Pop-Up.png",
+                "type": "image",
+                "key": "480x270-Pop-Up"
+            },
+            {
+                "url": "assets/Background/960x540-Pop-Up.png",
+                "type": "image",
+                "key": "960x540-Pop-Up"
             },
             {
                 "url": "assets/Arcane Soul Card.PNG",
@@ -203,6 +423,11 @@
                 "url": "assets/Protector Soul Title.PNG",
                 "type": "image",
                 "key": "Protector Soul Title"
+            },
+            {
+                "url": "assets/Background/Purple-Background.png",
+                "type": "image",
+                "key": "Purple-Background"
             },
             {
                 "url": "assets/Souless.PNG",

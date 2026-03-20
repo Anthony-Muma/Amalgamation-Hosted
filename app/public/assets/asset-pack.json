@@ -488,6 +488,11 @@
                 "url": "assets/wooden_bg.png",
                 "type": "image",
                 "key": "wooden_bg"
+            },
+            {
+                "url": "assets/Background/Wooden-Table-Background.png",
+                "type": "image",
+                "key": "Wooden-Table-Background"
             }
         ]
     },

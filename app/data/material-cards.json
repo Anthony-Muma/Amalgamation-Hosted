@@ -55,8 +55,8 @@
 
     "mushroom" : {
         "energy" : 10,
-        "power" : 3,
-        "defense" : 6,
+        "power" : 2,
+        "defense" : 2,
 
         "name" : "mushroom",
         "type" : "material"
@@ -64,7 +64,7 @@
 
     "clock" : {
         "energy" : 8,
-        "power" : 4,
+        "power" : 5,
         "defense" : 8,
 
         "name" : "clock",
@@ -73,7 +73,7 @@
 
     "mirror" : {
         "energy" : 15,
-        "power" : 7,
+        "power" : 6,
         "defense" : 11,
 
         "name" : "mirror",

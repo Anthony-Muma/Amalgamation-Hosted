@@ -1,23 +1,24 @@
 import { baseContainer } from "./baseContainer.js";
+import colorLerpHexFromHex from "../util/colorLerp.js";
 
 function getMainImageKey(name) {
     const map = {
-        log: "Chopped Log",
-        pillow : "Pillow",
-        crystals : "Energy Crystal 3X",
-        nails : "Nails",
-        sword : "Sword",
-        mushroom : "Mushroom",
-        clock : "Clock",
-        mirror : "Magic Mirror",
-        bomb : "Bomb",
-        brick : "Brick",
-        shoe : "Old Shoe"
+        log: "200x200-Chopped-Log",
+        pillow : "200x200-Pillow",
+        crystals : "200x200-Energy-Crystals-3X",
+        nails : "200x200-Nails",
+        sword : "200x200-Sword",
+        mushroom : "200x200-Mushroom",
+        clock : "200x200-Clock",
+        mirror : "200x200-Magic-Mirror",
+        bomb : "200x200-Bomb",
+        brick : "200x200-Brick",
+        shoe : "200x200-Old-Shoe"
     };  
     
     if (!map[name]) console.warn("Warning: No image for `" + name + "` exists");
     
-    return map[name] || "Chopped Log";
+    return map[name] || "200x200-Chopped-Log";
 }
 
 export class materialContainer extends baseContainer {
@@ -32,8 +33,7 @@ export class materialContainer extends baseContainer {
      * @param {number} y 
      */
     constructor(scene, cardInfo, x = 0, y = 0) {
-        super(scene, x, y);
-        
+        super(scene, cardInfo, x, y);
         /* --------------------------------- Visual --------------------------------- */
 
         this.imageKey = getMainImageKey(cardInfo.card.name);
@@ -43,9 +43,121 @@ export class materialContainer extends baseContainer {
         const powerValue = cardInfo.card.power;
         const defenseValue = cardInfo.card.defense;
         const energyValue = cardInfo.card.energy;
+        const name = cardInfo.card.name;
 
-        // Slightly modified compiler-made code
+        // Location of symbols
+        let powerLocation = -40
+        let defenseLocation = 40
+        if (!powerValue) {
+            defenseLocation = 0
+        }
+
+        if (!defenseValue) {
+            powerLocation = 0
+        }
+
+        // Text Color (redish)
+        const END_LERP_OFFSET = 7;
+        const START_LERP_OFFSET = 3;
+
+        const powerTintLerpAlpha = Phaser.Math.Clamp((powerValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET), 0, 1)
+        const defenseTintLerpAlpha = Phaser.Math.Clamp((defenseValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET), 0, 1)
         
+        // Slightly modified compiler-made code
+
+        // cardBack
+        const cardBack = scene.add.image(0, 0, "200x280-Card-Back");
+		cardBack.scaleX = 0.8;
+		cardBack.scaleY = 0.8;
+
+        // cardFront
+		const cardFront = scene.add.image(0, 0, "200x280-Bright-White-Card");
+		cardFront.scaleX = 0.8;
+		cardFront.scaleY = 0.8;
+		cardFront.tintTopLeft = 9803157;
+		cardFront.tintTopRight = 9803157;
+		cardFront.tintBottomLeft = 0;
+		cardFront.tintBottomRight = 0;
+
+		// title
+		const title = scene.add.text(0, -88, "", {});
+		title.setOrigin(0.5, 0.5);
+		title.text = name.toUpperCase();
+		title.setStyle({ "fontFamily": "Eczar-Bold", "fontSize": "18px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
+
+        // mainImage
+		const mainImage = scene.add.image(0, -32, this.imageKey);
+		mainImage.scaleX = 0.6;
+		mainImage.scaleY = 0.6;
+
+		// shadowFx
+		mainImage.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+
+        // defenseSymbol
+        const defenseSymbol = scene.add.image(defenseLocation, 40, "100x100-Blue-Shield");
+        defenseSymbol.scaleX = 0.8;
+        defenseSymbol.scaleY = 0.8;
+        
+        // defenseText
+        const defenseText = scene.add.text(defenseLocation, 40, "", {});
+        defenseText.setOrigin(0.5, 0.5);
+        defenseText.tintTopLeft = colorLerpHexFromHex(defenseTintLerpAlpha , "0xff0000", "0xffffff");
+        defenseText.text = defenseValue;
+        defenseText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
+
+        // NON-COMPILED
+        if (!defenseValue) {
+            defenseSymbol.setVisible(false);
+            defenseText.setVisible(false);
+        }
+
+		// powerSymbol
+		const powerSymbol = scene.add.image(powerLocation, 40, "100x100-Power");
+		powerSymbol.scaleX = 0.8;
+		powerSymbol.scaleY = 0.8;
+		
+		// powerText
+		const powerText = scene.add.text(powerLocation, 40, "", {});
+		powerText.setOrigin(0.5, 0.5);
+		powerText.tintTopLeft = colorLerpHexFromHex(powerTintLerpAlpha , "0xff0000", "0xffffff");
+		powerText.text = powerValue;
+		powerText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
+		
+        // NON-COMPILED
+        if (!powerValue) {
+            powerSymbol.setVisible(false);
+            powerText.setVisible(false);
+        }
+
+		// orText
+		const orText = scene.add.text(0, 64, "", {});
+		orText.setOrigin(0.5, 0.5);
+		orText.text = "OR";
+		orText.setStyle({ "fontFamily": "Eczar-Bold", "fontSize": "18px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
+		
+        // NON-COMPILED
+        if (!powerValue || !defenseValue) {
+            orText.setVisible(false);
+        }
+
+		// energyText
+		const energyText = scene.add.text(0, 88, "", {});
+		energyText.setOrigin(0.5, 0.5);
+		energyText.text = `[${energyValue} ENG]`;
+		energyText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
+		
+
+        this.cardBack = cardBack
+		this.cardFront = cardFront;
+		this.title = title;
+		this.mainImage = mainImage;
+		this.defenseSymbol = defenseSymbol;
+		this.powerSymbol = powerSymbol;
+		this.powerText = powerText;
+		this.defenseText = defenseText;
+		this.orText = orText;
+		this.energyText = energyText;
+        /*
         // cardFront
 		const cardBack = scene.add.image(0, 0, "Card back");
 		cardBack.scaleX = 0.25;
@@ -100,20 +212,35 @@ export class materialContainer extends baseContainer {
 
 		// shadowFx_10
 		// mainImage.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+        */
 
         /* ---------------------------- Create Container ---------------------------- */
 
-        const frontItems = [this.cardFront, this.nameText, this.powerText, this.defenseText, this.energyText, this.mainImage];
+        const frontItems = [
+            this.cardFront,
+            this.title,
+            this.defenseSymbol,
+            this.powerSymbol,
+            this.mainImage,
+            this.powerText,
+            this.defenseText,
+            this.orText,
+            this.energyText
+        ];
+
         const backItems = [this.cardBack];
         this.combineRequired(frontItems, backItems);
         
         scene.add.existing(this);
 
-        /* ---------------------------------- SFXs ---------------------------------- */
-        // this.clickSFX = scene.sound.add("click");
-        // this.flipSFX = scene.sound.add("cardFlip");
-        // this.hoverSFX = scene.sound.add("hover");
-        // this.hoverSFX.volume = 0.1;
+        this.base = {
+            x: this.x,
+            y: this.y,
+            scaleX: this.scaleX || 1,
+            scaleY: this.scaleY || 1,
+            angle: this.angle || 0,
+            alpha: this.alpha ?? 1
+        };
     }
 
     /* -------------------------------------------------------------------------- */
@@ -213,6 +340,8 @@ export class materialContainer extends baseContainer {
 
     hoverAnimation() {
         const scene = this.scene;
+
+
         scene.sfx.click.play();
         scene.tweens.add({
             targets: this.visualContainer,
@@ -223,15 +352,15 @@ export class materialContainer extends baseContainer {
         })
         this._zoom = scene.tweens.add({
             targets: this.mainImage,
-            scaleY: 0.18,
-            scaleX: 0.18,
+            scaleY: 0.70,
+            scaleX: 0.70,
             duration: 200,
             ease: "Bounce.easeOut",
             onComplete: () => {
                 this._plus = scene.tweens.add({
                     targets: this.mainImage,
-                    scaleY: 0.20,
-                    scaleX: 0.20,
+                    scaleY: 0.77,
+                    scaleX: 0.77,
                     duration: 2000,
                     yoyo: true,
                     loop: -1,
@@ -263,8 +392,8 @@ export class materialContainer extends baseContainer {
         })
         scene.tweens.add({
             targets: this.mainImage,
-            scaleY: 0.15,
-            scaleX: 0.15,
+            scaleY: 0.6,
+            scaleX: 0.6,
             duration: 40,
             ease: "Bounce"
         })

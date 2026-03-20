@@ -2,11 +2,11 @@ import { baseContainer } from "./baseContainer.js";
 
 function getSoulSymbol(name) {
     const map = {
-        power: "Power Soul Symbol",
-        knowledge : "Knowledge Soul Symbol",
-        protector : "Protector Soul Symbol",
-        arcane : "Arcane Soul Symbol",
-        vital : "Vital Soul Symbol"
+        power: "200x200-Power-Soul",
+        knowledge : "200x200-Knowledge-Soul-Symbol",
+        protector : "200x200-Protector-Soul",
+        arcane : "200x200-Arcane-Soul",
+        vital : "200x200-Vital-Soul"
     };  
 
     return map[name] || "Chopped Log";
@@ -14,11 +14,11 @@ function getSoulSymbol(name) {
 
 function getCardFront(name) {
     const map = {
-        knowledge: "Knowledge Soul Card",
-        power : "Power Soul Card",
-        protector : "Protector Soul Card",
-        arcane : "Arcane Soul Card",
-        vital : "Vital Soul Card"
+        knowledge: "200x280-Knowledge-Soul-Card",
+        power : "200x280-Power-Soul-Card",
+        protector : "200x280-Protector-Soul-Card",
+        arcane : "200x280-Arcane-Soul-Card",
+        vital : "200x280-Vital-Soul-Card"
     };  
 
     return map[name] || "Chopped Log";
@@ -27,11 +27,11 @@ function getCardFront(name) {
 
 function getTitle(name) {
     const map = {
-        power: "Power Soul Title",
-        knowledge : "Knowledge Soul Title",
-        protector : "Protector Soul Title",
-        arcane : "Arcane Soul Title",
-        vital : "Vital Soul Title"
+        power: "200x200-Power-Soul-Title",
+        knowledge : "200x200-Knowledge-Soul-Title",
+        protector : "200x200-Protector-Soul-Title",
+        arcane : "200x200-Arcane-Soul-Title",
+        vital : "200x200-Vital-Soul-Title"
     };  
 
     return map[name] || "Chopped Log";
@@ -50,7 +50,7 @@ export class soulContainer extends baseContainer {
      * @param {number} y 
      */
     constructor(scene, cardInfo, x = 0, y = 0) {
-        super(scene, x, y);
+        super(scene, cardInfo, x, y);
         
         /* --------------------------------- Visual --------------------------------- */
 
@@ -63,34 +63,32 @@ export class soulContainer extends baseContainer {
         // Slightly modified compiler-made code
         
         // cardFront
-        const cardBack = scene.add.image(0, 0, "Card back");
-        cardBack.scaleX = 0.25;
-        cardBack.scaleY = 0.25;
-        this.cardBack = cardBack;
+        const cardBack = scene.add.image(0, 0, "200x280-Card-Back");
+        cardBack.scaleX = 0.8;
+        cardBack.scaleY = 0.8;
 
         // cardFront
-        const cardFront = scene.add.image(0, 0, this.cardFrontKey);
-        cardFront.scaleX = 0.25;
-        cardFront.scaleY = 0.25;
-        this.cardFront = cardFront;
+		const cardFront = scene.add.image(0, 0, this.cardFrontKey);
+		cardFront.scaleX = 0.8;
+		cardFront.scaleY = 0.8;
 
-        // shadowFx_2
-		// cardFront.postFX.addShadow(0.5, 0.5, 0.04, 0.22, 0, 11, 1.64);
+		// shineFx
+		cardFront.preFX.addShine(0.5, 0.5, 3, false);
 
-        // soulSymbol
-        const soulSymbol = scene.add.image(0, -32, this.symbolKey);
-        soulSymbol.scaleX = 0.15;
-        soulSymbol.scaleY = 0.15;
-        this.soulSymbol = soulSymbol;
+		// title
+		const title = scene.add.image(0, 64, this.titleKey);
+		title.scaleX = 0.8;
+		title.scaleY = 0.8;
 
-        // shadowFx
-		// soulSymbol.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+		// soulSymbol
+		const soulSymbol = scene.add.image(0, -32, this.symbolKey);
+		soulSymbol.scaleX = 0.6;
+		soulSymbol.scaleY = 0.6;
 
-        // title
-        const title = scene.add.image(0, 48, this.titleKey);
-        title.scaleX = 0.15;
-        title.scaleY = 0.15;
-        this.title = title;
+        this.cardBack = cardBack;
+		this.cardFront = cardFront;
+		this.title = title;
+		this.soulSymbol = soulSymbol;
 
         // shadowFx_1
 		// title.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
@@ -215,15 +213,15 @@ export class soulContainer extends baseContainer {
         // Zoom in the soul symbol with a bounce, then pulse it
         this._zoom = scene.tweens.add({
             targets: this.soulSymbol,
-            scaleY: 0.18,
-            scaleX: 0.18,
+            scaleY: 0.70,
+            scaleX: 0.70,
             duration: 200,
             ease: "Bounce.easeOut",
             onComplete: () => {
                 this._plus = scene.tweens.add({
                     targets: this.soulSymbol,
-                    scaleY: 0.20,
-                    scaleX: 0.20,
+                    scaleY: 0.77,
+                    scaleX: 0.77,
                     duration: 2000,
                     yoyo: true,
                     loop: -1,
@@ -235,8 +233,8 @@ export class soulContainer extends baseContainer {
         // Scale up the title slightly
         this._titleTween = scene.tweens.add({
             targets: this.title,
-            scaleY: 0.18,
-            scaleX: 0.18,
+            scaleY: 1,
+            scaleX: 1,
             duration: 200,
             ease: "Bounce.easeOut",
         });
@@ -261,8 +259,8 @@ export class soulContainer extends baseContainer {
         // Reset soul symbol
         scene.tweens.add({
             targets: this.soulSymbol,
-            scaleY: 0.15,
-            scaleX: 0.15,
+            scaleY: 0.60,
+            scaleX: 0.60,
             duration: 40,
             ease: "Bounce"
         });
@@ -270,8 +268,8 @@ export class soulContainer extends baseContainer {
         // Reset title
         scene.tweens.add({
             targets: this.title,
-            scaleY: 0.15,
-            scaleX: 0.15,
+            scaleY: 0.8,
+            scaleX: 0.8,
             duration: 40,
             ease: "Bounce"
         });

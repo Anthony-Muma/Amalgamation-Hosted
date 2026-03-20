@@ -114,7 +114,8 @@ function chooseCard(turn){
 
 /**
  * Generates a card from the deck and returns it.
- * @param {*} turn 
+ * @param {number} turn The current turn number, used to determine card weights.
+ * @returns {Object} The generated card.
  */
 function deckGenerator(turn){
 
@@ -122,7 +123,7 @@ function deckGenerator(turn){
     let card;
 
     // Generate the card.
-    cardFactory(chooseCard(turn), CARD_TYPE);
+    card = cardFactory(chooseCard(turn), CARD_TYPE);
 
     // Return
     return card;
@@ -162,6 +163,12 @@ function test(){
 }
 
 // test();
+
+function test2(){
+    console.log(deckGenerator(10));
+}
+
+// test2();
 
 module.exports = {
     deckGenerator

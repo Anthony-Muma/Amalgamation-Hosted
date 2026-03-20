@@ -1,0 +1,74 @@
+{
+    "id": "2cfa3135-c2f7-4a27-b1f3-5957cd747893",
+    "sceneType": "PREFAB",
+    "settings": {
+        "snapEnabled": true,
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "082bb681-96a4-49e2-986f-ef1d8dd9afac",
+            "label": "container_1",
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "dd87e1c5-f598-45b4-beef-05274e006322",
+                    "label": "cardFront",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "200x280-Power-Soul-Card"
+                    },
+                    "scaleX": 0.8,
+                    "scaleY": 0.8,
+                    "list": [
+                        {
+                            "type": "Shine",
+                            "id": "92595560-5b0f-4966-a98f-1cfb5196116a",
+                            "label": "shineFx",
+                            "preFX": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Image",
+                    "id": "b98b3d7d-b3b8-491b-afc4-56b63eaaf255",
+                    "label": "title",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "200x200-Power-Soul-Title"
+                    },
+                    "y": 64,
+                    "scaleX": 0.8,
+                    "scaleY": 0.8
+                },
+                {
+                    "type": "Image",
+                    "id": "f8799eed-b05e-46ec-b7a3-83a617f820f1",
+                    "label": "soulSymbol",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "200x200-Power-Soul"
+                    },
+                    "y": -32,
+                    "scaleX": 0.6,
+                    "scaleY": 0.6
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

@@ -3,6 +3,8 @@
     "sceneType": "PREFAB",
     "settings": {
         "snapEnabled": true,
+        "snapWidth": 8,
+        "snapHeight": 8,
         "exportClass": true,
         "autoImport": true,
         "importFileExtension": true,
@@ -24,197 +26,173 @@
                     "id": "220a28e5-4421-4e1d-8cba-f901971b516d",
                     "label": "cardBack",
                     "texture": {
-                        "key": "Character Card Background"
+                        "key": "200x280-Character-Card"
                     },
-                    "scaleX": 0.27,
-                    "scaleY": 0.27
-                },
-                {
-                    "type": "Polygon",
-                    "id": "fab2f24d-84b4-4a7f-a582-fd577c93866c",
-                    "label": "heartIcon",
-                    "x": 64,
-                    "y": -96,
-                    "isFilled": true,
-                    "fillColor": "#f5786b",
-                    "strokeColor": "#000000",
-                    "lineWidth": 3,
-                    "isStroked": true,
-                    "points": "32 64 4 32 0 20 2 12 8 6 16 4 24 4 28 8 32 14 36 8 40 4 48 4 56 6 62 12 64 20 60 32"
-                },
-                {
-                    "type": "Text",
-                    "id": "3c1c7253-3cae-4a6c-b423-e6c934e7e167",
-                    "label": "healthText",
-                    "scope": "CLASS",
-                    "x": 64,
-                    "y": -96,
-                    "originX": 0.5,
-                    "originY": 0.5,
-                    "text": "5",
-                    "resolution": 3,
-                    "fontFamily": "Eczar-Bold",
-                    "fontSize": "32px",
-                    "color": "#1bc540",
-                    "stroke": "#000000ff",
-                    "strokeThickness": 5
-                },
-                {
-                    "type": "Polygon",
-                    "id": "6db3042d-a29a-4e86-9fbf-3175187b768c",
-                    "label": "powerIcon",
-                    "x": -64,
-                    "y": -96,
-                    "isFilled": true,
-                    "fillColor": "#6d0a0a",
-                    "strokeColor": "#000000",
-                    "lineWidth": 3,
-                    "isStroked": true,
-                    "points": "32 0 64 32 32 64 0 32"
-                },
-                {
-                    "type": "Text",
-                    "id": "373ae726-aca3-45e2-94de-010bdc8dc571",
-                    "label": "powerText",
-                    "scope": "CLASS",
-                    "x": -64,
-                    "y": -96,
-                    "originX": 0.5,
-                    "originY": 0.5,
-                    "text": "0",
-                    "resolution": 3,
-                    "fontFamily": "Eczar-Bold",
-                    "fontSize": "32px",
-                    "color": "#f5786b",
-                    "stroke": "#000000ff",
-                    "strokeThickness": 5
-                },
-                {
-                    "type": "Image",
-                    "id": "78d1f9a7-aab0-487c-b9de-79ae1a981991",
-                    "label": "image",
-                    "texture": {
-                        "key": "Knight"
-                    },
-                    "y": -16,
-                    "scaleX": 0.15,
-                    "scaleY": 0.15,
-                    "list": [
-                        {
-                            "type": "Shadow",
-                            "id": "1ba3096a-c5ac-4222-8bc2-6d4ac5b1c73f",
-                            "label": "shadowFx_3",
-                            "preFX": true
-                        }
-                    ]
+                    "y": -8,
+                    "scaleX": 0.8,
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Image",
                     "id": "77fc837e-2b6e-4413-9366-7cdf389f8477",
                     "label": "title",
                     "texture": {
-                        "key": "Knight Title"
+                        "key": "200x200-Wall-Title"
                     },
                     "y": 80,
-                    "scaleX": 0.12,
-                    "scaleY": 0.12
+                    "scaleX": 0.5,
+                    "scaleY": 0.5
                 },
                 {
-                    "type": "Polygon",
-                    "id": "f0753af9-1170-448c-993b-fca757b28e76",
-                    "label": "defenseSlot0",
-                    "x": 96,
-                    "y": -48,
-                    "isFilled": true,
-                    "fillColor": "#272727",
-                    "strokeColor": "#000000",
-                    "lineWidth": 3,
-                    "isStroked": true,
-                    "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+                    "type": "Image",
+                    "id": "6c17bfb5-4486-4555-a8a7-ae84af07b7f4",
+                    "label": "mainImage",
+                    "texture": {
+                        "key": "225x285-Wall"
+                    },
+                    "y": -16,
+                    "scaleX": 0.6,
+                    "scaleY": 0.6
                 },
                 {
-                    "type": "Polygon",
-                    "id": "65a746dd-75f2-47ac-b4c1-28b725cf2707",
-                    "label": "defenseSlot1",
-                    "x": 96,
-                    "isFilled": true,
-                    "fillColor": "#272727",
-                    "strokeColor": "#000000",
-                    "lineWidth": 3,
-                    "isStroked": true,
-                    "points": "0 24 16 0 48 0 64 24 48 48 16 48"
-                },
-                {
-                    "type": "Polygon",
-                    "id": "a8efb2f0-55f4-431f-8f4d-2b8b4535adf2",
-                    "label": "defenseSlot2",
-                    "x": 96,
-                    "y": 48,
-                    "isFilled": true,
-                    "fillColor": "#272727",
-                    "strokeColor": "#000000",
-                    "lineWidth": 3,
-                    "isStroked": true,
-                    "points": "0 24 16 0 48 0 64 24 48 48 16 48"
+                    "type": "Image",
+                    "id": "e0ea3efc-eb48-4449-86c1-ccf0b7febf88",
+                    "label": "healthIcon",
+                    "texture": {
+                        "key": "100x100-Red-Heart"
+                    },
+                    "x": 72,
+                    "y": -96,
+                    "scaleX": 0.8,
+                    "scaleY": 0.8
                 },
                 {
                     "type": "Text",
-                    "id": "6ddbbecf-93aa-4b0f-8ef5-c5d428cf2c63",
-                    "label": "defenseText0",
-                    "x": 96,
-                    "y": -48,
+                    "id": "2650ffb7-190a-4793-b441-61b8455ab060",
+                    "label": "healthText",
+                    "scope": "CLASS",
+                    "x": 72,
+                    "y": -96,
                     "originX": 0.5,
                     "originY": 0.5,
                     "text": "-",
                     "resolution": 3,
                     "fontFamily": "Eczar-Bold",
-                    "fontSize": "32px",
-                    "color": "#ffffffff",
-                    "stroke": "#000000ff",
-                    "strokeThickness": 5
-                },
-                {
-                    "type": "Text",
-                    "id": "887a7985-0f4e-410e-bdc4-a640e3f54636",
-                    "label": "defenseText1",
-                    "x": 96,
-                    "originX": 0.5,
-                    "originY": 0.5,
-                    "text": "-",
-                    "resolution": 3,
-                    "fontFamily": "Eczar-Bold",
-                    "fontSize": "32px",
-                    "color": "#ffffffff",
-                    "stroke": "#000000ff",
-                    "strokeThickness": 5
-                },
-                {
-                    "type": "Text",
-                    "id": "008c8008-5e4c-46c4-b781-f12c566fb48c",
-                    "label": "defenseText3",
-                    "x": 96,
-                    "y": 48,
-                    "originX": 0.5,
-                    "originY": 0.5,
-                    "text": "-",
-                    "resolution": 3,
-                    "fontFamily": "Eczar-Bold",
-                    "fontSize": "32px",
+                    "fontSize": "28px",
                     "color": "#ffffffff",
                     "stroke": "#000000ff",
                     "strokeThickness": 5
                 },
                 {
                     "type": "Image",
-                    "id": "6c17bfb5-4486-4555-a8a7-ae84af07b7f4",
-                    "label": "knightSmall",
+                    "id": "d3f7c93d-11b6-401f-bdf1-0415c2dc948d",
+                    "label": "defenseIcon0",
                     "texture": {
-                        "key": "KnightSmall"
+                        "key": "100x100-Grey-Shield"
                     },
-                    "x": 192,
-                    "y": -16,
-                    "scaleX": 0.6,
-                    "scaleY": 0.3
+                    "x": 80,
+                    "y": -48,
+                    "scaleX": 0.8,
+                    "scaleY": 0.8
+                },
+                {
+                    "type": "Text",
+                    "id": "f93027b1-5898-4e32-911b-8c1ff1676e5d",
+                    "label": "defenseText0",
+                    "x": 80,
+                    "y": -48,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "--",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "28px",
+                    "color": "#ffffffff",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5
+                },
+                {
+                    "type": "Image",
+                    "id": "8b28421a-c271-469e-993c-5ad2aa99b67f",
+                    "label": "defenseIcon1",
+                    "texture": {
+                        "key": "100x100-Grey-Shield"
+                    },
+                    "x": 96,
+                    "scaleX": 0.8,
+                    "scaleY": 0.8
+                },
+                {
+                    "type": "Text",
+                    "id": "513cc088-2242-4b69-9833-7b41cd869436",
+                    "label": "defenseText1",
+                    "x": 96,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "--",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "28px",
+                    "color": "#ffffffff",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5
+                },
+                {
+                    "type": "Image",
+                    "id": "07542e05-d731-4b71-9afa-8d45a82e876e",
+                    "label": "defenseIcon2",
+                    "texture": {
+                        "key": "100x100-Grey-Shield"
+                    },
+                    "x": 112,
+                    "y": 48,
+                    "scaleX": 0.8,
+                    "scaleY": 0.8
+                },
+                {
+                    "type": "Text",
+                    "id": "1e7cfe93-3412-4ed9-b998-571c813818e8",
+                    "label": "defenseText2",
+                    "x": 112,
+                    "y": 48,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "--",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "28px",
+                    "color": "#ffffffff",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5
+                },
+                {
+                    "type": "Image",
+                    "id": "d283bb9e-54c8-42d1-97b4-780d763312f4",
+                    "label": "PowerIcon",
+                    "texture": {
+                        "key": "100x100-Power"
+                    },
+                    "x": -64,
+                    "y": -104,
+                    "scaleX": 0.8,
+                    "scaleY": 0.8
+                },
+                {
+                    "type": "Text",
+                    "id": "5ad68935-ef7c-4bfa-8ce7-c02059676a81",
+                    "label": "powerText",
+                    "scope": "CLASS",
+                    "x": -64,
+                    "y": -104,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "0",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "28px",
+                    "color": "#ffffffff",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5
                 }
             ]
         }
@@ -231,18 +209,18 @@
             "id": "90562e3f-9f5a-4d12-b11a-f62df17cdbcc",
             "label": "defenseSlots",
             "objectIds": [
-                "f0753af9-1170-448c-993b-fca757b28e76",
-                "65a746dd-75f2-47ac-b4c1-28b725cf2707",
-                "a8efb2f0-55f4-431f-8f4d-2b8b4535adf2"
+                "d3f7c93d-11b6-401f-bdf1-0415c2dc948d",
+                "8b28421a-c271-469e-993c-5ad2aa99b67f",
+                "07542e05-d731-4b71-9afa-8d45a82e876e"
             ]
         },
         {
             "id": "082087ce-1751-4c6d-b52b-c113556eed84",
             "label": "defenseText",
             "objectIds": [
-                "008c8008-5e4c-46c4-b781-f12c566fb48c",
-                "887a7985-0f4e-410e-bdc4-a640e3f54636",
-                "6ddbbecf-93aa-4b0f-8ef5-c5d428cf2c63"
+                "f93027b1-5898-4e32-911b-8c1ff1676e5d",
+                "513cc088-2242-4b69-9833-7b41cd869436",
+                "1e7cfe93-3412-4ed9-b998-571c813818e8"
             ]
         }
     ]

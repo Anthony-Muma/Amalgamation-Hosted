@@ -128,8 +128,7 @@ class Game {
         
         // Draw from global deck
         for (let i = 0; i < GLOBAL_DRAW_AMOUNT; i++) {
-            // TODO: create a module that the card draw "randomness"
-            const {card, cardKey} = player.drawFromExternal(cardFactory("log", "material"));
+            const {card, cardKey} = player.drawFromExternal(deckGenerator(this.#turnCount));
             const cardInfo = new CardInfo(card, cardKey, "global");
             cardInfoList.push(cardInfo);
         }

@@ -19,45 +19,6 @@ const BASE_AMALGAMATION = {
 
 const PLACEMENTS_PER_TURN = 3
 
-/**
- * @type {import("../../types.js").CardInfo}
- */
-const TEST_CARD_1 = {
-    card : {
-        energyValue: 10,
-        attackValue: 10,
-        defenseValue: 10,
-        name: "log",
-        type: "material",
-    },
-    cardKey : 0,
-    deck : null
-}
-
-const TEST_CARD_2 = {
-    card : {
-        energyValue: 10,
-        attackValue: 10,
-        defenseValue: 3,
-        name: "log",
-        type: "material",
-    },
-    cardKey : 0,
-    deck : null
-}
-
-const TEST_CARD_3 = {
-    card : {
-        energyValue: 10,
-        attackValue: 10,
-        defenseValue: 5,
-        name: "log",
-        type: "material",
-    },
-    cardKey : 0,
-    deck : null
-}
-
 class Core {
     /**
      * 
@@ -93,9 +54,9 @@ class Core {
 			scene.drawDeck1.clearTint();
 			hand.disableHand();
 			hand.draw({cardKey : i++, card : {
-				energyValue: 10,
-				attackValue: 10,
-				defenseValue: 0,
+				energy: 10,
+				attack: 10,
+				defense: 10,
 				name: ["power", "knowledge", "protector", "arcane", "vital"][Phaser.Math.RND.integerInRange(0,4)],
 				type: 'soul'
 			}});
@@ -108,9 +69,9 @@ class Core {
 			scene.drawDeck2.clearTint();
 			hand.disableHand();
 			hand.draw({cardKey : i++, card : {
-				energyValue: 5,
-				attackValue: Phaser.Math.RND.integerInRange(0,10),
-				defenseValue: Phaser.Math.RND.integerInRange(0,10),
+				energy: 5,
+				attack: Phaser.Math.RND.integerInRange(0,10),
+				defense: Phaser.Math.RND.integerInRange(0,10),
 				name: ["sword", "log", "crystals", "pillow", "mushroom"][Phaser.Math.RND.integerInRange(0,4)],
 				type: 'material'
 			}});

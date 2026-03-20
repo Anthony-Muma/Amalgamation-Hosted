@@ -7,23 +7,50 @@ const CARD_TYPE = "material";
 const CARDS = { // Weight is a number. Higher weight means more likely to be drawn. <=0 means impossible to be drawn.
     "log": { getWeight: function(turn) {
         // Linear decrease
-        return 90 - turn*7;
+        return 80 - turn*8;
+    }},
+    "pillow": { getWeight: function(turn) {
+        // Linear decrease
+        return 40 - turn*3;
+    }},
+    "nails": { getWeight: function(turn) {
+        // Increasing slowly then sharp dropoff
+        let w = 0;
+        if (turn <= 10) w = 10 + turn*2;
+        else if (turn > 10) w = 30 - (turn-10)*6;
+        return w;
+    }},
+    "mushroom": { getWeight: function(turn) {
+        // Linear increase then linear decrease all the way to turn 20
+        let w = 0;
+        if (turn <= 10) w = 5 + turn*3;
+        else if (turn > 10 && turn < 20) w = 35 - (turn-10)*3;
+        else if (turn >= 20) w = 0;
+        return w;
     }},
     "sword": { getWeight: function(turn) {
-        // Bell curve increase and decrease
-        let w;
-        if (turn <= 10) w = 8 + 5*turn
-        else if(turn > 10) w = 58 - (turn-10)*6;
+        // Linear increase, then faster increase, then decrease sharply around turns 17 to 20
+        let w = 0;
+        if (turn <= 10) w = turn*2;
+        else if(turn > 10 && turn <= 16) w = 20 + (turn-10)*4;
+        else if (turn > 16 && turn <= 19) w = 44 - (turn-16)*13;
+        else if (turn >= 20) w = 0;
         return w;
     }},
     "energy crystal": { getWeight: function(turn) {
-        // Exponential increase
-        let w = 0 + (turn-1)*2;
+        // Exponential increase, 99 weight at turn 20
+        let w = turn;
         if (turn > 10 && turn <= 15) w += (turn-10)*2
-        else if (turn > 15 && turn < 25) w += (turn-15)*4;
-        else if (turn >= 25) w = 100;
+        else if (turn > 15 && turn < 20) w += (turn-15)*4;
+        else if (turn >= 20) w = 99;
         return w;
     }},
+    "crystals": { getWeight: function(turn) {
+        // Small chance to appear after turn 20
+        let w = 0;
+        if (turn >= 20) w = 1;
+        return w;
+    }}
     
 };
 
@@ -56,16 +83,13 @@ function chooseCard(turn){
     let chosen;
     for (const card in CARDS) {
 
+        // console.log(`Card: ${card}, Weight: ${CARDS[card].getWeight(turn)}`);
+
         // Get the weight.
         let w = CARDS[card].getWeight(turn);
 
-        // If less than 0, set to 0.
-        if (w < 0){
-            w = 0;
-
-        }
-        // Otherwise, if the weight is greater than 0,
-        else {
+        // If greater than 0,
+        if (w > 0){
 
             // Add to the total.
             cumulativeW += w;
@@ -108,12 +132,16 @@ function deckGenerator(turn){
 function test(){
 
     // Initialize
-    const TURN = 1;
+    const TURN = 20;
     const TRIALS = 100;
     const results = {
         "log": 0,
+        "pillow": 0,
+        "nails": 0,
+        "mushroom": 0,
         "sword": 0,
-        "energy crystal": 0
+        "energy crystal": 0,
+        "crystals": 0
     };
 
     // Run

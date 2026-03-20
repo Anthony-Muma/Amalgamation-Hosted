@@ -20,8 +20,10 @@ export default class Lobby extends Phaser.Scene {
 	/** @returns {void} */
 	editorCreate() {
 
-		// table
-		this.add.image(640, 360, "Table");
+		// main_Menu_Background
+		const main_Menu_Background = this.add.image(640, 360, "Main-Menu-Background");
+		main_Menu_Background.scaleX = 0.67;
+		main_Menu_Background.scaleY = 0.67;
 
 		// lobbyTitle
 		const lobbyTitle = this.add.text(671, 94, "", {});
@@ -79,6 +81,7 @@ export default class Lobby extends Phaser.Scene {
 
 		// copyButton
 		const copyButton = this.add.rectangle(1001, 393, 250, 80);
+		copyButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 250, 80), Phaser.Geom.Rectangle.Contains);
 		copyButton.isFilled = true;
 		copyButton.fillColor = 5151693;
 
@@ -150,7 +153,8 @@ export default class Lobby extends Phaser.Scene {
 
         this.startButton.on("pointerdown", () => {
             console.log("Start Game"); // Placeholder
-			this.scene.start("Level");
+			socket.emit("game:start");
+
         });
 
         this.leaveButton.on("pointerdown", () => {
@@ -176,6 +180,10 @@ export default class Lobby extends Phaser.Scene {
 		/* -------------------------------------------------------------------------- */
 		/* On Lobby events
 		/* -------------------------------------------------------------------------- */
+
+		socket.once("game:started", ()=> {
+			this.scene.start("Level");
+		});
 
 		socket.on("lobby:updated", (lobbyInfo)=>{
 			// No need to swap scenes

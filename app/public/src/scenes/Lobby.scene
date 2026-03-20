@@ -13,13 +13,15 @@
     "displayList": [
         {
             "type": "Image",
-            "id": "f955c462-7c5e-406d-bed5-633de40ec3d0",
-            "label": "table",
+            "id": "034c9f34-b370-4f09-9a48-8dc679796e37",
+            "label": "main_Menu_Background",
             "texture": {
-                "key": "Table"
+                "key": "Main-Menu-Background"
             },
             "x": 640,
-            "y": 360
+            "y": 360,
+            "scaleX": 0.67,
+            "scaleY": 0.67
         },
         {
             "type": "Text",
@@ -158,6 +160,9 @@
             "label": "copyButton",
             "displayName": "copyButton",
             "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 250,
+            "hitArea.height": 80,
             "x": 1001,
             "y": 393,
             "isFilled": true,
@@ -171,7 +176,6 @@
             "label": "copyText",
             "displayName": "CopyText",
             "scope": "CLASS",
-            "description": "Copy Code to Clipboard",
             "x": 892,
             "y": 367,
             "text": "Copy Code to \nClipboard",

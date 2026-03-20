@@ -114,17 +114,18 @@ class Player {
         const card = hand.remove(cardKey);
 
         if (!card) {
-            // throw new Error("No card was found");
+            throw new Error("No card was found");
             return null;
         }
 
         if (!amalgamation) {
-            // throw new Error("No amalgamation was found");
+            throw new Error("No amalgamation was found");
             return null;
         }
 
         const success = amalgamation.addPower(card);
         if (!success) {
+            throw new Error("Could not added power");
             return null;
         }
 
@@ -137,15 +138,18 @@ class Player {
         const card = hand.remove(cardKey);
 
         if (!card) {
+            throw new Error("No card was found");
             return null;
         }
 
         if (!amalgamation) {
+            throw new Error("No amalgamation was found");
             return null;
         }
 
         const success = amalgamation.addDefense(card);
         if (!success) {
+            throw new Error("Could not added defesnes");
             return null;
         }
             

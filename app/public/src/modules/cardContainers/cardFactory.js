@@ -6,8 +6,8 @@ import { soulContainer } from "./soulContainer.js";
 /**
  * @param {Phaser.Scene} scene
  * @param {CardInfo} cardInfo 
- * @param {number?} x 
- * @param {number?} y 
+ * @param {number} x 
+ * @param {number} y 
  * @returns
  */
 export default function cardContainerCreator(scene, cardInfo, x = 0, y = 0) {

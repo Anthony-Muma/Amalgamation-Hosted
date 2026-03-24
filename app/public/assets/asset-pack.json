@@ -177,6 +177,16 @@
                 "key": "200x280-Character-Card"
             },
             {
+                "url": "assets/Cards/200x280-Create-Lobby-Card.PNG",
+                "type": "image",
+                "key": "200x280-Create-Lobby-Card"
+            },
+            {
+                "url": "assets/Cards/200x280-Join-Card.PNG",
+                "type": "image",
+                "key": "200x280-Join-Card"
+            },
+            {
                 "url": "assets/Cards/200x280-Knowledge-Soul-Card.png",
                 "type": "image",
                 "key": "200x280-Knowledge-Soul-Card"
@@ -222,11 +232,6 @@
                 "key": "480x270-Pop-Up"
             },
             {
-                "url": "assets/Background/960x540-Pop-Up.png",
-                "type": "image",
-                "key": "960x540-Pop-Up"
-            },
-            {
                 "url": "assets/Attack-Ui/500x200-Attack.PNG",
                 "type": "image",
                 "key": "500x200-Attack"
@@ -235,6 +240,16 @@
                 "url": "assets/Attack-Ui/500x200-Bar.PNG",
                 "type": "image",
                 "key": "500x200-Bar"
+            },
+            {
+                "url": "assets/Background/960x540-Pop-Up.png",
+                "type": "image",
+                "key": "960x540-Pop-Up"
+            },
+            {
+                "url": "assets/Amalgamations-Title.PNG",
+                "type": "image",
+                "key": "Amalgamations-Title"
             },
             {
                 "url": "assets/Arcane Soul Card.PNG",

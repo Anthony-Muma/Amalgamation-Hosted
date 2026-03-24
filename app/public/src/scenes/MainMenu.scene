@@ -24,60 +24,46 @@
             "scaleY": 0.67
         },
         {
-            "type": "Rectangle",
-            "id": "10e5c672-45c5-4ba5-b724-554329364112",
-            "label": "createLobbyButton",
+            "type": "Image",
+            "id": "19b2a11e-721d-43ea-acc9-15c60b6f67d8",
+            "label": "joinLobbyCard",
             "scope": "CLASS",
-            "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 128,
-            "hitArea.height": 128,
-            "x": 344,
-            "y": 344,
-            "scaleX": 2,
-            "scaleY": 2,
-            "isFilled": true,
-            "fillColor": "#ae1212",
-            "width": 128,
-            "height": 128
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "200x280-Join-Card"
+            },
+            "x": 855,
+            "y": 470,
+            "scaleX": 1.2,
+            "scaleY": 1.2,
+            "angle": 8
         },
         {
-            "type": "Rectangle",
-            "id": "a62492d3-cdfb-4168-81a1-77be39d6462b",
-            "label": "joinLobbyButton",
+            "type": "Image",
+            "id": "8076a2da-fded-4bac-8b6f-1905a030147f",
+            "label": "createLobbyCard",
             "scope": "CLASS",
-            "hitArea.shape": "RECTANGLE",
-            "hitArea.width": 128,
-            "hitArea.height": 128,
-            "x": 900,
-            "y": 344,
-            "scaleX": 2,
-            "scaleY": 2,
-            "isFilled": true,
-            "fillColor": "#120976",
-            "width": 128,
-            "height": 128
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "200x280-Create-Lobby-Card"
+            },
+            "x": 425,
+            "y": 470,
+            "scaleX": 1.2,
+            "scaleY": 1.2,
+            "angle": -8
         },
         {
-            "type": "Text",
-            "id": "c5f32577-715d-4e0d-b49b-fa7eb8c95086",
-            "label": "text_1",
-            "scope": "CLASS",
-            "x": 228,
-            "y": 323,
-            "scaleX": 2,
-            "scaleY": 2,
-            "text": "Create Lobby"
-        },
-        {
-            "type": "Text",
-            "id": "5565370c-d1ad-4d7f-8b18-2b46afaacd72",
-            "label": "text",
-            "scope": "CLASS",
-            "x": 805,
-            "y": 325,
-            "scaleX": 2,
-            "scaleY": 2,
-            "text": "Join Lobby"
+            "type": "Image",
+            "id": "0e00f0ea-e65f-47e5-ad08-5d750609b368",
+            "label": "amalgamations_Title",
+            "texture": {
+                "key": "Amalgamations-Title"
+            },
+            "x": 640,
+            "y": 190,
+            "scaleX": 0.5,
+            "scaleY": 0.5
         }
     ],
     "plainObjects": [],

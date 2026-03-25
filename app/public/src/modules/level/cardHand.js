@@ -5,7 +5,8 @@
 import { baseContainer } from "../cardContainers/baseContainer.js";
 import { cardContainerCreator } from "../cardContainers/index.js";
 
-const SPACING = 160;
+const FLIP_DELAY = 500;
+const SPACING = 168;
 const ANCHOR_X = 640;
 const HAND_Y = 592;
 
@@ -130,7 +131,7 @@ class CardHand {
 
             // This delay stops the card from "getting stuck", however, they do kind of get stuck
             if (isNew && !card.isFaceUp && flipFaceUp) {
-                this.scene.time.delayedCall(450, () => {
+                this.scene.time.delayedCall(FLIP_DELAY, () => {
                     if (!card.isFaceUp) card.flipCard();
                 });
             }

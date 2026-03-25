@@ -5,6 +5,7 @@
 
 /* START-USER-IMPORTS */
 import { socket } from "../modules/socket.js"
+import { generateName } from "../modules/nameGenerator.js";
 /* END-USER-IMPORTS */
 
 export default class Lobby extends Phaser.Scene {
@@ -21,83 +22,70 @@ export default class Lobby extends Phaser.Scene {
 	editorCreate() {
 
 		// main_Menu_Background
-		const main_Menu_Background = this.add.image(640, 360, "Main-Menu-Background");
+		const main_Menu_Background = this.add.image(640, 360, "Purple-Background");
 		main_Menu_Background.scaleX = 0.67;
 		main_Menu_Background.scaleY = 0.67;
 
 		// lobbyTitle
-		const lobbyTitle = this.add.text(671, 94, "", {});
+		const lobbyTitle = this.add.text(640, 96, "", {});
 		lobbyTitle.setOrigin(0.5, 0.5);
 		lobbyTitle.text = "Lobby";
-		lobbyTitle.setStyle({ "color": "#ffffffff", "fontSize": "48px", "stroke": "#000000ff", "strokeThickness": 4 });
-
-		// playerListBackground
-		const playerListBackground = this.add.rectangle(311, 343, 450, 350);
-		playerListBackground.isFilled = true;
-		playerListBackground.fillColor = 2236962;
+		lobbyTitle.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "48px", "stroke": "#000000ff", "strokeThickness": 16 });
 
 		// text_1
-		const text_1 = this.add.text(310, 204, "", {});
+		const text_1 = this.add.text(320, 224, "", {});
 		text_1.setOrigin(0.5, 0.5);
 		text_1.text = "Players";
-		text_1.setStyle({ "align": "center", "color": "#ffffffff", "fontSize": "32px", "stroke": "#000000", "strokeThickness": 3 });
+		text_1.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000", "strokeThickness": 16 });
 
 		// leaveButton
-		const leaveButton = this.add.rectangle(674, 305, 180, 60);
+		const leaveButton = this.add.rectangle(112, 672, 180, 60);
 		leaveButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 180, 60), Phaser.Geom.Rectangle.Contains);
 		leaveButton.isFilled = true;
 		leaveButton.fillColor = 11141120;
 
 		// leaveText
-		const leaveText = this.add.text(674, 305, "", {});
+		const leaveText = this.add.text(112, 672, "", {});
 		leaveText.setOrigin(0.5, 0.5);
 		leaveText.text = "Leave";
 		leaveText.setStyle({ "align": "center", "fontSize": "24px" });
 
 		// startButton
-		const startButton = this.add.rectangle(674, 212, 200, 80);
+		const startButton = this.add.rectangle(1152, 656, 200, 80);
 		startButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 200, 80), Phaser.Geom.Rectangle.Contains);
 		startButton.isFilled = true;
 		startButton.fillColor = 43520;
 
 		// startText
-		const startText = this.add.text(674, 212, "", {});
+		const startText = this.add.text(1152, 656, "", {});
 		startText.setOrigin(0.5, 0.5);
 		startText.text = "Start";
 		startText.setStyle({ "align": "center", "fontSize": "32px" });
 
-		// text_2
-		const text_2 = this.add.rectangle(999, 243, 35, 15);
-		text_2.scaleX = 10;
-		text_2.scaleY = 10;
-		text_2.isFilled = true;
-		text_2.fillColor = 5197647;
-
 		// text
-		const text = this.add.text(999, 218, "", {});
+		const text = this.add.text(992, 224, "", {});
 		text.setOrigin(0.5, 0.5);
-		text.text = "Lobby Code\n";
-		text.setStyle({ "align": "center", "color": "#ffffffff", "fontSize": "32px", "stroke": "#000000", "strokeThickness": 3 });
+		text.text = "Lobby Code";
+		text.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000", "strokeThickness": 16 });
 
 		// copyButton
-		const copyButton = this.add.rectangle(1001, 393, 250, 80);
+		const copyButton = this.add.rectangle(992, 448, 270, 80);
 		copyButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 250, 80), Phaser.Geom.Rectangle.Contains);
 		copyButton.isFilled = true;
 		copyButton.fillColor = 5151693;
 
 		// copyText
-		const copyText = this.add.text(892, 367, "", {});
-		copyText.text = "Copy Code to \nClipboard";
-		copyText.setStyle({ "align": "center", "fontSize": "28px" });
+		const copyText = this.add.text(992, 448, "", {});
+		copyText.setOrigin(0.5, 0.5);
+		copyText.text = "Copy to Clipboard";
+		copyText.setStyle({ "align": "center", "fontFamily": "Eczar-Bold", "fontSize": "28px", "stroke": "#000000ff", "strokeThickness": 16 });
 
 		this.lobbyTitle = lobbyTitle;
-		this.playerListBackground = playerListBackground;
 		this.text_1 = text_1;
 		this.leaveButton = leaveButton;
 		this.leaveText = leaveText;
 		this.startButton = startButton;
 		this.startText = startText;
-		this.text_2 = text_2;
 		this.text = text;
 		this.copyButton = copyButton;
 		this.copyText = copyText;
@@ -107,8 +95,6 @@ export default class Lobby extends Phaser.Scene {
 
 	/** @type {Phaser.GameObjects.Text} */
 	lobbyTitle;
-	/** @type {Phaser.GameObjects.Rectangle} */
-	playerListBackground;
 	/** @type {Phaser.GameObjects.Text} */
 	text_1;
 	/** @type {Phaser.GameObjects.Rectangle} */
@@ -119,8 +105,6 @@ export default class Lobby extends Phaser.Scene {
 	startButton;
 	/** @type {Phaser.GameObjects.Text} */
 	startText;
-	/** @type {Phaser.GameObjects.Rectangle} */
-	text_2;
 	/** @type {Phaser.GameObjects.Text} */
 	text;
 	/** @type {Phaser.GameObjects.Rectangle} */
@@ -222,10 +206,14 @@ export default class Lobby extends Phaser.Scene {
 
 	updatePlayerList(players) {
 		this.playerNameGroup.clear(true, true);
+		// player
 		players.forEach((player, index) => {
-            const text = this.add.text(125, 250 + index * 50, player, {
-                fontSize: "28px",
-                color: "#ffffff"
+            const text = this.add.text(125, 270 + index * 50, generateName(player), {
+				fontFamily: "Eczar-Bold",
+                fontSize: "32px",
+                color: "#c2c2c2",
+				stroke: "#000000",
+				strokeThickness: 16,
             }).setOrigin(0,0.5);
 			this.playerNameGroup.add(text);
         });

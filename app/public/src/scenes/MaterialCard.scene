@@ -1,0 +1,184 @@
+{
+    "id": "d1d1f50f-982e-48eb-99cc-9efd71599b8e",
+    "sceneType": "PREFAB",
+    "settings": {
+        "snapEnabled": true,
+        "snapWidth": 8,
+        "snapHeight": 8,
+        "exportClass": true,
+        "autoImport": true,
+        "importFileExtension": true,
+        "preloadMethodName": "",
+        "preloadPackFiles": [],
+        "createMethodName": "",
+        "borderWidth": 1280,
+        "borderHeight": 720
+    },
+    "displayList": [
+        {
+            "type": "Container",
+            "id": "7e146dda-023f-4691-8e56-1f69fc6baa42",
+            "label": "container_1",
+            "y": -152,
+            "list": [
+                {
+                    "type": "Image",
+                    "id": "6eb7e53e-0ce7-410b-9e84-358dd8e49383",
+                    "label": "cardFront",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "200x280-Bright-White-Card"
+                    },
+                    "scaleX": 0.8,
+                    "scaleY": 0.8,
+                    "tintTopLeft": "#959595",
+                    "tintTopRight": "#959595",
+                    "tintBottomLeft": "#000000",
+                    "tintBottomRight": "#000000"
+                },
+                {
+                    "type": "Image",
+                    "id": "cd944428-e9d4-4549-9af3-4f17ae4cc48a",
+                    "label": "mainImage",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "200x200-Pillow"
+                    },
+                    "y": -32,
+                    "scaleX": 0.6,
+                    "scaleY": 0.6,
+                    "list": [
+                        {
+                            "type": "Shadow",
+                            "id": "1f972e01-e790-4e05-979f-fc3dc1951283",
+                            "label": "shadowFx",
+                            "preFX": true
+                        }
+                    ]
+                },
+                {
+                    "type": "Text",
+                    "id": "c0e75db2-6cb0-443b-9132-315d719a6db7",
+                    "label": "title",
+                    "scope": "CLASS",
+                    "y": -88,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "PILLOW",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "18px",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5,
+                    "shadow.stroke": true,
+                    "shadow.blur": 12
+                },
+                {
+                    "type": "Image",
+                    "id": "ec2f9023-f4a1-45b2-9147-80be44218821",
+                    "label": "defenseSymbol",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "100x100-Blue-Shield"
+                    },
+                    "x": 40,
+                    "y": 40,
+                    "scaleX": 0.8,
+                    "scaleY": 0.8
+                },
+                {
+                    "type": "Image",
+                    "id": "dea07c0d-51a5-442d-a940-6499e4d1ee10",
+                    "label": "powerSymbol",
+                    "scope": "CLASS",
+                    "texture": {
+                        "key": "100x100-Power"
+                    },
+                    "x": -40,
+                    "y": 40,
+                    "scaleX": 0.8,
+                    "scaleY": 0.8
+                },
+                {
+                    "type": "Text",
+                    "id": "ea0265da-f64b-4bb7-b2eb-82d178fab682",
+                    "label": "powerText",
+                    "scope": "CLASS",
+                    "x": -40,
+                    "y": 40,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "3",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "32px",
+                    "color": "#ffffffff",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5,
+                    "shadow.stroke": true,
+                    "shadow.blur": 12
+                },
+                {
+                    "type": "Text",
+                    "id": "e4609f91-4937-40ce-a61d-1a50886b5f77",
+                    "label": "defenseText",
+                    "scope": "CLASS",
+                    "x": 40,
+                    "y": 40,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "10",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "32px",
+                    "color": "#ffffffff",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5,
+                    "shadow.stroke": true,
+                    "shadow.blur": 12
+                },
+                {
+                    "type": "Text",
+                    "id": "cc4d28ab-20d9-4c29-a20e-ada2b53bef12",
+                    "label": "orText",
+                    "scope": "CLASS",
+                    "y": 64,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "OR",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "fontSize": "18px",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5,
+                    "shadow.stroke": true,
+                    "shadow.blur": 12
+                },
+                {
+                    "type": "Text",
+                    "id": "c5a002b8-6a19-456f-a57f-a21eac602af9",
+                    "label": "energyText",
+                    "scope": "CLASS",
+                    "y": 88,
+                    "originX": 0.5,
+                    "originY": 0.5,
+                    "text": "[10 ENG]",
+                    "resolution": 3,
+                    "fontFamily": "Eczar-Bold",
+                    "color": "#ffffffff",
+                    "stroke": "#000000ff",
+                    "strokeThickness": 5,
+                    "shadow.stroke": true,
+                    "shadow.blur": 12
+                }
+            ]
+        }
+    ],
+    "plainObjects": [],
+    "meta": {
+        "app": "Phaser Editor - Scene Editor",
+        "url": "https://phaser.io/editor",
+        "contentType": "phasereditor2d.core.scene.SceneContentType",
+        "version": 5
+    }
+}

@@ -7,6 +7,11 @@
                 "key": "100x100-Blue-Shield"
             },
             {
+                "url": "assets/Ama-Symbols/100x100-Energy.png",
+                "type": "image",
+                "key": "100x100-Energy"
+            },
+            {
                 "url": "assets/Ama-Symbols/100x100-Grey-Shield.png",
                 "type": "image",
                 "key": "100x100-Grey-Shield"
@@ -222,11 +227,6 @@
                 "key": "480x270-Pop-Up"
             },
             {
-                "url": "assets/Background/960x540-Pop-Up.png",
-                "type": "image",
-                "key": "960x540-Pop-Up"
-            },
-            {
                 "url": "assets/Attack-Ui/500x200-Attack.PNG",
                 "type": "image",
                 "key": "500x200-Attack"
@@ -235,6 +235,11 @@
                 "url": "assets/Attack-Ui/500x200-Bar.PNG",
                 "type": "image",
                 "key": "500x200-Bar"
+            },
+            {
+                "url": "assets/Background/960x540-Pop-Up.png",
+                "type": "image",
+                "key": "960x540-Pop-Up"
             },
             {
                 "url": "assets/Arcane Soul Card.PNG",

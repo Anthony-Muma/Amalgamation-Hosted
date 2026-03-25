@@ -132,6 +132,11 @@
                 "key": "200x200-Protector-Soul-Title"
             },
             {
+                "url": "assets/Attack-Ui/200x200-Selected.PNG",
+                "type": "image",
+                "key": "200x200-Selected"
+            },
+            {
                 "url": "assets/Titles/200x200-Souless-Title.png",
                 "type": "image",
                 "key": "200x200-Souless-Title"
@@ -140,6 +145,11 @@
                 "url": "assets/Main-Card-Images/200x200-Sword.png",
                 "type": "image",
                 "key": "200x200-Sword"
+            },
+            {
+                "url": "assets/Attack-Ui/200x200-Unselected.PNG",
+                "type": "image",
+                "key": "200x200-Unselected"
             },
             {
                 "url": "assets/Main-Card-Images/200x200-Vital-Soul.png",

@@ -102,6 +102,7 @@ export default class AttackUI extends Phaser.Scene {
 		powerBox4.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
 		powerBox4.scaleX = 2.3;
 		powerBox4.scaleY = 0.45;
+		powerBox4.visible = false;
 		powerBox4.isFilled = true;
 		powerBox4.fillColor = 4605883;
 
@@ -110,6 +111,7 @@ export default class AttackUI extends Phaser.Scene {
 		powerBox3.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
 		powerBox3.scaleX = 2.3;
 		powerBox3.scaleY = 0.45;
+		powerBox3.visible = false;
 		powerBox3.isFilled = true;
 		powerBox3.fillColor = 4605883;
 
@@ -118,6 +120,7 @@ export default class AttackUI extends Phaser.Scene {
 		powerBox2.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
 		powerBox2.scaleX = 2.3;
 		powerBox2.scaleY = 0.45;
+		powerBox2.visible = false;
 		powerBox2.isFilled = true;
 		powerBox2.fillColor = 4605883;
 
@@ -126,6 +129,7 @@ export default class AttackUI extends Phaser.Scene {
 		powerBox1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
 		powerBox1.scaleX = 2.3;
 		powerBox1.scaleY = 0.45;
+		powerBox1.visible = false;
 		powerBox1.isFilled = true;
 		powerBox1.fillColor = 4605883;
 
@@ -134,6 +138,7 @@ export default class AttackUI extends Phaser.Scene {
 		powerBox0.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
 		powerBox0.scaleX = 2.3;
 		powerBox0.scaleY = 0.45;
+		powerBox0.visible = false;
 		powerBox0.isFilled = true;
 		powerBox0.fillColor = 4605883;
 
@@ -167,6 +172,46 @@ export default class AttackUI extends Phaser.Scene {
 		power4.text = "XX POW";
 		power4.setStyle({ "align": "right", "color": "#ee4940ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
 
+		// power
+		const power = this.add.text(705, 240, "", {});
+		power.text = "XX POW";
+		power.setStyle({ "align": "right", "color": "#ee4940ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
+
+		// unselected0
+		const unselected0 = this.add.image(255, 160, "200x200-Unselected");
+		unselected0.scaleX = 0.3;
+		unselected0.scaleY = 0.3;
+		unselected0.visible = false;
+
+		// unselected1
+		const unselected1 = this.add.image(255, 230, "200x200-Unselected");
+		unselected1.scaleX = 0.3;
+		unselected1.scaleY = 0.3;
+		unselected1.visible = false;
+
+		// unselected2
+		const unselected2 = this.add.image(255, 300, "200x200-Unselected");
+		unselected2.scaleX = 0.3;
+		unselected2.scaleY = 0.3;
+		unselected2.visible = false;
+
+		// unselected3
+		const unselected3 = this.add.image(255, 370, "200x200-Unselected");
+		unselected3.scaleX = 0.3;
+		unselected3.scaleY = 0.3;
+		unselected3.visible = false;
+
+		// unselected4
+		const unselected4 = this.add.image(255, 440, "200x200-Unselected");
+		unselected4.scaleX = 0.3;
+		unselected4.scaleY = 0.3;
+		unselected4.visible = false;
+
+		// selected
+		const selected = this.add.image(-48, 160, "200x200-Selected");
+		selected.scaleX = 0.3;
+		selected.scaleY = 0.3;
+
 		this.exitButton = exitButton;
 		this.attackButton = attackButton;
 		this.energyTotal = energyTotal;
@@ -181,6 +226,13 @@ export default class AttackUI extends Phaser.Scene {
 		this.power2 = power2;
 		this.power3 = power3;
 		this.power4 = power4;
+		this.power = power;
+		this.unselected0 = unselected0;
+		this.unselected1 = unselected1;
+		this.unselected2 = unselected2;
+		this.unselected3 = unselected3;
+		this.unselected4 = unselected4;
+		this.selected = selected;
 
 		this.events.emit("scene-awake");
 	}
@@ -213,6 +265,20 @@ export default class AttackUI extends Phaser.Scene {
 	power3;
 	/** @type {Phaser.GameObjects.Text} */
 	power4;
+	/** @type {Phaser.GameObjects.Text} */
+	power;
+	/** @type {Phaser.GameObjects.Image} */
+	unselected0;
+	/** @type {Phaser.GameObjects.Image} */
+	unselected1;
+	/** @type {Phaser.GameObjects.Image} */
+	unselected2;
+	/** @type {Phaser.GameObjects.Image} */
+	unselected3;
+	/** @type {Phaser.GameObjects.Image} */
+	unselected4;
+	/** @type {Phaser.GameObjects.Image} */
+	selected;
 
 	/* START-USER-CODE */
 
@@ -237,11 +303,53 @@ export default class AttackUI extends Phaser.Scene {
 		console.log(amalgamationInfo)
 	}
 
+
+
 	create() {
 
 		this.editorCreate();
 
-		//method kept until the ui is finished in case of debugging
+		//Array with all of the boxes where the power text resides
+		this.powerBoxes = [
+			this.powerBox0,
+			this.powerBox1,
+			this.powerBox2,
+			this.powerBox3,
+			this.powerBox4
+		];
+
+		//Array for each of the available unselected images
+		this.unselectedIcons = [
+			this.unselected0,
+			this.unselected1,
+			this.unselected2,
+			this.unselected3,
+			this.unselected4
+		];
+
+		//Array for each of the  power texts
+		this.powerTexts = [
+			this.power0,
+			this.power1,
+			this.power2,
+			this.power3,
+			this.power4
+		];
+
+		this.unselectedIcons.forEach(icon => {
+			icon.setInteractive();
+		});
+
+		this.powerTexts.forEach(text => {
+			text.setInteractive();
+		});
+
+		this.selected.setVisible(false);
+
+		this.selectedIndices = [];
+		this.currentEnergySpent = 0;
+
+		//Method kept until the ui is finished in case of debugging
 		this.input.keyboard.on('keydown-Q', ()=>{ 
 			this.scene.resume("Level");
 			this.scene.stop("AttackUI");
@@ -261,13 +369,57 @@ export default class AttackUI extends Phaser.Scene {
 		//Generate text inside powerBox1 to show the power value inside powerObjectList 
 		if (this.amalgamationInfo && this.amalgamationInfo.powerObjectList) {
 			const list = this.amalgamationInfo.powerObjectList;
-			for (let x = 0; x < list.length && x < 5; x++) {
+			for (let x = 0; x < 5; x++) {
+				const powerText = this["power" + x];
+				const unselectedIcon = this["unselected" + x];
+
 				if (list[x] && list[x].power !== undefined) {
-					this["power" + x].setText(`${list[x].power} POW`);
-					this["power" + x].setVisible(true);
+					//shows the unselected icons if there's text
+					powerText.setText(`${list[x].power} POW`);
+					powerText.setVisible(true);
+					unselectedIcon.setVisible(true); 
+				} else {
+					//hides the unselected icons
+					powerText.setVisible(false);
+					unselectedIcon.setVisible(false); 
 				}
 			}
 		}
+
+		//Created function which replaces the unselected icon for the selected icon
+		const handleSelection = (index) => {
+			const targetIcon = this.unselectedIcons[index];
+			//Move the selected image to replace the unselected
+			this.selected.setPosition(targetIcon.x, targetIcon.y);
+			this.selected.setVisible(true);
+		};
+
+		//Coth codes call the previous method when clicking on the image or text
+		this.unselectedIcons.forEach((icon, index) => {
+			icon.on("pointerdown", () => handleSelection(index));
+		});
+
+		this.powerTexts.forEach((text, index) => {
+			text.on("pointerdown", () => handleSelection(index));
+		});
+
+		this.selectedIndices = [];
+
+		
+
+
+		//Code to test above if an value is removed from powerObjectList
+		// this.input.keyboard.on('keydown-P', ()=>{ 
+		// 	const list = this.amalgamationInfo.powerObjectList
+		// 	list.shift();
+		// 	// list.pop();
+		// })
+
+		//Generate selected power into the box on the righ side to substract with the energy there
+
+		// for (let x = 0; x < list.length && x < 5; x++) {
+		// 	this["powerBox" + x]
+		// }
 
        //...
 

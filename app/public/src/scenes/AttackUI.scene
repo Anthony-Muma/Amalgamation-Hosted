@@ -177,6 +177,7 @@
             "type": "Text",
             "id": "73f83709-a527-407e-bc32-25975ecc8bcd",
             "label": "energySum",
+            "scope": "CLASS",
             "x": 705,
             "y": 385,
             "text": "XX ENG",
@@ -202,6 +203,7 @@
             "y": 440,
             "scaleX": 2.3,
             "scaleY": 0.45,
+            "visible": false,
             "isFilled": true,
             "fillColor": "#4647bb",
             "width": 128,
@@ -219,6 +221,7 @@
             "y": 370,
             "scaleX": 2.3,
             "scaleY": 0.45,
+            "visible": false,
             "isFilled": true,
             "fillColor": "#4647bb",
             "width": 128,
@@ -236,6 +239,7 @@
             "y": 300,
             "scaleX": 2.3,
             "scaleY": 0.45,
+            "visible": false,
             "isFilled": true,
             "fillColor": "#4647bb",
             "width": 128,
@@ -253,6 +257,7 @@
             "y": 230,
             "scaleX": 2.3,
             "scaleY": 0.45,
+            "visible": false,
             "isFilled": true,
             "fillColor": "#4647bb",
             "width": 128,
@@ -270,6 +275,7 @@
             "y": 160,
             "scaleX": 2.3,
             "scaleY": 0.45,
+            "visible": false,
             "isFilled": true,
             "fillColor": "#4647bb",
             "width": 128,
@@ -374,6 +380,108 @@
             "shadow.stroke": true,
             "shadow.fill": true,
             "shadow.blur": 1
+        },
+        {
+            "type": "Text",
+            "id": "1dc3f3a4-bbbf-4797-8205-a1bf2fcc8a8e",
+            "label": "power",
+            "scope": "CLASS",
+            "x": 705,
+            "y": 240,
+            "text": "XX POW",
+            "align": "right",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "50px",
+            "color": "#ee4940ff",
+            "stroke": "#ffffffff",
+            "shadow.offsetX": 5,
+            "shadow.offsetY": 5,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.blur": 1
+        },
+        {
+            "type": "Image",
+            "id": "0b0acb8c-fdd3-42b0-95d2-5c37f18439aa",
+            "label": "unselected0",
+            "scope": "CLASS",
+            "texture": {
+                "key": "200x200-Unselected"
+            },
+            "x": 255,
+            "y": 160,
+            "scaleX": 0.3,
+            "scaleY": 0.3,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "0b1bf899-305a-4bc2-91e1-d1a7f477ba83",
+            "label": "unselected1",
+            "scope": "CLASS",
+            "texture": {
+                "key": "200x200-Unselected"
+            },
+            "x": 255,
+            "y": 230,
+            "scaleX": 0.3,
+            "scaleY": 0.3,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "955af0ff-6906-40e4-a3cb-25eb98599584",
+            "label": "unselected2",
+            "scope": "CLASS",
+            "texture": {
+                "key": "200x200-Unselected"
+            },
+            "x": 255,
+            "y": 300,
+            "scaleX": 0.3,
+            "scaleY": 0.3,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "a1ec33f5-4860-4d65-ac95-36bfc5bc083b",
+            "label": "unselected3",
+            "scope": "CLASS",
+            "texture": {
+                "key": "200x200-Unselected"
+            },
+            "x": 255,
+            "y": 370,
+            "scaleX": 0.3,
+            "scaleY": 0.3,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "b3e596d0-2f13-41b0-9259-9ad94f69909a",
+            "label": "unselected4",
+            "scope": "CLASS",
+            "texture": {
+                "key": "200x200-Unselected"
+            },
+            "x": 255,
+            "y": 440,
+            "scaleX": 0.3,
+            "scaleY": 0.3,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "35e082bc-33b5-4681-8d60-38dfcf19edd0",
+            "label": "selected",
+            "scope": "CLASS",
+            "texture": {
+                "key": "200x200-Selected"
+            },
+            "x": -48,
+            "y": 160,
+            "scaleX": 0.3,
+            "scaleY": 0.3
         }
     ],
     "plainObjects": [],

@@ -1,4 +1,3 @@
-
 // You can write more code here
 
 /* START OF COMPILED CODE */
@@ -31,7 +30,13 @@ export default class AttackUI extends Phaser.Scene {
 		const attackUi = this.add.rectangle(600, 335, 128, 128);
 		attackUi.scaleX = 6.5;
 		attackUi.scaleY = 3.5;
+		attackUi.visible = false;
 		attackUi.isFilled = true;
+
+		// _960x540_Pop_Up
+		const _960x540_Pop_Up = this.add.image(600, 335, "960x540-Pop-Up");
+		_960x540_Pop_Up.scaleX = 1.2256989585570934;
+		_960x540_Pop_Up.scaleY = 0.9505546852971284;
 
 		// exitButton
 		const exitButton = this.add.image(1015, 112, "200x200-ExitButton");
@@ -40,10 +45,10 @@ export default class AttackUI extends Phaser.Scene {
 		exitButton.scaleY = 0.5;
 
 		// attackButton
-		const attackButton = this.add.image(600, 555, "500x200-Bar");
+		const attackButton = this.add.image(600, 545, "500x200-Bar");
 
 		// _500x200_Attack
-		const _500x200_Attack = this.add.image(600, 555, "500x200-Attack");
+		const _500x200_Attack = this.add.image(600, 545, "500x200-Attack");
 		_500x200_Attack.scaleX = 0.7;
 		_500x200_Attack.scaleY = 0.7;
 
@@ -71,36 +76,163 @@ export default class AttackUI extends Phaser.Scene {
 		const energySpend = this.add.rectangle(800, 270, 128, 128);
 		energySpend.scaleX = 2;
 		energySpend.scaleY = 0.5;
+		energySpend.visible = false;
 		energySpend.isFilled = true;
 		energySpend.fillColor = 4605883;
 
-		// energySum
-		const energySum = this.add.rectangle(800, 415, 128, 128);
-		energySum.scaleX = 2;
-		energySum.scaleY = 0.5;
-		energySum.fillColor = 4605883;
+		// energySumBox
+		const energySumBox = this.add.rectangle(800, 415, 128, 128);
+		energySumBox.scaleX = 2;
+		energySumBox.scaleY = 0.5;
+		energySumBox.fillColor = 4605883;
 
 		// energyTest
 		const energyTest = this.add.text(705, 145, "", {});
-		energyTest.visible = false;
 		energyTest.text = "XX ENG";
 		energyTest.setStyle({ "color": "#28ee53ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
 
-		// energyTest_1
-		const energyTest_1 = this.add.text(705, 385, "", {});
-		energyTest_1.text = "XX ENG";
-		energyTest_1.setStyle({ "color": "#28ee53ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
+		// energySum
+		const energySum = this.add.text(705, 385, "", {});
+		energySum.text = "0 ENG";
+		energySum.setStyle({ "color": "#28ee53ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
 
-		// rectangle_1
-		const rectangle_1 = this.add.rectangle(1504, 400, 128, 128);
-		rectangle_1.scaleX = 2.7;
-		rectangle_1.isFilled = true;
-		rectangle_1.fillColor = 0;
+		// powerBox4
+		const powerBox4 = this.add.rectangle(370, 440, 128, 128);
+		powerBox4.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
+		powerBox4.scaleX = 2.3;
+		powerBox4.scaleY = 0.45;
+		powerBox4.visible = false;
+		powerBox4.isFilled = true;
+		powerBox4.fillColor = 4605883;
+
+		// powerBox3
+		const powerBox3 = this.add.rectangle(370, 370, 128, 128);
+		powerBox3.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
+		powerBox3.scaleX = 2.3;
+		powerBox3.scaleY = 0.45;
+		powerBox3.visible = false;
+		powerBox3.isFilled = true;
+		powerBox3.fillColor = 4605883;
+
+		// powerBox2
+		const powerBox2 = this.add.rectangle(370, 300, 128, 128);
+		powerBox2.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
+		powerBox2.scaleX = 2.3;
+		powerBox2.scaleY = 0.45;
+		powerBox2.visible = false;
+		powerBox2.isFilled = true;
+		powerBox2.fillColor = 4605883;
+
+		// powerBox1
+		const powerBox1 = this.add.rectangle(370, 230, 128, 128);
+		powerBox1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
+		powerBox1.scaleX = 2.3;
+		powerBox1.scaleY = 0.45;
+		powerBox1.visible = false;
+		powerBox1.isFilled = true;
+		powerBox1.fillColor = 4605883;
+
+		// powerBox0
+		const powerBox0 = this.add.rectangle(370, 160, 128, 128);
+		powerBox0.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
+		powerBox0.scaleX = 2.3;
+		powerBox0.scaleY = 0.45;
+		powerBox0.visible = false;
+		powerBox0.isFilled = true;
+		powerBox0.fillColor = 4605883;
+
+		// power0
+		const power0 = this.add.text(300, 130, "", {});
+		power0.visible = false;
+		power0.text = "XX ENG";
+		power0.setStyle({ "align": "right", "color": "#ee4940ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
+
+		// power1
+		const power1 = this.add.text(300, 200, "", {});
+		power1.visible = false;
+		power1.text = "XX POW";
+		power1.setStyle({ "align": "right", "color": "#ee4940ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
+
+		// power2
+		const power2 = this.add.text(300, 270, "", {});
+		power2.visible = false;
+		power2.text = "XX POW";
+		power2.setStyle({ "align": "right", "color": "#ee4940ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
+
+		// power3
+		const power3 = this.add.text(300, 340, "", {});
+		power3.visible = false;
+		power3.text = "XX POW";
+		power3.setStyle({ "align": "right", "color": "#ee4940ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
+
+		// power4
+		const power4 = this.add.text(300, 410, "", {});
+		power4.visible = false;
+		power4.text = "XX POW";
+		power4.setStyle({ "align": "right", "color": "#ee4940ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
+
+		// power
+		const power = this.add.text(705, 240, "", {});
+		power.text = "0 POW";
+		power.setStyle({ "align": "right", "color": "#ee4940ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
+
+		// unselected0
+		const unselected0 = this.add.image(255, 160, "200x200-Unselected");
+		unselected0.scaleX = 0.3;
+		unselected0.scaleY = 0.3;
+		unselected0.visible = false;
+
+		// unselected1
+		const unselected1 = this.add.image(255, 230, "200x200-Unselected");
+		unselected1.scaleX = 0.3;
+		unselected1.scaleY = 0.3;
+		unselected1.visible = false;
+
+		// unselected2
+		const unselected2 = this.add.image(255, 300, "200x200-Unselected");
+		unselected2.scaleX = 0.3;
+		unselected2.scaleY = 0.3;
+		unselected2.visible = false;
+
+		// unselected3
+		const unselected3 = this.add.image(255, 370, "200x200-Unselected");
+		unselected3.scaleX = 0.3;
+		unselected3.scaleY = 0.3;
+		unselected3.visible = false;
+
+		// unselected4
+		const unselected4 = this.add.image(255, 440, "200x200-Unselected");
+		unselected4.scaleX = 0.3;
+		unselected4.scaleY = 0.3;
+		unselected4.visible = false;
+
+		// selected
+		const selected = this.add.image(-48, 160, "200x200-Selected");
+		selected.scaleX = 0.3;
+		selected.scaleY = 0.3;
 
 		this.exitButton = exitButton;
 		this.attackButton = attackButton;
 		this.energyTotal = energyTotal;
 		this.energyTest = energyTest;
+		this.energySum = energySum;
+		this.powerBox4 = powerBox4;
+		this.powerBox3 = powerBox3;
+		this.powerBox2 = powerBox2;
+		this.powerBox1 = powerBox1;
+		this.powerBox0 = powerBox0;
+		this.power0 = power0;
+		this.power1 = power1;
+		this.power2 = power2;
+		this.power3 = power3;
+		this.power4 = power4;
+		this.power = power;
+		this.unselected0 = unselected0;
+		this.unselected1 = unselected1;
+		this.unselected2 = unselected2;
+		this.unselected3 = unselected3;
+		this.unselected4 = unselected4;
+		this.selected = selected;
 
 		this.events.emit("scene-awake");
 	}
@@ -113,6 +245,42 @@ export default class AttackUI extends Phaser.Scene {
 	energyTotal;
 	/** @type {Phaser.GameObjects.Text} */
 	energyTest;
+	/** @type {Phaser.GameObjects.Text} */
+	energySum;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	powerBox4;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	powerBox3;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	powerBox2;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	powerBox1;
+	/** @type {Phaser.GameObjects.Rectangle} */
+	powerBox0;
+	/** @type {Phaser.GameObjects.Text} */
+	power0;
+	/** @type {Phaser.GameObjects.Text} */
+	power1;
+	/** @type {Phaser.GameObjects.Text} */
+	power2;
+	/** @type {Phaser.GameObjects.Text} */
+	power3;
+	/** @type {Phaser.GameObjects.Text} */
+	power4;
+	/** @type {Phaser.GameObjects.Text} */
+	power;
+	/** @type {Phaser.GameObjects.Image} */
+	unselected0;
+	/** @type {Phaser.GameObjects.Image} */
+	unselected1;
+	/** @type {Phaser.GameObjects.Image} */
+	unselected2;
+	/** @type {Phaser.GameObjects.Image} */
+	unselected3;
+	/** @type {Phaser.GameObjects.Image} */
+	unselected4;
+	/** @type {Phaser.GameObjects.Image} */
+	selected;
 
 	/* START-USER-CODE */
 
@@ -137,30 +305,171 @@ export default class AttackUI extends Phaser.Scene {
 		console.log(amalgamationInfo)
 	}
 
-	create() {
 
+	create() {
 		this.editorCreate();
 
-		//method kept until the ui is finished in case of debugging
-		this.input.keyboard.on('keydown-Q', ()=>{ 
+		this.powerBoxes = [
+			this.powerBox0, 
+			this.powerBox1, 
+			this.powerBox2, 
+			this.powerBox3, 
+			this.powerBox4
+		];
+
+		this.unselectedIcons = [
+			this.unselected0, 
+			this.unselected1, 
+			this.unselected2, 
+			this.unselected3, 
+			this.unselected4
+		];
+		
+		this.powerTexts = [
+			this.power0, 
+			this.power1, 
+			this.power2, 
+			this.power3, 
+			this.power4
+		];
+
+		this.selected.setVisible(false);
+		this.selectedIndex = -1;
+
+		// Make everything interactive
+		this.unselectedIcons.forEach(icon => icon.setInteractive());
+		this.powerTexts.forEach(text => text.setInteractive());
+
+
+		//Method kept until the ui is finished in case of debugging
+		this.input.keyboard.on('keydown-Q', () => {
 			this.scene.resume("Level");
 			this.scene.stop("AttackUI");
 		});
 
-		this.exitButton.on("pointerdown", ()=>{ 
+		// Makes the exit button exit the scene
+		this.exitButton.on("pointerdown", () => {
 			this.scene.resume("Level");
 			this.scene.stop("AttackUI");
 		});
 
-		//Generate text inside energyTotal to show the current energy 
-		if (this.gameInfo && this.gameInfo.energyPool !== undefined) {
+		// Sets the total to the current value as soon as the scene is loaded
+		if (this.gameInfo?.energyPool !== undefined) {
 			this.energyTest.setText(`${this.gameInfo.energyPool} ENG`);
-			this.energyTest.setVisible(true);
 		}
 
-       //...
+		// Set the powers in the scene for each one available
+		const list = this.amalgamationInfo?.powerObjectList || [];
+		list.forEach((p, i) => {
+			if (p?.power !== undefined) {
+				this.powerTexts[i].setText(`${p.power} POW`).setVisible(true);
+				this.unselectedIcons[i].setVisible(true);
+			} else {
+				this.powerTexts[i].setVisible(false);
+				this.unselectedIcons[i].setVisible(false);
+			}
+		});
 
-    }
+		// Click handler
+		const handleSelection = (index) => {
+			const list = this.amalgamationInfo.powerObjectList;
+			if (!list[index] || list[index].power === undefined) return;
+
+			// Set selected index
+			this.selectedIndex = index;
+
+			// Moves selected to the position of the unselected clicked on
+			const targetIcon = this.unselectedIcons[index];
+			this.selected.setPosition(targetIcon.x, targetIcon.y).setVisible(true);
+
+			// Selected power number
+			const selectedPower = list[index].power;
+
+			// Update power on the right 
+			this.power.setText(`${selectedPower} POW`).setVisible(true);
+
+			// Update energySum (total energy minus the selected power)
+			const totalEnergy = this.gameInfo?.energyPool || 0;
+			const remainingEnergy = totalEnergy - selectedPower;
+			this.energySum.setText(`${remainingEnergy} ENG`).setVisible(true);
+
+			// Optional: always show total energy
+			this.energyTest.setText(`${totalEnergy} ENG`).setVisible(true);
+		};
+
+		// Attach click handlers
+		this.powerBoxes.forEach((box, index) => box.on("pointerdown", () => handleSelection(index)));
+		this.powerTexts.forEach((text, index) => text.on("pointerdown", () => handleSelection(index)));
+		this.unselectedIcons.forEach((icon, index) => icon.on("pointerdown", () => handleSelection(index)));
+	}
+
+	handleSelection(index) {
+		const list = this.amalgamationInfo.powerObjectList;
+		if (!list[index] || list[index].power === undefined) return;
+
+		// Set selected index
+		this.selectedIndex = index;
+
+		// Moves selected to the postion of unselected
+		const targetIcon = this.unselectedIcons[index];
+		this.selected.setPosition(targetIcon.x, targetIcon.y).setVisible(true);
+
+		// Get selected power as a number
+		const selectedPower = list[index].power;
+
+		// Update the power on the right to be the same as the one selected
+		this.power.setText(`${selectedPower} POW`).setVisible(true);
+
+		// Update energy displays
+		if (this.gameInfo?.energyPool !== undefined) {
+			const totalEnergy = this.gameInfo.energyPool; 
+			this.energyTest.setText(`${totalEnergy} ENG`).setVisible(true); 
+
+			const remainingEnergy = totalEnergy - selectedPower; 
+			this.energySum.setText(`${remainingEnergy} ENG`).setVisible(true); 
+		}
+	}
+
+
+	updatePowerDisplay() {
+		const list = this.amalgamationInfo.powerObjectList;
+
+		for (let i = 0; i < 5; i++) {
+			const powerText = this.powerTexts[i];
+			const unselectedIcon = this.unselectedIcons[i];
+
+			if (list[i]?.power !== undefined) {
+				powerText.setText(`${list[i].power} POW`).setVisible(true);
+				unselectedIcon.setVisible(this.selectedIndex !== i);
+
+				if (this.selectedIndex === i) {
+					this.selected.setPosition(unselectedIcon.x, unselectedIcon.y).setVisible(true);
+				}
+			} else {
+				powerText.setVisible(false);
+				unselectedIcon.setVisible(false);
+				if (this.selectedIndex === i) {
+					this.selectedIndex = -1;
+					this.selected.setVisible(false);
+				}
+			}
+		}
+	}
+
+	updateSelectedPowerDisplay() {
+		if (this.selectedIndex >= 0) {
+			const selectedPower = this.amalgamationInfo.powerObjectList[this.selectedIndex].power;
+			this.power0.setText(`${selectedPower} POW`).setVisible(true);
+		} else {
+			this.power0.setVisible(false);
+		}
+	}
+
+	updateEnergySum() {
+		const list = this.amalgamationInfo.powerObjectList;
+		let sum = 0;
+		this.energySum.setText(`${sum} ENG`);
+	}
 
 	/* END-USER-CODE */
 }

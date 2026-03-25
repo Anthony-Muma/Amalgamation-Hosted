@@ -36,8 +36,8 @@
             "texture": {
                 "key": "Card back"
             },
-            "x": 1360,
-            "y": -16,
+            "x": 1344,
+            "y": -48,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -64,32 +64,16 @@
             "texture": {
                 "key": "200x280-Vital-Soul-Card"
             },
-            "x": 144,
-            "y": 256
-        },
-        {
-            "type": "Text",
-            "id": "e613699b-71bf-44ea-a452-90552795e9b2",
-            "label": "energyPoolText",
-            "scope": "CLASS",
-            "x": 144,
-            "y": 256,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "0",
-            "fontFamily": "Eczar-Bold",
-            "fontSize": "64px",
-            "color": "#1bc540",
-            "stroke": "#000000ff",
-            "strokeThickness": 10
+            "x": -304,
+            "y": 288
         },
         {
             "type": "Text",
             "id": "c11deb4a-5d91-4fd9-80b9-cfb232bad215",
             "label": "placementsLeftText",
             "scope": "CLASS",
-            "x": 1168,
-            "y": 352,
+            "x": 144,
+            "y": 448,
             "originX": 0.5,
             "originY": 0.5,
             "text": "-/-",
@@ -137,22 +121,80 @@
             "strokeThickness": 24
         },
         {
+            "type": "Image",
+            "id": "c227f66d-903a-4d87-9121-0227c2d81a87",
+            "label": "_200x200_Energy_Crystals_3X",
+            "texture": {
+                "key": "200x200-Energy-Crystals-3X"
+            },
+            "x": 160,
+            "y": 272,
+            "scaleX": 1.5,
+            "scaleY": 1.5
+        },
+        {
             "type": "Text",
-            "id": "e146a965-9caf-4d42-9a19-1ceda12e3755",
-            "label": "text_1",
+            "id": "e613699b-71bf-44ea-a452-90552795e9b2",
+            "label": "energyPoolText",
             "scope": "CLASS",
-            "x": 1136,
-            "y": 496,
+            "x": 144,
+            "y": 288,
             "originX": 0.5,
             "originY": 0.5,
-            "text": "'Space'-End Turn",
-            "resolution": 3,
-            "align": "center",
+            "text": "0",
             "fontFamily": "Eczar-Bold",
-            "fontSize": "32px",
+            "fontSize": "64px",
             "color": "#ffffffff",
             "stroke": "#000000ff",
-            "strokeThickness": 24
+            "strokeThickness": 10
+        },
+        {
+            "type": "Image",
+            "id": "a083da94-b926-4054-9f1f-6fa5abc53e4f",
+            "label": "_200x280_Character_Card",
+            "texture": {
+                "key": "200x280-Character-Card"
+            },
+            "x": 640,
+            "y": 608,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "1f7e8fd0-2f63-4275-8c1c-540f4a391693",
+            "label": "_200x280_Character_Card_1",
+            "texture": {
+                "key": "200x280-Character-Card"
+            },
+            "x": 1872,
+            "y": 320,
+            "scaleX": 1.5,
+            "scaleY": 3.063370076576077
+        },
+        {
+            "type": "Image",
+            "id": "526ce0d4-6e8e-4095-8707-b93e8ba2cd51",
+            "label": "_200x280_Character_Card_2",
+            "texture": {
+                "key": "200x280-Character-Card"
+            },
+            "x": 640,
+            "y": 368,
+            "scaleX": 0.8,
+            "scaleY": 0.8
+        },
+        {
+            "type": "Image",
+            "id": "eb66672b-acda-44f7-81dd-849e287dcd52",
+            "label": "_200x280_Character_Card_3",
+            "texture": {
+                "key": "200x280-Character-Card"
+            },
+            "x": 640,
+            "y": 128,
+            "scaleX": 0.8,
+            "scaleY": 0.8
         }
     ],
     "plainObjects": [],

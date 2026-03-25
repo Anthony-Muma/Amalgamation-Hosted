@@ -25,52 +25,34 @@ export default class MainMenu extends Phaser.Scene {
 		main_Menu_Background_1.scaleX = 0.67;
 		main_Menu_Background_1.scaleY = 0.67;
 
-		// createLobbyButton
-		const createLobbyButton = this.add.rectangle(344, 344, 128, 128);
-		createLobbyButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
-		createLobbyButton.scaleX = 2;
-		createLobbyButton.scaleY = 2;
-		createLobbyButton.isFilled = true;
-		createLobbyButton.fillColor = 11407890;
+		// amalgamations_Title
+		const amalgamations_Title = this.add.image(640, 190, "Amalgamations-Title");
+		amalgamations_Title.scaleX = 0.5;
+		amalgamations_Title.scaleY = 0.5;
 
-		// joinLobbyButton
-		const joinLobbyButton = this.add.rectangle(900, 344, 128, 128);
-		joinLobbyButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 128, 128), Phaser.Geom.Rectangle.Contains);
-		joinLobbyButton.scaleX = 2;
-		joinLobbyButton.scaleY = 2;
-		joinLobbyButton.isFilled = true;
-		joinLobbyButton.fillColor = 1182070;
+		// createLobbyCard
+		const createLobbyCard = this.add.image(425, 470, "240x336-Create-Lobby-Card");
+		createLobbyCard.setInteractive(this.input.makePixelPerfect());
+		createLobbyCard.angle = -8;
 
-		// text_1
-		const text_1 = this.add.text(228, 323, "", {});
-		text_1.scaleX = 2;
-		text_1.scaleY = 2;
-		text_1.text = "Create Lobby";
-		text_1.setStyle({  });
+		// joinLobbyCard
+		const joinLobbyCard = this.add.image(855, 470, "240x336-Join-Lobby-Card");
+		joinLobbyCard.setInteractive(this.input.makePixelPerfect());
+		joinLobbyCard.angle = 8;
 
-		// text
-		const text = this.add.text(805, 325, "", {});
-		text.scaleX = 2;
-		text.scaleY = 2;
-		text.text = "Join Lobby";
-		text.setStyle({  });
-
-		this.createLobbyButton = createLobbyButton;
-		this.joinLobbyButton = joinLobbyButton;
-		this.text_1 = text_1;
-		this.text = text;
+		this.amalgamations_Title = amalgamations_Title;
+		this.createLobbyCard = createLobbyCard;
+		this.joinLobbyCard = joinLobbyCard;
 
 		this.events.emit("scene-awake");
 	}
 
-	/** @type {Phaser.GameObjects.Rectangle} */
-	createLobbyButton;
-	/** @type {Phaser.GameObjects.Rectangle} */
-	joinLobbyButton;
-	/** @type {Phaser.GameObjects.Text} */
-	text_1;
-	/** @type {Phaser.GameObjects.Text} */
-	text;
+	/** @type {Phaser.GameObjects.Image} */
+	amalgamations_Title;
+	/** @type {Phaser.GameObjects.Image} */
+	createLobbyCard;
+	/** @type {Phaser.GameObjects.Image} */
+	joinLobbyCard;
 
 	/* START-USER-CODE */
 
@@ -80,13 +62,13 @@ export default class MainMenu extends Phaser.Scene {
 
 		this.editorCreate();
 
-		this.createLobbyButton.on("pointerdown", () => {
+		this.createLobbyCard.on("pointerdown", () => {
         	// Request to create lobby
 
         	socket.emit("lobby:create");
 		});
 
-		this.joinLobbyButton.on("pointerdown", () => {
+		this.joinLobbyCard.on("pointerdown", () => {
         	this.scene.start("Join");
 		});
 

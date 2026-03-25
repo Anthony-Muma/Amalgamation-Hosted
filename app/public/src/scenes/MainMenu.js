@@ -25,35 +25,34 @@ export default class MainMenu extends Phaser.Scene {
 		main_Menu_Background_1.scaleX = 0.67;
 		main_Menu_Background_1.scaleY = 0.67;
 
-		// joinLobbyCard
-		const joinLobbyCard = this.add.image(855, 470, "200x280-Join-Card");
-		joinLobbyCard.setInteractive(this.input.makePixelPerfect());
-		joinLobbyCard.scaleX = 1.2;
-		joinLobbyCard.scaleY = 1.2;
-		joinLobbyCard.angle = 8;
-
-		// createLobbyCard
-		const createLobbyCard = this.add.image(425, 470, "200x280-Create-Lobby-Card");
-		createLobbyCard.setInteractive(this.input.makePixelPerfect());
-		createLobbyCard.scaleX = 1.2;
-		createLobbyCard.scaleY = 1.2;
-		createLobbyCard.angle = -8;
-
 		// amalgamations_Title
 		const amalgamations_Title = this.add.image(640, 190, "Amalgamations-Title");
 		amalgamations_Title.scaleX = 0.5;
 		amalgamations_Title.scaleY = 0.5;
 
-		this.joinLobbyCard = joinLobbyCard;
+		// createLobbyCard
+		const createLobbyCard = this.add.image(425, 470, "240x336-Create-Lobby-Card");
+		createLobbyCard.setInteractive(this.input.makePixelPerfect());
+		createLobbyCard.angle = -8;
+
+		// joinLobbyCard
+		const joinLobbyCard = this.add.image(855, 470, "240x336-Join-Lobby-Card");
+		joinLobbyCard.setInteractive(this.input.makePixelPerfect());
+		joinLobbyCard.angle = 8;
+
+		this.amalgamations_Title = amalgamations_Title;
 		this.createLobbyCard = createLobbyCard;
+		this.joinLobbyCard = joinLobbyCard;
 
 		this.events.emit("scene-awake");
 	}
 
 	/** @type {Phaser.GameObjects.Image} */
-	joinLobbyCard;
+	amalgamations_Title;
 	/** @type {Phaser.GameObjects.Image} */
 	createLobbyCard;
+	/** @type {Phaser.GameObjects.Image} */
+	joinLobbyCard;
 
 	/* START-USER-CODE */
 

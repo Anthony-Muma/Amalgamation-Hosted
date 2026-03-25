@@ -25,38 +25,9 @@
         },
         {
             "type": "Image",
-            "id": "19b2a11e-721d-43ea-acc9-15c60b6f67d8",
-            "label": "joinLobbyCard",
-            "scope": "CLASS",
-            "hitArea.shape": "PIXEL_PERFECT",
-            "texture": {
-                "key": "200x280-Join-Card"
-            },
-            "x": 855,
-            "y": 470,
-            "scaleX": 1.2,
-            "scaleY": 1.2,
-            "angle": 8
-        },
-        {
-            "type": "Image",
-            "id": "8076a2da-fded-4bac-8b6f-1905a030147f",
-            "label": "createLobbyCard",
-            "scope": "CLASS",
-            "hitArea.shape": "PIXEL_PERFECT",
-            "texture": {
-                "key": "200x280-Create-Lobby-Card"
-            },
-            "x": 425,
-            "y": 470,
-            "scaleX": 1.2,
-            "scaleY": 1.2,
-            "angle": -8
-        },
-        {
-            "type": "Image",
             "id": "0e00f0ea-e65f-47e5-ad08-5d750609b368",
             "label": "amalgamations_Title",
+            "scope": "CLASS",
             "texture": {
                 "key": "Amalgamations-Title"
             },
@@ -64,6 +35,32 @@
             "y": 190,
             "scaleX": 0.5,
             "scaleY": 0.5
+        },
+        {
+            "type": "Image",
+            "id": "da5639df-d6db-4a0c-90d8-bf2235458ea7",
+            "label": "createLobbyCard",
+            "scope": "CLASS",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "240x336-Create-Lobby-Card"
+            },
+            "x": 425,
+            "y": 470,
+            "angle": -8
+        },
+        {
+            "type": "Image",
+            "id": "6c800c95-87e6-44b6-a227-932efad3dff0",
+            "label": "joinLobbyCard",
+            "scope": "CLASS",
+            "hitArea.shape": "PIXEL_PERFECT",
+            "texture": {
+                "key": "240x336-Join-Lobby-Card"
+            },
+            "x": 855,
+            "y": 470,
+            "angle": 8
         }
     ],
     "plainObjects": [],

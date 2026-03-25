@@ -227,6 +227,16 @@
                 "key": "225x285-Wall"
             },
             {
+                "url": "assets/Cards/240x336-Create-Lobby-Card.PNG",
+                "type": "image",
+                "key": "240x336-Create-Lobby-Card"
+            },
+            {
+                "url": "assets/Cards/240x336-Join-Lobby-Card.PNG",
+                "type": "image",
+                "key": "240x336-Join-Lobby-Card"
+            },
+            {
                 "url": "assets/Background/480x270-Pop-Up.png",
                 "type": "image",
                 "key": "480x270-Pop-Up"

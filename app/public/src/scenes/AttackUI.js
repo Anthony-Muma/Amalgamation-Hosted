@@ -1,4 +1,3 @@
-
 // You can write more code here
 
 /* START OF COMPILED CODE */
@@ -77,6 +76,7 @@ export default class AttackUI extends Phaser.Scene {
 		const energySpend = this.add.rectangle(800, 270, 128, 128);
 		energySpend.scaleX = 2;
 		energySpend.scaleY = 0.5;
+		energySpend.visible = false;
 		energySpend.isFilled = true;
 		energySpend.fillColor = 4605883;
 
@@ -88,13 +88,12 @@ export default class AttackUI extends Phaser.Scene {
 
 		// energyTest
 		const energyTest = this.add.text(705, 145, "", {});
-		energyTest.visible = false;
 		energyTest.text = "XX ENG";
 		energyTest.setStyle({ "color": "#28ee53ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
 
 		// energySum
 		const energySum = this.add.text(705, 385, "", {});
-		energySum.text = "XX ENG";
+		energySum.text = "0 ENG";
 		energySum.setStyle({ "color": "#28ee53ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
 
 		// powerBox4
@@ -174,7 +173,7 @@ export default class AttackUI extends Phaser.Scene {
 
 		// power
 		const power = this.add.text(705, 240, "", {});
-		power.text = "XX POW";
+		power.text = "0 POW";
 		power.setStyle({ "align": "right", "color": "#ee4940ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
 
 		// unselected0
@@ -216,6 +215,7 @@ export default class AttackUI extends Phaser.Scene {
 		this.attackButton = attackButton;
 		this.energyTotal = energyTotal;
 		this.energyTest = energyTest;
+		this.energySum = energySum;
 		this.powerBox4 = powerBox4;
 		this.powerBox3 = powerBox3;
 		this.powerBox2 = powerBox2;
@@ -245,6 +245,8 @@ export default class AttackUI extends Phaser.Scene {
 	energyTotal;
 	/** @type {Phaser.GameObjects.Text} */
 	energyTest;
+	/** @type {Phaser.GameObjects.Text} */
+	energySum;
 	/** @type {Phaser.GameObjects.Rectangle} */
 	powerBox4;
 	/** @type {Phaser.GameObjects.Rectangle} */
@@ -304,126 +306,170 @@ export default class AttackUI extends Phaser.Scene {
 	}
 
 
-
 	create() {
-
 		this.editorCreate();
 
-		//Array with all of the boxes where the power text resides
 		this.powerBoxes = [
-			this.powerBox0,
-			this.powerBox1,
-			this.powerBox2,
-			this.powerBox3,
+			this.powerBox0, 
+			this.powerBox1, 
+			this.powerBox2, 
+			this.powerBox3, 
 			this.powerBox4
 		];
 
-		//Array for each of the available unselected images
 		this.unselectedIcons = [
-			this.unselected0,
-			this.unselected1,
-			this.unselected2,
-			this.unselected3,
+			this.unselected0, 
+			this.unselected1, 
+			this.unselected2, 
+			this.unselected3, 
 			this.unselected4
 		];
-
-		//Array for each of the  power texts
+		
 		this.powerTexts = [
-			this.power0,
-			this.power1,
-			this.power2,
-			this.power3,
+			this.power0, 
+			this.power1, 
+			this.power2, 
+			this.power3, 
 			this.power4
 		];
 
-		this.unselectedIcons.forEach(icon => {
-			icon.setInteractive();
-		});
-
-		this.powerTexts.forEach(text => {
-			text.setInteractive();
-		});
-
 		this.selected.setVisible(false);
+		this.selectedIndex = -1;
 
-		this.selectedIndices = [];
-		this.currentEnergySpent = 0;
+		// Make everything interactive
+		this.unselectedIcons.forEach(icon => icon.setInteractive());
+		this.powerTexts.forEach(text => text.setInteractive());
+
 
 		//Method kept until the ui is finished in case of debugging
-		this.input.keyboard.on('keydown-Q', ()=>{ 
+		this.input.keyboard.on('keydown-Q', () => {
 			this.scene.resume("Level");
 			this.scene.stop("AttackUI");
 		});
 
-		this.exitButton.on("pointerdown", ()=>{ 
+		// Makes the exit button exit the scene
+		this.exitButton.on("pointerdown", () => {
 			this.scene.resume("Level");
 			this.scene.stop("AttackUI");
 		});
 
-		//Generate text inside energyTotal to show the current energy 
-		if (this.gameInfo && this.gameInfo.energyPool !== undefined) {
+		// Sets the total to the current value as soon as the scene is loaded
+		if (this.gameInfo?.energyPool !== undefined) {
 			this.energyTest.setText(`${this.gameInfo.energyPool} ENG`);
-			this.energyTest.setVisible(true);
 		}
 
-		//Generate text inside powerBox1 to show the power value inside powerObjectList 
-		if (this.amalgamationInfo && this.amalgamationInfo.powerObjectList) {
-			const list = this.amalgamationInfo.powerObjectList;
-			for (let x = 0; x < 5; x++) {
-				const powerText = this["power" + x];
-				const unselectedIcon = this["unselected" + x];
+		// Set the powers in the scene for each one available
+		const list = this.amalgamationInfo?.powerObjectList || [];
+		list.forEach((p, i) => {
+			if (p?.power !== undefined) {
+				this.powerTexts[i].setText(`${p.power} POW`).setVisible(true);
+				this.unselectedIcons[i].setVisible(true);
+			} else {
+				this.powerTexts[i].setVisible(false);
+				this.unselectedIcons[i].setVisible(false);
+			}
+		});
 
-				if (list[x] && list[x].power !== undefined) {
-					//shows the unselected icons if there's text
-					powerText.setText(`${list[x].power} POW`);
-					powerText.setVisible(true);
-					unselectedIcon.setVisible(true); 
-				} else {
-					//hides the unselected icons
-					powerText.setVisible(false);
-					unselectedIcon.setVisible(false); 
+		// Click handler
+		const handleSelection = (index) => {
+			const list = this.amalgamationInfo.powerObjectList;
+			if (!list[index] || list[index].power === undefined) return;
+
+			// Set selected index
+			this.selectedIndex = index;
+
+			// Moves selected to the position of the unselected clicked on
+			const targetIcon = this.unselectedIcons[index];
+			this.selected.setPosition(targetIcon.x, targetIcon.y).setVisible(true);
+
+			// Selected power number
+			const selectedPower = list[index].power;
+
+			// Update power on the right 
+			this.power.setText(`${selectedPower} POW`).setVisible(true);
+
+			// Update energySum (total energy minus the selected power)
+			const totalEnergy = this.gameInfo?.energyPool || 0;
+			const remainingEnergy = totalEnergy - selectedPower;
+			this.energySum.setText(`${remainingEnergy} ENG`).setVisible(true);
+
+			// Optional: always show total energy
+			this.energyTest.setText(`${totalEnergy} ENG`).setVisible(true);
+		};
+
+		// Attach click handlers
+		this.powerBoxes.forEach((box, index) => box.on("pointerdown", () => handleSelection(index)));
+		this.powerTexts.forEach((text, index) => text.on("pointerdown", () => handleSelection(index)));
+		this.unselectedIcons.forEach((icon, index) => icon.on("pointerdown", () => handleSelection(index)));
+	}
+
+	handleSelection(index) {
+		const list = this.amalgamationInfo.powerObjectList;
+		if (!list[index] || list[index].power === undefined) return;
+
+		// Set selected index
+		this.selectedIndex = index;
+
+		// Moves selected to the postion of unselected
+		const targetIcon = this.unselectedIcons[index];
+		this.selected.setPosition(targetIcon.x, targetIcon.y).setVisible(true);
+
+		// Get selected power as a number
+		const selectedPower = list[index].power;
+
+		// Update the power on the right to be the same as the one selected
+		this.power.setText(`${selectedPower} POW`).setVisible(true);
+
+		// Update energy displays
+		if (this.gameInfo?.energyPool !== undefined) {
+			const totalEnergy = this.gameInfo.energyPool; 
+			this.energyTest.setText(`${totalEnergy} ENG`).setVisible(true); 
+
+			const remainingEnergy = totalEnergy - selectedPower; 
+			this.energySum.setText(`${remainingEnergy} ENG`).setVisible(true); 
+		}
+	}
+
+
+	updatePowerDisplay() {
+		const list = this.amalgamationInfo.powerObjectList;
+
+		for (let i = 0; i < 5; i++) {
+			const powerText = this.powerTexts[i];
+			const unselectedIcon = this.unselectedIcons[i];
+
+			if (list[i]?.power !== undefined) {
+				powerText.setText(`${list[i].power} POW`).setVisible(true);
+				unselectedIcon.setVisible(this.selectedIndex !== i);
+
+				if (this.selectedIndex === i) {
+					this.selected.setPosition(unselectedIcon.x, unselectedIcon.y).setVisible(true);
+				}
+			} else {
+				powerText.setVisible(false);
+				unselectedIcon.setVisible(false);
+				if (this.selectedIndex === i) {
+					this.selectedIndex = -1;
+					this.selected.setVisible(false);
 				}
 			}
 		}
+	}
 
-		//Created function which replaces the unselected icon for the selected icon
-		const handleSelection = (index) => {
-			const targetIcon = this.unselectedIcons[index];
-			//Move the selected image to replace the unselected
-			this.selected.setPosition(targetIcon.x, targetIcon.y);
-			this.selected.setVisible(true);
-		};
+	updateSelectedPowerDisplay() {
+		if (this.selectedIndex >= 0) {
+			const selectedPower = this.amalgamationInfo.powerObjectList[this.selectedIndex].power;
+			this.power0.setText(`${selectedPower} POW`).setVisible(true);
+		} else {
+			this.power0.setVisible(false);
+		}
+	}
 
-		//Coth codes call the previous method when clicking on the image or text
-		this.unselectedIcons.forEach((icon, index) => {
-			icon.on("pointerdown", () => handleSelection(index));
-		});
-
-		this.powerTexts.forEach((text, index) => {
-			text.on("pointerdown", () => handleSelection(index));
-		});
-
-		this.selectedIndices = [];
-
-		
-
-
-		//Code to test above if an value is removed from powerObjectList
-		// this.input.keyboard.on('keydown-P', ()=>{ 
-		// 	const list = this.amalgamationInfo.powerObjectList
-		// 	list.shift();
-		// 	// list.pop();
-		// })
-
-		//Generate selected power into the box on the righ side to substract with the energy there
-
-		// for (let x = 0; x < list.length && x < 5; x++) {
-		// 	this["powerBox" + x]
-		// }
-
-       //...
-
-    }
+	updateEnergySum() {
+		const list = this.amalgamationInfo.powerObjectList;
+		let sum = 0;
+		this.energySum.setText(`${sum} ENG`);
+	}
 
 	/* END-USER-CODE */
 }

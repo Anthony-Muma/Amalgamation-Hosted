@@ -654,6 +654,46 @@
             "color": "#3878d7",
             "stroke": "#000000ff",
             "strokeThickness": 5
+        },
+        {
+            "type": "Image",
+            "id": "c4992440-2067-4b6d-884e-036d2cc3a0fc",
+            "label": "_100x100_Power",
+            "texture": {
+                "key": "100x100-Power"
+            },
+            "x": 183,
+            "y": 423
+        },
+        {
+            "type": "Image",
+            "id": "f7ff9605-c64b-4ab5-b748-174ddac0ba48",
+            "label": "_100x100_Red_Heart",
+            "texture": {
+                "key": "100x100-Red-Heart"
+            },
+            "x": 283,
+            "y": 430
+        },
+        {
+            "type": "Image",
+            "id": "fae0b741-4256-4764-9aa7-862aedacaabf",
+            "label": "_100x100_Blue_Shield",
+            "texture": {
+                "key": "100x100-Blue-Shield"
+            },
+            "x": 87,
+            "y": 426
+        },
+        {
+            "type": "Image",
+            "id": "84b68c97-1f17-4ea2-ac5c-4b844e29955c",
+            "label": "_200x200_Energy_Crystal",
+            "texture": {
+                "key": "200x200-Energy-Crystal"
+            },
+            "x": 249,
+            "y": 568
         }
     ],
     "plainObjects": [],

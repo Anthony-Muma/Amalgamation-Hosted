@@ -284,6 +284,18 @@ export default class BuildTest extends Phaser.Scene {
 		text_1.text = "3d";
 		text_1.setStyle({ "color": "#3878d7", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
 
+		// _100x100_Power
+		this.add.image(183, 423, "100x100-Power");
+
+		// _100x100_Red_Heart
+		this.add.image(283, 430, "100x100-Red-Heart");
+
+		// _100x100_Blue_Shield
+		this.add.image(87, 426, "100x100-Blue-Shield");
+
+		// _200x200_Energy_Crystal
+		this.add.image(249, 568, "200x200-Energy-Crystal");
+
 		this.events.emit("scene-awake");
 	}
 

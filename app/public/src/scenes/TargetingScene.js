@@ -22,92 +22,38 @@ export default class TargetingScene extends Phaser.Scene {
 		// rectangle_1
 		const rectangle_1 = this.add.rectangle(0, 0, 1280, 720);
 		rectangle_1.setOrigin(0, 0);
-		rectangle_1.alpha = 0.99;
+		rectangle_1.alpha = 0.75;
 		rectangle_1.isFilled = true;
 		rectangle_1.fillColor = 0;
 		rectangle_1.fillAlpha = 10;
 
-		// white_silver_Card_Front_12
-		const white_silver_Card_Front_12 = this.add.image(368, 192, "Character Card Background");
-		white_silver_Card_Front_12.scaleX = 0.27;
-		white_silver_Card_Front_12.scaleY = 0.27;
-		white_silver_Card_Front_12.tintTopLeft = 14483456;
-		white_silver_Card_Front_12.tintTopRight = 14483456;
-		white_silver_Card_Front_12.tintBottomLeft = 14483456;
-		white_silver_Card_Front_12.tintBottomRight = 14483456;
-
-		// white_silver_Card_Front_13
-		const white_silver_Card_Front_13 = this.add.image(640, 192, "Character Card Background");
-		white_silver_Card_Front_13.scaleX = 0.27;
-		white_silver_Card_Front_13.scaleY = 0.27;
-		white_silver_Card_Front_13.tintTopLeft = 14483456;
-		white_silver_Card_Front_13.tintTopRight = 14483456;
-		white_silver_Card_Front_13.tintBottomLeft = 14483456;
-		white_silver_Card_Front_13.tintBottomRight = 14483456;
-
-		// white_silver_Card_Front_14
-		const white_silver_Card_Front_14 = this.add.image(912, 192, "Character Card Background");
-		white_silver_Card_Front_14.scaleX = 0.27;
-		white_silver_Card_Front_14.scaleY = 0.27;
-		white_silver_Card_Front_14.tintTopLeft = 14483456;
-		white_silver_Card_Front_14.tintTopRight = 14483456;
-		white_silver_Card_Front_14.tintBottomLeft = 14483456;
-		white_silver_Card_Front_14.tintBottomRight = 14483456;
-
-		// white_silver_Card_Front
-		const white_silver_Card_Front = this.add.image(368, 464, "Character Card Background");
-		white_silver_Card_Front.scaleX = 0.27;
-		white_silver_Card_Front.scaleY = 0.27;
-		white_silver_Card_Front.tintTopLeft = 16777215;
-		white_silver_Card_Front.tintTopRight = 16777215;
-		white_silver_Card_Front.tintBottomLeft = 16777215;
-		white_silver_Card_Front.tintBottomRight = 16777215;
-
-		// white_silver_Card_Front_1
-		const white_silver_Card_Front_1 = this.add.image(640, 464, "Character Card Background");
-		white_silver_Card_Front_1.scaleX = 0.27;
-		white_silver_Card_Front_1.scaleY = 0.27;
-		white_silver_Card_Front_1.tintTopLeft = 16777215;
-		white_silver_Card_Front_1.tintTopRight = 16777215;
-		white_silver_Card_Front_1.tintBottomLeft = 16777215;
-		white_silver_Card_Front_1.tintBottomRight = 16777215;
-
-		// white_silver_Card_Front_2
-		const white_silver_Card_Front_2 = this.add.image(912, 464, "Character Card Background");
-		white_silver_Card_Front_2.scaleX = 0.27;
-		white_silver_Card_Front_2.scaleY = 0.27;
-		white_silver_Card_Front_2.tintTopLeft = 16777215;
-		white_silver_Card_Front_2.tintTopRight = 16777215;
-		white_silver_Card_Front_2.tintBottomLeft = 16777215;
-		white_silver_Card_Front_2.tintBottomRight = 16777215;
-
-		// arcane_Soul_Symbol
-		const arcane_Soul_Symbol = this.add.image(368, 464, "Knowledge Soul Symbol");
-		arcane_Soul_Symbol.scaleX = 0.15;
-		arcane_Soul_Symbol.scaleY = 0.15;
+		// soulTarget1
+		const soulTarget1 = this.add.image(368, 400, "Knowledge Soul Symbol");
+		soulTarget1.scaleX = 0.15;
+		soulTarget1.scaleY = 0.15;
 
 		// arcane_Soul_Symbol_1
-		const arcane_Soul_Symbol_1 = this.add.image(640, 464, "Knowledge Soul Symbol");
+		const arcane_Soul_Symbol_1 = this.add.image(640, 400, "Knowledge Soul Symbol");
 		arcane_Soul_Symbol_1.scaleX = 0.15;
 		arcane_Soul_Symbol_1.scaleY = 0.15;
 
 		// arcane_Soul_Symbol_2
-		const arcane_Soul_Symbol_2 = this.add.image(912, 464, "Knowledge Soul Symbol");
+		const arcane_Soul_Symbol_2 = this.add.image(912, 400, "Knowledge Soul Symbol");
 		arcane_Soul_Symbol_2.scaleX = 0.15;
 		arcane_Soul_Symbol_2.scaleY = 0.15;
 
 		// power_Soul_Symbol
-		const power_Soul_Symbol = this.add.image(368, 192, "Power Soul Symbol");
+		const power_Soul_Symbol = this.add.image(368, 128, "Power Soul Symbol");
 		power_Soul_Symbol.scaleX = 0.15;
 		power_Soul_Symbol.scaleY = 0.15;
 
 		// power_Soul_Symbol_1
-		const power_Soul_Symbol_1 = this.add.image(640, 192, "Power Soul Symbol");
+		const power_Soul_Symbol_1 = this.add.image(640, 128, "Power Soul Symbol");
 		power_Soul_Symbol_1.scaleX = 0.15;
 		power_Soul_Symbol_1.scaleY = 0.15;
 
 		// power_Soul_Symbol_2
-		const power_Soul_Symbol_2 = this.add.image(912, 192, "Power Soul Symbol");
+		const power_Soul_Symbol_2 = this.add.image(912, 128, "Power Soul Symbol");
 		power_Soul_Symbol_2.scaleX = 0.15;
 		power_Soul_Symbol_2.scaleY = 0.15;
 
@@ -131,12 +77,12 @@ export default class TargetingScene extends Phaser.Scene {
 			this.scene.stop("TargetingScene");
 		});
 
-		
+
 		this.input.setTopOnly(false);
 
 		const X = [368, 640, 912];
-		const PLAYER_Y = 464;
-		const ENEMY_Y  = 192;
+		const PLAYER_Y = 400;
+		const ENEMY_Y  = 128;
 
 		const lines = this.add.graphics().setDepth(10);
 
@@ -173,7 +119,7 @@ export default class TargetingScene extends Phaser.Scene {
 
 		this.input.on("drag", (pointer, dragged) => {
 			lines.clear();
-			
+
 			// Draw confirmed target lines
 			this.amalgamationTargetList.forEach((enemyIdx, playerIdx) => {
 				if (enemyIdx === null) return;

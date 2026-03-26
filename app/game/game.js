@@ -93,8 +93,8 @@ class Game {
 
         const createRandomCard = () =>
             cardFactory(
-                ["sword", "pillow", "nails", "mushroom", "log", "clock", "mirror", "bomb", "brick", "shoe"][Math.floor(Math.random() * 10)],
-                "material"
+                ["power", "knowledge", "arcane", "protector", "vital"][Math.floor(Math.random() * 5)],
+                "soul"
             );
         const personalDeck = [createRandomCard(), createRandomCard(), createRandomCard(), createRandomCard(), createRandomCard()];
         player.changePersonalDeck(personalDeck);

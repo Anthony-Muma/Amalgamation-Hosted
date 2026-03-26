@@ -19,6 +19,13 @@ const BASE_AMALGAMATION = {
 const DEBUG = false;
 const PLACEMENTS_PER_TURN = 3
 
+const BASE_AMA_X = 640;
+const BASE_AMA_Y = 416;
+const AMA_X_SPACING = 640-368;
+const AMA_Y_SPACING = 416 - 64;
+
+
+
 class Core {
     /**
      * 
@@ -28,19 +35,21 @@ class Core {
         this.scene = scene;
         this.playerHand = new CardHand(scene);
         this.playerAmalgamations = [
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 368, 368),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 640, 368),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 912, 368),
+            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y),
+            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X, BASE_AMA_Y),
+            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y),
         ];
 
         this.enemyAmalgamations = [
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 368, 128, 0xdd0000),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 640, 128, 0xdd0000),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 912, 128, 0xdd0000),
+            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
+            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
+            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
         ];
         this.playerTurnCounter = new TurnCounter(scene, PLACEMENTS_PER_TURN)
         this.energy = new Energy(scene);
         this.amalgamationTargetList = [0, 1, 2];
+
+        this.scene.cameras.main.setZoom(0.75);
 
         /* ------------------------------- Game State ------------------------------- */
         this.myTurn = true;
@@ -70,7 +79,7 @@ class Core {
 			hand.disableHand();
 			hand.draw({cardKey : i++, card : {
 				energy: 5,
-				attack: Phaser.Math.RND.integerInRange(0,10),
+				power: Phaser.Math.RND.integerInRange(0,10),
 				defense: Phaser.Math.RND.integerInRange(0,10),
 				name: ["sword", "log", "crystals", "pillow", "mushroom"][Phaser.Math.RND.integerInRange(0,4)],
 				type: 'material'
@@ -158,7 +167,7 @@ class Core {
             // Camera test
             const zoneType = dropZone.getData("zoneType");
             
-            if (this.playerTurnCounter.canPlace()) {
+            if (!this.playerTurnCounter.canPlace() && !DEBUG) {
                 this.playerHand.layoutHand(gameObject);
             } else if (zoneType === "energyZone") {
                 this.#handleEnergyZone(gameObject);

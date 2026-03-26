@@ -27,6 +27,11 @@
                 "key": "100x100-Red-Heart"
             },
             {
+                "url": "assets/Random/10x10-White-Blob.png",
+                "type": "image",
+                "key": "10x10-White-Blob"
+            },
+            {
                 "url": "assets/Main-Card-Images/200x200-Arcane-Soul.png",
                 "type": "image",
                 "key": "200x200-Arcane-Soul"
@@ -40,6 +45,11 @@
                 "url": "assets/Titles/200x200-Assassin-Title.png",
                 "type": "image",
                 "key": "200x200-Assassin-Title"
+            },
+            {
+                "url": "assets/Random/200x200-Black-Blob.png",
+                "type": "image",
+                "key": "200x200-Black-Blob"
             },
             {
                 "url": "assets/Main-Card-Images/200x200-Bomb.png",
@@ -165,6 +175,11 @@
                 "url": "assets/Cards/200x280-Arcane-Soul-Card.png",
                 "type": "image",
                 "key": "200x280-Arcane-Soul-Card"
+            },
+            {
+                "url": "assets/Random/200x280-Black-Blob.png",
+                "type": "image",
+                "key": "200x280-Black-Blob"
             },
             {
                 "url": "assets/Cards/200x280-Bright-White-Card.png",

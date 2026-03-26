@@ -42,7 +42,7 @@
                     "label": "mainImage",
                     "scope": "CLASS",
                     "texture": {
-                        "key": "200x200-Sword"
+                        "key": "200x200-Pillow"
                     },
                     "y": -36,
                     "scaleX": 0.6,
@@ -84,7 +84,12 @@
                     "x": 40,
                     "y": 40,
                     "scaleX": 0.8,
-                    "scaleY": 0.8
+                    "scaleY": 0.8,
+                    "alpha": 0.34,
+                    "alphaTopLeft": 0.34,
+                    "alphaTopRight": 0.34,
+                    "alphaBottomLeft": 0.34,
+                    "alphaBottomRight": 0.34
                 },
                 {
                     "type": "Image",
@@ -103,12 +108,18 @@
                     "type": "Image",
                     "id": "54c4598d-e39c-41e1-be83-1b6e8d46740b",
                     "label": "energySymbol",
+                    "scope": "CLASS",
                     "texture": {
                         "key": "100x100-Energy"
                     },
-                    "y": 72,
+                    "y": 64,
                     "scaleX": 0.8,
-                    "scaleY": 0.8
+                    "scaleY": 0.8,
+                    "alpha": 0.33,
+                    "alphaTopLeft": 0.33,
+                    "alphaTopRight": 0.33,
+                    "alphaBottomLeft": 0.33,
+                    "alphaBottomRight": 0.33
                 },
                 {
                     "type": "Text",
@@ -153,32 +164,13 @@
                     "id": "c5a002b8-6a19-456f-a57f-a21eac602af9",
                     "label": "energyText",
                     "scope": "CLASS",
-                    "y": 72,
+                    "y": 64,
                     "originX": 0.5,
                     "originY": 0.5,
                     "text": "10",
                     "resolution": 3,
                     "fontFamily": "Eczar-Bold",
-                    "fontSize": "28px",
                     "color": "#ffffffff",
-                    "stroke": "#000000ff",
-                    "strokeThickness": 5,
-                    "shadow.stroke": true,
-                    "shadow.blur": 12
-                },
-                {
-                    "type": "Text",
-                    "id": "e9d22698-85d0-43e0-a769-38033bbc77e1",
-                    "label": "orText_1",
-                    "scope": "CLASS",
-                    "x": 176,
-                    "y": 48,
-                    "originX": 0.5,
-                    "originY": 0.5,
-                    "text": "OR",
-                    "resolution": 3,
-                    "fontFamily": "Eczar-Bold",
-                    "fontSize": "18px",
                     "stroke": "#000000ff",
                     "strokeThickness": 5,
                     "shadow.stroke": true,

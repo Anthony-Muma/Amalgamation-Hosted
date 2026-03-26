@@ -21,9 +21,8 @@
                 "key": "Wooden-Table-Background"
             },
             "x": 640,
-            "y": 32,
-            "tintTopLeft": "#000000",
-            "tintTopRight": "#000000"
+            "y": 368,
+            "scaleX": 1.1
         },
         {
             "type": "Image",
@@ -36,8 +35,8 @@
             "texture": {
                 "key": "Card back"
             },
-            "x": 1344,
-            "y": -48,
+            "x": 1392,
+            "y": 176,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -52,10 +51,28 @@
             "texture": {
                 "key": "Card back"
             },
-            "x": 1376,
-            "y": 224,
+            "x": 1392,
+            "y": 400,
             "scaleX": 0.25,
             "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "e0690f18-40c6-4751-85bd-0b23f752bbe6",
+            "label": "_200x280_Black_Blob_7",
+            "texture": {
+                "key": "200x280-Black-Blob"
+            },
+            "x": 80,
+            "y": 256,
+            "scaleX": 1.5,
+            "scaleY": 1.5,
+            "alpha": 0.5,
+            "alphaTopLeft": 0.5,
+            "alphaTopRight": 0.5,
+            "alphaBottomLeft": 0.5,
+            "alphaBottomRight": 0.5,
+            "tintTopLeft": "#05fb01"
         },
         {
             "type": "Image",
@@ -64,16 +81,26 @@
             "texture": {
                 "key": "200x280-Vital-Soul-Card"
             },
-            "x": -304,
-            "y": 288
+            "x": 80,
+            "y": 240,
+            "list": [
+                {
+                    "type": "Vignette",
+                    "id": "c6f12882-e0f3-4e88-8664-51ad556786c4",
+                    "label": "vignetteFx",
+                    "radius": 0.34,
+                    "strength": 0.56,
+                    "preFX": true
+                }
+            ]
         },
         {
             "type": "Text",
             "id": "c11deb4a-5d91-4fd9-80b9-cfb232bad215",
             "label": "placementsLeftText",
             "scope": "CLASS",
-            "x": 144,
-            "y": 448,
+            "x": 640,
+            "y": 240,
             "originX": 0.5,
             "originY": 0.5,
             "text": "-/-",
@@ -104,61 +131,46 @@
         },
         {
             "type": "Text",
-            "id": "7384c6de-7013-4132-92d3-57ab3e5c732d",
-            "label": "text",
-            "scope": "CLASS",
-            "x": 1168,
-            "y": 256,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "Placement\nCounter",
-            "resolution": 3,
-            "align": "center",
-            "fontFamily": "Eczar-Bold",
-            "fontSize": "32px",
-            "color": "#ffffffff",
-            "stroke": "#000000ff",
-            "strokeThickness": 24
-        },
-        {
-            "type": "Image",
-            "id": "c227f66d-903a-4d87-9121-0227c2d81a87",
-            "label": "_200x200_Energy_Crystals_3X",
-            "texture": {
-                "key": "200x200-Energy-Crystals-3X"
-            },
-            "x": 160,
-            "y": 272,
-            "scaleX": 1.5,
-            "scaleY": 1.5
-        },
-        {
-            "type": "Text",
             "id": "e613699b-71bf-44ea-a452-90552795e9b2",
             "label": "energyPoolText",
             "scope": "CLASS",
-            "x": 144,
-            "y": 288,
+            "x": 80,
+            "y": 240,
             "originX": 0.5,
             "originY": 0.5,
-            "text": "0",
+            "text": "20",
             "fontFamily": "Eczar-Bold",
             "fontSize": "64px",
             "color": "#ffffffff",
             "stroke": "#000000ff",
-            "strokeThickness": 10
+            "strokeThickness": 16
+        },
+        {
+            "type": "Image",
+            "id": "ec886010-796f-4bed-92bd-faea8bab842e",
+            "label": "_500x200_Bar",
+            "texture": {
+                "key": "500x200-Bar"
+            },
+            "x": 640,
+            "y": 672,
+            "scaleX": 5,
+            "scaleY": 2.4,
+            "visible": false,
+            "tintTopLeft": "#000000"
         },
         {
             "type": "Image",
             "id": "a083da94-b926-4054-9f1f-6fa5abc53e4f",
-            "label": "_200x280_Character_Card",
+            "label": "handcard",
             "texture": {
                 "key": "200x280-Character-Card"
             },
             "x": 640,
-            "y": 608,
+            "y": 672,
             "scaleX": 0.8,
-            "scaleY": 0.8
+            "scaleY": 0.8,
+            "visible": false
         },
         {
             "type": "Image",
@@ -174,27 +186,141 @@
         },
         {
             "type": "Image",
-            "id": "526ce0d4-6e8e-4095-8707-b93e8ba2cd51",
-            "label": "_200x280_Character_Card_2",
+            "id": "2333f7c5-02fb-4adf-aadf-35ad330c99bb",
+            "label": "_200x280_Black_Blob",
             "texture": {
-                "key": "200x280-Character-Card"
+                "key": "200x280-Black-Blob"
             },
-            "x": 640,
-            "y": 368,
-            "scaleX": 0.8,
-            "scaleY": 0.8
+            "x": 368,
+            "y": 416,
+            "scaleX": 1.5,
+            "scaleY": 1.2
         },
         {
             "type": "Image",
-            "id": "eb66672b-acda-44f7-81dd-849e287dcd52",
-            "label": "_200x280_Character_Card_3",
+            "id": "490fcdb1-2b16-4331-b54d-188304d66c0e",
+            "label": "_200x280_Black_Blob_1",
             "texture": {
-                "key": "200x280-Character-Card"
+                "key": "200x280-Black-Blob"
+            },
+            "x": 368,
+            "y": 64,
+            "scaleX": 1.5,
+            "scaleY": 1.2
+        },
+        {
+            "type": "Image",
+            "id": "61ff5174-72a9-4b7d-8a42-23678d00727e",
+            "label": "_200x280_Black_Blob_2",
+            "texture": {
+                "key": "200x280-Black-Blob"
             },
             "x": 640,
-            "y": 128,
-            "scaleX": 0.8,
-            "scaleY": 0.8
+            "y": 416,
+            "scaleX": 1.5,
+            "scaleY": 1.2
+        },
+        {
+            "type": "Image",
+            "id": "a72d1ecc-1908-4ebc-bede-8b04c22ca8b0",
+            "label": "_200x280_Black_Blob_3",
+            "texture": {
+                "key": "200x280-Black-Blob"
+            },
+            "x": 640,
+            "y": 64,
+            "scaleX": 1.5,
+            "scaleY": 1.2
+        },
+        {
+            "type": "Image",
+            "id": "b4e0e298-46b2-400a-9664-3a9c86dbf521",
+            "label": "_200x280_Black_Blob_4",
+            "texture": {
+                "key": "200x280-Black-Blob"
+            },
+            "x": 912,
+            "y": 416,
+            "scaleX": 1.5,
+            "scaleY": 1.2
+        },
+        {
+            "type": "Image",
+            "id": "81390999-d3e4-4a67-a5b2-e67b0b1b9cfa",
+            "label": "_200x280_Black_Blob_5",
+            "texture": {
+                "key": "200x280-Black-Blob"
+            },
+            "x": 912,
+            "y": 64,
+            "scaleX": 1.5,
+            "scaleY": 1.2
+        },
+        {
+            "type": "Image",
+            "id": "3658e42b-3049-4b02-8f84-4afdce1a331f",
+            "label": "_100x100_Energy",
+            "texture": {
+                "key": "100x100-Energy"
+            },
+            "x": 160,
+            "y": 240
+        },
+        {
+            "type": "ParticleEmitter",
+            "id": "466cd6ac-e764-4db0-8f57-17e346fa6d40",
+            "label": "particleemitter_1",
+            "blendMode": 1,
+            "x": -480,
+            "y": 224,
+            "configTexture": "10x10-White-Blob",
+            "configFrame": [],
+            "scale_type": "StartEndRandom",
+            "scale_start": 1,
+            "speed_type": "MinMax",
+            "speed_min": 20,
+            "speed_max": 80,
+            "quantity_type": "Static",
+            "quantity_value": 3,
+            "_blendMode": 1,
+            "_frequency": 40,
+            "_gravityY": -30
+        },
+        {
+            "type": "Image",
+            "id": "824236a3-6e83-4fae-a6b0-5d31e0229502",
+            "label": "_200x200_Black_Blob",
+            "texture": {
+                "key": "200x200-Black-Blob"
+            },
+            "x": 640,
+            "y": 768,
+            "scaleX": 15,
+            "scaleY": 4
+        },
+        {
+            "type": "Image",
+            "id": "048a3195-6a97-4a9d-bdd4-1c75c84463a9",
+            "label": "_200x280_Black_Blob_6",
+            "texture": {
+                "key": "200x280-Black-Blob"
+            },
+            "x": 1744,
+            "y": 176,
+            "scaleX": 1.2,
+            "scaleY": 0.9
+        },
+        {
+            "type": "Image",
+            "id": "15a1159a-a531-4f4e-9436-31194c0fca90",
+            "label": "_200x200_Black_Blob_1",
+            "texture": {
+                "key": "200x200-Black-Blob"
+            },
+            "x": 624,
+            "y": -288,
+            "scaleX": 15,
+            "scaleY": 4
         }
     ],
     "plainObjects": [],

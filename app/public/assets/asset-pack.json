@@ -12,6 +12,16 @@
                 "key": "100x100-Energy"
             },
             {
+                "url": "assets/Circles/100x100-Gear.png",
+                "type": "image",
+                "key": "100x100-Gear"
+            },
+            {
+                "url": "assets/Circles/100x100-Green-Circle.png",
+                "type": "image",
+                "key": "100x100-Green-Circle"
+            },
+            {
                 "url": "assets/Ama-Symbols/100x100-Grey-Shield.png",
                 "type": "image",
                 "key": "100x100-Grey-Shield"
@@ -20,6 +30,11 @@
                 "url": "assets/Ama-Symbols/100x100-Power.png",
                 "type": "image",
                 "key": "100x100-Power"
+            },
+            {
+                "url": "assets/Circles/100x100-Red-Circle.png",
+                "type": "image",
+                "key": "100x100-Red-Circle"
             },
             {
                 "url": "assets/Ama-Symbols/100x100-Red-Heart.png",
@@ -386,6 +401,20 @@
                 "url": "assets/Energy Crystal Word.PNG",
                 "type": "image",
                 "key": "Energy Crystal Word"
+            },
+            {
+                "url": [
+                    "assets/sounds/music/GamePlayMusic.wav"
+                ],
+                "type": "audio",
+                "key": "GamePlayMusic"
+            },
+            {
+                "url": [
+                    "assets/sounds/music/GamePlayMusic(loop).wav"
+                ],
+                "type": "audio",
+                "key": "GamePlayMusic(loop)"
             },
             {
                 "url": [

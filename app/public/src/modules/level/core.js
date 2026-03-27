@@ -35,24 +35,28 @@ class Core {
         this.scene = scene;
         this.playerHand = new CardHand(scene);
         this.playerAmalgamations = [
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X, BASE_AMA_Y),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X, BASE_AMA_Y),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y),
         ];
 
         this.enemyAmalgamations = [
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
         ];
+
         this.playerTurnCounter = new TurnCounter(scene, PLACEMENTS_PER_TURN)
         this.energy = new Energy(scene);
-        this.amalgamationTargetList = [0, 1, 2];
+        // this.amalgamationTargetList = [null, null, null];
+        // this.allySelected = null;
+        // this.enemySelected = null;
 
         this.scene.cameras.main.setZoom(0.75);
-
+        
         /* ------------------------------- Game State ------------------------------- */
         this.myTurn = true;
+        this.canTarget = false;
 
         /* ---------------------------------- debug --------------------------------- */
         let i = 0;
@@ -131,7 +135,7 @@ class Core {
         if (DEBUG) scene.add.rectangle(962, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
 
         /* ------------------------------- Zone Events ------------------------------ */
-
+        console.warn("Hhe")
         const ama = this.playerAmalgamations[0];
         // ama.addDefense(TEST_CARD_1);
         // ama.addDefense(TEST_CARD_2);
@@ -228,9 +232,27 @@ class Core {
         // Game doesn't load when not tabbed in, this will ready a ready, when all player are ready, game starts
         socket.emit("game:ready");
 
+        const onSelectionCb = (allyIndex, EnemyIndex) => {
+            this.scene.scene.stop("TargetingScene");
+            // this.scene.scene.resume("Level");
+            console.warn(this.playerAmalgamations[allyIndex].amalgamationInfo)
+            const handler = (indices) => {console.log(indices)}
+            this.scene.scene.launch("AttackUI", 
+                {gameInfo:{
+                    energyPool: this.energy.getEnergy(),
+                    attackSuccessCb : handler
+                }, amalgamationInfo : this.playerAmalgamations[allyIndex].amalgamationInfo}
+            );
+
+
+        }
+
+        
         this.scene.input.keyboard.on('keydown-E', ()=>{ 
-			this.scene.scene.pause("Level");
-			this.scene.scene.launch("TargetingScene", this.amalgamationTargetList);
+            console.log(this.canTarget);
+			if (!this.canTarget) return;
+			this.scene.scene.launch("TargetingScene", onSelectionCb);
+            this.scene.scene.pause("Level");
 		});
     }
 
@@ -276,6 +298,7 @@ class Core {
 
     #turnSwap(switchToMe) {
         if (!switchToMe) {
+            this.canTarget = false;
             this.playerHand.disableHand();
             this.playerHand.disableHover();
             const mainCamera = this.scene.cameras.main
@@ -294,7 +317,10 @@ class Core {
                 targets: mainCamera,
                 scrollY: 0,
                 ease: 'Expo',
-                duration: 2000
+                duration: 2000,
+                onComplete: ()=>{
+                    this.canTarget = true;
+                }
             });
         }
         this.myTurn = switchToMe

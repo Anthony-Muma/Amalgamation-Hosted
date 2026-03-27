@@ -7,6 +7,7 @@
 
 const { Card, cardFactory } = require("./card");
 const { Player } = require("./player");
+const { deckGenerator } = require("./deckGenerator");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Constants                                 */
@@ -91,8 +92,9 @@ class Game {
         // Create a starter deck for the player
         const createRandomCard = () =>
             cardFactory(
-                ["power", "knowledge", "arcane", "protector", "vital"][Math.floor(Math.random() * 5)],
-                "soul"
+                // ["power", "knowledge", "arcane", "protector", "vital"][Math.floor(Math.random() * 5)],
+                // "soul"
+                ["sword", "pillow", "nails", "mushroom", "log", "clock", "mirror", "bomb", "brick", "shoe"][Math.floor(Math.random() * 10)],  "material"
             );
         const personalDeck = [createRandomCard(), createRandomCard(), createRandomCard(), createRandomCard(), createRandomCard()];
         player.changePersonalDeck(personalDeck);

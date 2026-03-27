@@ -135,6 +135,8 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 		this.defenseSlots = defenseSlots;
 		this.defenseText = defenseText;
 
+        this.powerIcon = powerIcon;
+
         // COMPILED CODE END
 
         // this.visualContainer = this.scene.add.container(0, 0);
@@ -229,7 +231,10 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 
         // visual
         this.powerText.setText((parseInt(this.powerText.text) + cardInfo.card.power).toString());
-
+        this.powerIcon.scaleX += (card.power * 0.01);
+        this.powerIcon.scaleY += (card.power * 0.01);
+        this.powerText.scaleX += (card.power * 0.01);
+        this.powerText.scaleY += (card.power * 0.01);
         return true;
     }
 

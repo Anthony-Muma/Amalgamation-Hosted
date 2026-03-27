@@ -30,7 +30,15 @@
                     },
                     "y": -8,
                     "scaleX": 0.8,
-                    "scaleY": 0.8
+                    "scaleY": 0.8,
+                    "list": [
+                        {
+                            "type": "Shine",
+                            "id": "ad14d55f-dfe5-4aa6-af07-3a43361c98e8",
+                            "label": "shineFx",
+                            "preFX": true
+                        }
+                    ]
                 },
                 {
                     "type": "Image",
@@ -41,7 +49,15 @@
                     },
                     "y": 80,
                     "scaleX": 0.5,
-                    "scaleY": 0.5
+                    "scaleY": 0.5,
+                    "list": [
+                        {
+                            "type": "Shadow",
+                            "id": "b86bab25-bfa8-4fa1-a98d-85d112728552",
+                            "label": "shadowFx_1",
+                            "preFX": true
+                        }
+                    ]
                 },
                 {
                     "type": "Image",
@@ -52,7 +68,15 @@
                     },
                     "y": -16,
                     "scaleX": 0.6,
-                    "scaleY": 0.6
+                    "scaleY": 0.6,
+                    "list": [
+                        {
+                            "type": "Shadow",
+                            "id": "27add805-04e7-4da5-b79c-5e43c6fb39fd",
+                            "label": "shadowFx",
+                            "preFX": true
+                        }
+                    ]
                 },
                 {
                     "type": "Image",

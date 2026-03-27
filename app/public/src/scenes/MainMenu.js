@@ -58,6 +58,10 @@ export default class MainMenu extends Phaser.Scene {
 
 	// Write your code here
 
+	init() {
+		this.cameras.main.fadeIn(200, 0, 0, 0);
+	}
+
 	create() {
 
 		this.editorCreate();
@@ -72,6 +76,25 @@ export default class MainMenu extends Phaser.Scene {
         	this.scene.start("Join");
 		});
 
+		// Title Rock
+
+		this.tweens.add({
+			targets: this.amalgamations_Title,
+			angle: -2,
+			duration: 1000,
+			ease: "Sine.easeInOut",
+			onComplete: ()=> {
+				this.tweens.add({
+					targets: this.amalgamations_Title,
+					angle: 2,
+					duration: 1000,
+					yoyo: true,
+					repeat: -1,
+					ease: "Sine.easeInOut"
+				});
+			}
+		});
+		
 		/* -------------------------------------------------------------------------- */
 		/* Socket event
 		/* -------------------------------------------------------------------------- */

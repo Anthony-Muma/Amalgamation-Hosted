@@ -22,7 +22,7 @@ export default class MaterialCard extends Phaser.GameObjects.Container {
 		this.add(cardFront);
 
 		// mainImage
-		const mainImage = scene.add.image(0, -32, "200x200-Pillow");
+		const mainImage = scene.add.image(0, -36, "200x200-Pillow");
 		mainImage.scaleX = 0.6;
 		mainImage.scaleY = 0.6;
 		this.add(mainImage);
@@ -41,6 +41,11 @@ export default class MaterialCard extends Phaser.GameObjects.Container {
 		const defenseSymbol = scene.add.image(40, 40, "100x100-Blue-Shield");
 		defenseSymbol.scaleX = 0.8;
 		defenseSymbol.scaleY = 0.8;
+		defenseSymbol.alpha = 0.34;
+		defenseSymbol.alphaTopLeft = 0.34;
+		defenseSymbol.alphaTopRight = 0.34;
+		defenseSymbol.alphaBottomLeft = 0.34;
+		defenseSymbol.alphaBottomRight = 0.34;
 		this.add(defenseSymbol);
 
 		// powerSymbol
@@ -49,31 +54,35 @@ export default class MaterialCard extends Phaser.GameObjects.Container {
 		powerSymbol.scaleY = 0.8;
 		this.add(powerSymbol);
 
+		// energySymbol
+		const energySymbol = scene.add.image(0, 64, "100x100-Energy");
+		energySymbol.scaleX = 0.8;
+		energySymbol.scaleY = 0.8;
+		energySymbol.alpha = 0.33;
+		energySymbol.alphaTopLeft = 0.33;
+		energySymbol.alphaTopRight = 0.33;
+		energySymbol.alphaBottomLeft = 0.33;
+		energySymbol.alphaBottomRight = 0.33;
+		this.add(energySymbol);
+
 		// powerText
 		const powerText = scene.add.text(-40, 40, "", {});
 		powerText.setOrigin(0.5, 0.5);
-		powerText.text = "3";
-		powerText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
+		powerText.text = "10";
+		powerText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "28px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
 		this.add(powerText);
 
 		// defenseText
 		const defenseText = scene.add.text(40, 40, "", {});
 		defenseText.setOrigin(0.5, 0.5);
 		defenseText.text = "10";
-		defenseText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
+		defenseText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "28px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
 		this.add(defenseText);
 
-		// orText
-		const orText = scene.add.text(0, 64, "", {});
-		orText.setOrigin(0.5, 0.5);
-		orText.text = "OR";
-		orText.setStyle({ "fontFamily": "Eczar-Bold", "fontSize": "18px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
-		this.add(orText);
-
 		// energyText
-		const energyText = scene.add.text(0, 88, "", {});
+		const energyText = scene.add.text(0, 64, "", {});
 		energyText.setOrigin(0.5, 0.5);
-		energyText.text = "[10 ENG]";
+		energyText.text = "10";
 		energyText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
 		this.add(energyText);
 
@@ -82,9 +91,9 @@ export default class MaterialCard extends Phaser.GameObjects.Container {
 		this.title = title;
 		this.defenseSymbol = defenseSymbol;
 		this.powerSymbol = powerSymbol;
+		this.energySymbol = energySymbol;
 		this.powerText = powerText;
 		this.defenseText = defenseText;
-		this.orText = orText;
 		this.energyText = energyText;
 
 		/* START-USER-CTR-CODE */
@@ -102,12 +111,12 @@ export default class MaterialCard extends Phaser.GameObjects.Container {
 	defenseSymbol;
 	/** @type {Phaser.GameObjects.Image} */
 	powerSymbol;
+	/** @type {Phaser.GameObjects.Image} */
+	energySymbol;
 	/** @type {Phaser.GameObjects.Text} */
 	powerText;
 	/** @type {Phaser.GameObjects.Text} */
 	defenseText;
-	/** @type {Phaser.GameObjects.Text} */
-	orText;
 	/** @type {Phaser.GameObjects.Text} */
 	energyText;
 

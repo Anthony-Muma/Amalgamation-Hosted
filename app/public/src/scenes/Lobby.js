@@ -193,6 +193,7 @@ export default class Lobby extends Phaser.Scene {
 		this.events.once("shutdown", () => {
 			socket.off("lobby:updated");
 			socket.off("lobby:kicked");
+			socket.off("game:started");
     	});
 
 		// Lobby code

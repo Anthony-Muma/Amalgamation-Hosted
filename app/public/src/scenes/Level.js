@@ -21,66 +21,229 @@ export default class Level extends Phaser.Scene {
 	editorCreate() {
 
 		// wooden_Table_Background
-		const wooden_Table_Background = this.add.image(640, 32, "Wooden-Table-Background");
-		wooden_Table_Background.tintTopLeft = 0;
-		wooden_Table_Background.tintTopRight = 0;
+		const wooden_Table_Background = this.add.image(640, 368, "Wooden-Table-Background");
+		wooden_Table_Background.scaleX = 1.1;
+		wooden_Table_Background.tintBottomLeft = 0;
+		wooden_Table_Background.tintBottomRight = 0;
 
 		// drawDeck1
-		const drawDeck1 = this.add.image(1360, -16, "Card back");
+		const drawDeck1 = this.add.image(2160, 96, "Card back");
 		drawDeck1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
 		drawDeck1.scaleX = 0.25;
 		drawDeck1.scaleY = 0.25;
 
 		// drawDeck2
-		const drawDeck2 = this.add.image(1376, 224, "Card back");
+		const drawDeck2 = this.add.image(2160, 320, "Card back");
 		drawDeck2.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
 		drawDeck2.scaleX = 0.25;
 		drawDeck2.scaleY = 0.25;
 
+		// _200x280_Black_Blob_7
+		const _200x280_Black_Blob_7 = this.add.image(16, 224, "200x280-Black-Blob");
+		_200x280_Black_Blob_7.scaleX = 1.5;
+		_200x280_Black_Blob_7.scaleY = 1.5;
+		_200x280_Black_Blob_7.alpha = 0.4;
+		_200x280_Black_Blob_7.alphaTopLeft = 0.4;
+		_200x280_Black_Blob_7.alphaTopRight = 0.4;
+		_200x280_Black_Blob_7.alphaBottomLeft = 0.4;
+		_200x280_Black_Blob_7.alphaBottomRight = 0.4;
+
 		// _200x280_Vital_Soul_Card
-		this.add.image(144, 256, "200x280-Vital-Soul-Card");
+		const _200x280_Vital_Soul_Card = this.add.image(16, 224, "200x280-Vital-Soul-Card");
 
-		// energyPoolText
-		const energyPoolText = this.add.text(144, 256, "", {});
-		energyPoolText.setOrigin(0.5, 0.5);
-		energyPoolText.text = "0";
-		energyPoolText.setStyle({ "color": "#1bc540", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 10 });
+		// vignetteFx
+		_200x280_Vital_Soul_Card.preFX.addVignette(0.5, 0.5, 0.34, 0.56);
 
-		// placementsLeftText
-		const placementsLeftText = this.add.text(1168, 352, "", {});
-		placementsLeftText.setOrigin(0.5, 0.5);
-		placementsLeftText.text = "-/-";
-		placementsLeftText.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 24, "resolution": 3 });
+		// _200x200_Black_Blob
+		const _200x200_Black_Blob = this.add.image(624, -384, "200x200-Black-Blob");
+		_200x200_Black_Blob.scaleX = 15;
+		_200x200_Black_Blob.scaleY = 3;
+		_200x200_Black_Blob.alpha = 0.41;
+		_200x200_Black_Blob.alphaTopLeft = 0.41;
+		_200x200_Black_Blob.alphaTopRight = 0.41;
+		_200x200_Black_Blob.alphaBottomLeft = 0.41;
+		_200x200_Black_Blob.alphaBottomRight = 0.41;
 
 		// drawDeck_2
-		const drawDeck_2 = this.add.image(320, -112, "Card back");
+		const drawDeck_2 = this.add.image(640, -208, "Card back");
 		drawDeck_2.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
 		drawDeck_2.scaleX = 0.25;
 		drawDeck_2.scaleY = 0.25;
-		drawDeck_2.angle = -180;
 
-		// text
-		const text = this.add.text(1168, 256, "", {});
-		text.setOrigin(0.5, 0.5);
-		text.text = "Placement\nCounter";
-		text.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 24, "resolution": 3 });
+		// particleemitter_1
+		const particleemitter_1 = this.add.particles(-496, 112, "10x10-White-Blob", { scale: { start: 5, end: 0, ease: "Linear", random: false }, speed: { min: 20, max: 80, int: false }, quantity: 3, tint: 9306004, blendMode: 1, frequency: 40, gravityY: -30 });
+		particleemitter_1.blendMode = Phaser.BlendModes.ADD;
 
-		// text_1
-		const text_1 = this.add.text(1136, 496, "", {});
-		text_1.setOrigin(0.5, 0.5);
-		text_1.text = "'Space'-End Turn";
-		text_1.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 24, "resolution": 3 });
+		// _500x200_Bar
+		const _500x200_Bar = this.add.image(640, 672, "500x200-Bar");
+		_500x200_Bar.scaleX = 5;
+		_500x200_Bar.scaleY = 2.4;
+		_500x200_Bar.visible = false;
+		_500x200_Bar.tintTopLeft = 0;
+
+		// handcard
+		const handcard = this.add.image(640, 672, "200x280-Character-Card");
+		handcard.scaleX = 0.8;
+		handcard.scaleY = 0.8;
+		handcard.visible = false;
+
+		// _200x280_Character_Card_1
+		const _200x280_Character_Card_1 = this.add.image(1872, 320, "200x280-Character-Card");
+		_200x280_Character_Card_1.scaleX = 1.5;
+		_200x280_Character_Card_1.scaleY = 3.063370076576077;
+
+		// _200x280_Black_Blob
+		const _200x280_Black_Blob = this.add.image(368, 416, "200x280-Black-Blob");
+		_200x280_Black_Blob.scaleX = 1.5;
+		_200x280_Black_Blob.scaleY = 1.2;
+		_200x280_Black_Blob.alpha = 0.4;
+		_200x280_Black_Blob.alphaTopLeft = 0.4;
+		_200x280_Black_Blob.alphaTopRight = 0.4;
+		_200x280_Black_Blob.alphaBottomLeft = 0.4;
+		_200x280_Black_Blob.alphaBottomRight = 0.4;
+
+		// _200x280_Black_Blob_1
+		const _200x280_Black_Blob_1 = this.add.image(368, 64, "200x280-Black-Blob");
+		_200x280_Black_Blob_1.scaleX = 1.5;
+		_200x280_Black_Blob_1.scaleY = 1.2;
+		_200x280_Black_Blob_1.alpha = 0.4;
+		_200x280_Black_Blob_1.alphaTopLeft = 0.4;
+		_200x280_Black_Blob_1.alphaTopRight = 0.4;
+		_200x280_Black_Blob_1.alphaBottomLeft = 0.4;
+		_200x280_Black_Blob_1.alphaBottomRight = 0.4;
+
+		// _200x280_Black_Blob_2
+		const _200x280_Black_Blob_2 = this.add.image(640, 416, "200x280-Black-Blob");
+		_200x280_Black_Blob_2.scaleX = 1.5;
+		_200x280_Black_Blob_2.scaleY = 1.2;
+		_200x280_Black_Blob_2.alpha = 0.4;
+		_200x280_Black_Blob_2.alphaTopLeft = 0.4;
+		_200x280_Black_Blob_2.alphaTopRight = 0.4;
+		_200x280_Black_Blob_2.alphaBottomLeft = 0.4;
+		_200x280_Black_Blob_2.alphaBottomRight = 0.4;
+
+		// _200x280_Black_Blob_3
+		const _200x280_Black_Blob_3 = this.add.image(640, 64, "200x280-Black-Blob");
+		_200x280_Black_Blob_3.scaleX = 1.5;
+		_200x280_Black_Blob_3.scaleY = 1.2;
+		_200x280_Black_Blob_3.alpha = 0.4;
+		_200x280_Black_Blob_3.alphaTopLeft = 0.4;
+		_200x280_Black_Blob_3.alphaTopRight = 0.4;
+		_200x280_Black_Blob_3.alphaBottomLeft = 0.4;
+		_200x280_Black_Blob_3.alphaBottomRight = 0.4;
+
+		// _200x280_Black_Blob_4
+		const _200x280_Black_Blob_4 = this.add.image(912, 416, "200x280-Black-Blob");
+		_200x280_Black_Blob_4.scaleX = 1.5;
+		_200x280_Black_Blob_4.scaleY = 1.2;
+		_200x280_Black_Blob_4.alpha = 0.4;
+		_200x280_Black_Blob_4.alphaTopLeft = 0.4;
+		_200x280_Black_Blob_4.alphaTopRight = 0.4;
+		_200x280_Black_Blob_4.alphaBottomLeft = 0.4;
+		_200x280_Black_Blob_4.alphaBottomRight = 0.4;
+
+		// _200x280_Black_Blob_5
+		const _200x280_Black_Blob_5 = this.add.image(912, 64, "200x280-Black-Blob");
+		_200x280_Black_Blob_5.scaleX = 1.5;
+		_200x280_Black_Blob_5.scaleY = 1.2;
+		_200x280_Black_Blob_5.alpha = 0.4;
+		_200x280_Black_Blob_5.alphaTopLeft = 0.4;
+		_200x280_Black_Blob_5.alphaTopRight = 0.4;
+		_200x280_Black_Blob_5.alphaBottomLeft = 0.4;
+		_200x280_Black_Blob_5.alphaBottomRight = 0.4;
+
+		// _100x100_Energy
+		this.add.image(-368, 224, "100x100-Energy");
+
+		// _200x280_Black_Blob_6
+		const _200x280_Black_Blob_6 = this.add.image(1744, 176, "200x280-Black-Blob");
+		_200x280_Black_Blob_6.scaleX = 1.2;
+		_200x280_Black_Blob_6.scaleY = 0.9;
+
+		// particleemitter
+		const particleemitter = this.add.particles(-1856, 656, "10x10-White-Blob", { x: { min: 0, max: 1280, int: false }, scale: { start: 1, end: 0, ease: "Linear", random: false }, speedX: { min: -30, max: 30, int: false }, speedY: { min: -60, max: 60, int: false }, lifespan: { min: 5000, max: 8000, int: false }, quantity: 3, tint: 16777215, blendMode: 1, frequency: 100, radial: false });
+		particleemitter.blendMode = Phaser.BlendModes.ADD;
+
+		// _200x200_Black_Blob_1
+		const _200x200_Black_Blob_1 = this.add.image(640, 928, "200x200-Black-Blob");
+		_200x200_Black_Blob_1.scaleX = 15;
+		_200x200_Black_Blob_1.scaleY = 3;
+		_200x200_Black_Blob_1.alpha = 0.41;
+		_200x200_Black_Blob_1.alphaTopLeft = 0.41;
+		_200x200_Black_Blob_1.alphaTopRight = 0.41;
+		_200x200_Black_Blob_1.alphaBottomLeft = 0.41;
+		_200x200_Black_Blob_1.alphaBottomRight = 0.41;
+
+		// _200x280_Black_Blob_8
+		const _200x280_Black_Blob_8 = this.add.image(1296, 224, "200x280-Black-Blob");
+		_200x280_Black_Blob_8.scaleX = 2;
+		_200x280_Black_Blob_8.scaleY = 1.2;
+		_200x280_Black_Blob_8.alpha = 0.4;
+		_200x280_Black_Blob_8.alphaTopLeft = 0.4;
+		_200x280_Black_Blob_8.alphaTopRight = 0.4;
+		_200x280_Black_Blob_8.alphaBottomLeft = 0.4;
+		_200x280_Black_Blob_8.alphaBottomRight = 0.4;
+
+		// _200x200_Pillow
+		const _200x200_Pillow = this.add.image(1232, 192, "200x200-Pillow");
+		_200x200_Pillow.alpha = 0.9;
+		_200x200_Pillow.alphaTopLeft = 0.9;
+		_200x200_Pillow.alphaTopRight = 0.9;
+		_200x200_Pillow.alphaBottomLeft = 0.9;
+		_200x200_Pillow.alphaBottomRight = 0.9;
+
+		// _200x200_Bomb
+		const _200x200_Bomb = this.add.image(1312, 192, "200x200-Bomb");
+		_200x200_Bomb.alpha = 0.9;
+		_200x200_Bomb.alphaTopLeft = 0.9;
+		_200x200_Bomb.alphaTopRight = 0.9;
+		_200x200_Bomb.alphaBottomLeft = 0.9;
+		_200x200_Bomb.alphaBottomRight = 0.9;
+
+		// _200x200_Chopped_Log
+		const _200x200_Chopped_Log = this.add.image(1232, 256, "200x200-Chopped-Log");
+		_200x200_Chopped_Log.alpha = 0.9;
+		_200x200_Chopped_Log.alphaTopLeft = 0.9;
+		_200x200_Chopped_Log.alphaTopRight = 0.9;
+		_200x200_Chopped_Log.alphaBottomLeft = 0.9;
+		_200x200_Chopped_Log.alphaBottomRight = 0.9;
+
+		// _200x200_Brick
+		const _200x200_Brick = this.add.image(1296, 272, "200x200-Brick");
+		_200x200_Brick.alpha = 0.9;
+		_200x200_Brick.alphaTopLeft = 0.9;
+		_200x200_Brick.alphaTopRight = 0.9;
+		_200x200_Brick.alphaBottomLeft = 0.9;
+		_200x200_Brick.alphaBottomRight = 0.9;
+
+		// _200x200_Clock
+		const _200x200_Clock = this.add.image(1376, 240, "200x200-Clock");
+		_200x200_Clock.alpha = 0.9;
+		_200x200_Clock.alphaTopLeft = 0.9;
+		_200x200_Clock.alphaTopRight = 0.9;
+		_200x200_Clock.alphaBottomLeft = 0.9;
+		_200x200_Clock.alphaBottomRight = 0.9;
+
+		// energyPoolText
+		const energyPoolText = this.add.text(16, 224, "", {});
+		energyPoolText.setOrigin(0.5, 0.5);
+		energyPoolText.text = "20";
+		energyPoolText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 16 });
+
+		// placementsLeftText
+		const placementsLeftText = this.add.text(640, 224, "", {});
+		placementsLeftText.setOrigin(0.5, 0.5);
+		placementsLeftText.text = "-/-";
+		placementsLeftText.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 24, "resolution": 3 });
 
 		// lists
 		const list = [];
 
 		this.drawDeck1 = drawDeck1;
 		this.drawDeck2 = drawDeck2;
+		this.drawDeck_2 = drawDeck_2;
 		this.energyPoolText = energyPoolText;
 		this.placementsLeftText = placementsLeftText;
-		this.drawDeck_2 = drawDeck_2;
-		this.text = text;
-		this.text_1 = text_1;
 		this.list = list;
 
 		this.events.emit("scene-awake");
@@ -90,16 +253,12 @@ export default class Level extends Phaser.Scene {
 	drawDeck1;
 	/** @type {Phaser.GameObjects.Image} */
 	drawDeck2;
+	/** @type {Phaser.GameObjects.Image} */
+	drawDeck_2;
 	/** @type {Phaser.GameObjects.Text} */
 	energyPoolText;
 	/** @type {Phaser.GameObjects.Text} */
 	placementsLeftText;
-	/** @type {Phaser.GameObjects.Image} */
-	drawDeck_2;
-	/** @type {Phaser.GameObjects.Text} */
-	text;
-	/** @type {Phaser.GameObjects.Text} */
-	text_1;
 	/** @type {Array<any>} */
 	list;
 
@@ -115,6 +274,11 @@ export default class Level extends Phaser.Scene {
 			hover: this.sound.add("hover"),
 		}
 
+		// this.music = {
+		// 	main: this.sound.add("GamePlayMusic(Loop)")
+		// }
+
+		this.sound.add("GamePlayMusic(loop)").play();
 		const core = new Core(this);
 	}
 

@@ -46,22 +46,49 @@ export class materialContainer extends baseContainer {
         const name = cardInfo.card.name;
 
         // Location of symbols
-        let powerLocation = -40
-        let defenseLocation = 40
+        let powerLocation = -35
+        let defenseLocation = 35
+        let energyLocationX = 0
+        let energyLocationY = 64
+
         if (!powerValue) {
-            defenseLocation = 0
+            energyLocationX = powerLocation;
+            energyLocationY = 40;
         }
 
         if (!defenseValue) {
-            powerLocation = 0
+            energyLocationX = defenseLocation;
+            energyLocationY = 40;
+        }
+
+        if (!powerValue && !defenseValue) {
+            energyLocationX = 0;
         }
 
         // Text Color (redish)
         const END_LERP_OFFSET = 7;
-        const START_LERP_OFFSET = 3;
+        const START_LERP_OFFSET = 2;
 
-        const powerTintLerpAlpha = Phaser.Math.Clamp((powerValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET), 0, 1)
-        const defenseTintLerpAlpha = Phaser.Math.Clamp((defenseValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET), 0, 1)
+        const powerTintLerpAlpha = Phaser.Math.Clamp((powerValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET), 0, 1);
+        const defenseTintLerpAlpha = Phaser.Math.Clamp((defenseValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET), 0, 1);
+        const energyTintLerpAlpha = Phaser.Math.Clamp((energyValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET), 0, 1)
+        
+        const MIN_TEXT_PX = 22;
+        const MAX_TEXT_PX = 32;
+        const powerTextSize = Phaser.Math.Clamp(Phaser.Math.Linear(MIN_TEXT_PX, MAX_TEXT_PX, (powerValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET)), MIN_TEXT_PX, MAX_TEXT_PX + 12);
+        const defenseTextSize = Phaser.Math.Clamp(Phaser.Math.Linear(MIN_TEXT_PX, MAX_TEXT_PX, (defenseValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET)), MIN_TEXT_PX, MAX_TEXT_PX + 12);
+        const energyTextSize = Phaser.Math.Clamp(Phaser.Math.Linear(MIN_TEXT_PX, MAX_TEXT_PX, (energyValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET)), MIN_TEXT_PX, MAX_TEXT_PX + 12);
+
+        const MIN_ALPHA = 0.1;
+        const MAX_ALPHA = 1;
+        const powerAlpha = Phaser.Math.Clamp(Phaser.Math.Linear(MIN_ALPHA, MAX_ALPHA, (powerValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET)), MIN_ALPHA, MAX_ALPHA);
+        const defenseAlpha = Phaser.Math.Clamp(Phaser.Math.Linear(MIN_ALPHA, MAX_ALPHA, (defenseValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET)), MIN_ALPHA, MAX_ALPHA);
+        const energyAlpha = Phaser.Math.Clamp(Phaser.Math.Linear(MIN_ALPHA, MAX_ALPHA, (energyValue - START_LERP_OFFSET)/(END_LERP_OFFSET - START_LERP_OFFSET)), MIN_ALPHA, MAX_ALPHA);
+        // title.text = name.toUpperCase();
+        // const mainImage = scene.add.image(0, -32, this.imageKey);
+        //const defenseSymbol = scene.add.image(defenseLocation, 40, "100x100-Blue-Shield");
+        // defenseText.tintTopLeft = colorLerpHexFromHex(defenseTintLerpAlpha , "0xff0000", "0xffffff");
+        // NON-COMPILED
         
         // Slightly modified compiler-made code
 
@@ -70,7 +97,7 @@ export class materialContainer extends baseContainer {
 		cardBack.scaleX = 0.8;
 		cardBack.scaleY = 0.8;
 
-        // cardFront
+		// cardFront
 		const cardFront = scene.add.image(0, 0, "200x280-Bright-White-Card");
 		cardFront.scaleX = 0.8;
 		cardFront.scaleY = 0.8;
@@ -78,74 +105,79 @@ export class materialContainer extends baseContainer {
 		cardFront.tintTopRight = 9803157;
 		cardFront.tintBottomLeft = 0;
 		cardFront.tintBottomRight = 0;
+		this.add(cardFront);
+
+		// mainImage
+		const mainImage = scene.add.image(0, -36, this.imageKey);
+		mainImage.scaleX = 0.6;
+		mainImage.scaleY = 0.6;
+		this.add(mainImage);
+
+		// shadowFx
+		mainImage.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
 
 		// title
 		const title = scene.add.text(0, -88, "", {});
 		title.setOrigin(0.5, 0.5);
 		title.text = name.toUpperCase();
 		title.setStyle({ "fontFamily": "Eczar-Bold", "fontSize": "18px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
+		this.add(title);
 
-        // mainImage
-		const mainImage = scene.add.image(0, -32, this.imageKey);
-		mainImage.scaleX = 0.6;
-		mainImage.scaleY = 0.6;
-
-		// shadowFx
-		mainImage.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
-
-        // defenseSymbol
-        const defenseSymbol = scene.add.image(defenseLocation, 40, "100x100-Blue-Shield");
-        defenseSymbol.scaleX = 0.8;
-        defenseSymbol.scaleY = 0.8;
-        
-        // defenseText
-        const defenseText = scene.add.text(defenseLocation, 40, "", {});
-        defenseText.setOrigin(0.5, 0.5);
-        defenseText.tintTopLeft = colorLerpHexFromHex(defenseTintLerpAlpha , "0xff0000", "0xffffff");
-        defenseText.text = defenseValue;
-        defenseText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
-
-        // NON-COMPILED
-        if (!defenseValue) {
-            defenseSymbol.setVisible(false);
-            defenseText.setVisible(false);
-        }
+		// defenseSymbol
+		const defenseSymbol = scene.add.image(defenseLocation, 40, "100x100-Blue-Shield");
+		defenseSymbol.scaleX = 0.8;
+		defenseSymbol.scaleY = 0.8;
+        defenseSymbol.alpha = defenseAlpha;
+		this.add(defenseSymbol);
 
 		// powerSymbol
 		const powerSymbol = scene.add.image(powerLocation, 40, "100x100-Power");
 		powerSymbol.scaleX = 0.8;
 		powerSymbol.scaleY = 0.8;
-		
+        powerSymbol.alpha = powerAlpha;
+		this.add(powerSymbol);
+
+		// energySymbol
+		const energySymbol = scene.add.image(energyLocationX, energyLocationY, "100x100-Energy");
+		energySymbol.scaleX = 0.8;
+		energySymbol.scaleY = 0.8;
+        energySymbol.alpha = energyAlpha;
+		this.add(energySymbol);
+
 		// powerText
 		const powerText = scene.add.text(powerLocation, 40, "", {});
 		powerText.setOrigin(0.5, 0.5);
-		powerText.tintTopLeft = colorLerpHexFromHex(powerTintLerpAlpha , "0xff0000", "0xffffff");
 		powerText.text = powerValue;
-		powerText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
-		
-        // NON-COMPILED
+		powerText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": `${powerTextSize}px`, "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
+		this.add(powerText);
+
+		// defenseText
+		const defenseText = scene.add.text(defenseLocation, 40, "", {});
+		defenseText.setOrigin(0.5, 0.5);
+		defenseText.text = defenseValue;
+		defenseText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": `${defenseTextSize}px`, "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
+		this.add(defenseText);
+
+		// energyText
+		const energyText = scene.add.text(energyLocationX, energyLocationY, "", {});
+		energyText.setOrigin(0.5, 0.5);
+		energyText.text = energyValue;
+		energyText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": `${energyTextSize}px`, "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
+		this.add(energyText);
+
+        defenseText.tintTopLeft = colorLerpHexFromHex(defenseTintLerpAlpha , "0xff0000", "0xffffff");
+        powerText.tintTopLeft = colorLerpHexFromHex(powerTintLerpAlpha , "0xff0000", "0xffffff");
+        energyText.tintTopLeft = colorLerpHexFromHex(energyTintLerpAlpha , "0xff0000", "0xffffff");
+        
+        if (!defenseValue) {
+            defenseSymbol.setVisible(false);
+            defenseText.setVisible(false);
+        }
+
         if (!powerValue) {
             powerSymbol.setVisible(false);
             powerText.setVisible(false);
         }
-
-		// orText
-		const orText = scene.add.text(0, 64, "", {});
-		orText.setOrigin(0.5, 0.5);
-		orText.text = "OR";
-		orText.setStyle({ "fontFamily": "Eczar-Bold", "fontSize": "18px", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
-		
-        // NON-COMPILED
-        if (!powerValue || !defenseValue) {
-            orText.setVisible(false);
-        }
-
-		// energyText
-		const energyText = scene.add.text(0, 88, "", {});
-		energyText.setOrigin(0.5, 0.5);
-		energyText.text = `[${energyValue} ENG]`;
-		energyText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "stroke": "#000000ff", "strokeThickness": 5, "shadow.blur": 12, "shadow.stroke": true, "resolution": 3 });
-		
 
         this.cardBack = cardBack
 		this.cardFront = cardFront;
@@ -153,66 +185,10 @@ export class materialContainer extends baseContainer {
 		this.mainImage = mainImage;
 		this.defenseSymbol = defenseSymbol;
 		this.powerSymbol = powerSymbol;
+        this.energySymbol = energySymbol;
 		this.powerText = powerText;
 		this.defenseText = defenseText;
-		this.orText = orText;
 		this.energyText = energyText;
-        /*
-        // cardFront
-		const cardBack = scene.add.image(0, 0, "Card back");
-		cardBack.scaleX = 0.25;
-		cardBack.scaleY = 0.25;
-        this.cardBack = cardBack;
-
-		// cardFront
-		const cardFront = scene.add.image(0, 0, "White_silver Card Front");
-		cardFront.scaleX = 0.25;
-		cardFront.scaleY = 0.25;
-        this.cardFront = cardFront;
-
-		// powerText
-		const powerText = scene.add.text(-32, 48, "", {});
-        if (powerValue) {
-            powerText.setOrigin(0.5, 0.5);
-            powerText.text = `${powerValue} POW`;
-            powerText.setStyle({ "color": "#f5786b", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
-        }
-        this.powerText = powerText;
-
-		// DefenseText
-		const defenseText = scene.add.text(32, 48, "", {});
-        if (defenseValue) {
-            defenseText.setOrigin(0.5, 0.5);
-            defenseText.text = `${defenseValue} DEF`;
-            defenseText.setStyle({ "color": "#3878d7", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
-        }
-        this.defenseText = defenseText;
-
-		// energyText
-		const energyText = scene.add.text(0, 64, "", {});
-        if (energyValue) {
-            energyText.setOrigin(0.5, 0.5);
-            energyText.text = `${energyValue} ENG`;
-            energyText.setStyle({ "color": "#1bc540", "fontFamily": "Eczar-Bold", "fontSize": "12px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
-        }
-        this.energyText = energyText;
-
-		// nameText
-		const nameText = scene.add.text(0, -80, "", {});
-		nameText.setOrigin(0.5, 0.5);
-		nameText.text = this.cardInfo.card.name.toUpperCase();
-		nameText.setStyle({ "fontFamily": "Eczar-Bold", "fontSize": "17px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
-        this.nameText = nameText;
-
-		// mainImage
-		const mainImage = scene.add.image(0, -16, this.imageKey);
-		mainImage.scaleX = 0.15;
-		mainImage.scaleY = 0.15;
-        this.mainImage = mainImage;
-
-		// shadowFx_10
-		// mainImage.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
-        */
 
         /* ---------------------------- Create Container ---------------------------- */
 
@@ -221,10 +197,10 @@ export class materialContainer extends baseContainer {
             this.title,
             this.defenseSymbol,
             this.powerSymbol,
+            this.energySymbol,
             this.mainImage,
             this.powerText,
             this.defenseText,
-            this.orText,
             this.energyText
         ];
 

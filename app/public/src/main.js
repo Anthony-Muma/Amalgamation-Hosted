@@ -17,7 +17,7 @@ window.addEventListener('load', function () {
 		autoFocus: false,
 		forceSetTimeOut: true, // use setTimeout instead of RAF
 		type: Phaser.AUTO,
-        backgroundColor: "#2e0101",
+        backgroundColor: "#000000",
 		parent: "game-container",
 		dom: {
         	createContainer: true

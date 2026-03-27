@@ -17,86 +17,223 @@
             "type": "Rectangle",
             "id": "7a69d391-00fc-46d6-b543-fb9001003563",
             "label": "rectangle_1",
-            "originX": 0,
-            "originY": 0,
-            "alpha": 0.75,
+            "x": 640,
+            "y": 350,
+            "visible": false,
+            "alpha": 0.9,
             "isFilled": true,
             "fillColor": "#000000",
             "fillAlpha": 10,
-            "width": 1280,
-            "height": 720
+            "width": 1600,
+            "height": 900
+        },
+        {
+            "type": "Image",
+            "id": "fc721522-90d2-4f3a-bcfb-33a06d455cb2",
+            "label": "_200x200_Black_Blob",
+            "texture": {
+                "key": "200x200-Black-Blob"
+            },
+            "x": 624,
+            "y": 352,
+            "scaleX": 8,
+            "scaleY": 4,
+            "alpha": 0.5,
+            "alphaTopLeft": 0.5,
+            "alphaTopRight": 0.5,
+            "alphaBottomLeft": 0.5,
+            "alphaBottomRight": 0.5
         },
         {
             "type": "Image",
             "id": "3847e2f0-ed51-4250-9cd7-f0293a74f288",
-            "label": "soulTarget1",
+            "label": "allySoul0",
             "texture": {
-                "key": "Knowledge Soul Symbol"
+                "key": "200x200-Knowledge-Soul-Symbol"
             },
-            "x": 368,
-            "y": 400,
-            "scaleX": 0.15,
-            "scaleY": 0.15
+            "x": 432,
+            "y": 384,
+            "scaleX": 0.9,
+            "scaleY": 0.9,
+            "list": [
+                {
+                    "type": "Shine",
+                    "id": "6dffc43a-361c-4672-9145-c84d007d99cb",
+                    "label": "shineFx_1",
+                    "preFX": true
+                },
+                {
+                    "type": "Shadow",
+                    "id": "f358b5db-306d-4596-91b8-3731fe0ab90f",
+                    "label": "shadowFx",
+                    "preFX": true
+                }
+            ]
         },
         {
             "type": "Image",
             "id": "449029cb-ba4e-4ec2-9cb3-1134673888d9",
-            "label": "arcane_Soul_Symbol_1",
+            "label": "allySoul1",
             "texture": {
-                "key": "Knowledge Soul Symbol"
+                "key": "200x200-Knowledge-Soul-Symbol"
             },
             "x": 640,
-            "y": 400,
-            "scaleX": 0.15,
-            "scaleY": 0.15
+            "y": 384,
+            "scaleX": 0.9,
+            "scaleY": 0.9,
+            "alpha": 0.2,
+            "alphaTopLeft": 0.2,
+            "alphaTopRight": 0.2,
+            "alphaBottomLeft": 0.2,
+            "alphaBottomRight": 0.2,
+            "list": [
+                {
+                    "type": "Shine",
+                    "id": "fd086172-7317-415b-9eef-67427dcb31ac",
+                    "label": "shineFx",
+                    "preFX": true
+                },
+                {
+                    "type": "Shadow",
+                    "id": "a2e88f42-7484-4e61-8881-076cfcf33e35",
+                    "label": "shadowFx_1",
+                    "preFX": true
+                }
+            ]
         },
         {
             "type": "Image",
             "id": "476b074c-05d7-4f42-8d1f-f9e117ae98fd",
-            "label": "arcane_Soul_Symbol_2",
+            "label": "allySoul2",
             "texture": {
-                "key": "Knowledge Soul Symbol"
+                "key": "200x200-Knowledge-Soul-Symbol"
             },
-            "x": 912,
-            "y": 400,
-            "scaleX": 0.15,
-            "scaleY": 0.15
+            "x": 848,
+            "y": 384,
+            "scaleX": 0.9,
+            "scaleY": 0.9,
+            "list": [
+                {
+                    "type": "Shine",
+                    "id": "abf85049-31e2-4d40-b1ac-6aa9c956dd61",
+                    "label": "shineFx_2",
+                    "preFX": true
+                },
+                {
+                    "type": "Shadow",
+                    "id": "b9dd9719-f196-4579-8755-6a073a3fcc41",
+                    "label": "shadowFx_2",
+                    "preFX": true
+                }
+            ]
         },
         {
             "type": "Image",
             "id": "125dbe2f-bc84-4e43-9b80-d1a298dae127",
             "label": "power_Soul_Symbol",
             "texture": {
-                "key": "Power Soul Symbol"
+                "key": "200x200-Power-Soul"
             },
-            "x": 368,
+            "x": 432,
             "y": 128,
-            "scaleX": 0.15,
-            "scaleY": 0.15
+            "scaleX": 0.9,
+            "scaleY": 0.9,
+            "list": [
+                {
+                    "type": "Shine",
+                    "id": "ddda0132-c69b-435d-bdad-dfc0ae370398",
+                    "label": "shineFx_3",
+                    "preFX": true
+                },
+                {
+                    "type": "Shadow",
+                    "id": "476d3f7d-8d27-4844-a6fb-a85792178e32",
+                    "label": "shadowFx_3",
+                    "preFX": true
+                }
+            ]
         },
         {
             "type": "Image",
             "id": "88937459-4c25-49d7-a595-c218194c0b9d",
             "label": "power_Soul_Symbol_1",
             "texture": {
-                "key": "Power Soul Symbol"
+                "key": "200x200-Power-Soul"
             },
             "x": 640,
             "y": 128,
-            "scaleX": 0.15,
-            "scaleY": 0.15
+            "scaleX": 0.9,
+            "scaleY": 0.9,
+            "list": [
+                {
+                    "type": "Shine",
+                    "id": "3f189023-6d59-473d-b78f-5d30c5d64c56",
+                    "label": "shineFx_4",
+                    "preFX": true
+                },
+                {
+                    "type": "Shadow",
+                    "id": "a4db0c7a-0fee-4616-8ac8-2060b0a1d80f",
+                    "label": "shadowFx_4",
+                    "preFX": true
+                }
+            ]
         },
         {
             "type": "Image",
             "id": "a14dc4e7-5bc5-4e73-a403-41be44c5b3e4",
             "label": "power_Soul_Symbol_2",
             "texture": {
-                "key": "Power Soul Symbol"
+                "key": "200x200-Power-Soul"
             },
-            "x": 912,
+            "x": 848,
             "y": 128,
-            "scaleX": 0.15,
-            "scaleY": 0.15
+            "scaleX": 0.9,
+            "scaleY": 0.9,
+            "list": [
+                {
+                    "type": "Shine",
+                    "id": "47226235-cc7e-488a-888c-38da30853adf",
+                    "label": "shineFx_5",
+                    "preFX": true
+                },
+                {
+                    "type": "Shadow",
+                    "id": "1beb8d22-2f8e-4f73-82ff-846bccc8eb64",
+                    "label": "shadowFx_5",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "d0f8d214-813d-45fb-8ca5-2c275ae1d215",
+            "label": "_200x200_Black_Blob_1",
+            "texture": {
+                "key": "200x200-Black-Blob"
+            },
+            "x": 640,
+            "y": 656,
+            "scaleX": 8,
+            "scaleY": 2
+        },
+        {
+            "type": "Text",
+            "id": "23262f29-2629-49c3-84d0-8acfdd4cbe2d",
+            "label": "placementsLeftText",
+            "scope": "CLASS",
+            "x": 624,
+            "y": 608,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "TARGETING MODE",
+            "resolution": 3,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "64px",
+            "color": "#ffffffff",
+            "stroke": "#000000ff",
+            "strokeThickness": 24
         }
     ],
     "plainObjects": [],
@@ -105,5 +242,25 @@
         "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    }
+    },
+    "lists": [
+        {
+            "id": "eac22bd6-e59d-48d0-9511-e3107fedce65",
+            "label": "allySouls",
+            "objectIds": [
+                "3847e2f0-ed51-4250-9cd7-f0293a74f288",
+                "449029cb-ba4e-4ec2-9cb3-1134673888d9",
+                "476b074c-05d7-4f42-8d1f-f9e117ae98fd"
+            ]
+        },
+        {
+            "id": "dda81fdd-6db6-4a77-a860-bc0a02838bee",
+            "label": "enemySouls",
+            "objectIds": [
+                "125dbe2f-bc84-4e43-9b80-d1a298dae127",
+                "88937459-4c25-49d7-a595-c218194c0b9d",
+                "a14dc4e7-5bc5-4e73-a403-41be44c5b3e4"
+            ]
+        }
+    ]
 }

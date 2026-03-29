@@ -25,76 +25,86 @@
             "scaleY": 0.67
         },
         {
-            "type": "Text",
-            "id": "85d4bb91-95b8-4840-ab9a-dbd5a3b8a8ae",
-            "label": "lobbyTitle",
-            "scope": "CLASS",
-            "x": 640,
-            "y": 96,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "Lobby",
-            "fontFamily": "Eczar-Bold",
-            "fontSize": "48px",
-            "color": "#ffffffff",
-            "stroke": "#000000ff",
-            "strokeThickness": 16
+            "type": "Image",
+            "id": "8129a130-217f-4767-9f8b-2b84809d75f1",
+            "label": "_200x200_Black_Blob",
+            "texture": {
+                "key": "200x200-Black-Blob"
+            },
+            "x": 432,
+            "y": 336,
+            "scaleX": 3.5,
+            "scaleY": 2.2,
+            "alpha": 0.5,
+            "alphaTopLeft": 0.5,
+            "alphaTopRight": 0.5,
+            "alphaBottomLeft": 0.5,
+            "alphaBottomRight": 0.5
+        },
+        {
+            "type": "Image",
+            "id": "222764ed-0edf-4e20-82b3-ece0833b3a42",
+            "label": "_200x200_Black_Blob_1",
+            "texture": {
+                "key": "200x200-Black-Blob"
+            },
+            "x": 976,
+            "y": 336,
+            "scaleX": 2,
+            "scaleY": 2.2,
+            "alpha": 0.5,
+            "alphaTopLeft": 0.5,
+            "alphaTopRight": 0.5,
+            "alphaBottomLeft": 0.5,
+            "alphaBottomRight": 0.5
         },
         {
             "type": "Text",
             "id": "40392b7b-74e5-4aeb-95ee-425f3c268bdf",
             "label": "text_1",
-            "scope": "CLASS",
             "x": 320,
-            "y": 224,
+            "y": 192,
             "originX": 0.5,
             "originY": 0.5,
             "text": "Players",
+            "fixedWidth": 262,
             "align": "center",
             "fontFamily": "Eczar-Bold",
-            "fontSize": "32px",
+            "fontSize": "64px",
             "color": "#ffffffff",
             "stroke": "#000000",
-            "strokeThickness": 16
+            "strokeThickness": 8,
+            "shadow.offsetX": 8,
+            "shadow.offsetY": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#201f1fff"
         },
         {
             "type": "Rectangle",
             "id": "14ade773-5342-45a8-8602-6fde86c0a051",
-            "label": "leaveButton",
+            "label": "leaveButton1",
             "scope": "CLASS",
             "hitArea.shape": "RECTANGLE",
             "hitArea.width": 180,
             "hitArea.height": 60,
-            "x": 112,
-            "y": 672,
+            "x": -160,
+            "y": 704,
             "isFilled": true,
             "fillColor": "#aa0000",
             "width": 180,
             "height": 60
         },
         {
-            "type": "Text",
-            "id": "09f68f91-22a4-4412-a388-cdcf0e7eaf20",
-            "label": "leaveText",
-            "scope": "CLASS",
-            "x": 112,
-            "y": 672,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "Leave",
-            "align": "center",
-            "fontSize": "24px"
-        },
-        {
             "type": "Rectangle",
             "id": "87505a50-7c0c-41fc-8dc4-90cf5579d7dd",
-            "label": "startButton",
+            "label": "startButton1",
             "scope": "CLASS",
             "hitArea.shape": "RECTANGLE",
             "hitArea.width": 200,
             "hitArea.height": 80,
-            "x": 1152,
-            "y": 656,
+            "x": 1136,
+            "y": 816,
             "isFilled": true,
             "fillColor": "#00aa00",
             "width": 200,
@@ -103,33 +113,15 @@
         {
             "type": "Text",
             "id": "0baf9b89-c449-4b47-9e0e-977ec8987b40",
-            "label": "startText",
+            "label": "startText1",
             "scope": "CLASS",
-            "x": 1152,
-            "y": 656,
+            "x": 800,
+            "y": 912,
             "originX": 0.5,
             "originY": 0.5,
             "text": "Start",
             "align": "center",
             "fontSize": "32px"
-        },
-        {
-            "type": "Text",
-            "id": "e8ef570d-7547-4a09-814a-4a2b72b1f97f",
-            "label": "text",
-            "displayName": "code",
-            "scope": "CLASS",
-            "x": 992,
-            "y": 224,
-            "originX": 0.5,
-            "originY": 0.5,
-            "text": "Lobby Code",
-            "align": "center",
-            "fontFamily": "Eczar-Bold",
-            "fontSize": "32px",
-            "color": "#ffffffff",
-            "stroke": "#000000",
-            "strokeThickness": 16
         },
         {
             "type": "Rectangle",
@@ -140,7 +132,7 @@
             "hitArea.shape": "RECTANGLE",
             "hitArea.width": 250,
             "hitArea.height": 80,
-            "x": 992,
+            "x": 976,
             "y": 448,
             "isFilled": true,
             "fillColor": "#4e9bcd",
@@ -148,21 +140,315 @@
             "height": 80
         },
         {
-            "type": "Text",
-            "id": "1b7fe33e-54f3-4e33-99b6-c04c54800d69",
-            "label": "copyText",
-            "displayName": "CopyText",
+            "type": "Image",
+            "id": "3e4d3336-85dc-409b-adce-d79b89ba63ef",
+            "label": "leaveButton",
             "scope": "CLASS",
-            "x": 992,
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 480,
+            "hitArea.height": 150,
+            "texture": {
+                "key": "500x200-Bar"
+            },
+            "x": 192,
+            "y": 656,
+            "scaleX": 0.75,
+            "scaleY": 0.75,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "85831587-cf7b-44c7-8d36-cd4f4bf5202d",
+                    "label": "shadowFx",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "44c8d462-0c2a-470b-8d97-46711c59c0ca",
+            "label": "_500x200_Attack",
+            "texture": {
+                "key": "500x200-Attack"
+            },
+            "x": -480,
+            "y": 192
+        },
+        {
+            "type": "Image",
+            "id": "21251947-a239-430c-bb03-e69b20faff4a",
+            "label": "_100x100_Crown",
+            "texture": {
+                "key": "100x100-Crown"
+            },
+            "x": 160,
+            "y": 288,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "tintTopRight": "#d60000",
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "950bcd47-20ad-43a9-acdb-5e19c869cfc2",
+                    "label": "shadowFx_3",
+                    "preFX": true
+                },
+                {
+                    "type": "Shine",
+                    "id": "e46ea074-81d8-42a5-848d-f47db01f312c",
+                    "label": "shineFx",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Text",
+            "id": "9e215c17-7aec-461e-afcb-b9af0529de33",
+            "label": "text_2",
+            "x": 976,
+            "y": 192,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Code",
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "64px",
+            "color": "#ffffffff",
+            "stroke": "#000000",
+            "shadow.offsetX": 8,
+            "shadow.offsetY": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#201f1fff"
+        },
+        {
+            "type": "Text",
+            "id": "511e320b-5f6e-421b-b8c9-208543dc330b",
+            "label": "player1Name",
+            "x": 208,
+            "y": 288,
+            "originY": 0.5,
+            "text": "Player 1 name foo",
+            "resolution": 2,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#fef23eff",
+            "stroke": "#000000",
+            "strokeThickness": 8,
+            "shadow.offsetX": 8,
+            "shadow.offsetY": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#201f1fff"
+        },
+        {
+            "type": "Image",
+            "id": "dc89ddf1-96aa-4ab2-9a9d-7764710283ef",
+            "label": "playerSlot",
+            "texture": {
+                "key": "100x100-Empty"
+            },
+            "x": 160,
+            "y": 352,
+            "scaleX": 0.5,
+            "scaleY": 0.5,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "c26b96ce-c88a-4a83-9a51-28951b7b7225",
+                    "label": "shadowFx_2",
+                    "preFX": true
+                },
+                {
+                    "type": "Shine",
+                    "id": "a6a671f8-1b51-45bb-81d0-d181a4b793a8",
+                    "label": "shineFx_1",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Text",
+            "id": "74ce8071-3ff6-4898-9f25-ca68ebce0527",
+            "label": "player2Name",
+            "x": 208,
+            "y": 352,
+            "originY": 0.5,
+            "text": "Player 2 name bar",
+            "resolution": 2,
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#393333ff",
+            "stroke": "#000000",
+            "strokeThickness": 8,
+            "shadow.offsetX": 8,
+            "shadow.offsetY": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#201f1fff"
+        },
+        {
+            "type": "Text",
+            "id": "80925385-9e8b-4d89-baca-51d860621476",
+            "label": "leaveText",
+            "scope": "CLASS",
+            "x": 192,
+            "y": 656,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Leave",
+            "resolution": 2,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "64px",
+            "color": "#f50000ff",
+            "stroke": "#000000",
+            "strokeThickness": 8,
+            "shadow.offsetX": 8,
+            "shadow.offsetY": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#201f1fff"
+        },
+        {
+            "type": "Text",
+            "id": "087a6d3f-0b58-4782-972b-89cbea3a096a",
+            "label": "text_5",
+            "x": 640,
+            "y": 64,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Lobby",
+            "fixedWidth": 262,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "64px",
+            "color": "#ffffffff",
+            "stroke": "#000000",
+            "strokeThickness": 8,
+            "shadow.offsetX": 8,
+            "shadow.offsetY": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#201f1fff"
+        },
+        {
+            "type": "Image",
+            "id": "751b26a0-963c-484e-be58-acfbc5321df4",
+            "label": "startButton",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 480,
+            "hitArea.height": 150,
+            "texture": {
+                "key": "500x200-Bar"
+            },
+            "x": 1088,
+            "y": 656,
+            "scaleX": 0.75,
+            "scaleY": 0.75,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "84b2ab68-ca89-40b5-abf2-13658734a17b",
+                    "label": "shadowFx_1",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Text",
+            "id": "42e99b13-a335-4143-ae45-b26e2583d3ef",
+            "label": "startText",
+            "scope": "CLASS",
+            "x": 1088,
+            "y": 656,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Start",
+            "resolution": 2,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "64px",
+            "color": "#1ce300ff",
+            "stroke": "#000000",
+            "strokeThickness": 8,
+            "shadow.offsetX": 8,
+            "shadow.offsetY": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#201f1fff"
+        },
+        {
+            "type": "Text",
+            "id": "c287bcec-888e-4b27-a882-39ab38eac57b",
+            "label": "text",
+            "displayName": "code",
+            "scope": "CLASS",
+            "x": 976,
+            "y": 320,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "ABCDEF",
+            "resolution": 2,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "64px",
+            "color": "#fef23eff",
+            "stroke": "#000000",
+            "strokeThickness": 8,
+            "shadow.offsetX": 8,
+            "shadow.offsetY": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#201f1fff"
+        },
+        {
+            "type": "Image",
+            "id": "7c052e1a-b341-4b32-9758-339d35107115",
+            "label": "startButton_1",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 480,
+            "hitArea.height": 150,
+            "texture": {
+                "key": "500x200-Bar"
+            },
+            "x": 1776,
+            "y": 496,
+            "scaleX": 0.75,
+            "scaleY": 0.75,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "cac233a9-cfa6-44b6-9f83-df277c51c821",
+                    "label": "shadowFx_4",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Text",
+            "id": "16c342c5-cf98-42a0-a843-00e74a0ba594",
+            "label": "copyText",
+            "displayName": "code",
+            "scope": "CLASS",
+            "x": 976,
             "y": 448,
             "originX": 0.5,
             "originY": 0.5,
             "text": "Copy to Clipboard",
+            "resolution": 2,
             "align": "center",
             "fontFamily": "Eczar-Bold",
             "fontSize": "28px",
-            "stroke": "#000000ff",
-            "strokeThickness": 16
+            "color": "#ffffffff",
+            "stroke": "#000000",
+            "strokeThickness": 8,
+            "shadow.offsetX": 8,
+            "shadow.offsetY": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#201f1fff"
         }
     ],
     "plainObjects": [],
@@ -171,5 +457,31 @@
         "url": "https://phaser.io/editor",
         "contentType": "phasereditor2d.core.scene.SceneContentType",
         "version": 5
-    }
+    },
+    "lists": [
+        {
+            "id": "c210c608-7ffb-40f5-9cd9-ea9d2ca58906",
+            "label": "playerNames",
+            "objectIds": [
+                "511e320b-5f6e-421b-b8c9-208543dc330b",
+                "74ce8071-3ff6-4898-9f25-ca68ebce0527"
+            ]
+        },
+        {
+            "id": "22e778f3-da94-45e7-85a7-ac4e53668a16",
+            "label": "playerIcons",
+            "objectIds": [
+                "21251947-a239-430c-bb03-e69b20faff4a",
+                "dc89ddf1-96aa-4ab2-9a9d-7764710283ef"
+            ]
+        },
+        {
+            "id": "680a7f63-986d-4109-8db3-29ab94192caf",
+            "label": "playerShines",
+            "objectIds": [
+                "e46ea074-81d8-42a5-848d-f47db01f312c",
+                "a6a671f8-1b51-45bb-81d0-d181a4b793a8"
+            ]
+        }
+    ]
 }

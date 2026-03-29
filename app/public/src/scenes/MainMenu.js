@@ -103,7 +103,7 @@ export default class MainMenu extends Phaser.Scene {
 			/*
 				// NOTE: on the client, needs to start "Lobby scene" with these params {hostId, players, currentLobbyId}
 			*/
-			this.scene.start("Lobby", lobbyInfo);
+			this.scene.start("Lobby", {lobbyInfo, isHost: true});
     	});
 
 		this.events.once("shutdown", () => {

@@ -12,6 +12,28 @@ const QUEUE_TYPES = Object.freeze({
 const DEFENSE_BLUE_TEXTURE = "100x100-Blue-Shield"
 const DEFENSE_GREY_TEXTURE = "100x100-Grey-Shield"
 
+function getTitleKey(index) {
+    const map = [
+        "200x200-Wall-Title",
+        "200x200-Assassin-Title",
+        "200x200-Knight-Title",
+        "200x200-Souless-Title"
+    ];  
+
+    return map[index]
+}
+
+function getMainKey(index) {
+    const map = [
+        "225x285-Wall",
+        "225x285-Assassin",
+        "225x285-Knight",
+        "225x285-Souless"
+    ];  
+
+    return map[index]
+}
+
 export class AmalgamationContainer extends Phaser.GameObjects.Container {
 
     /* -------------------------------------------------------------------------- */
@@ -25,7 +47,7 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
      * @param {number} x 
      * @param {number} y 
      */
-    constructor(scene, amalgamationInfo, x = 0, y = 0, tint=0xffffff) {
+    constructor(scene, amalgamationInfo, x = 0, y = 0, index=0, tint=0xffffff) {
         super(scene, x, y);
         this.scene = scene;
         this.amalgamationInfo = amalgamationInfo;
@@ -44,7 +66,7 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 		this.add(cardBack);
 
 		// title
-		const title = scene.add.image(0, 80, "200x200-Assassin-Title");
+		const title = scene.add.image(0, 80, getTitleKey(index));
 		title.scaleX = 0.5;
 		title.scaleY = 0.5;
         title.setTint(tint, tint, tint, tint); // Added after compilation
@@ -54,7 +76,7 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 		// title.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
 
 		// mainImage
-		const mainImage = scene.add.image(0, -16, "225x285-Assassin");
+		const mainImage = scene.add.image(0, -16, getMainKey(index));
 		mainImage.scaleX = 0.6;
 		mainImage.scaleY = 0.6;
 		this.add(mainImage);

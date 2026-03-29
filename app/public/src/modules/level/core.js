@@ -37,15 +37,15 @@ class Core {
         this.scene = scene;
         this.playerHand = new CardHand(scene);
         this.playerAmalgamations = [
-            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y),
-            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X, BASE_AMA_Y),
-            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y, 0),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X, BASE_AMA_Y, 1),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y, 2),
         ];
 
         this.enemyAmalgamations = [
-            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
-            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
-            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0, 0xdd0000),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X, BASE_AMA_Y - AMA_Y_SPACING, 1, 0xdd0000),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 2, 0xdd0000),
         ];
 
         this.playerTurnCounter = new TurnCounter(scene, STARTING_PLACEMENTS_PER_TURN)

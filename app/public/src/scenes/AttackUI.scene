@@ -72,6 +72,9 @@
             "id": "5c5a9224-7119-4449-bd57-da6e227f949d",
             "label": "attackButton",
             "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 500,
+            "hitArea.height": 200,
             "texture": {
                 "key": "500x200-Bar"
             },

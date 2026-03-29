@@ -53,9 +53,9 @@ export default class AttackUI extends Phaser.Scene {
 		_500x200_Attack.scaleY = 0.7;
 
 		// dividerMiddle
-		const dividerMiddle = this.add.rectangle(600, 271, 128, 128);
+		const dividerMiddle = this.add.rectangle(600, 280, 128, 128);
 		dividerMiddle.scaleX = 0.1;
-		dividerMiddle.scaleY = 2.5;
+		dividerMiddle.scaleY = 2.4;
 		dividerMiddle.isFilled = true;
 		dividerMiddle.fillColor = 0;
 
@@ -94,7 +94,7 @@ export default class AttackUI extends Phaser.Scene {
 		// energySum
 		const energySum = this.add.text(705, 385, "", {});
 		energySum.text = "0 ENG";
-		energySum.setStyle({ "color": "#28ee53ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
+		energySum.setStyle({ "align": "center", "color": "#28ee53ff", "fontFamily": "Eczar-Bold", "fontSize": "50px", "stroke": "#ffffffff", "shadow.offsetX": 5, "shadow.offsetY": 5, "shadow.blur": 1, "shadow.stroke": true, "shadow.fill": true });
 
 		// powerBox4
 		const powerBox4 = this.add.rectangle(370, 440, 128, 128);
@@ -324,7 +324,7 @@ export default class AttackUI extends Phaser.Scene {
 			this.unselected3, 
 			this.unselected4
 		];
-		
+
 		this.powerTexts = [
 			this.power0, 
 			this.power1, 
@@ -334,7 +334,7 @@ export default class AttackUI extends Phaser.Scene {
 		];
 
 		this.selected.setVisible(false);
-		this.selectedIndex = -1;
+		this.selectedIndices = [];
 
 		// Make everything interactive
 		this.unselectedIcons.forEach(icon => icon.setInteractive());
@@ -352,6 +352,17 @@ export default class AttackUI extends Phaser.Scene {
 			this.scene.resume("Level");
 			this.scene.stop("AttackUI");
 		});
+
+		//Attack button 
+		this.attackButton.on("pointerdown", () => {
+			attackSuccessCb : (attackIndices : number[]) => undefined
+			// allyIndex, enemyIndex are already defined (by targeting)
+			// This what the function passed in looks like
+			const attackSuccessCb = (attackIndices) => {
+				socket.emit("game:useAmalgamation", allyIndex, enemyIndex, attackIndices);
+			}
+ 
+		})
 
 		// Sets the total to the current value as soon as the scene is loaded
 		if (this.gameInfo?.energyPool !== undefined) {
@@ -375,26 +386,18 @@ export default class AttackUI extends Phaser.Scene {
 			const list = this.amalgamationInfo.powerObjectList;
 			if (!list[index] || list[index].power === undefined) return;
 
-			// Set selected index
-			this.selectedIndex = index;
+			// Toggle selection
+			const pos = this.selectedIndices.indexOf(index);
 
-			// Moves selected to the position of the unselected clicked on
-			const targetIcon = this.unselectedIcons[index];
-			this.selected.setPosition(targetIcon.x, targetIcon.y).setVisible(true);
+			if (pos === -1) {
+				this.selectedIndices.push(index);
+			} else {
+				this.selectedIndices.splice(pos, 1);
+			}
 
-			// Selected power number
-			const selectedPower = list[index].power;
-
-			// Update power on the right 
-			this.power.setText(`${selectedPower} POW`).setVisible(true);
-
-			// Update energySum (total energy minus the selected power)
-			const totalEnergy = this.gameInfo?.energyPool || 0;
-			const remainingEnergy = totalEnergy - selectedPower;
-			this.energySum.setText(`${remainingEnergy} ENG`).setVisible(true);
-
-			// Optional: always show total energy
-			this.energyTest.setText(`${totalEnergy} ENG`).setVisible(true);
+			// Update the UI
+			this.updatePowerDisplay();
+			this.updateEnergySum();
 		};
 
 		// Attach click handlers
@@ -407,29 +410,35 @@ export default class AttackUI extends Phaser.Scene {
 		const list = this.amalgamationInfo.powerObjectList;
 		if (!list[index] || list[index].power === undefined) return;
 
-		// Set selected index
-		this.selectedIndex = index;
+		// Toggle selection
+		const existingIndex = this.selectedIndices.indexOf(index);
 
-		// Moves selected to the postion of unselected
-		const targetIcon = this.unselectedIcons[index];
-		this.selected.setPosition(targetIcon.x, targetIcon.y).setVisible(true);
+		if (existingIndex !== -1) {
+			// Remove POW if already selected
+			this.selectedIndices.splice(existingIndex, 1);
 
-		// Get selected power as a number
-		const selectedPower = list[index].power;
+			// Show unselected icon again
+			this.unselectedIcons[index].setVisible(true);
+		} else {
+			// Adds if not selected
+			this.selectedIndices.push(index);
 
-		// Update the power on the right to be the same as the one selected
-		this.power.setText(`${selectedPower} POW`).setVisible(true);
-
-		// Update energy displays
-		if (this.gameInfo?.energyPool !== undefined) {
-			const totalEnergy = this.gameInfo.energyPool; 
-			this.energyTest.setText(`${totalEnergy} ENG`).setVisible(true); 
-
-			const remainingEnergy = totalEnergy - selectedPower; 
-			this.energySum.setText(`${remainingEnergy} ENG`).setVisible(true); 
+			// Hide unselected icon/image
+			this.unselectedIcons[index].setVisible(false);
 		}
-	}
 
+		// Update total power display
+		let totalPower = 0;
+		for (let i = 0; i < this.selectedIndices.length; i++) {
+			const idx = this.selectedIndices[i];
+			totalPower += list[idx].power;
+		}
+
+		this.power.setText(`${totalPower} POW`).setVisible(true);
+
+		// Update energy
+		this.updateEnergySum();
+	}
 
 	updatePowerDisplay() {
 		const list = this.amalgamationInfo.powerObjectList;
@@ -440,36 +449,74 @@ export default class AttackUI extends Phaser.Scene {
 
 			if (list[i]?.power !== undefined) {
 				powerText.setText(`${list[i].power} POW`).setVisible(true);
-				unselectedIcon.setVisible(this.selectedIndex !== i);
 
-				if (this.selectedIndex === i) {
-					this.selected.setPosition(unselectedIcon.x, unselectedIcon.y).setVisible(true);
+				// Hide the unselected icons if selected
+				const isSelected = this.selectedIndices.includes(i);
+				if (isSelected) {
+					unselectedIcon.setTexture("200x200-Selected");
+				} else {
+					unselectedIcon.setTexture("200x200-Unselected");
 				}
+
+				unselectedIcon.setVisible(true);
+
 			} else {
 				powerText.setVisible(false);
 				unselectedIcon.setVisible(false);
-				if (this.selectedIndex === i) {
-					this.selectedIndex = -1;
-					this.selected.setVisible(false);
-				}
 			}
 		}
-	}
 
-	updateSelectedPowerDisplay() {
-		if (this.selectedIndex >= 0) {
-			const selectedPower = this.amalgamationInfo.powerObjectList[this.selectedIndex].power;
-			this.power0.setText(`${selectedPower} POW`).setVisible(true);
-		} else {
-			this.power0.setVisible(false);
-		}
-	}
+	}	
 
 	updateEnergySum() {
 		const list = this.amalgamationInfo.powerObjectList;
-		let sum = 0;
-		this.energySum.setText(`${sum} ENG`);
+
+		let totalEnergy;
+		if (this.gameInfo && this.gameInfo.energyPool !== undefined) {
+			totalEnergy = this.gameInfo.energyPool;
+		} else {
+			totalEnergy = 0;
+		}
+
+		// Sum of all the selected POW
+		let totalSelectedPower = 0;
+
+		this.selectedIndices.forEach(i => {
+			if (list[i] && list[i].power !== undefined) {
+				totalSelectedPower += list[i].power;
+			}
+		});
+
+		const remaining = totalEnergy - totalSelectedPower;
+
+		// Update the energy text
+		if (remaining >= 0) {
+			this.energySum.setText(`${remaining} ENG`);
+		} else {
+			this.energySum.setText(`Not Enough`);
+		}
+
+		// Updates the total power 
+		this.power.setText(`${totalSelectedPower} POW`);
 	}
+
+	updateSelectedPowerDisplay() {
+		let totalPower = 0;
+
+		this.selectedIndices.forEach(i => {
+			const obj = this.amalgamationInfo.powerObjectList[i];
+			if (obj && obj.power !== undefined) {
+				totalPower += obj.power;
+			}
+		});
+
+		if (totalPower > 0) {
+			this.power.setText(`${totalPower} POW`).setVisible(true);
+		} else {
+			this.power.setText(`0 POW`).setVisible(true);
+		}
+	}
+
 
 	/* END-USER-CODE */
 }

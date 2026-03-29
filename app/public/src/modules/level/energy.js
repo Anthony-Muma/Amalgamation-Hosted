@@ -9,7 +9,6 @@ export default class Energy {
     }
 
     resetEnergy() {
-        console.log("eenad")
         this.#energyPoolText.text = "0";
         this.#totalEnergy = 0;
     }

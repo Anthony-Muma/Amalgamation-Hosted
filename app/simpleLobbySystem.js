@@ -253,8 +253,8 @@ io.on("connection", (socket)=>{
         if (otherPlayerArray.length <= 0) return;
 
         const result = lobby.game.useAmalgamation(socketId, otherPlayerArray[0], allyIndex, enemyIndex, selection);
-
-        io.to(currentLobbyId).emit("game:amalgamationUsed", result);
+        const [eventQueue, currentEnergyPool] = result;
+        io.to(currentLobbyId).emit("game:amalgamationUsed", eventQueue, currentEnergyPool);
     });
 
     // TO:DO
@@ -272,7 +272,8 @@ io.on("connection", (socket)=>{
         lobby.game.endTurn(socketId);
         // TO:DO : Check result
 
-        socket.to(currentLobbyId).emit("game:turnStarted", result)
+        socket.to(currentLobbyId).emit("game:turnStarted", result);
+        socket.emit("game:turnEnded");
 
         // check states
 

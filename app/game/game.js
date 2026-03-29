@@ -275,7 +275,7 @@ class Game {
             }
         }
 
-        return returnQueue;
+        return [returnQueue, mainPlayer.getEnergyTotal()];
     }
 
     /* ------------------------------- Game State ------------------------------- */

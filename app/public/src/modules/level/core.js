@@ -60,7 +60,7 @@ class Core {
         this.allPlayersLoaded = false;
     
         // Player specific 
-        this.turnsHad = 0;
+        this.totalTurnExchanges = 0;
 
         /* ---------------------------------- debug --------------------------------- */
         let i = 0;
@@ -166,23 +166,27 @@ class Core {
             hand.enableHover();
 
             const zoneType = dropZone.getData("zoneType");
-            const index = dropZone.getData("index");
-            const alive = this.playerAmalgamations[index].amalgamationInfo.alive;
             
-            if (!this.playerTurnCounter.canPlace() || this.attackStager.isActive() || !alive) {
+            if (!this.playerTurnCounter.canPlace() || this.attackStager.isActive()) {
                 this.playerHand.layoutHand(gameObject);
             } else if (zoneType === "energyZone") {
                 this.#handleEnergyZone(gameObject);
             } else {
-                this.#handleAmalgamationZone(gameObject, dropZone)
+                const index = dropZone.getData("index");
+                const alive = this.playerAmalgamations[index].amalgamationInfo.alive;
+                if (alive) {
+                    this.#handleAmalgamationZone(gameObject, dropZone)
+                } else {
+                    this.playerHand.layoutHand(gameObject);
+                }
             }
         });
 
         this.scene.input.keyboard.on('keydown-SPACE', ()=>{ 
             if (this.myTurn && this.allPlayersLoaded) {
-                this.#turnSwap(false);
-                this.playerTurnCounter.resetTurnCounter();
-                this.energy.resetEnergy();
+                // this.#turnSwap(false);
+                // this.playerTurnCounter.resetTurnCounter();
+                // this.energy.resetEnergy();
                 socket.emit("game:endTurn");
             }
         });
@@ -192,25 +196,55 @@ class Core {
         /* ------------------------------ Events ------------------------------ */
 
         socket.on("game:turnStarted", (data)=>{
-            this.allPlayersLoaded = true;
-            this.turnsHad++;
-            if (this.turnsHad === 2) this.playerTurnCounter.changeTotalPlacement(3);
-            
+            this.myTurn = true;
 
-            this.#turnSwap(true);
+            this.totalTurnExchanges++;
+            if (this.totalTurnExchanges === 3) this.playerTurnCounter.changeTotalPlacement(PLACEMENTS_PER_TURN);
+            this.allPlayersLoaded = true;
+            
+            this.playerTurnCounter.resetTurnCounter();
+            this.playerHand.enableHand();
+            this.playerHand.enableHover();
+
+            const mainCamera = this.scene.cameras.main;
+            this.scene.tweens.add({
+                targets: mainCamera,
+                scrollY: 0,
+                ease: 'Expo',
+                duration: 2000,
+                onComplete: () => {
+                    if (this.totalTurnExchanges > 2) this.canTarget = true;
+                },
+            });
             const cardInfoList = data.cardInfoList;
             
             for (let cardInfo of cardInfoList) {
                 this.playerHand.draw(cardInfo);
             }
+
             this.energy.resetEnergy();
             this.playerTurnCounter.resetTurnCounter();
         });
 
         socket.on("game:turnEnded", ()=>{
+            this.myTurn = false;
+
+            this.totalTurnExchanges++;
+            if (this.totalTurnExchanges === 3) this.playerTurnCounter.changeTotalPlacement(PLACEMENTS_PER_TURN);
+
             // FIXED: game:ready
             // When the game ins't tabbed in when the scene is loaded, this event doesn't fire nore do the others, but as soon as this is tabbed in and then tabbed out, it works like normal??
-            this.#turnSwap(false);
+            this.canTarget = false;
+            this.playerHand.disableHand();
+            this.playerHand.disableHover();
+
+            const mainCamera = this.scene.cameras.main;
+            this.scene.tweens.add({
+                targets: mainCamera,
+                scrollY: -235,
+                ease: 'Expo',
+                duration: 2000,
+            });
 
             this.playerTurnCounter.resetTurnCounter();
             this.energy.resetEnergy();
@@ -232,8 +266,9 @@ class Core {
             this.playerTurnCounter.decrementTurn();
         });
 
-        socket.on("game:amalgamationUsed", (data)=>{
-            this.attackStager.addToQueue(data);
+        socket.on("game:amalgamationUsed", (eventQueue, currentEnergyPool)=>{
+            this.attackStager.addToQueue(eventQueue);
+            this.energy.setEnergy(currentEnergyPool);
         });
 
         // Game doesn't load when not tabbed in, this will ready a ready, when all player are ready, game starts
@@ -249,8 +284,7 @@ class Core {
             this.scene.scene.stop("TargetingScene");
             // this.scene.scene.resume("Level");
             
-            const attackSuccessCb = (selectionIndices, remainingEnergy) => {
-                this.energy.setEnergy(remainingEnergy);
+            const attackSuccessCb = (selectionIndices) => {
                 socket.emit("game:useAmalgamation", allyIndex, enemyIndex, selectionIndices);
             }
             
@@ -295,7 +329,6 @@ class Core {
         //socket.once()
         const cardInfo = gameObject.getCardInfo();
         
-
         const index = dropZone.getData("index");
         const zoneType = dropZone.getData("zoneType")
         const amalgamation = this.playerAmalgamations[index];
@@ -315,36 +348,6 @@ class Core {
         } else {
             this.playerHand.layoutHand(gameObject);
         }
-    }
-
-    #turnSwap(switchToMe) {
-        if (!switchToMe) {
-            this.canTarget = false;
-            this.playerHand.disableHand();
-            this.playerHand.disableHover();
-            const mainCamera = this.scene.cameras.main
-            this.scene.tweens.add({
-                targets: mainCamera,
-                scrollY: -235,
-                ease: 'Expo',
-                duration: 2000
-            });
-        } else {
-            this.playerTurnCounter.resetTurnCounter();
-            this.playerHand.enableHand();
-            this.playerHand.enableHover();
-            const mainCamera = this.scene.cameras.main
-            this.scene.tweens.add({
-                targets: mainCamera,
-                scrollY: 0,
-                ease: 'Expo',
-                duration: 2000,
-                onComplete: ()=>{
-                    if (this.turnsHad > 1) this.canTarget = true;
-                }
-            });
-        }
-        this.myTurn = switchToMe
     }
 }
 

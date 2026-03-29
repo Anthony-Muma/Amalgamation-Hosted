@@ -383,7 +383,10 @@ export default class Level extends Phaser.Scene {
 		// 	main: this.sound.add("GamePlayMusic(Loop)")
 		// }
 
-		this.sound.add("GamePlayMusic(loop)").play();
+		const musicLoop = this.sound.add("GamePlayMusic(loop)");
+		musicLoop.setLoop(true);
+		musicLoop.setVolume(0.2);
+
 		const core = new Core(this);
 	}
 

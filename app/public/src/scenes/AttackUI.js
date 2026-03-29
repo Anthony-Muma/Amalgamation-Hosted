@@ -303,7 +303,6 @@ export default class AttackUI extends Phaser.Scene {
 	init({gameInfo, amalgamationInfo}) {
 		this.gameInfo = gameInfo;
 		this.amalgamationInfo = amalgamationInfo;
-		console.log(amalgamationInfo)
 	}
 
 
@@ -338,7 +337,6 @@ export default class AttackUI extends Phaser.Scene {
 
 		this.selected.setVisible(false);
 		this.selectedIndices = [];
-		this.remainingEnergy = this.gameInfo.energyPool;
 		this.canAttack = false;
 
 		// Make everything interactive
@@ -365,7 +363,7 @@ export default class AttackUI extends Phaser.Scene {
 
 			this.scene.resume("Level");
 			this.scene.stop("AttackUI");
-			this.gameInfo.attackSuccessCb(this.selectedIndices, this.remainingEnergy);
+			this.gameInfo.attackSuccessCb(this.selectedIndices);
 		})
 
 		// Sets the total to the current value as soon as the scene is loaded
@@ -495,7 +493,6 @@ export default class AttackUI extends Phaser.Scene {
 
 		// Update the energy text
 		if (remaining >= 0) {
-			this.remainingEnergy = remaining;
 			this.canAttack = true;
 			this.energySum.setText(`${remaining} ENG`);
 		} else {

@@ -203,7 +203,7 @@ export default class TargetingScene extends Phaser.Scene {
 			this.add.zone(x, ENEMY_Y, 100, 100)
 				.setRectangleDropZone(100, 100)
 				.setData({ index: i, type: "enemy" });
-			
+
 			if (DEBUG) this.add.rectangle(x, ENEMY_Y, 100, 100)
 				.setStrokeStyle(2, 0xff0000)
 				.setFillStyle(0xff0000, 0.2);

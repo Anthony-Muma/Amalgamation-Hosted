@@ -236,6 +236,7 @@ io.on("connection", (socket)=>{
     socket.on("game:useAmalgamation", (allyIndex, enemyIndex, selection)=>{
         // Game state check
             // Only do on X game state
+        if (selection.length === 0) return;
 
         // If the lobby does not exist,
         const lobby = LobbyStore.getLobby(currentLobbyId);

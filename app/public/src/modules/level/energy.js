@@ -18,6 +18,11 @@ export default class Energy {
         this.#energyPoolText.text = this.#totalEnergy.toString();
     }
 
+    setEnergy(amount) {
+        this.#totalEnergy = amount;
+        this.#energyPoolText.text = this.#totalEnergy.toString();
+    }
+
     getEnergy() {
         return this.#totalEnergy;
     }

@@ -138,25 +138,19 @@ class Core {
         if (DEBUG) scene.add.rectangle(962, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
 
         /* ------------------------------- Zone Events ------------------------------ */
-        console.warn("Hhe")
-        const ama = this.playerAmalgamations[0];
-        // ama.addDefense(TEST_CARD_1);
-        // ama.addDefense(TEST_CARD_2);
-        // ama.addDefense(TEST_CARD_3);
-
         
-        amalgamationPowerZone1.on("pointerdown", (pointer)=>{
-            const index = amalgamationPowerZone1.getData("index")
-            const handler = (indices) => {console.log(indices)}
-            console.log(this.playerAmalgamations[index].amalgamationInfo)
-            this.scene.scene.launch("AttackUI", 
-            {gameInfo:{
-                energyPool: this.energy.getEnergy(),
-                attackSuccessCb : handler
-            },
-            amalgamationInfo : this.playerAmalgamations[index].amalgamationInfo}
-            );
-        });
+        // amalgamationPowerZone1.on("pointerdown", (pointer)=>{
+        //     const index = amalgamationPowerZone1.getData("index")
+        //     const handler = (indices) => {console.log(indices)}
+        //     console.log(this.playerAmalgamations[index].amalgamationInfo)
+        //     this.scene.scene.launch("AttackUI", 
+        //     {gameInfo:{
+        //         energyPool: this.energy.getEnergy(),
+        //         attackSuccessCb : handler
+        //     },
+        //     amalgamationInfo : this.playerAmalgamations[index].amalgamationInfo}
+        //     );
+        // });
 
         scene.input.on("dragstart", (pointer, gameObject) => {
             hand.disableHover();
@@ -171,10 +165,11 @@ class Core {
         scene.input.on("drop", (pointer, gameObject, dropZone) => {
             hand.enableHover();
 
-            // Camera test
             const zoneType = dropZone.getData("zoneType");
+            const index = dropZone.getData("index");
+            const alive = this.playerAmalgamations[index].amalgamationInfo.alive;
             
-            if (!this.playerTurnCounter.canPlace() && !DEBUG) {
+            if ((!this.playerTurnCounter.canPlace() && !DEBUG) || !alive) {
                 this.playerHand.layoutHand(gameObject);
             } else if (zoneType === "energyZone") {
                 this.#handleEnergyZone(gameObject);
@@ -197,6 +192,7 @@ class Core {
         /* ------------------------------ Events ------------------------------ */
 
         socket.on("game:turnStarted", (data)=>{
+            
             this.turnsHad++;
             if (this.turnsHad === 2) this.playerTurnCounter.changeTotalPlacement(3);
             
@@ -237,7 +233,6 @@ class Core {
         });
 
         socket.on("game:amalgamationUsed", (data)=>{
-            console.warn(data);
             this.attackStager.addToQueue(data);
         });
 
@@ -252,22 +247,22 @@ class Core {
         // Callback functions
         const onSelectionCb = (allyIndex, enemyIndex) => {
             this.scene.scene.stop("TargetingScene");
-            this.scene.scene.resume("Level");
+            // this.scene.scene.resume("Level");
             
-            const attackSuccessCb = (selectionIndices) => {
+            const attackSuccessCb = (selectionIndices, remainingEnergy) => {
+                this.energy.setEnergy(remainingEnergy);
                 socket.emit("game:useAmalgamation", allyIndex, enemyIndex, selectionIndices);
             }
             
-            attackSuccessCb([0]);
-            // this.scene.scene.launch("AttackUI", 
-            //     {
-            //         gameInfo:{ 
-            //             energyPool: this.energy.getEnergy(),
-            //             attackSuccessCb
-            //         }, 
-            //         amalgamationInfo : this.playerAmalgamations[allyIndex].amalgamationInfo
-            //     }
-            // );
+            this.scene.scene.launch("AttackUI", 
+                {
+                    gameInfo:{ 
+                        energyPool: this.energy.getEnergy(),
+                        attackSuccessCb
+                    }, 
+                    amalgamationInfo : this.playerAmalgamations[allyIndex].amalgamationInfo
+                }
+            );
         }
 
         // Opens targeting menu

@@ -44,16 +44,17 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 		this.add(cardBack);
 
 		// title
-		const title = scene.add.image(0, 80, "200x200-Wall-Title");
+		const title = scene.add.image(0, 80, "200x200-Assassin-Title");
 		title.scaleX = 0.5;
 		title.scaleY = 0.5;
+        title.setTint(tint, tint, tint, tint); // Added after compilation
 		this.add(title);
 
         // // shadowFx_1
 		// title.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
 
 		// mainImage
-		const mainImage = scene.add.image(0, -16, "225x285-Wall");
+		const mainImage = scene.add.image(0, -16, "225x285-Assassin");
 		mainImage.scaleX = 0.6;
 		mainImage.scaleY = 0.6;
 		this.add(mainImage);
@@ -70,7 +71,7 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 		// healthText
 		const healthText = scene.add.text(72, -96, "", {});
 		healthText.setOrigin(0.5, 0.5);
-		healthText.text = "-";
+		healthText.text = "3";
 		healthText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "28px", "stroke": "#000000ff", "strokeThickness": 5, "resolution": 3 });
 		this.add(healthText);
 
@@ -254,26 +255,45 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
         return true;
     }
 
-    removeDefense(index) {
-        if (index < 0 || index >= this._currentDefense) return false;
+    removeDefense() {
+        // if (index < 0 || index >= this._currentDefense) return false;
 
         // Visual 
+        this._currentDefense--;
         this.defenseSlots[this._currentDefense].setTexture(DEFENSE_GREY_TEXTURE);
         this.defenseText[this._currentDefense].setText("-");
-        this._currentDefense--;
+        
         return true;
     }
 
-    startAttack() {
-
+    setTopDefense(defenseValue) {
+        this.amalgamationInfo.defenseObjectList[this._currentDefense] = defenseValue;
+        this.defenseText[this._currentDefense - 1].setText(defenseValue.toString());
     }
 
-    hitDefense(defenseInfo) {
-        console.log(defenseInfo);
+    getTopDefenseText() {
+        return this.defenseText[this._currentDefense - 1].text;
     }
 
-    hitDirect(amalgamationInfo) {
-        console.log(amalgamationInfo);
+    decreaseHealth(delta) {
+        this.amalgamationInfo.health -= delta;
+        this.healthText.setText(this.amalgamationInfo.health);
+    }
+
+    kill() {
+        this.amalgamationInfo.alive = false;
+        this.alpha = 0.2;
+
+        for (let defenseSlot of this.defenseSlots) {
+            defenseSlot.setVisible(false);
+        }
+
+        for (let defenseText of this.defenseText) {
+            defenseText.setVisible(false);
+        }
+
+        this.powerIcon.setVisible(false);
+        this.powerText.setVisible(false);
     }
     /* -------------------------------------------------------------------------- */
     /*                                    Setup                                   */

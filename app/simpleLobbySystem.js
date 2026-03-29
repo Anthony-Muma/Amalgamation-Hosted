@@ -233,13 +233,27 @@ io.on("connection", (socket)=>{
     });
 
     // TO:DO
-    socket.on("game:useAmalgamation", ()=>{
+    socket.on("game:useAmalgamation", (allyIndex, enemyIndex, selection)=>{
         // Game state check
             // Only do on X game state
 
-        
-        // Opponent play energy emit for other players
-        
+        // If the lobby does not exist,
+        const lobby = LobbyStore.getLobby(currentLobbyId);
+        if (!lobby) return;
+        // Game state / turn check
+        // const gs = lobby.game.getGameState();
+        // if (gs != GAME_STATES.STANDARDPLAY) return;
+        // Play.
+
+        // under the assumption there is only one other player
+        const otherPlayerArray = lobby.players.filter((p)=>(p !== socketId))
+
+        // something went really wrong
+        if (otherPlayerArray.length <= 0) return;
+
+        const result = lobby.game.useAmalgamation(socketId, otherPlayerArray[0], allyIndex, enemyIndex, selection);
+
+        io.to(currentLobbyId).emit("game:amalgamationUsed", result);
     });
 
     // TO:DO

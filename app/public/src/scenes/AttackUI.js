@@ -353,6 +353,17 @@ export default class AttackUI extends Phaser.Scene {
 			this.scene.stop("AttackUI");
 		});
 
+		//Attack button 
+		this.attackButton.on("pointerdown", () => {
+			attackSuccessCb : (attackIndices : number[]) => undefined
+			// allyIndex, enemyIndex are already defined (by targeting)
+			// This what the function passed in looks like
+			const attackSuccessCb = (attackIndices) => {
+				socket.emit("game:useAmalgamation", allyIndex, enemyIndex, attackIndices);
+			}
+ 
+		})
+
 		// Sets the total to the current value as soon as the scene is loaded
 		if (this.gameInfo?.energyPool !== undefined) {
 			this.energyTest.setText(`${this.gameInfo.energyPool} ENG`);

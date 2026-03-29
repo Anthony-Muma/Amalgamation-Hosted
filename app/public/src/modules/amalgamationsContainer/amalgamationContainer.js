@@ -36,7 +36,7 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
         
         // COMPILED CODE START (FROM PREFAB)
 
-       // cardBack
+        // cardBack
 		const cardBack = scene.add.image(0, -8, "200x280-Character-Card");
 		cardBack.scaleX = 0.8;
 		cardBack.scaleY = 0.8;
@@ -49,11 +49,17 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 		title.scaleY = 0.5;
 		this.add(title);
 
+        // // shadowFx_1
+		// title.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+
 		// mainImage
 		const mainImage = scene.add.image(0, -16, "225x285-Wall");
 		mainImage.scaleX = 0.6;
 		mainImage.scaleY = 0.6;
 		this.add(mainImage);
+
+        // shadowFx
+		mainImage.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
 
 		// healthIcon
 		const healthIcon = scene.add.image(72, -96, "100x100-Red-Heart");
@@ -128,6 +134,8 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 		this.powerText = powerText;
 		this.defenseSlots = defenseSlots;
 		this.defenseText = defenseText;
+
+        this.powerIcon = powerIcon;
 
         // COMPILED CODE END
 
@@ -223,7 +231,10 @@ export class AmalgamationContainer extends Phaser.GameObjects.Container {
 
         // visual
         this.powerText.setText((parseInt(this.powerText.text) + cardInfo.card.power).toString());
-
+        this.powerIcon.scaleX += (card.power * 0.01);
+        this.powerIcon.scaleY += (card.power * 0.01);
+        this.powerText.scaleX += (card.power * 0.01);
+        this.powerText.scaleY += (card.power * 0.01);
         return true;
     }
 

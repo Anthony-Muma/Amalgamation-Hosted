@@ -7,6 +7,7 @@
 
 const { Card, cardFactory } = require("./card");
 const { Player } = require("./player");
+const { deckGenerator } = require("./deckGenerator");
 
 /* -------------------------------------------------------------------------- */
 /*                                  Constants                                 */
@@ -88,13 +89,12 @@ class Game {
 
         const player = new Player();
 
-        // For now, create a starter deck for the player
-        // TODO: will change later
-
+        // Create a starter deck for the player
         const createRandomCard = () =>
             cardFactory(
-                ["sword", "pillow", "nails", "mushroom", "log", "clock", "mirror", "bomb", "brick", "shoe"][Math.floor(Math.random() * 10)],
-                "material"
+                // ["power", "knowledge", "arcane", "protector", "vital"][Math.floor(Math.random() * 5)],
+                // "soul"
+                ["sword", "pillow", "nails", "mushroom", "log", "clock", "mirror", "bomb", "brick", "shoe"][Math.floor(Math.random() * 10)],  "material"
             );
         const personalDeck = [createRandomCard(), createRandomCard(), createRandomCard(), createRandomCard(), createRandomCard()];
         player.changePersonalDeck(personalDeck);
@@ -132,13 +132,7 @@ class Game {
         
         // Draw from global deck
         for (let i = 0; i < GLOBAL_DRAW_AMOUNT; i++) {
-            // TODO: create a module that the card draw "randomness"
-            const {card, cardKey} = player.drawFromExternal(
-                cardFactory(
-                    ["sword", "pillow", "nails", "mushroom", "log", "clock", "mirror", "bomb", "brick", "shoe", "crystals"][Math.floor(Math.random() * 11)],
-                    "material"
-                )
-            );
+            const {card, cardKey} = player.drawFromExternal(deckGenerator(this.#turnCount));
             const cardInfo = new CardInfo(card, cardKey, "global");
             cardInfoList.push(cardInfo);
         }

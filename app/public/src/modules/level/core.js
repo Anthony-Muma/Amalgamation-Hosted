@@ -16,8 +16,15 @@ const BASE_AMALGAMATION = {
     powerObjectList : [],
     defenseObjectList : []
 }
-
+const DEBUG = false;
 const PLACEMENTS_PER_TURN = 3
+
+const BASE_AMA_X = 640;
+const BASE_AMA_Y = 416;
+const AMA_X_SPACING = 640-368;
+const AMA_Y_SPACING = 416 - 64;
+
+
 
 class Core {
     /**
@@ -28,22 +35,28 @@ class Core {
         this.scene = scene;
         this.playerHand = new CardHand(scene);
         this.playerAmalgamations = [
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 368, 368),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 640, 368),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 912, 368),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X, BASE_AMA_Y),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y),
         ];
 
         this.enemyAmalgamations = [
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 368, 128, 0xdd0000),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 640, 128, 0xdd0000),
-            new AmalgamationContainer(scene, BASE_AMALGAMATION, 912, 128, 0xdd0000),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X - AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
+            new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
         ];
+
         this.playerTurnCounter = new TurnCounter(scene, PLACEMENTS_PER_TURN)
         this.energy = new Energy(scene);
-        this.amalgamationTargetList = [0, 1, 2];
+        // this.amalgamationTargetList = [null, null, null];
+        // this.allySelected = null;
+        // this.enemySelected = null;
 
+        this.scene.cameras.main.setZoom(0.75);
+        
         /* ------------------------------- Game State ------------------------------- */
         this.myTurn = true;
+        this.canTarget = false;
 
         /* ---------------------------------- debug --------------------------------- */
         let i = 0;
@@ -54,9 +67,9 @@ class Core {
 			scene.drawDeck1.clearTint();
 			hand.disableHand();
 			hand.draw({cardKey : i++, card : {
-				energy: 10,
-				attack: 10,
-				defense: 10,
+				energy: null,
+				attack: null,
+				defense: null,
 				name: ["power", "knowledge", "protector", "arcane", "vital"][Phaser.Math.RND.integerInRange(0,4)],
 				type: 'soul'
 			}});
@@ -70,7 +83,7 @@ class Core {
 			hand.disableHand();
 			hand.draw({cardKey : i++, card : {
 				energy: 5,
-				attack: Phaser.Math.RND.integerInRange(0,10),
+				power: Phaser.Math.RND.integerInRange(0,10),
 				defense: Phaser.Math.RND.integerInRange(0,10),
 				name: ["sword", "log", "crystals", "pillow", "mushroom"][Phaser.Math.RND.integerInRange(0,4)],
 				type: 'material'
@@ -85,43 +98,44 @@ class Core {
             .setOrigin(0.5, 0.5)
             .setRectangleDropZone(200, 300)
             .setData({zoneType : "energyZone", index : 0});
-        scene.add.rectangle(144, 256, 200, 300).setStrokeStyle(2, 0x00ff00).setFillStyle(0x00ff00, 0.2);
+        
+        if (DEBUG) scene.add.rectangle(144, 256, 200, 300).setStrokeStyle(2, 0x00ff00).setFillStyle(0x00ff00, 0.2);
 
         // Zone 0
         const amalgamationPowerZone0 = scene.add.zone(318, 368, 100, 200)
             .setRectangleDropZone(100, 200)
             .setData({zoneType: "amalgamationPowerZone", index: 0});
-        scene.add.rectangle(318, 368, 100, 200).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
+        if (DEBUG) scene.add.rectangle(318, 368, 100, 200).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
 
         const amalgamationDefenseZone0 = scene.add.zone(418, 368, 100, 200)
             .setRectangleDropZone(100, 200)
             .setData({zoneType: "amalgamationDefenseZone", index: 0});
-        scene.add.rectangle(418, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
+        if (DEBUG) scene.add.rectangle(418, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
 
         // Zone 1
         const amalgamationPowerZone1 = scene.add.zone(590, 368, 100, 200)
             .setRectangleDropZone(100, 200)
             .setData({zoneType: "amalgamationPowerZone", index: 1});
-        scene.add.rectangle(590, 368, 100, 200).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
+        if (DEBUG) scene.add.rectangle(590, 368, 100, 200).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
 
         const amalgamationDefenseZone1 = scene.add.zone(690, 368, 100, 200)
             .setRectangleDropZone(100, 200)
             .setData({zoneType: "amalgamationDefenseZone", index: 1});
-        scene.add.rectangle(690, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
+        if (DEBUG) scene.add.rectangle(690, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
 
         // Zone 2
         const amalgamationPowerZone2 = scene.add.zone(862, 368, 100, 200)
             .setRectangleDropZone(100, 200)
             .setData({zoneType: "amalgamationPowerZone", index: 2});
-        scene.add.rectangle(862, 368, 100, 200).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
+        if (DEBUG) scene.add.rectangle(862, 368, 100, 200).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
 
         const amalgamationDefenseZone2 = scene.add.zone(962, 368, 100, 200)
             .setRectangleDropZone(100, 200)
             .setData({zoneType: "amalgamationDefenseZone", index: 2});
-        scene.add.rectangle(962, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
+        if (DEBUG) scene.add.rectangle(962, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
 
         /* ------------------------------- Zone Events ------------------------------ */
-
+        console.warn("Hhe")
         const ama = this.playerAmalgamations[0];
         // ama.addDefense(TEST_CARD_1);
         // ama.addDefense(TEST_CARD_2);
@@ -157,7 +171,7 @@ class Core {
             // Camera test
             const zoneType = dropZone.getData("zoneType");
             
-            if (this.playerTurnCounter.canPlace()) {
+            if (!this.playerTurnCounter.canPlace() && !DEBUG) {
                 this.playerHand.layoutHand(gameObject);
             } else if (zoneType === "energyZone") {
                 this.#handleEnergyZone(gameObject);
@@ -218,9 +232,27 @@ class Core {
         // Game doesn't load when not tabbed in, this will ready a ready, when all player are ready, game starts
         socket.emit("game:ready");
 
+        const onSelectionCb = (allyIndex, EnemyIndex) => {
+            this.scene.scene.stop("TargetingScene");
+            // this.scene.scene.resume("Level");
+            console.warn(this.playerAmalgamations[allyIndex].amalgamationInfo)
+            const handler = (indices) => {console.log(indices)}
+            this.scene.scene.launch("AttackUI", 
+                {gameInfo:{
+                    energyPool: this.energy.getEnergy(),
+                    attackSuccessCb : handler
+                }, amalgamationInfo : this.playerAmalgamations[allyIndex].amalgamationInfo}
+            );
+
+
+        }
+
+        
         this.scene.input.keyboard.on('keydown-E', ()=>{ 
-			this.scene.scene.pause("Level");
-			this.scene.scene.launch("TargetingScene", this.amalgamationTargetList);
+            console.log(this.canTarget);
+			if (!this.canTarget) return;
+			this.scene.scene.launch("TargetingScene", onSelectionCb);
+            this.scene.scene.pause("Level");
 		});
     }
 
@@ -266,6 +298,7 @@ class Core {
 
     #turnSwap(switchToMe) {
         if (!switchToMe) {
+            this.canTarget = false;
             this.playerHand.disableHand();
             this.playerHand.disableHover();
             const mainCamera = this.scene.cameras.main
@@ -284,7 +317,10 @@ class Core {
                 targets: mainCamera,
                 scrollY: 0,
                 ease: 'Expo',
-                duration: 2000
+                duration: 2000,
+                onComplete: ()=>{
+                    this.canTarget = true;
+                }
             });
         }
         this.myTurn = switchToMe

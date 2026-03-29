@@ -18,11 +18,52 @@
             "label": "network_indicator",
             "displayName": "Network Indicator",
             "scope": "CLASS",
-            "x": 32,
-            "y": 32,
+            "x": 48,
+            "y": 48,
             "isFilled": true,
             "width": 32,
             "height": 32
+        },
+        {
+            "type": "Image",
+            "id": "fb9df850-3717-470c-8bf3-41d83b571db5",
+            "label": "icon",
+            "scope": "CLASS",
+            "texture": {
+                "key": "100x100-Red-Circle"
+            },
+            "x": 48,
+            "y": 48,
+            "scaleX": 0.8,
+            "scaleY": 0.8,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "6e6d73b3-69aa-4bb4-bb60-0166a307c9e4",
+                    "label": "shadowFx",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "10876c78-1c30-4bb8-a3e3-0a8c82ff8389",
+            "label": "_100x100_Gear",
+            "texture": {
+                "key": "100x100-Gear"
+            },
+            "x": 1232,
+            "y": 48,
+            "scaleX": 0.8,
+            "scaleY": 0.8,
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "5a6a522b-2983-4416-b1fe-903fe906c63a",
+                    "label": "shadowFx_1",
+                    "preFX": true
+                }
+            ]
         }
     ],
     "plainObjects": [],

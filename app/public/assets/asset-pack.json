@@ -7,6 +7,21 @@
                 "key": "100x100-Blue-Shield"
             },
             {
+                "url": "assets/Ama-Symbols/100x100-Energy.png",
+                "type": "image",
+                "key": "100x100-Energy"
+            },
+            {
+                "url": "assets/Circles/100x100-Gear.png",
+                "type": "image",
+                "key": "100x100-Gear"
+            },
+            {
+                "url": "assets/Circles/100x100-Green-Circle.png",
+                "type": "image",
+                "key": "100x100-Green-Circle"
+            },
+            {
                 "url": "assets/Ama-Symbols/100x100-Grey-Shield.png",
                 "type": "image",
                 "key": "100x100-Grey-Shield"
@@ -17,9 +32,19 @@
                 "key": "100x100-Power"
             },
             {
+                "url": "assets/Circles/100x100-Red-Circle.png",
+                "type": "image",
+                "key": "100x100-Red-Circle"
+            },
+            {
                 "url": "assets/Ama-Symbols/100x100-Red-Heart.png",
                 "type": "image",
                 "key": "100x100-Red-Heart"
+            },
+            {
+                "url": "assets/Random/10x10-White-Blob.png",
+                "type": "image",
+                "key": "10x10-White-Blob"
             },
             {
                 "url": "assets/Main-Card-Images/200x200-Arcane-Soul.png",
@@ -35,6 +60,11 @@
                 "url": "assets/Titles/200x200-Assassin-Title.png",
                 "type": "image",
                 "key": "200x200-Assassin-Title"
+            },
+            {
+                "url": "assets/Random/200x200-Black-Blob.png",
+                "type": "image",
+                "key": "200x200-Black-Blob"
             },
             {
                 "url": "assets/Main-Card-Images/200x200-Bomb.png",
@@ -170,6 +200,11 @@
                 "url": "assets/Cards/200x280-Arcane-Soul-Card.png",
                 "type": "image",
                 "key": "200x280-Arcane-Soul-Card"
+            },
+            {
+                "url": "assets/Random/200x280-Black-Blob.png",
+                "type": "image",
+                "key": "200x280-Black-Blob"
             },
             {
                 "url": "assets/Cards/200x280-Bright-White-Card.png",
@@ -366,6 +401,20 @@
                 "url": "assets/Energy Crystal Word.PNG",
                 "type": "image",
                 "key": "Energy Crystal Word"
+            },
+            {
+                "url": [
+                    "assets/sounds/music/GamePlayMusic.wav"
+                ],
+                "type": "audio",
+                "key": "GamePlayMusic"
+            },
+            {
+                "url": [
+                    "assets/sounds/music/GamePlayMusic(loop).wav"
+                ],
+                "type": "audio",
+                "key": "GamePlayMusic(loop)"
             },
             {
                 "url": [

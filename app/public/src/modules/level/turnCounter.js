@@ -37,7 +37,7 @@ class TurnCounter {
     }
 
     canPlace() {
-        return (this.#placementsLeft <= 0);
+        return (this.#placementsLeft > 0);
     }
 
     #updateText() {

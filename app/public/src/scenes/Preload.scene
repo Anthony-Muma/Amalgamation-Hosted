@@ -24,7 +24,8 @@
             "x": 505.0120544433594,
             "y": 360,
             "scaleX": 0.32715486817515643,
-            "scaleY": 0.32715486817515643
+            "scaleY": 0.32715486817515643,
+            "visible": false
         },
         {
             "type": "Rectangle",
@@ -35,6 +36,7 @@
             "y": 361,
             "originX": 0,
             "originY": 0,
+            "visible": false,
             "isFilled": true,
             "fillColor": "#e0e0e0",
             "width": 256,
@@ -48,6 +50,7 @@
             "y": 361,
             "originX": 0,
             "originY": 0,
+            "visible": false,
             "fillColor": "#e0e0e0",
             "isStroked": true,
             "width": 256,
@@ -59,10 +62,50 @@
             "label": "loadingText",
             "x": 552.0120849609375,
             "y": 329,
+            "visible": false,
             "text": "Loading...",
             "fontFamily": "arial",
             "fontSize": "20px",
             "color": "#e0e0e0"
+        },
+        {
+            "type": "Image",
+            "id": "2e764d53-f266-42d4-b757-66319603d1be",
+            "label": "amaBg",
+            "scope": "CLASS",
+            "texture": {
+                "key": "320x180-Amalgamations-Title"
+            },
+            "x": 640,
+            "y": 360,
+            "tintTopLeft": "#000000",
+            "tintTopRight": "#000000",
+            "tintBottomLeft": "#000000",
+            "tintBottomRight": "#000000",
+            "tintFill": true
+        },
+        {
+            "type": "Image",
+            "id": "92268a18-cb3a-4aef-af68-0ac9b1a23e02",
+            "label": "amaMain",
+            "scope": "CLASS",
+            "texture": {
+                "key": "320x180-Amalgamations-Title"
+            },
+            "x": 640,
+            "y": 360,
+            "list": [
+                {
+                    "type": "Wipe",
+                    "id": "e4fa6a5b-dec5-4f0c-a03a-49dff0d4a3c4",
+                    "label": "wipeFx",
+                    "scope": "CLASS",
+                    "wipeWidth": 0.2,
+                    "progress": 1,
+                    "reveal": true,
+                    "preFX": true
+                }
+            ]
         }
     ],
     "plainObjects": [],

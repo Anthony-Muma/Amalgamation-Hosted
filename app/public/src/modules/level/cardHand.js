@@ -6,9 +6,9 @@ import { baseContainer } from "../cardContainers/baseContainer.js";
 import { cardContainerCreator } from "../cardContainers/index.js";
 
 const FLIP_DELAY = 500;
-const SPACING = 168;
-const ANCHOR_X = 640;
-const HAND_Y = 592;
+const SPACING = 168; // 168
+const ANCHOR_X = 640; // 640
+const HAND_Y = 672; // 592
 
 const PERSONAL_DECK_X = 1104;
 const PERSONAL_DECK_Y = 144;

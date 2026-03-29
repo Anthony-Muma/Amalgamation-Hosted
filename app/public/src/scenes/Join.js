@@ -21,62 +21,111 @@ export default class Join extends Phaser.Scene {
 	editorCreate() {
 
 		// main_Menu_Background
-		const main_Menu_Background = this.add.image(640, 360, "Main-Menu-Background");
+		const main_Menu_Background = this.add.image(640, 360, "Purple-Background");
 		main_Menu_Background.scaleX = 0.67;
 		main_Menu_Background.scaleY = 0.67;
 
-		// lobbyCodeText
-		const lobbyCodeText = this.add.text(640, 150, "", {});
-		lobbyCodeText.setOrigin(0.5, 0.5);
-		lobbyCodeText.text = "Enter Lobby Code";
-		lobbyCodeText.setStyle({ "color": "#ffffffff", "fontSize": "40px", "stroke": "#ffffffff" });
+		// _200x200_Black_Blob
+		const _200x200_Black_Blob = this.add.image(640, 320, "200x200-Black-Blob");
+		_200x200_Black_Blob.scaleX = 3;
+		_200x200_Black_Blob.scaleY = 1.5;
+		_200x200_Black_Blob.alpha = 0.5;
+		_200x200_Black_Blob.alphaTopLeft = 0.5;
+		_200x200_Black_Blob.alphaTopRight = 0.5;
+		_200x200_Black_Blob.alphaBottomLeft = 0.5;
+		_200x200_Black_Blob.alphaBottomRight = 0.5;
 
-		// backButton
-		const backButton = this.add.rectangle(200, 650, 150, 60);
-		backButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 150, 60), Phaser.Geom.Rectangle.Contains);
-		backButton.isFilled = true;
-		backButton.fillColor = 11141120;
+		// backButton1
+		const backButton1 = this.add.rectangle(-192, 464, 150, 60);
+		backButton1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 150, 60), Phaser.Geom.Rectangle.Contains);
+		backButton1.isFilled = true;
+		backButton1.fillColor = 11141120;
 
-		// backText
-		const backText = this.add.text(200, 650, "", {});
-		backText.setOrigin(0.5, 0.5);
-		backText.text = "Back";
-		backText.setStyle({ "fontSize": "24px" });
+		// backText1
+		const backText1 = this.add.text(-192, 464, "", {});
+		backText1.setOrigin(0.5, 0.5);
+		backText1.text = "Back";
+		backText1.setStyle({ "fontSize": "24px" });
 
 		// userTextBox
 		const userTextBox = this.add.rectangle(640, 300, 280, 60);
 
+		// enterButton1
+		const enterButton1 = this.add.rectangle(1408, 384, 150, 60);
+		enterButton1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 150, 60), Phaser.Geom.Rectangle.Contains);
+		enterButton1.isFilled = true;
+		enterButton1.fillColor = 43520;
+
+		// enterText1
+		const enterText1 = this.add.text(1408, 384, "", {});
+		enterText1.setOrigin(0.5, 0.5);
+		enterText1.text = "Enter";
+		enterText1.setStyle({ "fontSize": "24px" });
+
+		// text_5
+		const text_5 = this.add.text(640, 64, "", {});
+		text_5.setOrigin(0.5, 0.5);
+		text_5.text = "Enter Lobby Code";
+		text_5.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000", "strokeThickness": 8, "shadow.offsetX": 8, "shadow.offsetY": 8, "shadow.color": "#201f1fff", "shadow.stroke": true, "shadow.fill": true });
+
+		// backButton
+		const backButton = this.add.image(192, 656, "500x200-Bar");
+		backButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 480, 150), Phaser.Geom.Rectangle.Contains);
+		backButton.scaleX = 0.75;
+		backButton.scaleY = 0.75;
+
+		// shadowFx
+		backButton.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+
+		// backText
+		const backText = this.add.text(192, 656, "", {});
+		backText.setOrigin(0.5, 0.5);
+		backText.text = "Back";
+		backText.setStyle({ "align": "center", "color": "#f50000ff", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000", "strokeThickness": 8, "shadow.offsetX": 8, "shadow.offsetY": 8, "shadow.color": "#201f1fff", "shadow.stroke": true, "shadow.fill": true, "resolution": 2 });
+
 		// enterButton
-		const enterButton = this.add.rectangle(640, 400, 150, 60);
-		enterButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 150, 60), Phaser.Geom.Rectangle.Contains);
-		enterButton.isFilled = true;
-		enterButton.fillColor = 43520;
+		const enterButton = this.add.image(640, 384, "500x200-Bar");
+		enterButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 480, 150), Phaser.Geom.Rectangle.Contains);
+		enterButton.scaleX = 0.75;
+		enterButton.scaleY = 0.75;
+
+		// shadowFx_1
+		enterButton.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
 
 		// enterText
-		const enterText = this.add.text(640, 400, "", {});
+		const enterText = this.add.text(640, 384, "", {});
 		enterText.setOrigin(0.5, 0.5);
 		enterText.text = "Enter";
-		enterText.setStyle({ "fontSize": "24px" });
+		enterText.setStyle({ "align": "center", "color": "#00f52fff", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000", "strokeThickness": 8, "shadow.offsetX": 8, "shadow.offsetY": 8, "shadow.color": "#201f1fff", "shadow.stroke": true, "shadow.fill": true, "resolution": 2 });
 
-		this.lobbyCodeText = lobbyCodeText;
+		this.backButton1 = backButton1;
+		this.backText1 = backText1;
+		this.userTextBox = userTextBox;
+		this.enterButton1 = enterButton1;
+		this.enterText1 = enterText1;
 		this.backButton = backButton;
 		this.backText = backText;
-		this.userTextBox = userTextBox;
 		this.enterButton = enterButton;
 		this.enterText = enterText;
 
 		this.events.emit("scene-awake");
 	}
 
-	/** @type {Phaser.GameObjects.Text} */
-	lobbyCodeText;
 	/** @type {Phaser.GameObjects.Rectangle} */
-	backButton;
+	backButton1;
 	/** @type {Phaser.GameObjects.Text} */
-	backText;
+	backText1;
 	/** @type {Phaser.GameObjects.Rectangle} */
 	userTextBox;
 	/** @type {Phaser.GameObjects.Rectangle} */
+	enterButton1;
+	/** @type {Phaser.GameObjects.Text} */
+	enterText1;
+	/** @type {Phaser.GameObjects.Image} */
+	backButton;
+	/** @type {Phaser.GameObjects.Text} */
+	backText;
+	/** @type {Phaser.GameObjects.Image} */
 	enterButton;
 	/** @type {Phaser.GameObjects.Text} */
 	enterText;
@@ -137,7 +186,7 @@ export default class Join extends Phaser.Scene {
 			/*
 				// NOTE: on the client, needs to start "Lobby scene" with these params {hostId, players, currentLobbyId}
 			*/
-			this.scene.start("Lobby", lobbyInfo);
+			this.scene.start("Lobby", {lobbyInfo, isHost: false});
     	});
 
 		socket.on("lobby:failed", (data)=>{

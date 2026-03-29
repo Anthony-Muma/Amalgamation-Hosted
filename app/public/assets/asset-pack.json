@@ -2,9 +2,24 @@
     "section1": {
         "files": [
             {
+                "url": "assets/Circles/100x100-Blue.png",
+                "type": "image",
+                "key": "100x100-Blue"
+            },
+            {
                 "url": "assets/Ama-Symbols/100x100-Blue-Shield.png",
                 "type": "image",
                 "key": "100x100-Blue-Shield"
+            },
+            {
+                "url": "assets/Circles/100x100-Crown.png",
+                "type": "image",
+                "key": "100x100-Crown"
+            },
+            {
+                "url": "assets/Circles/100x100-Empty.png",
+                "type": "image",
+                "key": "100x100-Empty"
             },
             {
                 "url": "assets/Ama-Symbols/100x100-Energy.png",
@@ -30,6 +45,11 @@
                 "url": "assets/Ama-Symbols/100x100-Power.png",
                 "type": "image",
                 "key": "100x100-Power"
+            },
+            {
+                "url": "assets/Circles/100x100-Question.png",
+                "type": "image",
+                "key": "100x100-Question"
             },
             {
                 "url": "assets/Circles/100x100-Red-Circle.png",
@@ -255,6 +275,11 @@
                 "url": "assets/Cards/200x280-White-Silver-Card.png",
                 "type": "image",
                 "key": "200x280-White-Silver-Card"
+            },
+            {
+                "url": "assets/Characters/225x285-Assassin.png",
+                "type": "image",
+                "key": "225x285-Assassin"
             },
             {
                 "url": "assets/Characters/225x285-Knight.png",

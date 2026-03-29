@@ -203,8 +203,8 @@ io.on("connection", (socket)=>{
         result.cardInfo.card.energy = null;
         result.cardInfo.card.power = null;
         result.cardInfo.card.defense = null;
-        result.cardInfo.card.defense = null;
-        console.log(result);
+        // result.cardInfo.card.defense = null;
+        // console.log(result);
         socket.to(currentLobbyId).emit("game:opponentPlayedDefense", result);
 
     });

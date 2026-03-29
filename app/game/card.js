@@ -22,7 +22,7 @@ const DEFAULT_SETTINGS = {
     "defense" : null,
 
     "name" : "None",
-    "type" : "None",
+    "type" : "material",
     "special" : []
 }
 
@@ -94,9 +94,9 @@ function cardFactory(name, type) {
         case "soul":
             settings = soul[name];
             break;
-        default:
-            throw new Error(`Invalid card name or type: ${name} ${type}`);
     }
+
+    if (!settings) console.warn("could not find card: " + name + ", " + type);
 
     const card = new Card(settings);
     return card;

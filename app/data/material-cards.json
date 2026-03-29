@@ -35,6 +35,15 @@
         "type" : "material"
     },
 
+    "crystal" : {
+        "energy" : 8,
+        "power" : null,
+        "defense" : null,
+
+        "name" : "crystal",
+        "type" : "material"
+    },
+
     "crystals" : {
         "energy" : 15,
         "power" : null,

@@ -37,7 +37,7 @@ const CARDS = { // Weight is a number. Higher weight means more likely to be dra
         else if (turn >= 20) w = 0;
         return w;
     }},
-    "energy crystal": { getWeight: function(turn) {
+    "crystal": { getWeight: function(turn) {
         // Exponential increase, 99 weight at turn 20
         let w = turn;
         if (turn > 10 && turn <= 15) w += (turn-10)*2

@@ -40,7 +40,6 @@ export class AttackStager {
         };
 
         const {action, target, info} = queueObject;
-        console.warn(queueObject);
         const {playerIndex, amalgamationIndex} = target;
         const targetAmalgamation = this.#getAmalgamation(playerIndex, amalgamationIndex);
 

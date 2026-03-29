@@ -17,7 +17,7 @@ const BASE_AMALGAMATION = {
     powerObjectList : [],
     defenseObjectList : []
 }
-const DEBUG = false;
+const DEBUG = true;
 const STARTING_PLACEMENTS_PER_TURN = 6;
 const PLACEMENTS_PER_TURN = 3
 
@@ -57,6 +57,7 @@ class Core {
         /* ------------------------------- Game State ------------------------------- */
         this.myTurn = true;
         this.canTarget = false;
+        this.allPlayersLoaded = false;
     
         // Player specific 
         this.turnsHad = 0;
@@ -97,46 +98,45 @@ class Core {
         /* ------------------------------- Setup Zones ------------------------------ */
 
          
-        const energyZone = scene.add.zone(144, 256, 200, 300)
+        const energyZone = scene.add.zone(16, 224, 200, 300)
             .setOrigin(0.5, 0.5)
             .setRectangleDropZone(200, 300)
             .setData({zoneType : "energyZone", index : 0});
         
-        if (DEBUG) scene.add.rectangle(144, 256, 200, 300).setStrokeStyle(2, 0x00ff00).setFillStyle(0x00ff00, 0.2);
+        if (DEBUG) scene.add.rectangle(16, 224, 200, 300).setStrokeStyle(2, 0x00ff00).setFillStyle(0x00ff00, 0.2);
 
         // Zone 0
-        const amalgamationPowerZone0 = scene.add.zone(318, 368, 100, 200)
-            .setRectangleDropZone(100, 200)
+        const amalgamationPowerZone0 = scene.add.zone(308, 418, 120, 230)
+            .setRectangleDropZone(120, 230)
             .setData({zoneType: "amalgamationPowerZone", index: 0});
-        if (DEBUG) scene.add.rectangle(318, 368, 100, 200).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
+        if (DEBUG) scene.add.rectangle(308, 418, 120, 230).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
 
-        const amalgamationDefenseZone0 = scene.add.zone(418, 368, 100, 200)
-            .setRectangleDropZone(100, 200)
+        const amalgamationDefenseZone0 = scene.add.zone(438, 418, 140, 230)
+            .setRectangleDropZone(140, 230)
             .setData({zoneType: "amalgamationDefenseZone", index: 0});
-        if (DEBUG) scene.add.rectangle(418, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
+        if (DEBUG) scene.add.rectangle(438, 418, 140, 230).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
 
         // Zone 1
-        const amalgamationPowerZone1 = scene.add.zone(590, 368, 100, 200)
-            .setRectangleDropZone(100, 200)
+        const amalgamationPowerZone1 = scene.add.zone(580, 418, 120, 230)
+            .setRectangleDropZone(120, 230)
             .setData({zoneType: "amalgamationPowerZone", index: 1});
-        if (DEBUG) scene.add.rectangle(590, 368, 100, 200).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
+        if (DEBUG) scene.add.rectangle(580, 418, 120, 230).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
 
-        const amalgamationDefenseZone1 = scene.add.zone(690, 368, 100, 200)
-            .setRectangleDropZone(100, 200)
+        const amalgamationDefenseZone1 = scene.add.zone(710, 418, 140, 230)
+            .setRectangleDropZone(140, 230)
             .setData({zoneType: "amalgamationDefenseZone", index: 1});
-        if (DEBUG) scene.add.rectangle(690, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
+        if (DEBUG) scene.add.rectangle(710, 418, 140, 230).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
 
         // Zone 2
-        const amalgamationPowerZone2 = scene.add.zone(862, 368, 100, 200)
-            .setRectangleDropZone(100, 200)
+        const amalgamationPowerZone2 = scene.add.zone(852, 418, 120, 230)
+            .setRectangleDropZone(120, 230)
             .setData({zoneType: "amalgamationPowerZone", index: 2});
-        if (DEBUG) scene.add.rectangle(862, 368, 100, 200).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
+        if (DEBUG) scene.add.rectangle(852, 418, 120, 230).setStrokeStyle(2, 0xff0000).setFillStyle(0xff0000, 0.2);
 
-        const amalgamationDefenseZone2 = scene.add.zone(962, 368, 100, 200)
-            .setRectangleDropZone(100, 200)
+        const amalgamationDefenseZone2 = scene.add.zone(982, 418, 140, 230)
+            .setRectangleDropZone(140, 230)
             .setData({zoneType: "amalgamationDefenseZone", index: 2});
-        if (DEBUG) scene.add.rectangle(962, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
-
+        if (DEBUG) scene.add.rectangle(982, 418, 140, 230).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
         /* ------------------------------- Zone Events ------------------------------ */
         
         // amalgamationPowerZone1.on("pointerdown", (pointer)=>{
@@ -169,7 +169,7 @@ class Core {
             const index = dropZone.getData("index");
             const alive = this.playerAmalgamations[index].amalgamationInfo.alive;
             
-            if ((!this.playerTurnCounter.canPlace() && !DEBUG) || !alive) {
+            if (!this.playerTurnCounter.canPlace() || this.attackStager.isActive() || !alive) {
                 this.playerHand.layoutHand(gameObject);
             } else if (zoneType === "energyZone") {
                 this.#handleEnergyZone(gameObject);
@@ -179,7 +179,7 @@ class Core {
         });
 
         this.scene.input.keyboard.on('keydown-SPACE', ()=>{ 
-            if (this.myTurn) {
+            if (this.myTurn && this.allPlayersLoaded) {
                 this.#turnSwap(false);
                 this.playerTurnCounter.resetTurnCounter();
                 this.energy.resetEnergy();
@@ -192,7 +192,7 @@ class Core {
         /* ------------------------------ Events ------------------------------ */
 
         socket.on("game:turnStarted", (data)=>{
-            
+            this.allPlayersLoaded = true;
             this.turnsHad++;
             if (this.turnsHad === 2) this.playerTurnCounter.changeTotalPlacement(3);
             

@@ -17,5 +17,6 @@ export default function cardContainerCreator(scene, cardInfo, x = 0, y = 0) {
     } else if (cardInfo.card.type === "material") {
         return new materialContainer(scene, cardInfo, x, y);
     }
-    return undefined
+    console.warn(cardInfo);
+    throw new Error(cardInfo);
 }

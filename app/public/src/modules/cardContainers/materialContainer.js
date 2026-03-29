@@ -5,6 +5,7 @@ function getMainImageKey(name) {
     const map = {
         log: "200x200-Chopped-Log",
         pillow : "200x200-Pillow",
+        crystal : "200x200-Energy-Crystal",
         crystals : "200x200-Energy-Crystals-3X",
         nails : "200x200-Nails",
         sword : "200x200-Sword",
@@ -34,6 +35,7 @@ export class materialContainer extends baseContainer {
      */
     constructor(scene, cardInfo, x = 0, y = 0) {
         super(scene, cardInfo, x, y);
+        console.warn(cardInfo)
         /* --------------------------------- Visual --------------------------------- */
 
         this.imageKey = getMainImageKey(cardInfo.card.name);

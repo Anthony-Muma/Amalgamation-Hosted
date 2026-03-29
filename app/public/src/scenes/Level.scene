@@ -37,8 +37,8 @@
             "texture": {
                 "key": "Card back"
             },
-            "x": 2160,
-            "y": 96,
+            "x": -928,
+            "y": -48,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -53,8 +53,8 @@
             "texture": {
                 "key": "Card back"
             },
-            "x": 2160,
-            "y": 320,
+            "x": -1088,
+            "y": -48,
             "scaleX": 0.25,
             "scaleY": 0.25
         },
@@ -134,7 +134,7 @@
             "label": "particleemitter_1",
             "blendMode": 1,
             "x": -496,
-            "y": 112,
+            "y": 224,
             "configTexture": "10x10-White-Blob",
             "configFrame": [],
             "scale_type": "StartEndRandom",
@@ -176,18 +176,6 @@
             "scaleX": 0.8,
             "scaleY": 0.8,
             "visible": false
-        },
-        {
-            "type": "Image",
-            "id": "1f7e8fd0-2f63-4275-8c1c-540f4a391693",
-            "label": "_200x280_Character_Card_1",
-            "texture": {
-                "key": "200x280-Character-Card"
-            },
-            "x": 1872,
-            "y": 320,
-            "scaleX": 1.5,
-            "scaleY": 3.063370076576077
         },
         {
             "type": "Image",
@@ -300,47 +288,6 @@
             },
             "x": -368,
             "y": 224
-        },
-        {
-            "type": "Image",
-            "id": "048a3195-6a97-4a9d-bdd4-1c75c84463a9",
-            "label": "_200x280_Black_Blob_6",
-            "texture": {
-                "key": "200x280-Black-Blob"
-            },
-            "x": 1744,
-            "y": 176,
-            "scaleX": 1.2,
-            "scaleY": 0.9
-        },
-        {
-            "type": "ParticleEmitter",
-            "id": "798cab9d-1509-4541-94c4-33020c3fd002",
-            "label": "particleemitter",
-            "blendMode": 1,
-            "x": -1856,
-            "y": 656,
-            "configTexture": "10x10-White-Blob",
-            "configFrame": [],
-            "x_type": "MinMax",
-            "x_max": 1280,
-            "scale_type": "StartEndRandom",
-            "scale_start": 1,
-            "speedX_type": "MinMax",
-            "speedX_min": -30,
-            "speedX_max": 30,
-            "speedY_type": "MinMax",
-            "speedY_min": -60,
-            "speedY_max": 60,
-            "lifespan_type": "MinMax",
-            "lifespan_min": 5000,
-            "lifespan_max": 8000,
-            "quantity_type": "Static",
-            "quantity_value": 3,
-            "tint_type": "Static",
-            "_blendMode": 1,
-            "_frequency": 100,
-            "radial": false
         },
         {
             "type": "Image",
@@ -484,6 +431,232 @@
             "color": "#ffffffff",
             "stroke": "#000000ff",
             "strokeThickness": 24
+        },
+        {
+            "type": "Image",
+            "id": "ba4edbd8-9ce3-4a2f-a3bd-7afb830818c1",
+            "label": "drawDeck",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 600,
+            "hitArea.height": 840,
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 800,
+            "y": -208,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "2608f819-4a2a-4ba0-9eab-efa0b7997664",
+            "label": "drawDeck_1",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 600,
+            "hitArea.height": 840,
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 480,
+            "y": -208,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "14a96933-f7f1-44c8-b323-e85f6df0b512",
+            "label": "drawDeck_3",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 600,
+            "hitArea.height": 840,
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 320,
+            "y": -208,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "1306558a-a823-4ef7-8e62-1eb260a22cf4",
+            "label": "drawDeck_4",
+            "scope": "CLASS",
+            "hitArea.shape": "RECTANGLE",
+            "hitArea.width": 600,
+            "hitArea.height": 840,
+            "texture": {
+                "key": "Card back"
+            },
+            "x": 960,
+            "y": -208,
+            "scaleX": 0.25,
+            "scaleY": 0.25
+        },
+        {
+            "type": "Image",
+            "id": "fe0f975f-4fda-4a9b-a121-dcf9727f6873",
+            "label": "damageStampIcon",
+            "scope": "CLASS",
+            "texture": {
+                "key": "100x100-Power"
+            },
+            "x": 2336,
+            "y": 704,
+            "scaleX": 3,
+            "scaleY": 3,
+            "tintTopLeft": "#ee0000",
+            "tintTopRight": "#ee0000",
+            "tintBottomLeft": "#ee0000",
+            "tintBottomRight": "#ee0000",
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "52d5d069-236e-4b31-82cb-d0866664b883",
+                    "label": "shadowFx_1",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Image",
+            "id": "d9b3a0db-3dad-4cc9-b7a2-2c29b4d012a4",
+            "label": "defenseFlipIcon",
+            "scope": "CLASS",
+            "texture": {
+                "key": "100x100-Blue-Shield"
+            },
+            "x": 2512,
+            "y": 368,
+            "scaleX": 3,
+            "scaleY": 3,
+            "list": [
+                {
+                    "type": "Wipe",
+                    "id": "480e6bee-b895-45eb-97e4-233757e92285",
+                    "label": "wipeFx",
+                    "wipeWidth": 1.54,
+                    "progress": 1,
+                    "reveal": true,
+                    "preFX": true
+                },
+                {
+                    "type": "Shadow",
+                    "id": "2235ab18-6b19-4ca2-9fe5-f6b88817cd6e",
+                    "label": "shadowFx",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "ParticleEmitter",
+            "id": "f18c232e-7d84-4735-b111-711b3cf81d1e",
+            "label": "particleemitter_2",
+            "blendMode": 1,
+            "x": 2064,
+            "y": 368,
+            "configTexture": "10x10-White-Blob",
+            "configFrame": [],
+            "scale_type": "StartEndRandom",
+            "scale_start": 5,
+            "speed_type": "MinMax",
+            "speed_min": 20,
+            "speed_max": 80,
+            "quantity_type": "Static",
+            "quantity_value": 3,
+            "tint_type": "Static",
+            "tint_value": 9306004,
+            "_blendMode": 1,
+            "_frequency": 40,
+            "_gravityY": -30
+        },
+        {
+            "type": "Text",
+            "id": "a10a65aa-a2ae-4c1d-8cd2-fe9344850d26",
+            "label": "damageStampText",
+            "scope": "CLASS",
+            "x": 2336,
+            "y": 704,
+            "scaleX": 3,
+            "scaleY": 3,
+            "originX": 0.5,
+            "originY": 0.5,
+            "tintTopLeft": "#ff0000",
+            "text": "5",
+            "resolution": 3,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#ffffffff",
+            "stroke": "#000000ff",
+            "strokeThickness": 8
+        },
+        {
+            "type": "Text",
+            "id": "729ea279-2f61-487d-b9ae-f1309b511aad",
+            "label": "defenseFlipText",
+            "scope": "CLASS",
+            "x": 2512,
+            "y": 368,
+            "scaleX": 3,
+            "scaleY": 3,
+            "originX": 0.5,
+            "originY": 0.5,
+            "tintTopLeft": "#f10000",
+            "text": "?",
+            "resolution": 3,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#ffffffff",
+            "stroke": "#000000ff",
+            "strokeThickness": 8
+        },
+        {
+            "type": "Image",
+            "id": "943adcb3-5b0a-4941-8de3-2923c12b11b4",
+            "label": "directDamageIcon",
+            "scope": "CLASS",
+            "texture": {
+                "key": "100x100-Red-Heart"
+            },
+            "x": 2256,
+            "y": 192,
+            "scaleX": 3,
+            "scaleY": 3,
+            "tintTopLeft": "#1f1f1f",
+            "tintBottomRight": "#1f1f1f",
+            "list": [
+                {
+                    "type": "Shadow",
+                    "id": "7893cecf-d4f4-494c-82af-4cdf90e0a7d9",
+                    "label": "shadowFx_2",
+                    "preFX": true
+                }
+            ]
+        },
+        {
+            "type": "Text",
+            "id": "b64da6fe-628c-4346-93bd-1bd97ce606d8",
+            "label": "directDamageText",
+            "scope": "CLASS",
+            "x": 2256,
+            "y": 192,
+            "scaleX": 3,
+            "scaleY": 3,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "- 1",
+            "resolution": 3,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#ae6262ff",
+            "stroke": "#000000ff",
+            "strokeThickness": 8
         }
     ],
     "plainObjects": [],

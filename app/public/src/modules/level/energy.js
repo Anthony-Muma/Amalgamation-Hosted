@@ -9,13 +9,17 @@ export default class Energy {
     }
 
     resetEnergy() {
-        console.log("eenad")
         this.#energyPoolText.text = "0";
         this.#totalEnergy = 0;
     }
 
     addEnergy(amount) {
         this.#totalEnergy += amount;
+        this.#energyPoolText.text = this.#totalEnergy.toString();
+    }
+
+    setEnergy(amount) {
+        this.#totalEnergy = amount;
         this.#energyPoolText.text = this.#totalEnergy.toString();
     }
 

@@ -1,7 +1,9 @@
 const NAMES = [
     "Vlad-a-mere",
-    "Von Newman",
-    "A-Mu-Mu"
+    "Von Neumann",
+    "A Mu-Mu",
+    "Kyle-style",
+    "Champion Tarun"
 ] 
 const QUALITIES = [
   "Cunning",
@@ -9,7 +11,8 @@ const QUALITIES = [
   "Forsaken",
   "Wicked",
   "Grim",
-  "Dreadful"
+  "Dreadful",
+  "Amalgamator"
 ];
 
 

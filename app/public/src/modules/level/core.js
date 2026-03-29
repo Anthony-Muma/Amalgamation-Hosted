@@ -4,6 +4,7 @@ import { Energy } from "./energy.js";
 import { socket } from "../socket.js";
 import { AmalgamationContainer } from "../amalgamationsContainer/amalgamationContainer.js";
 import { TurnCounter } from "./turnCounter.js";
+import { AttackStager } from "./attackStager.js";
 
 /**
  * @type {import("../../types.js").AmalgamationInfo}
@@ -17,6 +18,7 @@ const BASE_AMALGAMATION = {
     defenseObjectList : []
 }
 const DEBUG = false;
+const STARTING_PLACEMENTS_PER_TURN = 6;
 const PLACEMENTS_PER_TURN = 3
 
 const BASE_AMA_X = 640;
@@ -46,17 +48,18 @@ class Core {
             new AmalgamationContainer(scene, structuredClone(BASE_AMALGAMATION), BASE_AMA_X + AMA_X_SPACING, BASE_AMA_Y - AMA_Y_SPACING, 0xdd0000),
         ];
 
-        this.playerTurnCounter = new TurnCounter(scene, PLACEMENTS_PER_TURN)
+        this.playerTurnCounter = new TurnCounter(scene, STARTING_PLACEMENTS_PER_TURN)
         this.energy = new Energy(scene);
-        // this.amalgamationTargetList = [null, null, null];
-        // this.allySelected = null;
-        // this.enemySelected = null;
+        this.attackStager = new AttackStager(scene, socket.id, this.playerAmalgamations, this.enemyAmalgamations);
 
         this.scene.cameras.main.setZoom(0.75);
         
         /* ------------------------------- Game State ------------------------------- */
         this.myTurn = true;
         this.canTarget = false;
+    
+        // Player specific 
+        this.turnsHad = 0;
 
         /* ---------------------------------- debug --------------------------------- */
         let i = 0;
@@ -135,25 +138,19 @@ class Core {
         if (DEBUG) scene.add.rectangle(962, 368, 100, 200).setStrokeStyle(2, 0x0000ff).setFillStyle(0x0000ff, 0.2);
 
         /* ------------------------------- Zone Events ------------------------------ */
-        console.warn("Hhe")
-        const ama = this.playerAmalgamations[0];
-        // ama.addDefense(TEST_CARD_1);
-        // ama.addDefense(TEST_CARD_2);
-        // ama.addDefense(TEST_CARD_3);
-
         
-        amalgamationPowerZone1.on("pointerdown", (pointer)=>{
-            const index = amalgamationPowerZone1.getData("index")
-            const handler = (indices) => {console.log(indices)}
-            console.log(this.playerAmalgamations[index].amalgamationInfo)
-            this.scene.scene.launch("AttackUI", 
-            {gameInfo:{
-                energyPool: this.energy.getEnergy(),
-                attackSuccessCb : handler
-            },
-            amalgamationInfo : this.playerAmalgamations[index].amalgamationInfo}
-            );
-        });
+        // amalgamationPowerZone1.on("pointerdown", (pointer)=>{
+        //     const index = amalgamationPowerZone1.getData("index")
+        //     const handler = (indices) => {console.log(indices)}
+        //     console.log(this.playerAmalgamations[index].amalgamationInfo)
+        //     this.scene.scene.launch("AttackUI", 
+        //     {gameInfo:{
+        //         energyPool: this.energy.getEnergy(),
+        //         attackSuccessCb : handler
+        //     },
+        //     amalgamationInfo : this.playerAmalgamations[index].amalgamationInfo}
+        //     );
+        // });
 
         scene.input.on("dragstart", (pointer, gameObject) => {
             hand.disableHover();
@@ -168,10 +165,11 @@ class Core {
         scene.input.on("drop", (pointer, gameObject, dropZone) => {
             hand.enableHover();
 
-            // Camera test
             const zoneType = dropZone.getData("zoneType");
+            const index = dropZone.getData("index");
+            const alive = this.playerAmalgamations[index].amalgamationInfo.alive;
             
-            if (!this.playerTurnCounter.canPlace() && !DEBUG) {
+            if ((!this.playerTurnCounter.canPlace() && !DEBUG) || !alive) {
                 this.playerHand.layoutHand(gameObject);
             } else if (zoneType === "energyZone") {
                 this.#handleEnergyZone(gameObject);
@@ -194,6 +192,11 @@ class Core {
         /* ------------------------------ Events ------------------------------ */
 
         socket.on("game:turnStarted", (data)=>{
+            
+            this.turnsHad++;
+            if (this.turnsHad === 2) this.playerTurnCounter.changeTotalPlacement(3);
+            
+
             this.#turnSwap(true);
             const cardInfoList = data.cardInfoList;
             
@@ -229,29 +232,47 @@ class Core {
             this.playerTurnCounter.decrementTurn();
         });
 
+        socket.on("game:amalgamationUsed", (data)=>{
+            this.attackStager.addToQueue(data);
+        });
+
         // Game doesn't load when not tabbed in, this will ready a ready, when all player are ready, game starts
         socket.emit("game:ready");
 
-        const onSelectionCb = (allyIndex, EnemyIndex) => {
+        /* ------------------------------ Attack Stuff ------------------------------ */
+
+        // this.scene.scene.resume("Level");
+            // console.warn(this.playerAmalgamations[allyIndex].amalgamationInfo)
+
+        // Callback functions
+        const onSelectionCb = (allyIndex, enemyIndex) => {
             this.scene.scene.stop("TargetingScene");
             // this.scene.scene.resume("Level");
-            console.warn(this.playerAmalgamations[allyIndex].amalgamationInfo)
-            const handler = (indices) => {console.log(indices)}
+            
+            const attackSuccessCb = (selectionIndices, remainingEnergy) => {
+                this.energy.setEnergy(remainingEnergy);
+                socket.emit("game:useAmalgamation", allyIndex, enemyIndex, selectionIndices);
+            }
+            
             this.scene.scene.launch("AttackUI", 
-                {gameInfo:{
-                    energyPool: this.energy.getEnergy(),
-                    attackSuccessCb : handler
-                }, amalgamationInfo : this.playerAmalgamations[allyIndex].amalgamationInfo}
+                {
+                    gameInfo:{ 
+                        energyPool: this.energy.getEnergy(),
+                        attackSuccessCb
+                    }, 
+                    amalgamationInfo : this.playerAmalgamations[allyIndex].amalgamationInfo
+                }
             );
-
-
         }
 
-        
+        // Opens targeting menu
         this.scene.input.keyboard.on('keydown-E', ()=>{ 
-            console.log(this.canTarget);
 			if (!this.canTarget) return;
-			this.scene.scene.launch("TargetingScene", onSelectionCb);
+			this.scene.scene.launch("TargetingScene", {
+                onSelectionCb, 
+                playerAmalgamations : this.playerAmalgamations,
+                enemyAmalgamations : this.enemyAmalgamations,
+            });
             this.scene.scene.pause("Level");
 		});
     }
@@ -319,7 +340,7 @@ class Core {
                 ease: 'Expo',
                 duration: 2000,
                 onComplete: ()=>{
-                    this.canTarget = true;
+                    if (this.turnsHad > 1) this.canTarget = true;
                 }
             });
         }

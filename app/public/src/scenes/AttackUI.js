@@ -46,9 +46,10 @@ export default class AttackUI extends Phaser.Scene {
 
 		// attackButton
 		const attackButton = this.add.image(600, 545, "500x200-Bar");
+		attackButton.setInteractive(new Phaser.Geom.Rectangle(0, 0, 500, 200), Phaser.Geom.Rectangle.Contains);
 
 		// _500x200_Attack
-		const _500x200_Attack = this.add.image(600, 545, "500x200-Attack");
+		const _500x200_Attack = this.add.image(600, 544, "500x200-Attack");
 		_500x200_Attack.scaleX = 0.7;
 		_500x200_Attack.scaleY = 0.7;
 
@@ -309,6 +310,8 @@ export default class AttackUI extends Phaser.Scene {
 	create() {
 		this.editorCreate();
 
+		this.input.setTopOnly(false);
+
 		this.powerBoxes = [
 			this.powerBox0, 
 			this.powerBox1, 
@@ -335,6 +338,8 @@ export default class AttackUI extends Phaser.Scene {
 
 		this.selected.setVisible(false);
 		this.selectedIndices = [];
+		this.remainingEnergy = this.gameInfo.energyPool;
+		this.canAttack = false;
 
 		// Make everything interactive
 		this.unselectedIcons.forEach(icon => icon.setInteractive());
@@ -355,13 +360,12 @@ export default class AttackUI extends Phaser.Scene {
 
 		//Attack button 
 		this.attackButton.on("pointerdown", () => {
-			attackSuccessCb : (attackIndices : number[]) => undefined
-			// allyIndex, enemyIndex are already defined (by targeting)
-			// This what the function passed in looks like
-			const attackSuccessCb = (attackIndices) => {
-				socket.emit("game:useAmalgamation", allyIndex, enemyIndex, attackIndices);
-			}
- 
+
+			if (!this.canAttack) return;
+
+			this.scene.resume("Level");
+			this.scene.stop("AttackUI");
+			this.gameInfo.attackSuccessCb(this.selectedIndices, this.remainingEnergy);
 		})
 
 		// Sets the total to the current value as soon as the scene is loaded
@@ -491,8 +495,11 @@ export default class AttackUI extends Phaser.Scene {
 
 		// Update the energy text
 		if (remaining >= 0) {
+			this.remainingEnergy = remaining;
+			this.canAttack = true;
 			this.energySum.setText(`${remaining} ENG`);
 		} else {
+			this.canAttack = false;
 			this.energySum.setText(`Not Enough`);
 		}
 

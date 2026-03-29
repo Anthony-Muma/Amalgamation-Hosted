@@ -155,9 +155,11 @@ export default class TargetingScene extends Phaser.Scene {
 
 	// Write your code here
 
-	init(onSelectionCb) {
+	init({onSelectionCb, playerAmalgamations, enemyAmalgamations}) {
 		this.amalgamationSelections = {allySelected : null, enemySelected: null};
 		this.onSelectionCb = onSelectionCb;
+		this.playerAmalgamations = playerAmalgamations;
+		this.enemyAmalgamations = enemyAmalgamations;
 	}
 
 	create() {
@@ -187,6 +189,11 @@ export default class TargetingScene extends Phaser.Scene {
 
 		// Player zones (draggable)
 		X.forEach((x, i) => {
+			if (!this.playerAmalgamations[i].amalgamationInfo.alive) {
+				this.allySouls[i].setVisible(false);
+				return;
+			}
+
 			const zone = this.add.zone(x, PLAYER_Y, 100, 100)
 				.setRectangleDropZone(100, 100)
 				.setData({ index: i, type: "ally" });
@@ -200,10 +207,15 @@ export default class TargetingScene extends Phaser.Scene {
 
 		// Enemy zones (drop targets)
 		X.forEach((x, i) => {
+			if (!this.enemyAmalgamations[i].amalgamationInfo.alive) {
+				this.enemySouls[i].setVisible(false);
+				return;
+			}
+
 			this.add.zone(x, ENEMY_Y, 100, 100)
 				.setRectangleDropZone(100, 100)
 				.setData({ index: i, type: "enemy" });
-			
+
 			if (DEBUG) this.add.rectangle(x, ENEMY_Y, 100, 100)
 				.setStrokeStyle(2, 0xff0000)
 				.setFillStyle(0xff0000, 0.2);

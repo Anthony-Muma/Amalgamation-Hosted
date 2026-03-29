@@ -3,6 +3,7 @@
     "sceneType": "SCENE",
     "settings": {
         "snapEnabled": true,
+        "snapWidth": 8,
         "exportClass": true,
         "autoImport": true,
         "importFileExtension": true,
@@ -89,7 +90,7 @@
                 "key": "500x200-Attack"
             },
             "x": 600,
-            "y": 545,
+            "y": 544,
             "scaleX": 0.7,
             "scaleY": 0.7
         },

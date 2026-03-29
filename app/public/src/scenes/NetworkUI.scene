@@ -13,6 +13,21 @@
     },
     "displayList": [
         {
+            "type": "Rectangle",
+            "id": "1793f080-c7e7-4569-b61c-81fa973751aa",
+            "label": "rectangle",
+            "scope": "CLASS",
+            "originX": 0,
+            "originY": 0,
+            "visible": false,
+            "alpha": 0.99,
+            "isFilled": true,
+            "fillColor": "#000000",
+            "fillAlpha": 10,
+            "width": 1280,
+            "height": 720
+        },
+        {
             "type": "Ellipse",
             "id": "d28c95be-47e1-4f3a-abf3-b3bedb39f126",
             "label": "network_indicator",
@@ -64,6 +79,88 @@
                     "preFX": true
                 }
             ]
+        },
+        {
+            "type": "Image",
+            "id": "c378f4a4-3c4c-4bcc-ac2e-575819391b2d",
+            "label": "popUp",
+            "scope": "CLASS",
+            "texture": {
+                "key": "960x540-Pop-Up"
+            },
+            "x": 640,
+            "y": 360,
+            "scaleX": 1.2256989585570934,
+            "scaleY": 0.9505546852971284,
+            "visible": false
+        },
+        {
+            "type": "Image",
+            "id": "28a63fe0-6088-4d8d-9422-5c93e75162ff",
+            "label": "popUpBg",
+            "scope": "CLASS",
+            "texture": {
+                "key": "200x200-Black-Blob"
+            },
+            "x": 624,
+            "y": 352,
+            "scaleX": 3.9,
+            "scaleY": 2,
+            "visible": false,
+            "alpha": 0.5,
+            "alphaTopLeft": 0.5,
+            "alphaTopRight": 0.5,
+            "alphaBottomLeft": 0.5,
+            "alphaBottomRight": 0.5
+        },
+        {
+            "type": "Text",
+            "id": "94b48c10-461c-4373-9c17-f32b9b348532",
+            "label": "errorText",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 352,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "text": "Connection Error:\nPlease Refresh Page",
+            "resolution": 2,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "64px",
+            "color": "#fef23eff",
+            "stroke": "#000000",
+            "strokeThickness": 8,
+            "shadow.offsetX": 8,
+            "shadow.offsetY": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#201f1fff"
+        },
+        {
+            "type": "Text",
+            "id": "e8e39272-d11d-4f18-a7e9-2d4a8ac1923a",
+            "label": "enterText_1",
+            "scope": "CLASS",
+            "x": 640,
+            "y": 432,
+            "originX": 0.5,
+            "originY": 0.5,
+            "visible": false,
+            "text": "- Anthony (MRU)\n- Ashrang (AUArts)\n- Dylan (MRU)\n- Kyle (MRU)\n- Tarun (MRU)\n- Vladimir (MRU)\n\n",
+            "resolution": 2,
+            "lineSpacing": 8,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "22px",
+            "color": "#ffffffff",
+            "stroke": "#000000",
+            "strokeThickness": 8,
+            "shadow.offsetX": 8,
+            "shadow.offsetY": 8,
+            "shadow.stroke": true,
+            "shadow.fill": true,
+            "shadow.color": "#201f1fff"
         }
     ],
     "plainObjects": [],

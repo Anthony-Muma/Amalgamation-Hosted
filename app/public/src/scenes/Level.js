@@ -27,13 +27,13 @@ export default class Level extends Phaser.Scene {
 		wooden_Table_Background.tintBottomRight = 0;
 
 		// drawDeck1
-		const drawDeck1 = this.add.image(2160, 96, "Card back");
+		const drawDeck1 = this.add.image(-928, -48, "Card back");
 		drawDeck1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
 		drawDeck1.scaleX = 0.25;
 		drawDeck1.scaleY = 0.25;
 
 		// drawDeck2
-		const drawDeck2 = this.add.image(2160, 320, "Card back");
+		const drawDeck2 = this.add.image(-1088, -48, "Card back");
 		drawDeck2.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
 		drawDeck2.scaleX = 0.25;
 		drawDeck2.scaleY = 0.25;
@@ -71,7 +71,7 @@ export default class Level extends Phaser.Scene {
 		drawDeck_2.scaleY = 0.25;
 
 		// particleemitter_1
-		const particleemitter_1 = this.add.particles(-496, 112, "10x10-White-Blob", { scale: { start: 5, end: 0, ease: "Linear", random: false }, speed: { min: 20, max: 80, int: false }, quantity: 3, tint: 9306004, blendMode: 1, frequency: 40, gravityY: -30 });
+		const particleemitter_1 = this.add.particles(-496, 224, "10x10-White-Blob", { scale: { start: 5, end: 0, ease: "Linear", random: false }, speed: { min: 20, max: 80, int: false }, quantity: 3, tint: 9306004, blendMode: 1, frequency: 40, gravityY: -30 });
 		particleemitter_1.blendMode = Phaser.BlendModes.ADD;
 
 		// _500x200_Bar
@@ -86,11 +86,6 @@ export default class Level extends Phaser.Scene {
 		handcard.scaleX = 0.8;
 		handcard.scaleY = 0.8;
 		handcard.visible = false;
-
-		// _200x280_Character_Card_1
-		const _200x280_Character_Card_1 = this.add.image(1872, 320, "200x280-Character-Card");
-		_200x280_Character_Card_1.scaleX = 1.5;
-		_200x280_Character_Card_1.scaleY = 3.063370076576077;
 
 		// _200x280_Black_Blob
 		const _200x280_Black_Blob = this.add.image(368, 416, "200x280-Black-Blob");
@@ -154,15 +149,6 @@ export default class Level extends Phaser.Scene {
 
 		// _100x100_Energy
 		this.add.image(-368, 224, "100x100-Energy");
-
-		// _200x280_Black_Blob_6
-		const _200x280_Black_Blob_6 = this.add.image(1744, 176, "200x280-Black-Blob");
-		_200x280_Black_Blob_6.scaleX = 1.2;
-		_200x280_Black_Blob_6.scaleY = 0.9;
-
-		// particleemitter
-		const particleemitter = this.add.particles(-1856, 656, "10x10-White-Blob", { x: { min: 0, max: 1280, int: false }, scale: { start: 1, end: 0, ease: "Linear", random: false }, speedX: { min: -30, max: 30, int: false }, speedY: { min: -60, max: 60, int: false }, lifespan: { min: 5000, max: 8000, int: false }, quantity: 3, tint: 16777215, blendMode: 1, frequency: 100, radial: false });
-		particleemitter.blendMode = Phaser.BlendModes.ADD;
 
 		// _200x200_Black_Blob_1
 		const _200x200_Black_Blob_1 = this.add.image(640, 928, "200x200-Black-Blob");
@@ -236,6 +222,95 @@ export default class Level extends Phaser.Scene {
 		placementsLeftText.text = "-/-";
 		placementsLeftText.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 24, "resolution": 3 });
 
+		// drawDeck
+		const drawDeck = this.add.image(800, -208, "Card back");
+		drawDeck.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
+		drawDeck.scaleX = 0.25;
+		drawDeck.scaleY = 0.25;
+
+		// drawDeck_1
+		const drawDeck_1 = this.add.image(480, -208, "Card back");
+		drawDeck_1.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
+		drawDeck_1.scaleX = 0.25;
+		drawDeck_1.scaleY = 0.25;
+
+		// drawDeck_3
+		const drawDeck_3 = this.add.image(320, -208, "Card back");
+		drawDeck_3.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
+		drawDeck_3.scaleX = 0.25;
+		drawDeck_3.scaleY = 0.25;
+
+		// drawDeck_4
+		const drawDeck_4 = this.add.image(960, -208, "Card back");
+		drawDeck_4.setInteractive(new Phaser.Geom.Rectangle(0, 0, 600, 840), Phaser.Geom.Rectangle.Contains);
+		drawDeck_4.scaleX = 0.25;
+		drawDeck_4.scaleY = 0.25;
+
+		// damageStampIcon
+		const damageStampIcon = this.add.image(2336, 704, "100x100-Power");
+		damageStampIcon.scaleX = 3;
+		damageStampIcon.scaleY = 3;
+		damageStampIcon.tintTopLeft = 15597568;
+		damageStampIcon.tintTopRight = 15597568;
+		damageStampIcon.tintBottomLeft = 15597568;
+		damageStampIcon.tintBottomRight = 15597568;
+
+		// shadowFx_1
+		damageStampIcon.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+
+		// defenseFlipIcon
+		const defenseFlipIcon = this.add.image(2512, 368, "100x100-Blue-Shield");
+		defenseFlipIcon.scaleX = 3;
+		defenseFlipIcon.scaleY = 3;
+
+		// wipeFx
+		const wipeFx = defenseFlipIcon.preFX.addWipe(1.54, 0, 0);
+		wipeFx.progress = 1;
+		wipeFx.reveal = true;
+
+		// shadowFx
+		defenseFlipIcon.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+
+		// particleemitter_2
+		const particleemitter_2 = this.add.particles(2064, 368, "10x10-White-Blob", { scale: { start: 5, end: 0, ease: "Linear", random: false }, speed: { min: 20, max: 80, int: false }, quantity: 3, tint: 9306004, blendMode: 1, frequency: 40, gravityY: -30 });
+		particleemitter_2.blendMode = Phaser.BlendModes.ADD;
+
+		// damageStampText
+		const damageStampText = this.add.text(2336, 704, "", {});
+		damageStampText.scaleX = 3;
+		damageStampText.scaleY = 3;
+		damageStampText.setOrigin(0.5, 0.5);
+		damageStampText.tintTopLeft = 16711680;
+		damageStampText.text = "5";
+		damageStampText.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 8, "resolution": 3 });
+
+		// defenseFlipText
+		const defenseFlipText = this.add.text(2512, 368, "", {});
+		defenseFlipText.scaleX = 3;
+		defenseFlipText.scaleY = 3;
+		defenseFlipText.setOrigin(0.5, 0.5);
+		defenseFlipText.tintTopLeft = 15794176;
+		defenseFlipText.text = "?";
+		defenseFlipText.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 8, "resolution": 3 });
+
+		// directDamageIcon
+		const directDamageIcon = this.add.image(2256, 192, "100x100-Red-Heart");
+		directDamageIcon.scaleX = 3;
+		directDamageIcon.scaleY = 3;
+		directDamageIcon.tintTopLeft = 2039583;
+		directDamageIcon.tintBottomRight = 2039583;
+
+		// shadowFx_2
+		directDamageIcon.preFX.addShadow(0, 0, 0.1, 1, 0, 6, 1);
+
+		// directDamageText
+		const directDamageText = this.add.text(2256, 192, "", {});
+		directDamageText.scaleX = 3;
+		directDamageText.scaleY = 3;
+		directDamageText.setOrigin(0.5, 0.5);
+		directDamageText.text = "- 1";
+		directDamageText.setStyle({ "align": "center", "color": "#ae6262ff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 8, "resolution": 3 });
+
 		// lists
 		const list = [];
 
@@ -244,6 +319,16 @@ export default class Level extends Phaser.Scene {
 		this.drawDeck_2 = drawDeck_2;
 		this.energyPoolText = energyPoolText;
 		this.placementsLeftText = placementsLeftText;
+		this.drawDeck = drawDeck;
+		this.drawDeck_1 = drawDeck_1;
+		this.drawDeck_3 = drawDeck_3;
+		this.drawDeck_4 = drawDeck_4;
+		this.damageStampIcon = damageStampIcon;
+		this.defenseFlipIcon = defenseFlipIcon;
+		this.damageStampText = damageStampText;
+		this.defenseFlipText = defenseFlipText;
+		this.directDamageIcon = directDamageIcon;
+		this.directDamageText = directDamageText;
 		this.list = list;
 
 		this.events.emit("scene-awake");
@@ -259,6 +344,26 @@ export default class Level extends Phaser.Scene {
 	energyPoolText;
 	/** @type {Phaser.GameObjects.Text} */
 	placementsLeftText;
+	/** @type {Phaser.GameObjects.Image} */
+	drawDeck;
+	/** @type {Phaser.GameObjects.Image} */
+	drawDeck_1;
+	/** @type {Phaser.GameObjects.Image} */
+	drawDeck_3;
+	/** @type {Phaser.GameObjects.Image} */
+	drawDeck_4;
+	/** @type {Phaser.GameObjects.Image} */
+	damageStampIcon;
+	/** @type {Phaser.GameObjects.Image} */
+	defenseFlipIcon;
+	/** @type {Phaser.GameObjects.Text} */
+	damageStampText;
+	/** @type {Phaser.GameObjects.Text} */
+	defenseFlipText;
+	/** @type {Phaser.GameObjects.Image} */
+	directDamageIcon;
+	/** @type {Phaser.GameObjects.Text} */
+	directDamageText;
 	/** @type {Array<any>} */
 	list;
 

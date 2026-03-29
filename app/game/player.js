@@ -156,6 +156,10 @@ class Player {
         return card;
     }
 
+    getEnergyTotal() {
+        return this.#energyTotal;
+    }
+
     /**
      * 
      * @param {number} amalgamationIndex 

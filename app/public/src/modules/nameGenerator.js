@@ -3,7 +3,8 @@ const NAMES = [
     "Von Neumann",
     "A Mu-Mu",
     "Kyle-style",
-    "Champion Tarun"
+    "Champion Tarun",
+    "Adventurer Dylan"
 ] 
 const QUALITIES = [
   "Cunning",
@@ -12,7 +13,9 @@ const QUALITIES = [
   "Wicked",
   "Grim",
   "Dreadful",
-  "Amalgamator"
+  "Amalgamator",
+  "Defiler",
+  "Diligent"
 ];
 
 

@@ -14,9 +14,8 @@ window.addEventListener('load', function () {
 		height: 720,
 		// width: 1600,
 		// height: 900,
-		autoFocus: false,
-		forceSetTimeOut: true, // use setTimeout instead of RAF
-		type: Phaser.AUTO,
+		autoFocus: true,
+		type: Phaser.WEBGL,
         backgroundColor: "#000000",
 		parent: "game-container",
 		dom: {
@@ -25,7 +24,11 @@ window.addEventListener('load', function () {
 		scale: {
 			mode: Phaser.Scale.FIT,
 			autoCenter: Phaser.Scale.CENTER_BOTH
-		}
+		},
+		render: {
+			antialias: true,
+			powerPreference: 'high-performance',
+    	}
 	});
 
 	game.scene.add("MainMenu", MainMenu);

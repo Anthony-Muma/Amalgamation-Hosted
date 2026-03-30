@@ -78,11 +78,11 @@ class CardHand {
         const buggedCard = this.hand.get(cardInfo.cardKey);
         if (buggedCard) {
             buggedCard.destroy();
+            console.warn(cardInfo);
             console.warn("Card within the hand already has an id of: " + cardInfo.cardKey);
         }
 
         this.hand.set(cardInfo.cardKey, card);
-        console.log(this.hand);
         this.layoutHand(card);
     }
 

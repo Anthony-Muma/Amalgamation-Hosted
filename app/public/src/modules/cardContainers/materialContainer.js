@@ -228,7 +228,7 @@ export class materialContainer extends baseContainer {
         if (this._isFlipping) return;
         this._isFlipping = true;
 
-        if (this.scene.sfx) this.scene.sfx.flip.play();
+        if (this.scene.sfx.flip) this.scene.sfx.flip.play();
 
         const scene = this.scene;
 

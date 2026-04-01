@@ -17,7 +17,7 @@ const BASE_AMALGAMATION = {
     powerObjectList : [],
     defenseObjectList : []
 }
-const DEBUG = true;
+const DEBUG = false;
 const STARTING_PLACEMENTS_PER_TURN = 6;
 const PLACEMENTS_PER_TURN = 3
 

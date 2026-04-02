@@ -84,6 +84,8 @@
             },
             "x": 16,
             "y": 224,
+            "scaleX": 1.5,
+            "scaleY": 1.5,
             "list": [
                 {
                     "type": "Vignette",
@@ -133,8 +135,8 @@
             "id": "466cd6ac-e764-4db0-8f57-17e346fa6d40",
             "label": "particleemitter_1",
             "blendMode": 1,
-            "x": -496,
-            "y": 224,
+            "x": -656,
+            "y": 144,
             "configTexture": "10x10-White-Blob",
             "configFrame": [],
             "scale_type": "StartEndRandom",
@@ -281,16 +283,6 @@
         },
         {
             "type": "Image",
-            "id": "3658e42b-3049-4b02-8f84-4afdce1a331f",
-            "label": "_100x100_Energy",
-            "texture": {
-                "key": "100x100-Energy"
-            },
-            "x": -368,
-            "y": 224
-        },
-        {
-            "type": "Image",
             "id": "8192f47a-09c2-4a52-9b7e-7b392d3cbca3",
             "label": "_200x200_Black_Blob_1",
             "texture": {
@@ -314,9 +306,26 @@
                 "key": "200x280-Black-Blob"
             },
             "x": 1296,
-            "y": 224,
+            "y": 176,
             "scaleX": 2,
             "scaleY": 1.2,
+            "alpha": 0.4,
+            "alphaTopLeft": 0.4,
+            "alphaTopRight": 0.4,
+            "alphaBottomLeft": 0.4,
+            "alphaBottomRight": 0.4
+        },
+        {
+            "type": "Image",
+            "id": "67314634-4a47-4c28-9c96-bd2ec699f212",
+            "label": "_200x280_Black_Blob_6",
+            "texture": {
+                "key": "200x280-Black-Blob"
+            },
+            "x": 1280,
+            "y": 432,
+            "scaleX": 1.7,
+            "scaleY": 0.7,
             "alpha": 0.4,
             "alphaTopLeft": 0.4,
             "alphaTopRight": 0.4,
@@ -331,7 +340,7 @@
                 "key": "200x200-Pillow"
             },
             "x": 1232,
-            "y": 192,
+            "y": 144,
             "alpha": 0.9,
             "alphaTopLeft": 0.9,
             "alphaTopRight": 0.9,
@@ -346,7 +355,7 @@
                 "key": "200x200-Bomb"
             },
             "x": 1312,
-            "y": 192,
+            "y": 144,
             "alpha": 0.9,
             "alphaTopLeft": 0.9,
             "alphaTopRight": 0.9,
@@ -361,7 +370,7 @@
                 "key": "200x200-Chopped-Log"
             },
             "x": 1232,
-            "y": 256,
+            "y": 208,
             "alpha": 0.9,
             "alphaTopLeft": 0.9,
             "alphaTopRight": 0.9,
@@ -376,7 +385,7 @@
                 "key": "200x200-Brick"
             },
             "x": 1296,
-            "y": 272,
+            "y": 224,
             "alpha": 0.9,
             "alphaTopLeft": 0.9,
             "alphaTopRight": 0.9,
@@ -391,7 +400,7 @@
                 "key": "200x200-Clock"
             },
             "x": 1376,
-            "y": 240,
+            "y": 192,
             "alpha": 0.9,
             "alphaTopLeft": 0.9,
             "alphaTopRight": 0.9,
@@ -407,12 +416,21 @@
             "y": 224,
             "originX": 0.5,
             "originY": 0.5,
-            "text": "20",
+            "text": "--",
+            "resolution": 2,
             "fontFamily": "Eczar-Bold",
             "fontSize": "64px",
             "color": "#ffffffff",
             "stroke": "#000000ff",
-            "strokeThickness": 16
+            "strokeThickness": 16,
+            "list": [
+                {
+                    "type": "Shine",
+                    "id": "7d52cd3f-66c1-49b8-8d01-988c8cad4c55",
+                    "label": "shineFx",
+                    "preFX": true
+                }
+            ]
         },
         {
             "type": "Text",
@@ -657,6 +675,60 @@
             "color": "#ae6262ff",
             "stroke": "#000000ff",
             "strokeThickness": 8
+        },
+        {
+            "type": "Text",
+            "id": "f5d896da-4e91-4ffc-a118-a7ba9936c8ec",
+            "label": "phaseText",
+            "scope": "CLASS",
+            "x": 1280,
+            "y": 384,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Waiting",
+            "resolution": 3,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "32px",
+            "color": "#ffffffff",
+            "stroke": "#000000ff",
+            "strokeThickness": 12
+        },
+        {
+            "type": "Text",
+            "id": "49d87f10-0a8b-4e10-a8fc-8f724486ac8a",
+            "label": "turnSwapText",
+            "scope": "CLASS",
+            "x": 1280,
+            "y": 448,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "Space -> End Turn",
+            "resolution": 3,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "24px",
+            "color": "#656565ff",
+            "stroke": "#000000ff",
+            "strokeThickness": 12
+        },
+        {
+            "type": "Text",
+            "id": "763af20f-1887-47c5-b6e6-24a42c38576d",
+            "label": "targetingText",
+            "scope": "CLASS",
+            "x": 1280,
+            "y": 480,
+            "originX": 0.5,
+            "originY": 0.5,
+            "text": "E -> Targeting",
+            "resolution": 3,
+            "align": "center",
+            "fontFamily": "Eczar-Bold",
+            "fontSize": "24px",
+            "color": "#656565ff",
+            "stroke": "#000000ff",
+            "strokeThickness": 12
         }
     ],
     "plainObjects": [],

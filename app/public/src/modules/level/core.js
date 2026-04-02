@@ -199,7 +199,22 @@ class Core {
             this.myTurn = true;
 
             this.totalTurnExchanges++;
-            if (this.totalTurnExchanges === 3) this.playerTurnCounter.changeTotalPlacement(PLACEMENTS_PER_TURN);
+
+            // pretty shotty
+            if (this.totalTurnExchanges === 3) {
+                this.playerTurnCounter.changeTotalPlacement(PLACEMENTS_PER_TURN);
+                this.scene.phaseText.setText("Attk. Phase");
+            }
+
+            if (this.totalTurnExchanges >= 3) {
+                this.scene.phaseText.setText("Your Turn");
+                this.scene.targetingText.setColor("#ffffff");
+            } else {
+                this.scene.phaseText.setText("Your Prep.");
+            }
+
+            this.scene.turnSwapText.setColor("#ffffff");
+
             this.allPlayersLoaded = true;
             
             this.playerTurnCounter.resetTurnCounter();
@@ -230,7 +245,20 @@ class Core {
             this.myTurn = false;
 
             this.totalTurnExchanges++;
-            if (this.totalTurnExchanges === 3) this.playerTurnCounter.changeTotalPlacement(PLACEMENTS_PER_TURN);
+
+            // pretty shotty
+            if (this.totalTurnExchanges === 3) {
+                this.playerTurnCounter.changeTotalPlacement(PLACEMENTS_PER_TURN);
+            }
+
+            if (this.totalTurnExchanges >= 3) {
+                this.scene.phaseText.setText("Opp. Turn");
+            } else {
+                this.scene.phaseText.setText("Opp. Prep.");
+            }
+
+            this.scene.turnSwapText.setColor("#656565ff");
+            this.scene.targetingText.setColor("#656565ff");
 
             // FIXED: game:ready
             // When the game ins't tabbed in when the scene is loaded, this event doesn't fire nore do the others, but as soon as this is tabbed in and then tabbed out, it works like normal??

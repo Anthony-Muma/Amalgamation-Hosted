@@ -50,6 +50,8 @@ export default class Level extends Phaser.Scene {
 
 		// _200x280_Vital_Soul_Card
 		const _200x280_Vital_Soul_Card = this.add.image(16, 224, "200x280-Vital-Soul-Card");
+		_200x280_Vital_Soul_Card.scaleX = 1.5;
+		_200x280_Vital_Soul_Card.scaleY = 1.5;
 
 		// vignetteFx
 		_200x280_Vital_Soul_Card.preFX.addVignette(0.5, 0.5, 0.34, 0.56);
@@ -71,7 +73,7 @@ export default class Level extends Phaser.Scene {
 		drawDeck_2.scaleY = 0.25;
 
 		// particleemitter_1
-		const particleemitter_1 = this.add.particles(-496, 224, "10x10-White-Blob", { scale: { start: 5, end: 0, ease: "Linear", random: false }, speed: { min: 20, max: 80, int: false }, quantity: 3, tint: 9306004, blendMode: 1, frequency: 40, gravityY: -30 });
+		const particleemitter_1 = this.add.particles(-656, 144, "10x10-White-Blob", { scale: { start: 5, end: 0, ease: "Linear", random: false }, speed: { min: 20, max: 80, int: false }, quantity: 3, tint: 9306004, blendMode: 1, frequency: 40, gravityY: -30 });
 		particleemitter_1.blendMode = Phaser.BlendModes.ADD;
 
 		// _500x200_Bar
@@ -147,9 +149,6 @@ export default class Level extends Phaser.Scene {
 		_200x280_Black_Blob_5.alphaBottomLeft = 0.4;
 		_200x280_Black_Blob_5.alphaBottomRight = 0.4;
 
-		// _100x100_Energy
-		this.add.image(-368, 224, "100x100-Energy");
-
 		// _200x200_Black_Blob_1
 		const _200x200_Black_Blob_1 = this.add.image(640, 928, "200x200-Black-Blob");
 		_200x200_Black_Blob_1.scaleX = 15;
@@ -161,7 +160,7 @@ export default class Level extends Phaser.Scene {
 		_200x200_Black_Blob_1.alphaBottomRight = 0.41;
 
 		// _200x280_Black_Blob_8
-		const _200x280_Black_Blob_8 = this.add.image(1296, 224, "200x280-Black-Blob");
+		const _200x280_Black_Blob_8 = this.add.image(1296, 176, "200x280-Black-Blob");
 		_200x280_Black_Blob_8.scaleX = 2;
 		_200x280_Black_Blob_8.scaleY = 1.2;
 		_200x280_Black_Blob_8.alpha = 0.4;
@@ -170,8 +169,18 @@ export default class Level extends Phaser.Scene {
 		_200x280_Black_Blob_8.alphaBottomLeft = 0.4;
 		_200x280_Black_Blob_8.alphaBottomRight = 0.4;
 
+		// _200x280_Black_Blob_6
+		const _200x280_Black_Blob_6 = this.add.image(1280, 432, "200x280-Black-Blob");
+		_200x280_Black_Blob_6.scaleX = 1.7;
+		_200x280_Black_Blob_6.scaleY = 0.7;
+		_200x280_Black_Blob_6.alpha = 0.4;
+		_200x280_Black_Blob_6.alphaTopLeft = 0.4;
+		_200x280_Black_Blob_6.alphaTopRight = 0.4;
+		_200x280_Black_Blob_6.alphaBottomLeft = 0.4;
+		_200x280_Black_Blob_6.alphaBottomRight = 0.4;
+
 		// _200x200_Pillow
-		const _200x200_Pillow = this.add.image(1232, 192, "200x200-Pillow");
+		const _200x200_Pillow = this.add.image(1232, 144, "200x200-Pillow");
 		_200x200_Pillow.alpha = 0.9;
 		_200x200_Pillow.alphaTopLeft = 0.9;
 		_200x200_Pillow.alphaTopRight = 0.9;
@@ -179,7 +188,7 @@ export default class Level extends Phaser.Scene {
 		_200x200_Pillow.alphaBottomRight = 0.9;
 
 		// _200x200_Bomb
-		const _200x200_Bomb = this.add.image(1312, 192, "200x200-Bomb");
+		const _200x200_Bomb = this.add.image(1312, 144, "200x200-Bomb");
 		_200x200_Bomb.alpha = 0.9;
 		_200x200_Bomb.alphaTopLeft = 0.9;
 		_200x200_Bomb.alphaTopRight = 0.9;
@@ -187,7 +196,7 @@ export default class Level extends Phaser.Scene {
 		_200x200_Bomb.alphaBottomRight = 0.9;
 
 		// _200x200_Chopped_Log
-		const _200x200_Chopped_Log = this.add.image(1232, 256, "200x200-Chopped-Log");
+		const _200x200_Chopped_Log = this.add.image(1232, 208, "200x200-Chopped-Log");
 		_200x200_Chopped_Log.alpha = 0.9;
 		_200x200_Chopped_Log.alphaTopLeft = 0.9;
 		_200x200_Chopped_Log.alphaTopRight = 0.9;
@@ -195,7 +204,7 @@ export default class Level extends Phaser.Scene {
 		_200x200_Chopped_Log.alphaBottomRight = 0.9;
 
 		// _200x200_Brick
-		const _200x200_Brick = this.add.image(1296, 272, "200x200-Brick");
+		const _200x200_Brick = this.add.image(1296, 224, "200x200-Brick");
 		_200x200_Brick.alpha = 0.9;
 		_200x200_Brick.alphaTopLeft = 0.9;
 		_200x200_Brick.alphaTopRight = 0.9;
@@ -203,7 +212,7 @@ export default class Level extends Phaser.Scene {
 		_200x200_Brick.alphaBottomRight = 0.9;
 
 		// _200x200_Clock
-		const _200x200_Clock = this.add.image(1376, 240, "200x200-Clock");
+		const _200x200_Clock = this.add.image(1376, 192, "200x200-Clock");
 		_200x200_Clock.alpha = 0.9;
 		_200x200_Clock.alphaTopLeft = 0.9;
 		_200x200_Clock.alphaTopRight = 0.9;
@@ -213,8 +222,11 @@ export default class Level extends Phaser.Scene {
 		// energyPoolText
 		const energyPoolText = this.add.text(16, 224, "", {});
 		energyPoolText.setOrigin(0.5, 0.5);
-		energyPoolText.text = "20";
-		energyPoolText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 16 });
+		energyPoolText.text = "--";
+		energyPoolText.setStyle({ "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "64px", "stroke": "#000000ff", "strokeThickness": 16, "resolution": 2 });
+
+		// shineFx
+		energyPoolText.preFX.addShine(0.5, 0.5, 3, false);
 
 		// placementsLeftText
 		const placementsLeftText = this.add.text(640, 224, "", {});
@@ -311,6 +323,24 @@ export default class Level extends Phaser.Scene {
 		directDamageText.text = "- 1";
 		directDamageText.setStyle({ "align": "center", "color": "#ae6262ff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 8, "resolution": 3 });
 
+		// phaseText
+		const phaseText = this.add.text(1280, 384, "", {});
+		phaseText.setOrigin(0.5, 0.5);
+		phaseText.text = "Waiting";
+		phaseText.setStyle({ "align": "center", "color": "#ffffffff", "fontFamily": "Eczar-Bold", "fontSize": "32px", "stroke": "#000000ff", "strokeThickness": 12, "resolution": 3 });
+
+		// turnSwapText
+		const turnSwapText = this.add.text(1280, 448, "", {});
+		turnSwapText.setOrigin(0.5, 0.5);
+		turnSwapText.text = "Space -> End Turn";
+		turnSwapText.setStyle({ "align": "center", "color": "#656565ff", "fontFamily": "Eczar-Bold", "fontSize": "24px", "stroke": "#000000ff", "strokeThickness": 12, "resolution": 3 });
+
+		// targetingText
+		const targetingText = this.add.text(1280, 480, "", {});
+		targetingText.setOrigin(0.5, 0.5);
+		targetingText.text = "E -> Targeting";
+		targetingText.setStyle({ "align": "center", "color": "#656565ff", "fontFamily": "Eczar-Bold", "fontSize": "24px", "stroke": "#000000ff", "strokeThickness": 12, "resolution": 3 });
+
 		// lists
 		const list = [];
 
@@ -329,6 +359,9 @@ export default class Level extends Phaser.Scene {
 		this.defenseFlipText = defenseFlipText;
 		this.directDamageIcon = directDamageIcon;
 		this.directDamageText = directDamageText;
+		this.phaseText = phaseText;
+		this.turnSwapText = turnSwapText;
+		this.targetingText = targetingText;
 		this.list = list;
 
 		this.events.emit("scene-awake");
@@ -364,6 +397,12 @@ export default class Level extends Phaser.Scene {
 	directDamageIcon;
 	/** @type {Phaser.GameObjects.Text} */
 	directDamageText;
+	/** @type {Phaser.GameObjects.Text} */
+	phaseText;
+	/** @type {Phaser.GameObjects.Text} */
+	turnSwapText;
+	/** @type {Phaser.GameObjects.Text} */
+	targetingText;
 	/** @type {Array<any>} */
 	list;
 
